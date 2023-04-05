@@ -28,6 +28,9 @@ return new class extends Migration
             
             $table->unsignedBigInteger('id_estado_documento');
             $table->foreign('id_estado_documento')->references('id')->on('estado_documento');
+
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id')->on('empleado');
         });
     }
 

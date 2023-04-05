@@ -11,7 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('solicitud_vacacion', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id')->on('empleado');
+
+            $table->string('fecha_solicitud');
+            $table->string('fecha_salida');
+            $table->string('fecha_retorno');
+            $table->string('aprobacion')->nullable();
+            $table->string('observacion')->nullable();
+
+
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('solicitud_vacacion');
     }
 };

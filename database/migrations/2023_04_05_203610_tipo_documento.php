@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tipo_documento', function (Blueprint $table) {
+            $table->id();
+            $table->string('referencia_documento');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::drop('tipo_documento');
     }
 };

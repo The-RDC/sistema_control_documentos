@@ -379,6 +379,9 @@
                     </div>
 
                     <!-- Content Row -->
+                    <form action="">
+                        @csrf
+                    </form>
                     <div class="row">
                         <div class="col-12" id="informacion">
                         </div>   
@@ -478,9 +481,8 @@
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview 22</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -767,6 +769,11 @@
 
     <!-- Jquery personalizados -->
     <script src="{{asset('js/jquery-admin/cargo.js')}}"></script>
-</body>
 
+    <script>
+        //var rutaStorage="{{route('cargo.store')}}";
+        var rutaMostrar="{{route('cargo.index')}}";
+    </script>
+</body>
 </html>
+

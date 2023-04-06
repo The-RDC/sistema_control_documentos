@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                        {{ __('You are logged in!') }}
+                        {{ __('dias!') }}
+213
                 </div>
             </div>
         </div>

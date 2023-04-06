@@ -13,7 +13,7 @@ class CargoController extends Controller
     public function index()
     {
         $cargo = Cargo::get();
-        return view('index', compact('cargo'));
+        return json_encode($cargo);
     }
 
     public function create()

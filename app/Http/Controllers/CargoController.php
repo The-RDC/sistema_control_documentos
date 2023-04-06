@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cargo;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\Cargo\StoreRequest;
 use App\Http\Requests\Cargo\UpdateRequest;
@@ -21,7 +22,7 @@ class CargoController extends Controller
         return view('layouts.admin.cargo.create', compact('cargo'));
     }
 
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request):JsonResponse
     {
         dd($request);
         cargo::create($request->all());

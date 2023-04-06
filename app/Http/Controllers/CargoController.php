@@ -12,21 +12,22 @@ class CargoController extends Controller
 {
     public function index()
     {
-        $cargo = cargo::get();
-        return view('layouts.admin.cargo.index', compact('cargo'));
+        $cargo = Cargo::get();
+        return view('index', compact('cargo'));
     }
 
     public function create()
     {
-        $cargo = new cargo();
-        return view('layouts.admin.cargo.create', compact('cargo'));
+        $cargo = new Cargo();
+        return view('test', compact('cargo'));
     }
 
-    public function store(StoreRequest $request):JsonResponse
+    public function store(StoreRequest $request)
     {
-        dd($request);
-        cargo::create($request->all());
-        return response()->json(['success'=>'ok.']);
+//        dd($request);
+        Cargo::create($request->all());
+        return redirect()->route('cargo.index');
+
     }
 
     public function show(cargo $cargo)

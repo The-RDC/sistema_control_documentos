@@ -22,7 +22,16 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre_cargo'=> 'required|string|max:50'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombre_cargo.required' => 'Este Campo es Requerido',
+            'nombre_cargo.string' => 'El Valor no es Correcto',
+            'nombre_cargo.max' => 'Solo se Permite 50 caracteres',
         ];
     }
 }

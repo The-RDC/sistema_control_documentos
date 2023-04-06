@@ -16,39 +16,23 @@ class CargoController extends Controller
         return json_encode($cargo);
     }
 
-    public function create()
-    {
-        $cargo = new Cargo();
-        return view('test', compact('cargo'));
-    }
-
     public function store(StoreRequest $request)
     {
-//        dd($request);
         Cargo::create($request->all());
-        return redirect()->route('cargo.index');
-
-    }
-
-    public function show(cargo $cargo)
-    {
-        return view('layouts.admin.cargo.show', compact('cargo'));
-    }
-
-    public function edit(cargo $cargo)
-    {
-        return view('layouts.admin.cargo.edit', compact('cargo'));
+        return response()->json(['success'=>'Se guardo correctamente su categoria.']);
     }
 
     public function update(UpdateRequest $request, cargo $cargo)
     {
         $cargo->update($request->all());
-        return redirect()->route('cargo.index');
+        return response()->json(['success'=>'Se Actualizo correctamente su categoria.']);
     }
 
-    public function destroy(cargo $cargo)
+    public function destroy(Request $request, cargo $cargo)
     {
-        $cargo->delete();
-        return redirect()->route('cargo.index');
+        $cargo->update([
+            'estado' => $request->estado,
+        ]);
+        return response()->json(['success'=>'Se Elimino correctamente su categoria.']);
     }
 }

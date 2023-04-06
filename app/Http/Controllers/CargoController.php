@@ -23,8 +23,9 @@ class CargoController extends Controller
 
     public function store(StoreRequest $request)
     {
+        dd($request);
         cargo::create($request->all());
-        return redirect()->route('cargo.index');
+        return response()->json(['success'=>'ok.']);
     }
 
     public function show(cargo $cargo)

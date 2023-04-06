@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estado_documento', function (Blueprint $table) {
+        Schema::create('estado_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('estado');
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('estado_documento');
+        Schema::drop('estado_documentos');
     }
 };

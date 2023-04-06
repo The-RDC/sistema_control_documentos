@@ -11,24 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('empleado', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('id_regional');
 
-            $table->foreign('id_regional')->references('id')->on('regional');
+            $table->foreign('id_regional')->references('id')->on('regionales');
 
             $table->unsignedBigInteger('id_sucursal');
 
-            $table->foreign('id_sucursal')->references('id')->on('sucursal');
+            $table->foreign('id_sucursal')->references('id')->on('sucursales');
 
             $table->unsignedBigInteger('id_empresa');
 
-            $table->foreign('id_empresa')->references('id')->on('empresa');
+            $table->foreign('id_empresa')->references('id')->on('empresas');
 
             $table->unsignedBigInteger('id_cargo');
 
-            $table->foreign('id_cargo')->references('id')->on('cargo');
+            $table->foreign('id_cargo')->references('id')->on('cargos');
 
             $table->string('nombres')->unique();
             $table->string('ap_paterno');
@@ -60,6 +60,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('empleado');
+        Schema::dropIfExists('empleados');
     }
 };

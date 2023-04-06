@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('solicitud_vacacion', function (Blueprint $table) {
+        Schema::create('solicitud_vacaciones', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('id_empleado');
-            $table->foreign('id_empleado')->references('id')->on('empleado');
+            $table->foreign('id_empleado')->references('id')->on('empleados');
 
             $table->string('fecha_solicitud');
             $table->string('fecha_salida');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('solicitud_vacacion');
+        Schema::dropIfExists('solicitud_vacaciones');
     }
 };

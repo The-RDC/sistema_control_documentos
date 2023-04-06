@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registro_documento', function (Blueprint $table) {
+        Schema::create('registro_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('numero_hoja_ruta');
             $table->dateTime('fecha_recepcion');
@@ -21,13 +21,13 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger('id_tipo_documento');
-            $table->foreign('id_tipo_documento')->references('id')->on('tipo_documento');
+            $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos');
 
             $table->unsignedBigInteger('id_unidad_destino');
-            $table->foreign('id_unidad_destino')->references('id')->on('unidad');
+            $table->foreign('id_unidad_destino')->references('id')->on('unidades');
 
             $table->unsignedBigInteger('id_estado_documento');
-            $table->foreign('id_estado_documento')->references('id')->on('estado_documento');
+            $table->foreign('id_estado_documento')->references('id')->on('estado_documentos');
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registro_documento');
+        Schema::dropIfExists('registro_documentos');
     }
 };

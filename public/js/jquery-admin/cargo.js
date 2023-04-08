@@ -1,11 +1,11 @@
 $('#mostrar-cargos').on('click', function(e){
     e.preventDefault();
     let campocsrf=$("input[name='_token']").val();
-    let json={"nombre_cargo":"Soporte","_token":campocsrf};
+    let json={"nombre_cargo":"Soporte IT","_token":campocsrf};
     //console.log(rutaStorage);
     $.ajax({
-        type: "GET",
-        url: rutaMostrar,
+        type: "POST",
+        url: rutaStorage,
         data: json,
         //dataType: "json",
         success: function (response) {

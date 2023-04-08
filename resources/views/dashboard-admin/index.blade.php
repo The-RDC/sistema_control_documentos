@@ -779,7 +779,7 @@
     <script src="{{asset('js/jquery-admin/cargo.js')}}"></script>
 
     <script>
-        //var rutaStorage="{{route('cargo.store')}}";
+        var rutaStorage="{{route('cargo.store')}}";
         var rutaMostrar="{{route('cargo.index')}}";
     </script>
 </body>

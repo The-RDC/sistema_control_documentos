@@ -11279,3 +11279,17 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+/*
+* Css personalizado
+* Color de sidebar lateral izquierdo de la aplicacion
+*/
+#accordionSidebar{
+  background: #2FA137;
+}
+
+#logoNombreEmpresa
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

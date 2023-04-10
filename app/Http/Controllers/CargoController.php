@@ -26,6 +26,14 @@ class CargoController extends Controller
         return response()->json(['success'=>'Se guardo correctamente su categoria.']);
     }
 
+    public function edit(cargo $cargo){
+        try {
+            return response()->json($cargo, 200);
+        } catch (\Throwable $th) {
+            return response()->json([ 'error' => $th->getMessage()], 500);
+        }
+    }
+
     public function update(UpdateRequest $request, cargo $cargo)
     {
         $cargo->update($request->all());

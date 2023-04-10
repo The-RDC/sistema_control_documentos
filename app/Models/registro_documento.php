@@ -16,7 +16,7 @@ class registro_documento extends Model
         'observacion',
         'id_tipo_documento',
         'id_unidad_destino',
-        'id_estado_documento'
+        'id_estado_documento', 'estado'
     ];
 
     public function tipo_documento(){

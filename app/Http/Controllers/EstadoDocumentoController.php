@@ -11,41 +11,27 @@ class EstadoDocumentoController extends Controller
 {
     public function index()
     {
-        $estadoDocumento = estado_documento::get();
-        return view('layouts.admin.estado_documento.index', compact('estadoDocumento'));
-    }
-
-    public function create()
-    {
-        $estadoDocuemnto = new estado_documento();
-        return view('layouts.admin.estado_documento.create', compact('estadoDocuemnto'));
+        $EstadoDocumento = estado_documento::get();
+        return json_encode($EstadoDocumento);
     }
 
     public function store(StoreRequest $request)
     {
         estado_documento::create($request->all());
-        return redirect()->route('estado_documento.index');
-    }
-
-    public function show(estado_documento $estadoDocumento)
-    {
-        return view('layouts.admin.estado_documento.show', compact('estadoDocumento'));
-    }
-
-    public function edit(estado_documento $estadoDocumento)
-    {
-        return view('layouts.admin.estado_documento.edit', compact('estadoDocumento'));
+        return response()->json(['success'=>'Se guardo correctamente su categoria.']);
     }
 
     public function update(UpdateRequest $request, estado_documento $estadoDocumento)
     {
         $estadoDocumento->update($request->all());
-        return redirect()->route('estado_documento.index');
+        return response()->json(['success'=>'Se Actualizo correctamente su categoria.']);
     }
 
-    public function destroy(estado_documento $estadoDocumento)
+    public function destroy(Request $request, estado_documento $estadoDocumento)
     {
-        $estadoDocumento->delete();
-        return redirect()->route('estado_documento.index');
+        $estadoDocumento->update([
+            'estado' => $request->estado,
+        ]);
+        return response()->json(['success'=>'Se Elimino correctamente su categoria.']);
     }
 }

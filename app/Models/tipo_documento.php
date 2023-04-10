@@ -9,7 +9,7 @@ class tipo_documento extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'referencia_documento'
+        'referencia_documento', 'estado'
     ];
 
     public function registro_documento(){

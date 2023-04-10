@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('fecha_retorno');
             $table->string('aprobacion')->nullable();
             $table->string('observacion')->nullable();
-
-
+            $table->tinyInteger('estado')->default(1);
 
             $table->timestamps();
         });

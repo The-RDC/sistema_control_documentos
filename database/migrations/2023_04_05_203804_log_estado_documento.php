@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('fecha_entrega');
             $table->dateTime('fecha_final');
             $table->string('observacion');
-            $table->timestamps();
+            $table->tinyInteger('estado')->default(1);
 
             $table->unsignedBigInteger('id_tipo_documento');
             $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos');
@@ -31,6 +31,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('id_empleado');
             $table->foreign('id_empleado')->references('id')->on('empleados');
+
+            $table->timestamps();
         });
     }
 

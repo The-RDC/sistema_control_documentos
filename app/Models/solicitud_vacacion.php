@@ -14,7 +14,7 @@ class solicitud_vacacion extends Model
         'fecha_salida',
         'fecha_retorno',
         'aprobacion',
-        'observacion'
+        'observacion', 'estado'
     ];
 
     public function empleado(){

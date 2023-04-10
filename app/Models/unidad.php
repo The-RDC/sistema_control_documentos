@@ -9,7 +9,7 @@ class unidad extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'unidad_area'
+        'unidad_area', 'estado'
     ];
 
     public function registro_documento(){

@@ -9,7 +9,7 @@ class empresa extends Model
 {
     use HasFactory;
     protected $filleable = [
-        'empresa'
+        'empresa', 'estado'
     ];
 
     public function empleado(){

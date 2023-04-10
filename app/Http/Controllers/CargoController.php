@@ -15,6 +15,10 @@ class CargoController extends Controller
         $cargo = Cargo::get();
         return json_encode($cargo);
     }
+    public function create()
+    {
+        return view('test');
+    }
 
     public function store(StoreRequest $request)
     {

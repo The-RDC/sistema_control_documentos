@@ -9,7 +9,7 @@ class estado_documento extends Model
 {
     use HasFactory;
     protected  $fillable = [
-        'estado'
+        'estado_documento', 'estado'
     ];
 
     public function registro_documento(){

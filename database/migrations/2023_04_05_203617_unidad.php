@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('unidades', function (Blueprint $table) {
             $table->id();
             $table->string('unidad_area');
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
     }

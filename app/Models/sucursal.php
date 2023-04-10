@@ -9,7 +9,7 @@ class sucursal extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre_sucursal'
+        'nombre_sucursal', 'estado'
     ];
 
     public function empleado(){

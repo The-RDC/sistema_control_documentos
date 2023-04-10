@@ -9,7 +9,7 @@ class Cargo extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre_cargo',
+        'nombre_cargo', 'estado'
     ];
 
     public function empleado(){

@@ -17,7 +17,7 @@ class log_estado_documento extends Model
         'id_tipo_documento',
         'id_unidad_destino',
         'id_estado_documento',
-        'id_empleado'
+        'id_empleado', 'estado'
     ];
     public function empleado(){
         return $this->belongsTo(empleado::class);

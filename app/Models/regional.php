@@ -9,7 +9,7 @@ class regional extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre_regional'
+        'nombre_regional', 'estado'
     ];
 
     public function empleado(){

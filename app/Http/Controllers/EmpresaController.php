@@ -12,41 +12,26 @@ class EmpresaController extends Controller
     public function index()
     {
         $empresa = empresa::get();
-        return view('layouts.admin.categories.index', compact('empresa'));
-    }
-
-    public function create()
-    {
-        $empresa = new empresa();
-
-        return view('layouts.admin.categories.create', compact('empresa'));
+        return json_encode($empresa);
     }
 
     public function store(StoreRequest $request)
     {
         empresa::create($request->all());
-        return redirect()->route('empresa.index');
-    }
-
-    public function show(empresa $empresa)
-    {
-        return view('layouts.admin.empresa.show', compact('empresa'));
-    }
-
-    public function edit(empresa $empresa)
-    {
-        return view('layouts.admin.empresa.edit', compact('empresa'));
+        return response()->json(['success'=>'Se guardo correctamente su categoria.']);
     }
 
     public function update(UpdateRequest $request, empresa $empresa)
     {
         $empresa->update($request->all());
-        return redirect()->route('empresa.index');
+        return response()->json(['success'=>'Se Actualizo correctamente su categoria.']);
     }
 
-    public function destroy(empresa $empresa)
+    public function destroy(Request $request, empresa $empresa)
     {
-        $empresa->delete();
-        return redirect()->route('empresa.index');
+        $empresa->update([
+            'estado' => $request->estado,
+        ]);
+        return response()->json(['success'=>'Se Elimino correctamente su categoria.']);
     }
 }

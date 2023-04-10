@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('regionales', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_regional');
+            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
     }

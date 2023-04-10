@@ -91,3 +91,11 @@ Route::post('/unidad/delete',  [UnidadController::class, 'destroy'])->name('elim
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/**
+ * Rutas para el acceso al panel para la administracion
+ */
+
+ Route::get('/panelAdministrador', function () {
+    return view('dashboard-admin.index');
+});

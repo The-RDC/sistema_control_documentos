@@ -39,13 +39,41 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Opciones</span>
+            <span>Opciones Cargo</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Opciones Administrador:</h6>
+                <h6 class="collapse-header">Cargo</h6>
                 <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Cargos</a>
                 <a class="collapse-item" href="" id="listar-cargos">Listar Cargos</a>                        
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Unidades</span>
+        </a>
+        <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Unidades</h6>
+                <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
+                <a class="collapse-item" href="" id="listar-cargos">Listar unidades</a>                        
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Documento</span>
+        </a>
+        <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Documento:</h6>
+                <a class="collapse-item" href="" id="ingresar-cargos">Registrar Documento</a>
+                <a class="collapse-item" href="" id="listar-cargos">Listar Documentos</a>                        
             </div>
         </div>
     </li>

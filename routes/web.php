@@ -31,6 +31,7 @@ Route::get('/', function () {
 Route::get('/cargo',  [CargoController::class, 'index'])->name('vista');
 Route::get('/cargo/crear',  [CargoController::class, 'create'])->name('crear');
 Route::post('/cargo/store',  [CargoController::class, 'store'])->name('guardar');
+Route::post('/cargo/update{id}',  [CargoController::class, 'update'])->name('actualizar');
 Route::post('/cargo/delete',  [CargoController::class, 'destroy'])->name('eliminar');
 
 //Route::resource('empleado', EmpleadoController::class)->names('empleado');

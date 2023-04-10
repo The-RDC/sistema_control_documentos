@@ -99,5 +99,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  */
 
  Route::get('/panelAdministrador', function () {
+    return view('dashboard-admin.admin');
+});
+
+Route::get('/panelAdmin', function () {
     return view('dashboard-admin.index');
 });

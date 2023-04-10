@@ -1,15 +1,15 @@
-$('#mostrar-cargos').on('click', function(e){
+$('#listar-cargos').on('click', function(e){
     e.preventDefault();
     let campocsrf=$("input[name='_token']").val();
-    let json={"nombre_cargo":"Soporte IT","_token":campocsrf};
+    let json={"_token":campocsrf,"id":2,"nombre_cargo":"PERES"};
     //console.log(rutaStorage);
     $.ajax({
         type: "POST",
-        url: rutaStorage,
+        url: rutaActualizar,
         data: json,
         //dataType: "json",
         success: function (response) {
-            $('#eliminar').remove();
+            /*$('#eliminar').remove();
             $respuestaEnJson=jQuery.parseJSON(response);
             $.each($respuestaEnJson, function(i, item) {
                 console.log(item);
@@ -23,11 +23,12 @@ $('#mostrar-cargos').on('click', function(e){
                             <!-- Card Body -->\
                             <div class="card-body">\
                                 <div class="chart-area">\
-                                <table class="table table-dark">\
-                                <thead>\
+                                <table class="table">\
+                                <thead class="thead-dark">\
                                 <tr>\
                                     <th scope="col">#</th>\
                                     <th scope="col">Cargo</th>\
+                                    <th scope="col">Acciones</th>\
                                 </tr>\
                                 </thead>\
                                 <tbody>';
@@ -40,11 +41,14 @@ $('#mostrar-cargos').on('click', function(e){
                     </div>';
                 let htmlCuerpo="";
                 $.each($respuestaEnJson, function(i, item) {
-                    htmlCuerpo=htmlCuerpo+'<tr><th scope="row">'+i+'</th>'+'<td>'+item.nombre_cargo+'</td></tr>'
+                    htmlCuerpo=htmlCuerpo+'<tr>\
+                    <th scope="row">'+i+'</th>'+
+                    '<td>'+item.nombre_cargo+'</td>'+
+                    '<td><a href=""><i class="fa fa-trash">Eliminar</i></a> <a href=""><i class="fa fa-trash">editar</i></a></td>'+
+                    '</tr>'
                 });
-
-            $('#informacion').append(htmlCabecera+htmlCuerpo+htmlPie);
-            //console.log(response);
+            $('#informacion').append(htmlCabecera+htmlCuerpo+htmlPie);*/
+            console.log(response);
         },
         error: function (error){
             console.log(error);

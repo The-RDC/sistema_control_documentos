@@ -14,31 +14,36 @@
         </thead>
         <tbody>
         @foreach($cargo as $cargos)
-            <tr>
-                <td>
-                    <label class="checkboxs">
-                        {{--                                <input type="checkbox">--}}
-                        {{--                                <span class="checkmarks"></span>--}}
-                        {{ $cargos->id }}
+            @if( $cargos->estado === 1)
+                <tr>
+                    <td>
+                        <label class="checkboxs">
+                            {{--                                <input type="checkbox">--}}
+                            {{--                                <span class="checkmarks"></span>--}}
+                            {{ $cargos->id }}
 
-                    </label>
-                </td>
-                <td>
-                    <a>{{ $cargos->nombre_cargo }}</a>
-                </td>
+                        </label>
+                    </td>
+                    <td>
+                        <a>{{ $cargos->nombre_cargo }}</a>
+                    </td>
 
-                <td>
-                    <form action="{{ route('editar', $cargos) }}" method="post">
-                        @csrf @method('DELETE')
-                        <a class="me-3" href="{{ route('editar', $cargos) }}">
-                            <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
-                        </a>
-                        <button class="btn btn-md btn-light ">
-                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
-                        </button>
-                    </form>
-                </td>
-            </tr>
+                    <td>
+{{--                        <form action="{{ route('eliminar', $cargos->id) }}" method="POST">--}}
+{{--                            @csrf--}}
+                            <a class="me-3" href="{{ route('editar', $cargos) }}">
+                                <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
+                            </a>
+                            <a class="me-3" href="{{ route('eliminar', $cargos) }}">
+                                <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
+                            </a>
+{{--                            <button class="btn btn-md btn-light ">--}}
+{{--                                <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">--}}
+{{--                            </button>--}}
+{{--                        </form>--}}
+                    </td>
+                </tr>
+            @endif
         @endforeach
         </tbody>
     </table>

@@ -13,7 +13,7 @@ class CargoController extends Controller
     public function index()
     {
         $cargo = Cargo::get();
-        return view('index', compact('cargo')).json_encode($cargo);
+        return view('dashboard-admin.cargos.index', compact('cargo')).json_encode($cargo);
     }
     public function create()
     {
@@ -35,13 +35,13 @@ class CargoController extends Controller
         }
     }
 
-    public function update(UpdateRequest $request, cargo $cargo)
+    public function update(UpdateRequest $request)
     {
         try {
             $data['nombre_cargo'] = $request['nombre_cargo'];
             cargo::find($request['id'])->update($data);
             $res = cargo::find($request['id']);
-            $cargo->update($request->all());
+//            $cargo->update($request->all());
 
             return response()->json(['success'=>'Se Actualizo correctamente su categoria.'.$res]);
         }catch (\Throwable $th){
@@ -51,9 +51,10 @@ class CargoController extends Controller
 
     public function destroy(Request $request, cargo $cargo)
     {
-        $cargo->update([
-            'estado' => $request->estado,
-        ]);
+        dd($request);
+        $data['estado'] = $request['estado'];
+        cargo::find($request['id'])->update($data);
+        $res = cargo::find($request['id']);
         return response()->json(['success'=>'Se Elimino correctamente su categoria.']);
     }
 }

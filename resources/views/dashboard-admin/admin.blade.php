@@ -5,10 +5,10 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 @include('dashboard-admin.barraLogin')
-                @section('informacion')
+                @yield('informacion')
             </div>
             @include('dashboard-admin.footer')
-        </div>    
+        </div>
     </div>
     @include('dashboard-admin.modales')
     @include('dashboard-admin.javascript')

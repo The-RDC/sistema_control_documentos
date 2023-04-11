@@ -24,7 +24,7 @@ class TipoDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
         tipo_documento::create($request->all());
-        return redirect()->route('tipoDocuemnto.index');
+        return redirect()->route('tipoDocumento.index');
     }
 
     public function show(tipo_documento $tipoDocumento)
@@ -40,12 +40,12 @@ class TipoDocumentoController extends Controller
     public function update(UpdateRequest $request, tipo_documento $tipoDocumento)
     {
         $tipoDocumento->update($request->all());
-        return redirect()->route('tipoDocuemnto.index');
+        return redirect()->route('tipoDocumento.index');
     }
 
     public function destroy(tipo_documento $tipoDocumento)
     {
         $tipoDocumento->delete();
-        return redirect()->route('tipoDocuemnto.index');
+        return redirect()->route('tipoDocumento.index');
     }
 }

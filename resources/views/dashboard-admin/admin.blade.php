@@ -11,7 +11,7 @@
         </div>
     </div>
     @include('dashboard-admin.modales')
-    @include('dashboard-admin.javascript')
+{{--    @include('dashboard-admin.javascript')--}}
 </body>
 </html>
 

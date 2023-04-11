@@ -17,12 +17,7 @@
             @if( $cargos->estado === 1)
                 <tr>
                     <td>
-                        <label class="checkboxs">
-                            {{--                                <input type="checkbox">--}}
-                            {{--                                <span class="checkmarks"></span>--}}
                             {{ $cargos->id }}
-
-                        </label>
                     </td>
                     <td>
                         <a>{{ $cargos->nombre_cargo }}</a>

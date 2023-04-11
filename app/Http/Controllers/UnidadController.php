@@ -12,7 +12,7 @@ class UnidadController extends Controller
     public function index()
     {
         $unidades = unidad::get();
-        return view('layouts.admin.estado_documento.index', compact('unidades'));
+        return view('unidad.index', compact('unidades'));
     }
 
     public function create()

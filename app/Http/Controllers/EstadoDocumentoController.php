@@ -12,7 +12,7 @@ class EstadoDocumentoController extends Controller
     public function index()
     {
         $EstadoDocumento = estado_documento::get();
-        return json_encode($EstadoDocumento);
+        return view('documento.index',compact('EstadoDocumento')).json_encode($EstadoDocumento);
     }
 
     public function store(StoreRequest $request)

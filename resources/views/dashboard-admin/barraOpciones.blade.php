@@ -45,7 +45,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Cargo</h6>
                 <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Cargos</a>
-                <a class="collapse-item" href="" id="listar-cargos">Listar Cargos</a>                        
+                <a class="collapse-item" href="{{ route('cargo.index') }}">Listar Cargos</a>
             </div>
         </div>
     </li>
@@ -59,7 +59,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Unidades</h6>
                 <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
-                <a class="collapse-item" href="" id="listar-cargos">Listar unidades</a>                        
+                <a class="collapse-item" href="" id="listar-cargos">Listar unidades</a>
             </div>
         </div>
     </li>
@@ -73,7 +73,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Documento:</h6>
                 <a class="collapse-item" href="" id="ingresar-cargos">Registrar Documento</a>
-                <a class="collapse-item" href="" id="listar-cargos">Listar Documentos</a>                        
+                <a class="collapse-item" href="" id="listar-cargos">Listar Documentos</a>
             </div>
         </div>
     </li>

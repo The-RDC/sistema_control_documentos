@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="C:\xampp\htdocs\ventanilla\ventanilla.clpprj">
+ <settings>
+  <PM_URL><![CDATA[http://localhost/C:/xampp/htdocs/ventanilla]]></PM_URL>
+  <PM_HOME_URL><![CDATA[http://localhost/C:/xampp/htdocs/ventanilla]]></PM_HOME_URL>
+  <PM_LIBS><![CDATA[]]></PM_LIBS>
+  <PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION>
+  <PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR>
+  <PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE>
+  <PM_LANGUAGE><![CDATA[]]></PM_LANGUAGE>
+ </settings>
+ <removed value=";"/>
+ <added value=""/>
+ <lastopfiles>
+  <file name="C:\xampp\htdocs\ventanilla\app\Http\Controllers\CargoController.php"/>
+  <file name="C:\xampp\htdocs\ventanilla\app\Http\Controllers\UnidadController.php"/>
+  <file name="C:\xampp\htdocs\ventanilla\app\Http\Controllers\EstadoDocumentoController.php"/>
+  <file name="C:\xampp\htdocs\ventanilla\resources\views\Unidad\index.blade.php"/>
+  <lastactivefile name=""/>
+ </lastopfiles>
+ <errors version="1.12.0"/>
+ <cakedata/>
+ <dplmenupath/>
+ <laravael>
+  <facade class="App" name="app"/>
+  <facade class="Auth" name="auth"/>
+  <facade class="Blade" name="blade.compiler"/>
+  <facade class="Cache" name="cache"/>
+  <facade class="Config" name="config"/>
+  <facade class="Cookie" name="cookie"/>
+  <facade class="Crypt" name="encrypter"/>
+  <facade class="DB" name="db"/>
+  <facade class="Date" name="date"/>
+  <facade class="Event" name="events"/>
+  <facade class="Facade" name="Facade does not implement getFacadeAccessor method."/>
+  <facade class="File" name="files"/>
+  <facade class="Hash" name="hash"/>
+  <facade class="Lang" name="translator"/>
+  <facade class="Log" name="log"/>
+  <facade class="Mail" name="mail.manager"/>
+  <facade class="Password" name="auth.password"/>
+  <facade class="Pipeline" name="pipeline"/>
+  <facade class="Queue" name="queue"/>
+  <facade class="Redirect" name="redirect"/>
+  <facade class="Redis" name="redis"/>
+  <facade class="Request" name="request"/>
+  <facade class="Route" name="router"/>
+  <facade class="Schema" name="db.schema"/>
+  <facade class="Session" name="session"/>
+  <facade class="Storage" name="filesystem"/>
+  <facade class="URL" name="url"/>
+  <facade class="Validator" name="validator"/>
+  <facade class="View" name="view"/>
+  <file name="C:\xampp\htdocs\ventanilla\vendor\laravel\framework\src\Illuminate\Cache\CacheServiceProvider.php">
+   <type name="memcached.connector" class="MemcachedConnector"/>
+  </file>
+  <file name="C:\xampp\htdocs\ventanilla\vendor\laravel\framework\src\Illuminate\Database\DatabaseServiceProvider.php">
+   <type name="db.transactions" class="DatabaseTransactionsManager"/>
+  </file>
+  <file name="C:\xampp\htdocs\ventanilla\vendor\laravel\framework\src\Illuminate\Filesystem\FilesystemServiceProvider.php">
+   <type name="files" class="Filesystem"/>
+  </file>
+  <file name="C:\xampp\htdocs\ventanilla\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php">
+   <type name="view.engine.resolver" class="EngineResolver"/>
+  </file>
+  <file name="C:\xampp\htdocs\ventanilla\vendor\laravel\tinker\src\TinkerServiceProvider.php">
+   <type name="command.tinker" class="TinkerCommand"/>
+  </file>
+ </laravael>
+ <smartyassings/>
+ <twigtemplate/>
+ <yiidata/>
+ <todoblock>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\.vite\deps_temp_42741387\bootstrap.js">
+   <todo pos="3;2356" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="3;2517" name="TODO:v6 remove boolean support"/>
+   <todo pos="3;4745" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="3;4753" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\.vite\deps_temp_8214569f\bootstrap.js">
+   <todo pos="3;2356" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="3;2517" name="TODO:v6 remove boolean support"/>
+   <todo pos="3;4745" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="3;4753" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@babel\parser\typings\babel-parser.d.ts">
+   <todo pos="3;225" name="todo(flow->ts) real token type"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js">
+   <todo pos="19;1299" name="TODO Deprecate)"/>
+   <todo pos="17;1623" name="TODO: probably bad performance"/>
+   <todo pos="21;3426" name="TODO"/>
+   <todo pos="15;4495" name="TODO: Deprecate)"/>
+   <todo pos="13;5102" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-core\dist\compiler-core.cjs.prod.js">
+   <todo pos="19;1274" name="TODO Deprecate)"/>
+   <todo pos="17;1595" name="TODO: probably bad performance"/>
+   <todo pos="21;3363" name="TODO"/>
+   <todo pos="15;4396" name="TODO: Deprecate)"/>
+   <todo pos="13;4980" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-core\dist\compiler-core.esm-bundler.js">
+   <todo pos="19;1284" name="TODO Deprecate)"/>
+   <todo pos="17;1608" name="TODO: probably bad performance"/>
+   <todo pos="15;3832" name="TODO: Deprecate)"/>
+   <todo pos="13;4363" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js">
+   <todo pos="5;2917" name="TODO: check for cases where using innerHTML will result in different"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.prod.js">
+   <todo pos="5;2855" name="TODO: check for cases where using innerHTML will result in different"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-dom\dist\compiler-dom.esm-browser.js">
+   <todo pos="19;1471" name="TODO Deprecate)"/>
+   <todo pos="17;1795" name="TODO: probably bad performance"/>
+   <todo pos="15;4009" name="TODO: Deprecate)"/>
+   <todo pos="13;4521" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-dom\dist\compiler-dom.global.js">
+   <todo pos="21;1474" name="TODO Deprecate)"/>
+   <todo pos="19;1798" name="TODO: probably bad performance"/>
+   <todo pos="17;4012" name="TODO: Deprecate)"/>
+   <todo pos="15;4524" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-sfc\dist\compiler-sfc.esm-browser.js">
+   <todo pos="19;16871" name="TODO Deprecate)"/>
+   <todo pos="17;17184" name="TODO: probably bad performance"/>
+   <todo pos="21;22330" name="TODO"/>
+   <todo pos="15;23392" name="TODO: Deprecate)"/>
+   <todo pos="13;23955" name="TODO deprecate @vnodeXXX usage"/>
+   <todo pos="5;27325" name="TODO: check for cases where using innerHTML will result in different"/>
+   <todo pos="3;31135" name="TODO: make this comparison case-insensitive on windows?"/>
+   <todo pos="11;32621" name="TODO(isaacs): This is not quite how Chrome does things."/>
+   <todo pos="25;34402" name="TODO"/>
+   <todo pos="5;35057" name="TODO remove when out of experimental"/>
+   <todo pos="17;35553" name="TODO remove when out of experimental"/>
+   <todo pos="5;35624" name="TODO remove support for deprecated options when out of experimental"/>
+   <todo pos="29;36297" name="TODO warn when we provide a better way to do it?"/>
+   <todo pos="9;36364" name="TODO remove when out of experimental"/>
+   <todo pos="13;36953" name="TODO (nice to have) generate runtime property validation"/>
+   <todo pos="13;36959" name="TODO (nice to have) generate runtime element type/length checks"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\compiler-ssr\dist\compiler-ssr.cjs.js">
+   <todo pos="25;932" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\reactivity-transform\dist\reactivity-transform.cjs.js">
+   <todo pos="5;53" name="TODO remove when out of experimental"/>
+   <todo pos="17;549" name="TODO remove when out of experimental"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js">
+   <todo pos="13;3559" name="TODO remove the check in 3.3"/>
+   <todo pos="13;5489" name="TODO handle self-defined fallback"/>
+   <todo pos="13;7659" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\runtime-core\dist\runtime-core.cjs.prod.js">
+   <todo pos="13;2731" name="TODO remove the check in 3.3"/>
+   <todo pos="13;4264" name="TODO handle self-defined fallback"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\runtime-core\dist\runtime-core.d.ts">
+   <todo pos="2;119" name="TODO deprecate in 3.3"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\runtime-core\dist\runtime-core.esm-bundler.js">
+   <todo pos="13;3578" name="TODO remove the check in 3.3"/>
+   <todo pos="13;5551" name="TODO handle self-defined fallback"/>
+   <todo pos="13;7748" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\runtime-dom\dist\runtime-dom.esm-browser.js">
+   <todo pos="13;5064" name="TODO remove the check in 3.3"/>
+   <todo pos="13;6994" name="TODO handle self-defined fallback"/>
+   <todo pos="13;9156" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\runtime-dom\dist\runtime-dom.global.js">
+   <todo pos="15;5067" name="TODO remove the check in 3.3"/>
+   <todo pos="15;6997" name="TODO handle self-defined fallback"/>
+   <todo pos="15;9154" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js">
+   <todo pos="5;555" name="TODO: This is copied from runtime-core/src/component.ts and should probably be refactored"/>
+   <todo pos="13;1071" name="TODO better error handling?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\server-renderer\dist\server-renderer.cjs.prod.js">
+   <todo pos="5;295" name="TODO: This is copied from runtime-core/src/component.ts and should probably be refactored"/>
+   <todo pos="13;808" name="TODO better error handling?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\server-renderer\dist\server-renderer.esm-browser.js">
+   <todo pos="13;3584" name="TODO remove the check in 3.3"/>
+   <todo pos="13;5157" name="TODO handle self-defined fallback"/>
+   <todo pos="5;7746" name="TODO: this branch should now work in ESM builds, enable it in a minor"/>
+   <todo pos="13;8229" name="TODO better error handling?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\@vue\server-renderer\dist\server-renderer.esm-bundler.js">
+   <todo pos="5;520" name="TODO: this branch should now work in ESM builds, enable it in a minor"/>
+   <todo pos="13;1003" name="TODO better error handling?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\axios\lib\adapters\http.js">
+   <todo pos="8;574" name="todo remove"/>
+   <todo pos="7;574" name="@todo remove"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\dist\js\bootstrap.bundle.js">
+   <todo pos="54;407" name="todo: tooltip passes `false` instead of selector, so we need to check"/>
+   <todo pos="5;1074" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="5;1290" name="TODO:v6 remove boolean support"/>
+   <todo pos="13;1337" name="TODO use `document.visibilityState`"/>
+   <todo pos="9;1542" name="todo: change tests that use empty divs to avoid this check"/>
+   <todo pos="7;3888" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="71;4108" name="todo:v6 remove"/>
+   <todo pos="31;4206" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="9;5712" name="todo v6 remove this OR make it optional"/>
+   <todo pos="63;5819" name="todo: remove this check on v6"/>
+   <todo pos="67;5826" name="todo: on v6 the following can be achieved with CSS only"/>
+   <todo pos="5;6255" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;6263" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="7;6327" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="67;6328" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+   <todo pos="108;6550" name="todo:v6: could be only `tab`"/>
+   <todo pos="17;6564" name="todo: should Throw exception on v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\dist\js\bootstrap.esm.js">
+   <todo pos="52;403" name="todo: tooltip passes `false` instead of selector, so we need to check"/>
+   <todo pos="3;1070" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="3;1286" name="TODO:v6 remove boolean support"/>
+   <todo pos="11;1333" name="TODO use `document.visibilityState`"/>
+   <todo pos="7;1538" name="todo: change tests that use empty divs to avoid this check"/>
+   <todo pos="5;2038" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="69;2258" name="todo:v6 remove"/>
+   <todo pos="29;2356" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="7;3862" name="todo v6 remove this OR make it optional"/>
+   <todo pos="61;3969" name="todo: remove this check on v6"/>
+   <todo pos="65;3976" name="todo: on v6 the following can be achieved with CSS only"/>
+   <todo pos="3;4405" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="3;4413" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;4477" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="65;4478" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+   <todo pos="106;4700" name="todo:v6: could be only `tab`"/>
+   <todo pos="15;4714" name="todo: should Throw exception on v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\dist\js\bootstrap.js">
+   <todo pos="54;427" name="todo: tooltip passes `false` instead of selector, so we need to check"/>
+   <todo pos="5;1094" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="5;1310" name="TODO:v6 remove boolean support"/>
+   <todo pos="13;1357" name="TODO use `document.visibilityState`"/>
+   <todo pos="9;1562" name="todo: change tests that use empty divs to avoid this check"/>
+   <todo pos="7;2062" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="71;2282" name="todo:v6 remove"/>
+   <todo pos="31;2380" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="9;3886" name="todo v6 remove this OR make it optional"/>
+   <todo pos="63;3993" name="todo: remove this check on v6"/>
+   <todo pos="67;4000" name="todo: on v6 the following can be achieved with CSS only"/>
+   <todo pos="5;4429" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;4437" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="7;4501" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="67;4502" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+   <todo pos="108;4724" name="todo:v6: could be only `tab`"/>
+   <todo pos="17;4738" name="todo: should Throw exception on v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\carousel.js">
+   <todo pos="5;77" name="TODO:v6 remove boolean support"/>
+   <todo pos="13;124" name="TODO use `document.visibilityState`"/>
+   <todo pos="9;329" name="todo: change tests that use empty divs to avoid this check"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\dom\event-handler.js">
+   <todo pos="54;92" name="todo: tooltip passes `false` instead of selector, so we need to check"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\dom\selector-engine.js">
+   <todo pos="5;60" name="TODO: this is now unused; remove later along with prev()"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\dropdown.js">
+   <todo pos="7;109" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="88;329" name="todo:v6 remove"/>
+   <todo pos="31;427" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\scrollspy.js">
+   <todo pos="5;47" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;55" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="7;119" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="73;120" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\tab.js">
+   <todo pos="108;51" name="todo:v6: could be only `tab`"/>
+   <todo pos="17;65" name="todo: should Throw exception on v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\dist\tooltip.js">
+   <todo pos="9;214" name="todo v6 remove this OR make it optional"/>
+   <todo pos="63;321" name="todo: remove this check on v6"/>
+   <todo pos="63;328" name="todo: on v6 the following can be achieved with CSS only"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\carousel.js">
+   <todo pos="33;80" name="TODO:v6 remove boolean support"/>
+   <todo pos="11;129" name="TODO use `document.visibilityState`"/>
+   <todo pos="7;332" name="todo: change tests that use empty divs to avoid this check"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\dom\event-handler.js">
+   <todo pos="3;130" name="todo: tooltip passes `false` instead of selector, so we need to check"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\dom\selector-engine.js">
+   <todo pos="3;51" name="TODO: this is now unused; remove later along with prev()"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\dropdown.js">
+   <todo pos="5;97" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+   <todo pos="68;312" name="todo:v6 remove"/>
+   <todo pos="5;410" name="todo: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.2/forms/input-group/"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\scrollspy.js">
+   <todo pos="17;39" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="28;47" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;111" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="5;114" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\tab.js">
+   <todo pos="105;45" name="todo:v6: could be only `tab`"/>
+   <todo pos="7;61" name="todo: should Throw exception on v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\bootstrap\js\src\tooltip.js">
+   <todo pos="5;199" name="todo v6 remove this OR make it optional"/>
+   <todo pos="5;304" name="todo: remove this check on v6"/>
+   <todo pos="5;310" name="todo: on v6 the following can be achieved with CSS only"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\chokidar\index.js">
+   <todo pos="1;118" name="TODO: this is not equal to path-normalize module - investigate why"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\chokidar\lib\fsevents-handler.js">
+   <todo pos="3;14" name="TODO: real check"/>
+   <todo pos="7;500" name="TODO: Strange thing: &quot;should not choke on an ignored watch path&quot; will be failed without 2 ready cal"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\chokidar\lib\nodefs-handler.js">
+   <todo pos="1;35" name="TODO: emit errors properly. Example: EMFILE on Macos."/>
+   <todo pos="5;257" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\form-data\lib\form_data.js">
+   <todo pos="5;121" name="TODO: Looks like there is bug in Node fs.createReadStream"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\immutable\dist\immutable.es.js">
+   <todo pos="1;3410" name="TODO: seems like these methods are very similar"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\immutable\dist\immutable.js">
+   <todo pos="3;3416" name="TODO: seems like these methods are very similar"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\magic-string\dist\magic-string.cjs.js">
+   <todo pos="3;111" name="TODO is this block necessary?..."/>
+   <todo pos="3;703" name="TODO last chunk in the array may not be the last chunk, if it's moved..."/>
+   <todo pos="1;864" name="TODO deprecate this? not really very useful"/>
+   <todo pos="3;1048" name="TODO there's a bunch of this sort of thing, needs cleaning up"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\magic-string\dist\magic-string.es.js">
+   <todo pos="3;109" name="TODO is this block necessary?..."/>
+   <todo pos="3;701" name="TODO last chunk in the array may not be the last chunk, if it's moved..."/>
+   <todo pos="1;862" name="TODO deprecate this? not really very useful"/>
+   <todo pos="3;1046" name="TODO there's a bunch of this sort of thing, needs cleaning up"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\magic-string\dist\magic-string.umd.js">
+   <todo pos="4;113" name="TODO is this block necessary?..."/>
+   <todo pos="4;761" name="TODO last chunk in the array may not be the last chunk, if it's moved..."/>
+   <todo pos="2;922" name="TODO deprecate this? not really very useful"/>
+   <todo pos="4;1106" name="TODO there's a bunch of this sort of thing, needs cleaning up"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\mime-types\index.js">
+   <todo pos="3;53" name="TODO: use media-typer"/>
+   <todo pos="3;77" name="TODO: should this even be in this module?"/>
+   <todo pos="3;90" name="TODO: use content-type or other module"/>
+   <todo pos="3;111" name="TODO: use media-typer"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\proxy-from-env\test.js">
+   <todo pos="5;104" name="TODO: Should we be stricter and perform validation?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\rollup\dist\es\shared\node-entry.js">
+   <todo pos="4;291" name="TODO is this block necessary?..."/>
+   <todo pos="4;919" name="TODO last chunk in the array may not be the last chunk, if it's moved..."/>
+   <todo pos="2;1077" name="TODO deprecate this? not really very useful"/>
+   <todo pos="4;1357" name="TODO there's a bunch of this sort of thing, needs cleaning up"/>
+   <todo pos="13;13920" name="TODO we are pretending it was not found while it should behave like &quot;undefined&quot;"/>
+   <todo pos="5;14293" name="TODO"/>
+   <todo pos="1;16635" name="TODO instead of picking the &quot;closest&quot; chunk, we could actually use a"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\rollup\dist\es\shared\watch.js">
+   <todo pos="1;2471" name="TODO: emit errors properly. Example: EMFILE on Macos."/>
+   <todo pos="5;2683" name="TODO"/>
+   <todo pos="3;3101" name="TODO: real check"/>
+   <todo pos="7;3587" name="TODO: Strange thing: &quot;should not choke on an ignored watch path&quot; will be failed without 2 ready cal"/>
+   <todo pos="1;3728" name="TODO: this is not equal to path-normalize module - investigate why"/>
+   <todo pos="17;4691" name="TODO: throws or warn? Currently just ignore, uses new event"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\rollup\dist\shared\index.js">
+   <todo pos="1;2466" name="TODO: emit errors properly. Example: EMFILE on Macos."/>
+   <todo pos="5;2678" name="TODO"/>
+   <todo pos="3;3096" name="TODO: real check"/>
+   <todo pos="7;3582" name="TODO: Strange thing: &quot;should not choke on an ignored watch path&quot; will be failed without 2 ready cal"/>
+   <todo pos="1;3723" name="TODO: this is not equal to path-normalize module - investigate why"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\rollup\dist\shared\rollup.js">
+   <todo pos="4;1555" name="TODO is this block necessary?..."/>
+   <todo pos="4;2183" name="TODO last chunk in the array may not be the last chunk, if it's moved..."/>
+   <todo pos="2;2341" name="TODO deprecate this? not really very useful"/>
+   <todo pos="4;2621" name="TODO there's a bunch of this sort of thing, needs cleaning up"/>
+   <todo pos="13;14418" name="TODO we are pretending it was not found while it should behave like &quot;undefined&quot;"/>
+   <todo pos="5;14791" name="TODO"/>
+   <todo pos="1;17133" name="TODO instead of picking the &quot;closest&quot; chunk, we could actually use a"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\rollup\dist\shared\watch.js">
+   <todo pos="17;138" name="TODO: throws or warn? Currently just ignore, uses new event"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\vue\dist\vue.esm-browser.js">
+   <todo pos="13;5143" name="TODO remove the check in 3.3"/>
+   <todo pos="13;7073" name="TODO handle self-defined fallback"/>
+   <todo pos="13;9235" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+   <todo pos="19;12392" name="TODO Deprecate)"/>
+   <todo pos="17;12705" name="TODO: probably bad performance"/>
+   <todo pos="15;14768" name="TODO: Deprecate)"/>
+   <todo pos="13;15251" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\vue\dist\vue.global.js">
+   <todo pos="15;5146" name="TODO remove the check in 3.3"/>
+   <todo pos="15;7076" name="TODO handle self-defined fallback"/>
+   <todo pos="15;9233" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+   <todo pos="21;12229" name="TODO Deprecate)"/>
+   <todo pos="19;12542" name="TODO: probably bad performance"/>
+   <todo pos="17;14605" name="TODO: Deprecate)"/>
+   <todo pos="15;15088" name="TODO deprecate @vnodeXXX usage"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\vue\dist\vue.runtime.esm-browser.js">
+   <todo pos="13;5064" name="TODO remove the check in 3.3"/>
+   <todo pos="13;6994" name="TODO handle self-defined fallback"/>
+   <todo pos="13;9156" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\vue\dist\vue.runtime.global.js">
+   <todo pos="15;5067" name="TODO remove the check in 3.3"/>
+   <todo pos="15;6997" name="TODO handle self-defined fallback"/>
+   <todo pos="15;9154" name="TODO also format ComponentPublicInstance &amp; ctx.slots/attrs in setup"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\node_modules\vue\ref-macros.d.ts">
+   <todo pos="1;0" name="TODO deprecated file - to be removed when out of experimental"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\bootstrap\js\bootstrap.bundle.js">
+   <todo pos="5;5096" name="todo (fat): these should probably be refactored out of modal.js"/>
+   <todo pos="13;6381" name="TODO (fat): remove sketch reliance on jQuery position/offset"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\bootstrap\js\bootstrap.js">
+   <todo pos="5;2483" name="todo (fat): these should probably be refactored out of modal.js"/>
+   <todo pos="13;3768" name="TODO (fat): remove sketch reliance on jQuery position/offset"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\chart.js\Chart.bundle.js">
+   <todo pos="1;2995" name="TODO(v3): remove 'global' from namespace.  all default are global and"/>
+   <todo pos="2;7882" name="TODO Make possible to select another platform at build time."/>
+   <todo pos="1;7882" name="@TODO Make possible to select another platform at build time."/>
+   <todo pos="4;9546" name="TODO(SB): I think we should be able to remove this custom case (options.scale)"/>
+   <todo pos="3;11592" name="TODO(v3): remove minSize as a public property and return value from all layout boxes. It is unused"/>
+   <todo pos="1;13147" name="TODO(v3): change this to positiveOrDefault"/>
+   <todo pos="9;15066" name="TODO: Remove &quot;ordinalParse&quot; fallback in next major release."/>
+   <todo pos="9;15709" name="TODO: add sorting"/>
+   <todo pos="17;15749" name="TODO: Another silent failure?"/>
+   <todo pos="9;16554" name="TODO: Find a better way to register and load all the locales in Node"/>
+   <todo pos="13;16834" name="TODO: We need to take the current isoWeekYear, but that depends on"/>
+   <todo pos="13;17009" name="TODO: Replace the vanilla JS Date object with an indepentent day-of-week check."/>
+   <todo pos="9;17113" name="TODO: Move this to another part of the creation flow to prevent circular deps"/>
+   <todo pos="5;17408" name="TODO: Use [].sort instead?"/>
+   <todo pos="5;17839" name="TODO: remove 'name' arg after deprecation is removed"/>
+   <todo pos="9;18467" name="TODO: Remove &quot;ordinalParse&quot; fallback in next major release."/>
+   <todo pos="5;18999" name="TODO: Use this.as('ms')?"/>
+   <todo pos="2;19420" name="todo if (fill[0] === '#')"/>
+   <todo pos="1;19420" name="@todo if (fill[0] === '#')"/>
+   <todo pos="2;20629" name="todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+   <todo pos="1;20629" name="@todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\chart.js\Chart.js">
+   <todo pos="1;2991" name="TODO(v3): remove 'global' from namespace.  all default are global and"/>
+   <todo pos="2;7878" name="TODO Make possible to select another platform at build time."/>
+   <todo pos="1;7878" name="@TODO Make possible to select another platform at build time."/>
+   <todo pos="4;9542" name="TODO(SB): I think we should be able to remove this custom case (options.scale)"/>
+   <todo pos="3;11588" name="TODO(v3): remove minSize as a public property and return value from all layout boxes. It is unused"/>
+   <todo pos="1;13143" name="TODO(v3): change this to positiveOrDefault"/>
+   <todo pos="2;14816" name="todo if (fill[0] === '#')"/>
+   <todo pos="1;14816" name="@todo if (fill[0] === '#')"/>
+   <todo pos="2;16025" name="todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+   <todo pos="1;16025" name="@todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\datatables\jquery.dataTables.js">
+   <todo pos="36;3639" name="todo depreciated"/>
+   <todo pos="35;3639" name="@todo depreciated"/>
+   <todo pos="5;3678" name="todo Move options into their own plugins?"/>
+   <todo pos="4;3678" name="@todo Move options into their own plugins?"/>
+   <todo pos="4;4323" name="todo As per sort - can this be moved into an event handler?"/>
+   <todo pos="3;4323" name="@todo As per sort - can this be moved into an event handler?"/>
+   <todo pos="4;5979" name="todo Can this be moved into a 'data-ready' handler which is called when"/>
+   <todo pos="3;5979" name="@todo Can this be moved into a 'data-ready' handler which is called when"/>
+   <todo pos="27;6412" name="todo - for 1.11 this needs to be done by"/>
+   <todo pos="3;7265" name="todo - Is there need for an augment function?"/>
+   <todo pos="2;7265" name="@todo - Is there need for an augment function?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\fontawesome-free\js\all.js">
+   <todo pos="104;2185" name="TODO: do we need to handle font-weight for kit SVG pseudo-elements?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\fontawesome-free\js\fontawesome.js">
+   <todo pos="104;201" name="TODO: do we need to handle font-weight for kit SVG pseudo-elements?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\jquery\jquery.js">
+   <todo pos="8;793" name="TODO: identify versions"/>
+   <todo pos="7;807" name="TODO: identify versions"/>
+   <todo pos="48;4397" name="TODO: Drop _data, _removeData)"/>
+   <todo pos="2;4465" name="TODO: Now that all calls to _data and _removeData have been replaced"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\public\vendor\jquery\jquery.slim.js">
+   <todo pos="8;793" name="TODO: identify versions"/>
+   <todo pos="7;807" name="TODO: identify versions"/>
+   <todo pos="48;4397" name="TODO: Drop _data, _removeData)"/>
+   <todo pos="2;4465" name="TODO: Now that all calls to _data and _removeData have been replaced"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\dflydev\dot-access-data\src\Data.php">
+   <todo pos="13;66" name="TODO: Is this really what we want to do"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\fakerphp\faker\src\Faker\ORM\CakePHP\EntityPopulator.php">
+   <todo pos="9;121" name="TODO check if TreeBehavior attached to modify lft/rgt cols"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\fakerphp\faker\src\Faker\Provider\Base.php">
+   <todo pos="9;594" name="TODO: remove in v2"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\fakerphp\faker\src\Faker\Provider\kk_KZ\Address.php">
+   <todo pos="5;15" name="TODO list all country names in the world"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\filp\whoops\src\Whoops\Exception\Frame.php">
+   <todo pos="10;51" name="todo: This can be made more reliable by checking if we've entered"/>
+   <todo pos="9;51" name="@todo: This can be made more reliable by checking if we've entered"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\filp\whoops\src\Whoops\Handler\PrettyPageHandler.php">
+   <todo pos="14;186" name="todo: Make this more robust"/>
+   <todo pos="13;186" name="@todo: Make this more robust"/>
+   <todo pos="14;225" name="todo: Asset compiler"/>
+   <todo pos="13;225" name="@todo: Asset compiler"/>
+   <todo pos="10;282" name="todo: Consolidate addDataTable and addDataTableCallback"/>
+   <todo pos="9;282" name="@todo: Consolidate addDataTable and addDataTableCallback"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\filp\whoops\src\Whoops\Run.php">
+   <todo pos="14;420" name="todo Might be able to clean this up a bit better"/>
+   <todo pos="13;420" name="@todo Might be able to clean this up a bit better"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\guzzlehttp\guzzle\src\Client.php">
+   <todo pos="22;408" name="todo: Do not rely on curl"/>
+   <todo pos="21;408" name="@todo: Do not rely on curl"/>
+   <todo pos="13;433" name="TODO: Add more sink validation"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\hamcrest\hamcrest-php\hamcrest\Hamcrest\Arrays\IsArray.php">
+   <todo pos="1;10" name="TODO: Allow this to take matchers or values within the array"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\mockery\mockery\docs\conf.py">
+   <todo pos="47;17" name="todoc) are in another directory,"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\Carbon.php">
+   <todo pos="5;24" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;507" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\CarbonImmutable.php">
+   <todo pos="5;24" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;507" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\CarbonInterface.php">
+   <todo pos="5;36" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;517" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\Factory.php">
+   <todo pos="5;20" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;239" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\FactoryImmutable.php">
+   <todo pos="5;18" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;237" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\Lang\ar_Shakl.php">
+   <todo pos="6;19" name="TODO add shakl to months"/>
+   <todo pos="5;19" name="@TODO add shakl to months"/>
+   <todo pos="6;54" name="TODO add shakl to translations below"/>
+   <todo pos="5;54" name="@TODO add shakl to translations below"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nesbot\carbon\src\Carbon\Traits\Date.php">
+   <todo pos="5;43" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;524" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nikic\php-parser\lib\PhpParser\Comment.php">
+   <todo pos="13;229" name="TODO: Rename these to include &quot;start&quot;."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nikic\php-parser\lib\PhpParser\Internal\TokenStream.php">
+   <todo pos="21;244" name="TODO Handle non-space indentation"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nikic\php-parser\lib\PhpParser\Lexer\TokenEmulator\AttributeEmulator.php">
+   <todo pos="9;41" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nikic\php-parser\lib\PhpParser\PrettyPrinterAbstract.php">
+   <todo pos="13;496" name="TODO Add &lt;"/>
+   <todo pos="17;727" name="TODO: Try to preserve formatting"/>
+   <todo pos="25;779" name="TODO: Preserve formatting."/>
+   <todo pos="25;883" name="TODO: Preserve formatting."/>
+   <todo pos="13;906" name="TODO: Support removing single node."/>
+   <todo pos="52;1173" name="TODO: FIXUP_NEW_VARIABLE"/>
+   <todo pos="69;1184" name="TODO: FIXUP_NEW_VARIABLE"/>
+   <todo pos="9;1306" name="TODO: &quot;yield&quot; where both key and value are inserted doesn't work"/>
+   <todo pos="86;1334" name="TODO"/>
+   <todo pos="47;1350" name="TODO These need to be treated more carefully"/>
+   <todo pos="9;1442" name="TODO Insertion into empty statement lists."/>
+   <todo pos="14;1490" name="TODO"/>
+   <todo pos="67;1511" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\nikic\php-parser\lib\PhpParser\PrettyPrinter\Standard.php">
+   <todo pos="9;1078" name="TODO: This is not fully accurate."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\phpunit\php-code-coverage\src\StaticAnalysis\CodeUnitFindingVisitor.php">
+   <todo pos="15;145" name="todo Handle default values"/>
+   <todo pos="14;145" name="@todo Handle default values"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\phpunit\phpunit\src\Framework\TestSuite.php">
+   <todo pos="18;712" name="todo"/>
+   <todo pos="17;712" name="@todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\CodeCleaner\CalledClassPass.php">
+   <todo pos="14;55" name="todo switch this to actually validate args when we get context-aware code cleaner passes."/>
+   <todo pos="13;55" name="@todo switch this to actually validate args when we get context-aware code cleaner passes."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\CodeCleaner\PassableByReferencePass.php">
+   <todo pos="10;41" name="todo support MethodCall and StaticCall as well."/>
+   <todo pos="9;41" name="@todo support MethodCall and StaticCall as well."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\CodeCleaner\RequirePass.php">
+   <todo pos="14;82" name="todo Shell::handleError would be better here, because we could"/>
+   <todo pos="13;82" name="@todo Shell::handleError would be better here, because we could"/>
+   <todo pos="14;88" name="todo trigger an error as fallback"/>
+   <todo pos="13;88" name="@todo trigger an error as fallback"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\CodeCleaner\ValidFunctionNamePass.php">
+   <todo pos="14;49" name="todo add an &quot;else&quot; here which adds a runtime check for instances where we can't tell"/>
+   <todo pos="13;49" name="@todo add an &quot;else&quot; here which adds a runtime check for instances where we can't tell"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Command\DocCommand.php">
+   <todo pos="18;149" name="todo this is going to collide with ReflectionMethod ids"/>
+   <todo pos="17;149" name="@todo this is going to collide with ReflectionMethod ids"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Command\ListCommand.php">
+   <todo pos="10;130" name="todo something cleaner than this :-/"/>
+   <todo pos="9;130" name="@todo something cleaner than this :-/"/>
+   <todo pos="14;266" name="todo ensure that 'functions', 'classes', 'interfaces', 'traits' only accept namespace target"/>
+   <todo pos="13;266" name="@todo ensure that 'functions', 'classes', 'interfaces', 'traits' only accept namespace target"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Command\ListCommand\ClassConstantEnumerator.php">
+   <todo pos="14;33" name="todo handle ReflectionExtension as well"/>
+   <todo pos="13;33" name="@todo handle ReflectionExtension as well"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Configuration.php">
+   <todo pos="10;210" name="todo support raw output with interactive input"/>
+   <todo pos="9;210" name="@todo support raw output with interactive input"/>
+   <todo pos="10;868" name="todo mebbe turn this on by default some day"/>
+   <todo pos="9;868" name="@todo mebbe turn this on by default some day"/>
+   <todo pos="10;987" name="todo detect `chsh` != 65001 on Windows and return false"/>
+   <todo pos="9;987" name="@todo detect `chsh` != 65001 on Windows and return false"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Formatter\CodeFormatter.php">
+   <todo pos="10;71" name="todo something better here"/>
+   <todo pos="9;71" name="@todo something better here"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Formatter\SignatureFormatter.php">
+   <todo pos="14;340" name="todo Do we want to include the"/>
+   <todo pos="13;340" name="@todo Do we want to include the"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Readline\Hoa\File.php">
+   <todo pos="10;191" name="TODO manage $callable as a filter"/>
+   <todo pos="9;191" name="@TODO manage $callable as a filter"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Shell.php">
+   <todo pos="14;364" name="todo should it be possible to have raw output in an interactive run"/>
+   <todo pos="13;364" name="@todo should it be possible to have raw output in an interactive run"/>
+   <todo pos="10;452" name="todo overrides via environment variables (or should these happen in config"/>
+   <todo pos="9;452" name="@todo overrides via environment variables (or should these happen in config"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\Util\Docblock.php">
+   <todo pos="9;218" name="TODO: Add proper null-type return values once the lowest PHP version supported is 7.1"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\psy\psysh\src\functions.php">
+   <todo pos="10;101" name="todo come up with a better way of doing this which doesn't involve injecting input :-P"/>
+   <todo pos="9;101" name="@todo come up with a better way of doing this which doesn't involve injecting input :-P"/>
+   <todo pos="9;231" name="TODO: show styles (but only if they're different than default"/>
+   <todo pos="10;328" name="todo Show Presenter / custom casters."/>
+   <todo pos="9;328" name="@todo Show Presenter / custom casters."/>
+   <todo pos="18;465" name="todo this triggers the &quot;exited unexpectedly&quot; logic in the"/>
+   <todo pos="17;465" name="@todo this triggers the &quot;exited unexpectedly&quot; logic in the"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\spatie\ignition\src\ErrorPage\ErrorPageViewModel.php">
+   <todo pos="9;116" name="TODO: Should be based on Ignition config"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\spatie\laravel-ignition\src\Support\Composer\ComposerClassMap.php">
+   <todo pos="9;52" name="TODO: This is incorrect. Doesnt list all fqcns. Need to parse namespace"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\symfony\css-selector\XPath\Extension\FunctionExtension.php">
+   <todo pos="9;93" name="todo: handle an+b, odd, even"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\symfony\css-selector\XPath\Extension\HtmlExtension.php">
+   <todo pos="9;96" name="todo: in the second half, add &quot;and is not a descendant of that fieldset element's first legend elem"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\symfony\http-kernel\HttpCache\Store.php">
+   <todo pos="9;166" name="TODO the metaStore referenced an entity that doesn't exist in"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\symfony\mime\Header\ParameterizedHeader.php">
+   <todo pos="13;117" name="TODO: text, or something else"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\symfony\translation\Loader\PoFileLoader.php">
+   <todo pos="17;87" name="TODO: this fails when comments or contexts are added"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\ventanilla\vendor\symfony\yaml\Parser.php">
+   <todo pos="18;200" name="todo in 7.0 remove legacy &quot;("/>
+   <todo pos="17;200" name="@todo in 7.0 remove legacy &quot;("/>
+  </todofile>
+ </todoblock>
+ <dbgurls/>
+ <lasttime value="1681221719"/>
+</project>

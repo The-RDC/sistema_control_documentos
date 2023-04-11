@@ -12,49 +12,62 @@ class CargoController extends Controller
 {
     public function index()
     {
-        $cargo = Cargo::get();
-        return view('dashboard-admin.cargos.index', compact('cargo')).json_encode($cargo);
+        $cargo = cargo::get();
+        return view('Cargo.index', compact('cargo'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('test');
+        $cargo = new cargo();
+
+        return view('cargo.create', compact('cargo'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(StoreRequest $request)
     {
-        Cargo::create($request->all());
-        return response()->json(['success'=>'Se guardo correctamente su categoria.']);
+//        dd($request->all());
+        cargo::create($request->all());
+        return redirect()->route('cargo.index');
     }
 
-    public function edit($id){
-        try {
-            $cargo = Cargo::find($id);
-            return view('edit', compact('cargo')).response()->json($cargo, 200);
-        } catch (\Throwable $th) {
-            return response()->json([ 'error' => $th->getMessage()], 500);
-        }
-    }
-
-    public function update(UpdateRequest $request)
+    /**
+     * Display the specified resource.
+     */
+    public function show(cargo $cargo)
     {
-        try {
-            $data['nombre_cargo'] = $request['nombre_cargo'];
-            cargo::find($request['id'])->update($data);
-            $res = cargo::find($request['id']);
-//            $cargo->update($request->all());
-
-            return response()->json(['success'=>'Se Actualizo correctamente su categoria.'.$res]);
-        }catch (\Throwable $th){
-            return response()->json([ 'error' => $th->getMessage()], 500);
-        }
+        return view('layouts.admin.categories.show', compact('cargo'));
     }
 
-    public function destroy(Request $request, cargo $cargo)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(cargo $cargo)
     {
-        dd($request);
-        $data['estado'] = $request['estado'];
-        cargo::find($request['id'])->update($data);
-        $res = cargo::find($request['id']);
-        return response()->json(['success'=>'Se Elimino correctamente su categoria.']);
+        return view('cargo.edit', compact('cargo'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateRequest $request, cargo $cargo)
+    {
+        $cargo->update($request->all());
+        return redirect()->route('cargo.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(cargo $cargo)
+    {
+        $cargo->delete();
+        return redirect()->route('cargo.index');
+
     }
 }

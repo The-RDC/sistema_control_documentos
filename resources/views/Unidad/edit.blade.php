@@ -11,7 +11,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Editar Unidad o Area</h1>
                             </div>
-                            <form method="POST" action="{{ route('unidad.update', $unidades) }}">
+                            <form method="POST" action="{{ route('unidad.update', $unidad) }}">
                                 @csrf @method('PATCH')
                                 @include('Unidad._form')
                             </form>

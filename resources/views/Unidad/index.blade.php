@@ -31,7 +31,7 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($unidades as $unidades_data)
+                    @foreach($unidad as $unidades_data)
                         <tr>
                             <td>{{ $unidades_data->id }}</td>
                             <td>{{ $unidades_data->unidad_area }}</td>

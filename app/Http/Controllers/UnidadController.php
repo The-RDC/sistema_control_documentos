@@ -11,14 +11,14 @@ class UnidadController extends Controller
 {
     public function index()
     {
-        $unidades = unidad::get();
-        return view('Unidad.index', compact('unidades'));
+        $unidad = unidad::get();
+        return view('Unidad.index', compact('unidad'));
     }
 
     public function create()
     {
-        $unidades = new unidad();
-        return view('Unidad.create', compact('unidades'));
+        $unidad = new unidad();
+        return view('Unidad.create', compact('unidad'));
     }
 
     public function store(StoreRequest $request)
@@ -27,25 +27,25 @@ class UnidadController extends Controller
         return redirect()->route('unidad.index');
     }
 
-    public function show(unidad $unidades)
+    public function show(unidad $unidad)
     {
-        return view('Unidad.show', compact('unidades'));
+        return view('Unidad.show', compact('unidad'));
     }
 
-    public function edit(unidad $unidades)
+    public function edit(unidad $unidad)
     {
-        return view('Unidad.edit', compact('unidades'));
+        return view('Unidad.edit', compact('unidad'));
     }
 
-    public function update(UpdateRequest $request, unidad $unidades)
+    public function update(UpdateRequest $request, unidad $unidad)
     {
-        $unidades->update($request->all());
+        $unidad->update($request->all());
         return redirect()->route('unidad.index');
     }
 
-    public function destroy(unidad $unidades)
+    public function destroy(unidad $unidad)
     {
-        $unidades->delete();
+        $unidad->delete();
         return redirect()->route('unidad.index');
     }
 }

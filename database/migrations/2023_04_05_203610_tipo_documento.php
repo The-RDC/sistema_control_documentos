@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('tipo_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('referencia_documento');
-            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

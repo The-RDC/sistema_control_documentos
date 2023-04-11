@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class registro_documento extends Model
 {
+    use SoftDeletes;
     public $table = "registro_dedocumentos";
     use HasFactory;
     protected $fillable = [

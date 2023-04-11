@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class solicitud_vacacion extends Model
 {
+    use SoftDeletes;
     public $table = "solicitud_vacaciones";
     use HasFactory;
     protected $fillable = [

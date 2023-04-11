@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class estado_documento extends Model
 {
+    use SoftDeletes;
     public $table = "estado_documentos";
     use HasFactory;
     protected  $fillable = [

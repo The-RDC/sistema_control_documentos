@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_empresa');
-            $table->tinyInteger('estado')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

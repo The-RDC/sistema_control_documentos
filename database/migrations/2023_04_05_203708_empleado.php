@@ -47,11 +47,11 @@ return new class extends Migration
             $table->string('telf_fijo')->nullable();
             $table->string('direccion')->nullable();
             $table->string('estado_registro');
-            $table->tinyInteger('estado')->default(1);
             $table->string('nom_sis')->nullable();
             $table->string('num_suc')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class solicitud_vacacion extends Model
 {
+    public $table = "solicitud_vacaciones";
     use HasFactory;
     protected $fillable = [
         'id_empleado',

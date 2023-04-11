@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class sucursal extends Model
 {
+    public $table = "sucursales";
     use HasFactory;
     protected $fillable = [
         'nombre_sucursal', 'estado'

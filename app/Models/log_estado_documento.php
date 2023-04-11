@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class log_estado_documento extends Model
 {
+    public $table = "log_estado_documentos";
     use HasFactory;
     protected $fillable = [
         'id_log',

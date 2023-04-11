@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class regional extends Model
 {
+    public $table = "regionales";
     use HasFactory;
     protected $fillable = [
         'nombre_regional', 'estado'

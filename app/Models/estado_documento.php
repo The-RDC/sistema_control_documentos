@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class estado_documento extends Model
 {
+    public $table = "estado_documentos";
     use HasFactory;
     protected  $fillable = [
         'estado_documento', 'estado'

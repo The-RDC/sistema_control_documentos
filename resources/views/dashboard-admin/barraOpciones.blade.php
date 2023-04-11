@@ -89,8 +89,6 @@
         </div>
     </li>
     <li class="nav-item">
-<<<<<<< HEAD
-=======
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
@@ -118,7 +116,6 @@
         </div>
     </li>
     <li class="nav-item">
->>>>>>> 3f07551c21b3356acb66a4be8c9bf1d29070d500
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>

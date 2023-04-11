@@ -24,7 +24,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($estadoD as $estadoDs)
+                        @foreach($estadoDocumento as $estadoDs)
                             <tr>
                                 <td>{{ $estadoDs->id }}</td>
                                 <td>{{ $estadoDs->estado_documento }}</td>

@@ -11,8 +11,8 @@ class EstadoDocumentoController extends Controller
 {
     public function index()
     {
-        $estadoD = estado_documento::get();
-        return view('estado_documento.index', compact('estadoD'));
+        $estadoDocumento = estado_documento::get();
+        return view('estado_documento.index', compact('estadoDocumento'));
     }
 
     /**
@@ -20,9 +20,9 @@ class EstadoDocumentoController extends Controller
      */
     public function create()
     {
-        $estadoD = new estado_documento();
+        $estadoDocumento = new estado_documento();
 
-        return view('estado_documento.create', compact('estadoD'));
+        return view('estado_documento.create', compact('estadoDocumento'));
     }
 
     /**
@@ -38,34 +38,34 @@ class EstadoDocumentoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(estado_documento $estadoD)
+    public function show(estado_documento $estadoDocumento)
     {
-        return view('estado_documento.show', compact('estadoD'));
+        return view('estado_documento.show', compact('estadoDocumento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(estado_documento $estadoD)
+    public function edit(estado_documento $estadoDocumento)
     {
-        return view('estado_documento.edit', compact('estadoD'));
+        return view('estado_documento.edit', compact('estadoDocumento'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, estado_documento $estadoD)
+    public function update(UpdateRequest $request, estado_documento $estadoDocumento)
     {
-        $estadoD->update($request->all());
+        $estadoDocumento->update($request->all());
         return redirect()->route('estadoDocumento.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(estado_documento $estadoD)
+    public function destroy(estado_documento $estadoDocumento)
     {
-        $estadoD->delete();
+        $estadoDocumento->delete();
         return redirect()->route('estadoDocumento.index');
 
     }

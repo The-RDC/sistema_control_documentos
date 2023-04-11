@@ -11,7 +11,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Editar Estado del Documento !</h1>
                             </div>
-                            <form method="POST" action="{{ route('estadoDocumento.update', $estadoD) }}">
+                            <form method="POST" action="{{ route('estadoDocumento.update', $estadoDocumento) }}">
                                 @csrf @method('PATCH')
                                 @include('estado_documento._form')
                             </form>

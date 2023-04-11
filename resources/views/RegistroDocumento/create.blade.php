@@ -9,11 +9,11 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Crear Sucursal!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Crear Nuevo Documento!</h1>
                             </div>
-                            <form method="POST" action="{{ route('sucursal.store') }}">
+                            <form method="POST" action="{{ route('registroDocumento.store') }}">
                                 @csrf
-                                @include('Sucursal._form')
+                                @include('RegistroDocumento._form')
                             </form>
                         </div>
                     </div>

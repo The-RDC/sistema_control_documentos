@@ -2,7 +2,7 @@
 @section('informacion')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Informacion de Sucursales</h1>
+    <h1 class="h3 mb-2 text-gray-800">Informacion de Documentos</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -10,8 +10,8 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Sucursales</h6>
-            <a type="button" class="btn btn-primary" href="{{ route('sucursal.create') }}">Agregar</a>
+            <h6 class="m-0 font-weight-bold text-primary">Registro Documentos</h6>
+            <a type="button" class="btn btn-primary" href="{{ route('registroDocumento.create') }}">Agregar</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -45,13 +45,13 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($sucursal as $sucursales)
+                    @foreach($registroDocumento as $registroDocumentos)
                         <tr>
-                            <td>{{ $sucursales->id }}</td>
-                            <td>{{ $sucursales->nombre_sucursal }}</td>
-                            <td><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post">
+                            <td>{{ $registroDocumentos->id }}</td>
+                            <td>{{ $registroDocumentos->nombre_sucursal }}</td>
+                            <td><form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('sucursal.edit', $sucursales) }}">
+                                    <a class="me-3" href="{{ route('registroDocumento.edit', $registroDocumentos) }}">
                                         <i class="fa fa-pencil-alt" aria-hidden="true" style="color:green">Editar</i>
                                     </a>
                                     <button class="btn btn-md btn-light ">

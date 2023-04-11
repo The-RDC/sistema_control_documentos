@@ -46,7 +46,7 @@ class RegistroDocumentoController extends Controller
      */
     public function edit(registro_documento $registroDocumento)
     {
-        return view('registroDocumento.edit', compact('registroDocumento'));
+        return view('RegistroDocumento.edit', compact('registroDocumento'));
     }
 
     /**

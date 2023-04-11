@@ -9,11 +9,11 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Editar Sucursal</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Editar Documento</h1>
                             </div>
-                            <form method="POST" action="{{ route('sucursal.update', $sucursal) }}">
+                            <form method="POST" action="{{ route('registroDocumento.update', $registroDocumento) }}">
                                 @csrf @method('PATCH')
-                                @include('Sucursal._form')
+                                @include('RegistroDocumento._form')
                             </form>
                         </div>
                     </div>

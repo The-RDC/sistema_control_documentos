@@ -111,7 +111,7 @@
         <div id="collapseRegistroDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Registro Documento</h6>
-                <a class="collapse-item" href="" id="listar-documento">Listar documentos</a>
+                <a class="collapse-item" href="{{ route('registroDocumento.index') }}" id="listar-regDocumento">Listar documentos</a>
             </div>
         </div>
     </li>

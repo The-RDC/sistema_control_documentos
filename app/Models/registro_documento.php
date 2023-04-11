@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class registro_documento extends Model
 {
     use SoftDeletes;
-    public $table = "registro_dedocumentos";
+    public $table = "registro_documentos";
     use HasFactory;
     protected $fillable = [
         'numero_hoja_ruta',

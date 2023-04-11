@@ -98,7 +98,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Unidades</h6>
                 <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
-                <a class="collapse-item" href="" id="listar-cargos">Listar unidades</a>
+                <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
             </div>
         </div>
     </li>
@@ -111,8 +111,8 @@
         <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Documento:</h6>
-                <a class="collapse-item" href="" id="ingresar-cargos">Registrar Documento</a>
-                <a class="collapse-item" href="" id="listar-cargos">Listar Documentos</a>
+                <a class="collapse-item" href="" id="ingresar-documentos">Registrar Documento</a>
+                <a class="collapse-item" href="" id="listar-documentos">Listar Documentos</a>
             </div>
         </div>
     </li>

@@ -18,9 +18,9 @@
 <!-- Jquery personalizados -->
 <script src="{{asset('js/jquery-admin/cargo.js')}}"></script>
 
-<script>
-    var rutaVista="{{route('vista')}}";
-    var rutaStorage="{{route('guardar')}}";
-    var rutaCrear="{{route('crear')}}";
-    var rutaActualizar="{{route('actualizar')}}";
-</script>
+{{--<script>--}}
+{{--    var rutaVista="{{route('vista')}}";--}}
+{{--    var rutaStorage="{{route('guardar')}}";--}}
+{{--    var rutaCrear="{{route('crear')}}";--}}
+{{--    var rutaActualizar="{{route('actualizar')}}";--}}
+{{--</script>--}}

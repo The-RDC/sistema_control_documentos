@@ -89,6 +89,59 @@
         </div>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Documento</span>
+        </a>
+        <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Documento:</h6>
+                <a class="collapse-item" href="" id="ingresar-documentos">Registro Documento</a>
+                <a class="collapse-item" href="" id="listar-documentos">Listar Documentos</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Registro Documento</span>
+        </a>
+        <div id="collapseRegistroDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Registro Documento</h6>
+                <a class="collapse-item" href="" id="listar-documento">Listar documentos</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Sucursal</span>
+        </a>
+        <div id="collapseSucursal" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Sucursal</h6>
+                <a class="collapse-item" href="{{ route('sucursal.index') }}" id="listar-sucrusal">Listar Sucursales</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Tipo Documento</span>
+        </a>
+        <div id="collapseTipoDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Tipo de Documento</h6>
+                <a class="collapse-item" href="{{ route('tipoDocuemnto.index') }}" id="listar-tipoDocumento">Listar unidades</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
@@ -99,20 +152,6 @@
                 <h6 class="collapse-header">Unidades</h6>
                 <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
                 <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Opciones Documento</span>
-        </a>
-        <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Documento:</h6>
-                <a class="collapse-item" href="" id="ingresar-documentos">Registrar Documento</a>
-                <a class="collapse-item" href="" id="listar-documentos">Listar Documentos</a>
             </div>
         </div>
     </li>

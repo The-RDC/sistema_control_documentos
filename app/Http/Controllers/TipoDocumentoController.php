@@ -12,13 +12,13 @@ class TipoDocumentoController extends Controller
     public function index()
     {
         $tipoDocumento = tipo_documento::get();
-        return view('layouts.admin.sucursal.index', compact('tipoDocumento'));
+        return view('TipoDocumento.index', compact('tipoDocumento'));
     }
 
     public function create()
     {
         $tipoDocumento = new tipo_documento();
-        return view('layouts.admin.sucursal.create', compact('tipoDocumento'));
+        return view('TipoDocumento.create', compact('tipoDocumento'));
     }
 
     public function store(StoreRequest $request)
@@ -29,12 +29,12 @@ class TipoDocumentoController extends Controller
 
     public function show(tipo_documento $tipoDocumento)
     {
-        return view('layouts.admin.tipoDocuemnto.show', compact('tipoDocumento'));
+        return view('TipoDocumento.show', compact('tipoDocumento'));
     }
 
     public function edit(tipo_documento $tipoDocumento)
     {
-        return view('layouts.admin.tipoDocuemnto.edit', compact('tipoDocumento'));
+        return view('TipoDocumento.edit', compact('tipoDocumento'));
     }
 
     public function update(UpdateRequest $request, tipo_documento $tipoDocumento)

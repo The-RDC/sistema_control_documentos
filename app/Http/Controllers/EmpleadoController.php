@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cargo;
 use App\Models\empleado;
+use App\Models\empresa;
+use App\Models\regional;
+use App\Models\sucursal;
 use Illuminate\Http\Request;
 use App\Http\Requests\Empleado\StoreRequest;
 use App\Http\Requests\Empleado\UpdateRequest;
@@ -12,7 +16,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         $empleado = empleado::get();
-        return view('Cargo.index', compact('empleado'));
+        return view('empleado.index', compact('empleado'));
     }
 
     /**
@@ -20,9 +24,13 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
+        $regional = regional::get();
+        $sucursal = sucursal::get();
+        $empresa = empresa::get();
+        $cargo = Cargo::get();
         $empleado = new empleado();
 
-        return view('empleado.create', compact('empleado'));
+        return view('empleado.create', compact('empleado','regional','sucursal','empresa','cargo'));
     }
 
     /**

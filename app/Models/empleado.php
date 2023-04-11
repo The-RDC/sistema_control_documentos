@@ -11,7 +11,7 @@ class empleado extends Model
     use SoftDeletes;
     public $table = "empleados";
     use HasFactory;
-    protected $filleable = [
+    protected $fillable = [
         'id_regional',
         'id_sucursal',
         'id_empresa',

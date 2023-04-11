@@ -89,6 +89,36 @@
         </div>
     </li>
     <li class="nav-item">
+<<<<<<< HEAD
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Empleado</span>
+        </a>
+        <div id="emp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Empleado</h6>
+                <a class="collapse-item" href="{{ route('empleado.index') }}">Listar Empleado</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Unidades</span>
+        </a>
+        <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Unidades</h6>
+                <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
+                <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+=======
+>>>>>>> 69f0f633259946e9fd40a094e13626507d623143
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>

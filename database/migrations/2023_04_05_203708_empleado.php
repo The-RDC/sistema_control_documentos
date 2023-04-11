@@ -46,7 +46,7 @@ return new class extends Migration
             $table->string('telf_celular');
             $table->string('telf_fijo')->nullable();
             $table->string('direccion')->nullable();
-            $table->string('estado_registro');
+            $table->string('estado_registro')->nullable();
             $table->string('nom_sis')->nullable();
             $table->string('num_suc')->nullable();
 

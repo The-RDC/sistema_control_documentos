@@ -77,7 +77,7 @@ Route::resource('sucursal', SucursalController::class)->names('sucursal');
 //Route::post('/sucursal/store',  [SucursalController::class, 'store'])->name('guardar_sucursal');
 //Route::post('/sucursal/delete',  [SucursalController::class, 'destroy'])->name('eliminar_sucursal');
 
-Route::resource('tipoDocuemnto', TipoDocumentoController::class)->names('tipoDocuemnto');
+Route::resource('tipoDocumento', TipoDocumentoController::class)->names('tipoDocumento');
 //Route::get('/tipoDocuemnto',  [TipoDocumentoController::class, 'index'])->name('vista_tDocumento');;
 //Route::get('/tipoDocuemnto/crear',  [TipoDocumentoController::class, 'create'])->name('crear_tDocumento');
 //Route::post('/tipoDocuemnto/store',  [TipoDocumentoController::class, 'store'])->name('guardar_tDocumento');

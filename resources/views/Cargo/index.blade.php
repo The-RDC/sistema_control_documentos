@@ -38,10 +38,10 @@
                             <td><form action="{{ route('cargo.destroy', $cargos) }}" method="post">
                                     @csrf @method('DELETE')
                                     <a class="me-3" href="{{ route('cargo.edit', $cargos) }}">
-                                        <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
+                                        <i class="fas fa-pen-alt"></i>
                                     </a>
                                     <button class="btn btn-md btn-light ">
-                                        <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
+                                        <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
                             </td>

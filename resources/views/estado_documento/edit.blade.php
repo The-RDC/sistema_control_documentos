@@ -9,11 +9,11 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Editar Regional!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Editar Estado del Documento !</h1>
                             </div>
-                            <form method="POST" action="{{ route('regional.update', $regional) }}">
+                            <form method="POST" action="{{ route('estadoDocumento.update', $estadoD) }}">
                                 @csrf @method('PATCH')
-                                @include('regional._form')
+                                @include('estado_documento._form')
                             </form>
                         </div>
                     </div>

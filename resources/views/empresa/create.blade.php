@@ -9,11 +9,11 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Crear Cargo!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Crear Empresa!</h1>
                             </div>
-                            <form method="POST" action="{{ route('cargo.store') }}">
+                            <form method="POST" action="{{ route('empresa.store') }}">
                                 @csrf
-                                @include('Cargo._form')
+                                @include('empresa._form')
                             </form>
                         </div>
                     </div>

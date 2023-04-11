@@ -11,7 +11,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-            <a type="button" class="btn btn-primary" href="{{ route('cargo.create') }}">agregar</a>
+            <a type="button" class="btn btn-primary" href="{{ route('empresa.create') }}">agregar</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -19,25 +19,18 @@
                     <thead>
                         <tr>
                             <th>id</th>
-                            <th>cargo</th>
+                            <th>Empresa</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>id</th>
-                            <th>cargo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
-                    @foreach($cargo as $cargos)
+                    @foreach($empresa as $empresas)
                         <tr>
-                            <td>{{ $cargos->id }}</td>
-                            <td>{{ $cargos->nombre_cargo }}</td>
-                            <td><form action="{{ route('cargo.destroy', $cargos) }}" method="post">
+                            <td>{{ $empresas->id }}</td>
+                            <td>{{ $empresas->nombre_empresa }}</td>
+                            <td><form action="{{ route('empresa.destroy', $empresas) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('cargo.edit', $cargos) }}">
+                                    <a class="me-3" href="{{ route('empresa.edit', $empresas) }}">
                                         <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
                                     </a>
                                     <button class="btn btn-md btn-light ">

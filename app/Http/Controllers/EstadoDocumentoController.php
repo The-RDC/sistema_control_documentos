@@ -11,27 +11,62 @@ class EstadoDocumentoController extends Controller
 {
     public function index()
     {
-        $EstadoDocumento = estado_documento::get();
-        return view('documento.index',compact('EstadoDocumento')).json_encode($EstadoDocumento);
+        $estadoD = estado_documento::get();
+        return view('estado_documento.index', compact('estadoD'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $estadoD = new estado_documento();
+
+        return view('estado_documento.create', compact('estadoD'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(StoreRequest $request)
     {
+//        dd($request->all());
         estado_documento::create($request->all());
-        return response()->json(['success'=>'Se guardo correctamente su categoria.']);
+        return redirect()->route('estadoDocumento.index');
     }
 
-    public function update(UpdateRequest $request, estado_documento $estadoDocumento)
+    /**
+     * Display the specified resource.
+     */
+    public function show(estado_documento $estadoD)
     {
-        $estadoDocumento->update($request->all());
-        return response()->json(['success'=>'Se Actualizo correctamente su categoria.']);
+        return view('estado_documento.show', compact('estadoD'));
     }
 
-    public function destroy(Request $request, estado_documento $estadoDocumento)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(estado_documento $estadoD)
     {
-        $estadoDocumento->update([
-            'estado' => $request->estado,
-        ]);
-        return response()->json(['success'=>'Se Elimino correctamente su categoria.']);
+        return view('estado_documento.edit', compact('estadoD'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateRequest $request, estado_documento $estadoD)
+    {
+        $estadoD->update($request->all());
+        return redirect()->route('estadoDocumento.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(estado_documento $estadoD)
+    {
+        $estadoD->delete();
+        return redirect()->route('estadoDocumento.index');
+
     }
 }

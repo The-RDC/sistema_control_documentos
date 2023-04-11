@@ -11,7 +11,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                <a type="button" class="btn btn-primary" href="{{ route('regional.create') }}">agregar</a>
+                <a type="button" class="btn btn-primary" href="{{ route('estadoDocumento.create') }}">agregar</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -19,18 +19,18 @@
                         <thead>
                         <tr>
                             <th>id</th>
-                            <th>Regional</th>
+                            <th>Estados del Documento</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($regional as $regionales)
+                        @foreach($estadoD as $estadoDs)
                             <tr>
-                                <td>{{ $regionales->id }}</td>
-                                <td>{{ $regionales->nombre_regional }}</td>
-                                <td><form action="{{ route('regional.destroy', $regionales) }}" method="post">
+                                <td>{{ $estadoDs->id }}</td>
+                                <td>{{ $estadoDs->estado_documento }}</td>
+                                <td><form action="{{ route('estadoDocumento.destroy', $estadoDs) }}" method="post">
                                         @csrf @method('DELETE')
-                                        <a class="me-3" href="{{ route('regional.edit', $regionales) }}">
+                                        <a class="me-3" href="{{ route('estadoDocumento.edit', $estadoDs) }}">
                                             <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
                                         </a>
                                         <button class="btn btn-md btn-light ">

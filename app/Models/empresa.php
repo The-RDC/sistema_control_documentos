@@ -9,8 +9,8 @@ class empresa extends Model
 {
     public $table = "empresas";
     use HasFactory;
-    protected $filleable = [
-        'empresa', 'estado'
+    protected $fillable = [
+        'nombre_empresa', 'estado'
     ];
 
     public function empleado(){

@@ -11,7 +11,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Editar Tipo de Documento</h1>
                             </div>
-                            <form method="POST" action="{{ route('tipoDocuemnto.update', $tipoDocumento) }}">
+                            <form method="POST" action="{{ route('tipoDocumento.update', $tipoDocumento) }}">
                                 @csrf @method('PATCH')
                                 @include('TipoDocumento._form')
                             </form>

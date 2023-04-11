@@ -10,8 +10,8 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tipo de Documentos</h6>
-            <a type="button" class="btn btn-primary" href="{{ route('tipoDocuemnto.create') }}">Agregar</a>
+            <h6 class="m-0 font-weight-bold text-primary">Tipos de Documento</h6>
+            <a type="button" class="btn btn-primary" href="{{ route('tipoDocumento.create') }}">Agregar</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -35,9 +35,9 @@
                         <tr>
                             <td>{{ $tipoDocumentos->id }}</td>
                             <td>{{ $tipoDocumentos->referencia_documento }}</td>
-                            <td><form action="{{ route('tipoDocuemnto.destroy', $tipoDocumentos) }}" method="post">
+                            <td><form action="{{ route('tipoDocumento.destroy', $tipoDocumentos) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('tipoDocuemnto.edit', $tipoDocumentos) }}">
+                                    <a class="me-3" href="{{ route('tipoDocumento.edit', $tipoDocumentos) }}">
                                         <i class="fa fa-pencil-alt" aria-hidden="true" style="color:green">Editar</i>
                                     </a>
                                     <button class="btn btn-md btn-light ">

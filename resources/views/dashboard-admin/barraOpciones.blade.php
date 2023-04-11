@@ -132,12 +132,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Opciones Tipo Documento</span>
+            <span>Tipo Documento</span>
         </a>
         <div id="collapseTipoDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Tipo de Documento</h6>
-                <a class="collapse-item" href="{{ route('tipoDocuemnto.index') }}" id="listar-tipoDocumento">Listar unidades</a>
+                <a class="collapse-item" href="{{ route('tipoDocumento.index') }}" id="listar-tipoDocumento">Listar Tipos Documento</a>
             </div>
         </div>
     </li>
@@ -150,7 +150,6 @@
         <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Unidades</h6>
-                <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
                 <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
             </div>
         </div>

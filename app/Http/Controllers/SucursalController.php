@@ -12,13 +12,13 @@ class SucursalController extends Controller
     public function index()
     {
         $sucursal = sucursal::get();
-        return view('layouts.admin.sucursal.index', compact('sucursal'));
+        return view('Sucursal.index', compact('sucursal'));
     }
 
     public function create()
     {
         $sucursal = new sucursal();
-        return view('layouts.admin.sucursal.create', compact('sucursal'));
+        return view('Sucursal.create', compact('sucursal'));
     }
 
     public function store(StoreRequest $request)
@@ -29,12 +29,12 @@ class SucursalController extends Controller
 
     public function show(sucursal $sucursal)
     {
-        return view('layouts.admin.sucursal.show', compact('sucursal'));
+        return view('Sucursal.show', compact('sucursal'));
     }
 
     public function edit(sucursal $sucursal)
     {
-        return view('layouts.admin.sucursal.edit', compact('sucursal'));
+        return view('Sucursal.edit', compact('sucursal'));
     }
 
     public function update(UpdateRequest $request, sucursal $sucursal)

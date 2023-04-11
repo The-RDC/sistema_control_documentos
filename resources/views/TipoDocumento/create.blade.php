@@ -11,7 +11,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crear Tipo de Documento!</h1>
                             </div>
-                            <form method="POST" action="{{ route('tipoDocuemnto.store') }}">
+                            <form method="POST" action="{{ route('tipoDocumento.store') }}">
                                 @csrf
                                 @include('TipoDocumento._form')
                             </form>

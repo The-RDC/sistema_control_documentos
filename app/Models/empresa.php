@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class empresa extends Model
 {
+    public $table = "empresas";
     use HasFactory;
     protected $filleable = [
         'empresa', 'estado'

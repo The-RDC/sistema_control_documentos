@@ -44,8 +44,34 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Cargo</h6>
-                <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Cargos</a>
+                <a class="collapse-item" href="" >Ingresar Cargos</a>
                 <a class="collapse-item" href="{{ route('cargo.index') }}">Listar Cargos</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Regionales</span>
+        </a>
+        <div id="regionales" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Regional</h6>
+                <a class="collapse-item" href="{{ route('regional.index') }}">Listar Regionales</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Regionales</span>
+        </a>
+        <div id="empresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Regional</h6>
+                <a class="collapse-item" href="{{ route('regional.index') }}">Listar Empresa</a>
             </div>
         </div>
     </li>

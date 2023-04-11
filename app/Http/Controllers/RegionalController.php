@@ -12,14 +12,14 @@ class RegionalController extends Controller
     public function index()
     {
         $regional = regional::get();
-        return view('layouts.admin.categories.index', compact('regional'));
+        return view('regional.index', compact('regional'));
     }
 
     public function create()
     {
         $regional = new regional();
 
-        return view('layouts.admin.categories.create', compact('regional'));
+        return view('regional.create', compact('regional'));
     }
 
     public function store(StoreRequest $request)
@@ -30,12 +30,12 @@ class RegionalController extends Controller
 
     public function show(regional $regional)
     {
-        return view('layouts.admin.regional.show', compact('regional'));
+        return view('regional.show', compact('regional'));
     }
 
     public function edit(regional $regional)
     {
-        return view('layouts.admin.regional.edit', compact('regional'));
+        return view('regional.edit', compact('regional'));
     }
 
     public function update(UpdateRequest $request, regional $regional)

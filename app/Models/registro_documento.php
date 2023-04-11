@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class registro_documento extends Model
 {
+    public $table = "registro_dedocumentos";
     use HasFactory;
     protected $fillable = [
         'numero_hoja_ruta',

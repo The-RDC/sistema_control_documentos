@@ -39,7 +39,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-briefcase"></i>
-            <span>Opciones Cargo</span>
+            <span>Cargo</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -104,7 +104,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-list"></i>
-            <span>Opciones Documento</span>
+            <span>Documento</span>
         </a>
         <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -130,7 +130,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-city"></i>
-            <span>Opciones Sucursal</span>
+            <span>Sucursal</span>
         </a>
         <div id="collapseSucursal" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -156,7 +156,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fab fa-unity"></i>
-            <span>Opciones Unidades</span>
+            <span>Unidades</span>
         </a>
         <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">

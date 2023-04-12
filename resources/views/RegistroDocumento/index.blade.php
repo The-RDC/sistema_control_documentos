@@ -44,18 +44,29 @@
                             <th>Acciones</th>
                         </tr>
                     </tfoot>
-                    <tbody>
+                    <tbody id="controlDeEstadoDocumentoParaMarcarlo">
                     @foreach($registroDocumento as $registroDocumentos)
                         <tr>
                             <td>{{ $registroDocumentos->id }}</td>
-                            <td>{{ $registroDocumentos->nombre_sucursal }}</td>
-                            <td><form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">
+                            <td>{{ $registroDocumentos->numero_hoja_ruta }}</td>
+                            <td>{{ $registroDocumentos->fecha_recepcion}}</td>
+                            <td>{{ $registroDocumentos->fecha_entrega}}</td>
+                            <td>{{ $registroDocumentos->fecha_final}}</td>
+                            <td>{{ $registroDocumentos->id_tipo_documento}} </td>
+                            <td>{{ $registroDocumentos->id_unidad_destino}}</td>
+                            <td id="idEstadoDocumento">{{ $registroDocumentos->id_estado_documento}}</td>
+                            <td>{{ $registroDocumentos->observacion}}</td>
+                            <td id="accionesDocumento">
+                                <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('registroDocumento.edit', $registroDocumentos) }}">
-                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:green">Editar</i>
+                                    <a class="me-3" href="{{ route('registroDocumento.edit', $registroDocumentos) }}" id="btnEditarDocumento">
+                                        <i class="fa fa-pencil-alt fa-xs" aria-hidden="true" style="color: #2ecc71"></i>
                                     </a>
-                                    <button class="btn btn-md btn-light ">
-                                        <i class="fa fa-trash" aria-hidden="true" style="color:red"> Eliminar</i>
+                                    <button class="btn btn-md btn-light" id="btnEstadoFinalizar">
+                                        <i class="fas fa-check fa-xs" style="color: #f39c12;"></i>
+                                    </button>
+                                    <button class="btn btn-md btn-light" id="btnElimiarDocumento">
+                                        <i class="fa fa-trash fa-xs" aria-hidden="true" style="color: #c0392b"></i>
                                     </button>
                                 </form>
                             </td>

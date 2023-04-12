@@ -14,8 +14,12 @@ class RegistroDocumentoController extends Controller
 {
     public function index()
     {
+        $tipo_documento = tipo_documento::get();
+        $unidad = unidad::get();
+        $estado_documento = estado_documento::get();
         $registroDocumento = registro_documento::get();
-        return view('RegistroDocumento.index', compact('registroDocumento'));
+        //dd($tipo_documento);
+        return view('RegistroDocumento.index', compact('registroDocumento', 'tipo_documento', 'unidad', 'estado_documento'));
     }
 
     /**
@@ -23,12 +27,12 @@ class RegistroDocumentoController extends Controller
      */
     public function create()
     {
-        $tipo_documeno = tipo_documento::get();
+        $tipo_documento = tipo_documento::get();
         $unidad = unidad::get();
         $estado_documento = estado_documento::get();
         $registroDocumento = new registro_documento();
 
-        return view('RegistroDocumento.create', compact('registroDocumento', 'tipo_documeno', 'unidad', 'estado_documento'));
+        return view('RegistroDocumento.create', compact('registroDocumento', 'tipo_documento', 'unidad', 'estado_documento'));
     }
 
     /**
@@ -46,10 +50,10 @@ class RegistroDocumentoController extends Controller
      */
     public function show(registro_documento $registroDocumento)
     {
-        $tipo_documeno = tipo_documento::get();
+        $tipo_documento = tipo_documento::get();
         $unidad = unidad::get();
         $estado_documento = estado_documento::get();
-        return view('RegistroDocumento.show', compact('registroDocumento', 'tipo_documeno', 'unidad', 'estado_documento'));
+        return view('RegistroDocumento.show', compact('registroDocumento', 'tipo_documento', 'unidad', 'estado_documento'));
     }
 
     /**
@@ -57,8 +61,10 @@ class RegistroDocumentoController extends Controller
      */
     public function edit(registro_documento $registroDocumento)
     {
-
-        return view('RegistroDocumento.edit', compact('registroDocumento'));
+        $tipo_documento = tipo_documento::get();
+        $unidad = unidad::get();
+        $estado_documento = estado_documento::get();
+        return view('RegistroDocumento.edit', compact('registroDocumento', 'tipo_documento', 'unidad', 'estado_documento'));
     }
 
     /**

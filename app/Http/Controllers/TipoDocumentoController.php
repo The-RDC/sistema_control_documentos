@@ -9,6 +9,14 @@ use App\Http\Requests\tipoDocumento\UpdateRequest;
 
 class TipoDocumentoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:tipoDocumento-list|tipoDocumento-create|tipoDocumento-edit|tipoDocumento-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:tipoDocumento-create', ['only' => ['create','store']]);
+        $this->middleware('permission:tipoDocumento-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:tipoDocumento-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $tipoDocumento = tipo_documento::get();

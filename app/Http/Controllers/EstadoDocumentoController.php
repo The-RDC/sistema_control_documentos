@@ -9,6 +9,14 @@ use App\Http\Requests\EstadoDocumento\UpdateRequest;
 
 class EstadoDocumentoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:estadoDocumento-list|estadoDocumento-create|estadoDocumento-edit|estadoDocumento-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:estadoDocumento-create', ['only' => ['create','store']]);
+        $this->middleware('permission:estadoDocumento-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:estadoDocumento-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $estadoDocumento = estado_documento::get();

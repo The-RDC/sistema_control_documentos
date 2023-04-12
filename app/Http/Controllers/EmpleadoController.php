@@ -13,6 +13,14 @@ use App\Http\Requests\Empleado\UpdateRequest;
 
 class EmpleadoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:empleado-list|empleado-create|empleado-edit|empleado-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:empleado-create', ['only' => ['create','store']]);
+        $this->middleware('permission:empleado-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:empleado-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $empleado = empleado::get();

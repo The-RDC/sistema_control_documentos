@@ -9,6 +9,14 @@ use App\Http\Requests\Sucursal\UpdateRequest;
 
 class SucursalController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:sucursal-list|sucursal-create|sucursal-edit|sucursal-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:sucursal-create', ['only' => ['create','store']]);
+        $this->middleware('permission:sucursal-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:sucursal-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $sucursal = sucursal::get();

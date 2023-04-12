@@ -9,6 +9,14 @@ use App\Http\Requests\Unidad\UpdateRequest;
 
 class UnidadController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:unidad-list|unidad-create|unidad-edit|unidad-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:unidad-create', ['only' => ['create','store']]);
+        $this->middleware('permission:unidad-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:unidad-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $unidad = unidad::get();

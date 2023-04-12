@@ -21,10 +21,9 @@
                             <th>id</th>
                             <th>Nombre</th>
                             <th>Nacionalidad</th>
-                            <th># Documento</th>
-                            <th>Tipo Documento</th>
                             <th>Correo Institucional</th>
-                            <th># Celular</th>
+                            <th># Celula</th>
+                            <th>direccion</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -32,14 +31,18 @@
                     @foreach($empleado as $empleados)
                         <tr>
                             <td>{{ $empleados->id }}</td>
-                            <td>{{ $empleados->nombre_cargo }}</td>
+                            <td>{{ $empleados->nombres }}</td>
+                            <td>{{ $empleados->nacionalidad }}</td>
+                            <td>{{ $empleados->email_institucional }}</td>
+                            <td>{{ $empleados->telf_celular }}</td>
+                            <td>{{ $empleados->direccion }}</td>
                             <td><form action="{{ route('empleado.destroy', $empleados) }}" method="post">
                                     @csrf @method('DELETE')
                                     <a class="me-3" href="{{ route('empleado.edit', $empleados) }}">
-                                        <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img">
+                                       <i class="fas fa-pen-alt"></i>
                                     </a>
                                     <button class="btn btn-md btn-light ">
-                                        <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img">
+                                       <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
                             </td>

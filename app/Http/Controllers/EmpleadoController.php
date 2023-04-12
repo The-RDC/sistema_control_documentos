@@ -56,7 +56,11 @@ class EmpleadoController extends Controller
      */
     public function edit(empleado $empleado)
     {
-        return view('empleado.edit', compact('empleado'));
+        $regional = regional::get();
+        $sucursal = sucursal::get();
+        $empresa = empresa::get();
+        $cargo = Cargo::get();
+        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo'));
     }
 
     /**

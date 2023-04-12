@@ -1,48 +1,47 @@
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
-        <input type="text" class="form-control " name="nombres" id=""
-               placeholder="Nombre">
+        <input type="text" class="form-control " name="nombres" value="{{ old('nombres', $empleado->nombres) }}" placeholder="Nombre">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " id="" name="ap_paterno"
+        <input type="text" class="form-control " value="{{ old('ap_paterno', $empleado->ap_paterno) }}" name="ap_paterno"
                placeholder="Apellido paterno">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " id="" name="ap_materno"
+        <input type="text" class="form-control " value="{{ old('ap_materno', $empleado->ap_materno) }}" name="ap_materno"
                placeholder="Apellido Materno">
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
-        <input type="text" class="form-control " id="" name="nacionalidad"
+        <input type="text" class="form-control " value="{{ old('nacionalidad', $empleado->nacionalidad) }}" name="nacionalidad"
                placeholder="Nacionalidad">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " name="nro_documento"
+        <input type="text" class="form-control " name="nro_documento" value="{{ old('nro_documento', $empleado->nro_documento) }}"
                placeholder="Numero Documento">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " name="tipo_documento"
+        <input type="text" class="form-control " name="tipo_documento" value="{{ old('tipo_documento', $empleado->tipo_documento) }}"
                placeholder="Tipo Documento">
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
-        <input type="text" class="form-control " name="ext_visa_laboral"
+        <input type="text" class="form-control " name="ext_visa_laboral" value="{{ old('ext_visa_laboral', $empleado->ext_visa_laboral) }}"
                placeholder="Visa">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " name="email_personal"
+        <input type="text" class="form-control " name="email_personal" value="{{ old('email_personal', $empleado->email_personal) }}"
                placeholder="Correo Personal">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " name="email_institucional"
+        <input type="text" class="form-control " name="email_institucional" value="{{ old('email_institucional', $empleado->email_institucional) }}"
                placeholder="Correo Corporativo">
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
-        <input type="date" class="form-control " name="fecha_nacimiento"
+        <input type="date" class="form-control " name="fecha_nacimiento" value="{{ old('fecha_nacimiento', $empleado->fecha_nacimiento) }}"
                placeholder="Fecha Nacimiento">
     </div>
     <div class="col-sm-4">
@@ -65,15 +64,15 @@
 
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
-        <input type="text" class="form-control " name="telf_celular"
+        <input type="text" class="form-control " name="telf_celular" value="{{ old('telf_celular', $empleado->telf_celular) }}"
                placeholder="# Celular">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " name="telf_fijo"
+        <input type="text" class="form-control " name="telf_fijo" value="{{ old('telf_fijo', $empleado->telf_fijo) }}"
                placeholder="Telefono Fijo">
     </div>
     <div class="col-sm-4">
-        <input type="text" class="form-control " name="direccion"
+        <input type="text" class="form-control " name="direccion" value="{{ old('direccion', $empleado->direccion) }}"
                placeholder="Direccion">
     </div>
 </div>
@@ -87,7 +86,7 @@
                         @if($regionales->id == $empleado->id_regional)
                         selected
                     @endif
-                >{{ $regionales->nombre_regional }}</option>
+                >{{ $regionales->nombre_regional }}"</option>
             @endforeach
         </select>
     </div>
@@ -99,7 +98,7 @@
                         @if($sucursales->id == $empleado->id_sucursal)
                         selected
                     @endif
-                >{{ $sucursales->nombre_sucursal }}</option>
+                >{{ $sucursales->nombre_sucursal }}"</option>
             @endforeach
         </select>
     </div>
@@ -111,7 +110,7 @@
                         @if($empresas->id == $empleado->id_empresa)
                         selected
                     @endif
-                >{{ $empresas->nombre_empresa }}</option>
+                >{{ $empresas->nombre_empresa }}"</option>
             @endforeach
         </select>
     </div>
@@ -123,7 +122,7 @@
                         @if($cargos->id == $empleado->id_cargo)
                         selected
                     @endif
-                >{{ $cargos->nombre_cargo }}</option>
+                >{{ $cargos->nombre_cargo }}"</option>
             @endforeach
         </select>
     </div>

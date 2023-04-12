@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class empleado extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes;     use HasFactory;
+
     public $table = "empleados";
-    use HasFactory;
     protected $fillable = [
         'id_regional',
         'id_sucursal',
@@ -38,23 +38,23 @@ class empleado extends Model
         'num_suc'
     ];
 
-    public function cargo(){
+    public function getCargo(){
         return $this->belongsTo(cargo::class);
     }
 
-    public function sucursal(){
+    public function getSucursal(){
         return $this->belongsTo(sucursal::class);
     }
 
-    public function regional(){
+    public function getRegional(){
         return $this->belongsTo(regional::class);
     }
 
-    public function empresa(){
+    public function getEmpresa(){
         return $this->belongsTo(empresa::class);
     }
 
-    public function solicitud_vacaciones(){
+    public function getSolicitud_vacaciones(){
         return $this->hasMany(solicitud_vacacion::class);
     }
 

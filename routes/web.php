@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\CargoController;
@@ -12,6 +14,8 @@ use \App\Http\Controllers\SolicitudVacacionController;
 use \App\Http\Controllers\SucursalController;
 use \App\Http\Controllers\TipoDocumentoController;
 use \App\Http\Controllers\UnidadController;
+
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +31,7 @@ use \App\Http\Controllers\UnidadController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('cargo', CargoController::class)->names('cargo');
+//Route::resource('cargo', CargoController::class)->names('cargo');
 //Route::get('/cargo',  [CargoController::class, 'index'])->name('vista');
 //Route::get('/cargo/crear',  [CargoController::class, 'create'])->name('crear');
 //Route::post('/cargo/store',  [CargoController::class, 'store'])->name('guardar');
@@ -93,15 +97,10 @@ Route::resource('unidad', UnidadController::class)->names('unidad');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('cargo', CargoController::class)->names('cargo');
 
-/**
- * Rutas para el acceso al panel para la administracion
- */
-
- Route::get('/panelAdministrador', function () {
-    return view('dashboard-admin.admin');
 });
 
-Route::get('/panelAdmin', function () {
-    return view('dashboard-admin.index');
-});

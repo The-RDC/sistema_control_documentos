@@ -10,6 +10,14 @@ use App\Http\Requests\Cargo\UpdateRequest;
 
 class CargoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:cargo-list|cargo-create|cargo-edit|cargo-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:cargo-create', ['only' => ['create','store']]);
+        $this->middleware('permission:cargo-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:cargo-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $cargo = cargo::get();

@@ -165,6 +165,20 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fab fa-unity"></i>
+            <span>Gestion Usuario</span>
+        </a>
+        <div id="usuarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Gestion usuarios</h6>
+                <a class="collapse-item" href="{{ route('users.index') }}" id="listar-unidades">Listar Usuario</a>
+                <a class="collapse-item" href="{{ route('roles.index') }}" id="listar-unidades">Listar Roles</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

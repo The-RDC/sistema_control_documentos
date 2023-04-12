@@ -14,7 +14,7 @@ class Cargo extends Model
         'nombre_cargo', 'estado'
     ];
 
-    public function empleado(){
+    public function getEmpleado(){
         return $this->hasMany(empleado::class);
     }
 

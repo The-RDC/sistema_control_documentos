@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Cargo;
 
 class empleado extends Model
 {
@@ -39,19 +40,19 @@ class empleado extends Model
     ];
 
     public function getCargo(){
-        return $this->belongsTo(cargo::class);
+        return $this->belongsTo(Cargo::class, 'id_cargo');
     }
 
     public function getSucursal(){
-        return $this->belongsTo(sucursal::class);
+        return $this->belongsTo(sucursal::class, 'id_sucursal');
     }
 
     public function getRegional(){
-        return $this->belongsTo(regional::class);
+        return $this->belongsTo(regional::class, 'id_regional');
     }
 
     public function getEmpresa(){
-        return $this->belongsTo(empresa::class);
+        return $this->belongsTo(empresa::class,'id_empresa');
     }
 
     public function getSolicitud_vacaciones(){

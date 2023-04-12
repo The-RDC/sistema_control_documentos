@@ -68,7 +68,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Cargo</th>
-                                    <td>{{ $empleado->getCargo()->nombre_cargo }}</td>
+                                    <td>{{ $empleado->getCargo->nombre_cargo }}</td>
                                 </tr>
 
                                 </tbody>

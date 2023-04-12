@@ -23,15 +23,15 @@ class registro_documento extends Model
     ];
 
     public function tipo_documento(){
-        return $this->belongsTo(tipo_documento::class);
+        return $this->belongsTo(tipo_documento::class, 'id_tipo_documento');
     }
 
     public function unidad_destino(){
-        return $this->belongsTo(unidad::class);
+        return $this->belongsTo(unidad::class,'id_unidad_destino');
     }
 
     public function id_estado_documento(){
-        return $this->belongsTo(estado_documento::class);
+        return $this->belongsTo(estado_documento::class, 'id_estado_documento');
     }
 
 }

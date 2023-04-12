@@ -48,7 +48,7 @@ class EmpleadoController extends Controller
      */
     public function show(empleado $empleado)
     {
-        return view('layouts.admin.categories.show', compact('empleado'));
+        return view('empleado.show', compact('empleado'));
     }
 
     /**

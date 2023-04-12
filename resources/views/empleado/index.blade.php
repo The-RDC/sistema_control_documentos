@@ -38,6 +38,9 @@
                             <td>{{ $empleados->direccion }}</td>
                             <td><form action="{{ route('empleado.destroy', $empleados) }}" method="post">
                                     @csrf @method('DELETE')
+                                    <a class="me-3" href="{{ route('empleado.show', $empleados) }}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
                                     <a class="me-3" href="{{ route('empleado.edit', $empleados) }}">
                                        <i class="fas fa-pen-alt"></i>
                                     </a>

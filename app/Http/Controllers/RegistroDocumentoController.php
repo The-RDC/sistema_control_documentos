@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistroDocumento\StoreRequest;
+use App\Http\Requests\RegistroDocumento\UpdateRequest;
+use App\Models\estado_documento;
 use App\Models\registro_documento;
+use App\Models\tipo_documento;
+use App\Models\unidad;
 use Illuminate\Http\Request;
 
 class RegistroDocumentoController extends Controller
@@ -18,9 +23,12 @@ class RegistroDocumentoController extends Controller
      */
     public function create()
     {
+        $tipo_documeno = tipo_documento::get();
+        $unidad = unidad::get();
+        $estado_documento = estado_documento::get();
         $registroDocumento = new registro_documento();
 
-        return view('RegistroDocumento.create', compact('registroDocumento'));
+        return view('RegistroDocumento.create', compact('registroDocumento', 'tipo_documeno', 'unidad', 'estado_documento'));
     }
 
     /**
@@ -29,7 +37,7 @@ class RegistroDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
 //        dd($request->all());
-        registroDocumento::create($request->all());
+        registro_documento::create($request->all());
         return redirect()->route('registroDocumento.index');
     }
 
@@ -38,7 +46,10 @@ class RegistroDocumentoController extends Controller
      */
     public function show(registro_documento $registroDocumento)
     {
-        return view('RegistroDocumento.show', compact('registroDocumento'));
+        $tipo_documeno = tipo_documento::get();
+        $unidad = unidad::get();
+        $estado_documento = estado_documento::get();
+        return view('RegistroDocumento.show', compact('registroDocumento', 'tipo_documeno', 'unidad', 'estado_documento'));
     }
 
     /**
@@ -46,6 +57,7 @@ class RegistroDocumentoController extends Controller
      */
     public function edit(registro_documento $registroDocumento)
     {
+
         return view('RegistroDocumento.edit', compact('registroDocumento'));
     }
 

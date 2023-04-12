@@ -38,13 +38,12 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-briefcase"></i>
             <span>Opciones Cargo</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Cargo</h6>
-                <a class="collapse-item" href="" >Ingresar Cargos</a>
                 <a class="collapse-item" href="{{ route('cargo.index') }}">Listar Cargos</a>
             </div>
         </div>
@@ -52,7 +51,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+           <i class="fas fa-sitemap"></i>
             <span>Regionales</span>
         </a>
         <div id="regionales" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -65,7 +64,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+           <i class="fas fa-building"></i>
             <span>Empresa</span>
         </a>
         <div id="empresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -78,7 +77,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+           <i class="far fa-check-square"></i>
             <span>Estado Documento</span>
         </a>
         <div id="esdoc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -89,10 +88,9 @@
         </div>
     </li>
     <li class="nav-item">
-<<<<<<< HEAD
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+           <i class="fas fa-user-tie"></i>
             <span>Empleado</span>
         </a>
         <div id="emp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -103,31 +101,14 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Opciones Unidades</span>
-        </a>
-        <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Unidades</h6>
-                <a class="collapse-item" href="" id="ingresar-cargos">Ingresar Unidad</a>
-                <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-=======
->>>>>>> 69f0f633259946e9fd40a094e13626507d623143
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-list"></i>
             <span>Opciones Documento</span>
         </a>
         <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Documento:</h6>
-                <a class="collapse-item" href="" id="ingresar-documentos">Registro Documento</a>
                 <a class="collapse-item" href="" id="listar-documentos">Listar Documentos</a>
             </div>
         </div>
@@ -135,7 +116,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-folder-open"></i>
             <span>Registro Documento</span>
         </a>
         <div id="collapseRegistroDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -148,7 +129,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-city"></i>
             <span>Opciones Sucursal</span>
         </a>
         <div id="collapseSucursal" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -161,7 +142,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-file"></i>
             <span>Tipo Documento</span>
         </a>
         <div id="collapseTipoDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -174,7 +155,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fab fa-unity"></i>
             <span>Opciones Unidades</span>
         </a>
         <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

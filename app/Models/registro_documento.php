@@ -22,15 +22,15 @@ class registro_documento extends Model
         'id_estado_documento', 'estado'
     ];
 
-    public function tipo_documento(){
+    public function getTipoDocumento(){
         return $this->belongsTo(tipo_documento::class, 'id_tipo_documento');
     }
 
-    public function unidad_destino(){
+    public function getUnidadDestino(){
         return $this->belongsTo(unidad::class,'id_unidad_destino');
     }
 
-    public function id_estado_documento(){
+    public function getEstadoDocumento(){
         return $this->belongsTo(estado_documento::class, 'id_estado_documento');
     }
 

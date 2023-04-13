@@ -70,7 +70,7 @@ $(".btnEstadoFinalizar").on("click",function(e) {
 $("#btnModalEstadoFinalizarDocumento").click(function(){
    
    let _token=$("input[name='_token']").val();
-   let dataActualizarRegistroDocumento={"_token":_token,"fecha_final":fechaFinalRegistroDocumento,"id_estado_documento":1,"method":"PATCH"};
+   let dataActualizarRegistroDocumento={"_token":_token,"fecha_final":fechaFinalRegistroDocumento,"id_estado_documento":1};
    $.ajax({
       type: "POST",
       url: rutaUpdateRegistroDocumento,

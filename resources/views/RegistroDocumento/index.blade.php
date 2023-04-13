@@ -52,7 +52,7 @@
                             <td>{{ $registroDocumentos->fecha_recepcion}}</td>
                             <td>{{ $registroDocumentos->fecha_entrega}}</td>
                             <td>{{ $registroDocumentos->fecha_final}}</td>
-                            <td>{{ $registroDocumentos->id_tipo_documento}} </td>
+                            <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}} </td>
                             <td>{{ $registroDocumentos->id_unidad_destino}}</td>
                             <td id="idEstadoDocumento">{{ $registroDocumentos->id_estado_documento}}</td>
                             <td>{{ $registroDocumentos->observacion}}</td>

@@ -93,4 +93,12 @@ class RegistroDocumentoController extends Controller
         return redirect()->route('registroDocumento.index');
 
     }
+
+    public function editar(Request $request)
+    {
+        registro_documento::update(['id' => $request->id],
+            ['fecha_final' => $request->fecha_final, 'id_estado_documento' => $request->id_estado_documento]);
+
+        return response()->json(['success'=>'Post saved successfully.']);
+    }
 }

@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('numero_hoja_ruta');
             $table->dateTime('fecha_recepcion');
-            $table->dateTime('fecha_entrega');
-            $table->dateTime('fecha_final');
-            $table->string('observacion');
+            $table->dateTime('fecha_entrega')->nullable();
+            $table->dateTime('fecha_final')->nullable();
+            $table->string('observacion')->nullable();
 
             $table->unsignedBigInteger('id_tipo_documento');
             $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos');

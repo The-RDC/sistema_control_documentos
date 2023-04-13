@@ -23,3 +23,30 @@
      </div>
  </div>
 </div>
+
+
+ <!-- Modal Para finalizar el documento-->
+ <div class="modal fade" id="EstadoFinalizarDocumento" tabindex="-1" role="dialog" aria-labelledby="ModalbtnEstadoFinalizar"
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title">Esta seguro de Finalizar el Documento</h5>
+             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">X</span>
+             </button>
+         </div>
+         <div class="modal-body" id="ModalBodyEstadoFinalizarDocumento">
+         </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-success" id="btnModalEstadoFinalizarDocumento">Si, guardar</button>
+             <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+
+<script>
+    var rutaUpdateRegistroDocumento="{{route('actualizar')}}";
+    var fechaFinalRegistroDocumento="{{date('Y-m-d H:i')}}";
+</script>

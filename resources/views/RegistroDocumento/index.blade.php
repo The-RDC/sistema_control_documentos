@@ -47,7 +47,7 @@
                     <tbody id="controlDeEstadoDocumentoParaMarcarlo">
                     @foreach($registroDocumento as $registroDocumentos)
                         <tr>
-                            <td>{{ $registroDocumentos->id }}</td>
+                            <td id="idRegistroEstadoDocumento">{{ $registroDocumentos->id }}</td>
                             <td>{{ $registroDocumentos->numero_hoja_ruta }}</td>
                             <td>{{ $registroDocumentos->fecha_recepcion}}</td>
                             <td>{{ $registroDocumentos->fecha_entrega}}</td>
@@ -62,7 +62,7 @@
                                     <a class="me-3" href="{{ route('registroDocumento.edit', $registroDocumentos) }}" id="btnEditarDocumento">
                                         <i class="fa fa-pencil-alt fa-xs" aria-hidden="true" style="color: #2ecc71"></i>
                                     </a>
-                                    <button class="btn btn-md btn-light" id="btnEstadoFinalizar">
+                                    <button class="btn btn-md btn-light btnEstadoFinalizar" id="btnEstadoFinalizar">
                                         <i class="fas fa-check fa-xs" style="color: #f39c12;"></i>
                                     </button>
                                     <button class="btn btn-md btn-light" id="btnElimiarDocumento">

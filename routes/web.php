@@ -110,6 +110,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('sucursal', SucursalController::class)->names('sucursal');
     Route::resource('tipoDocumento', TipoDocumentoController::class)->names('tipoDocumento');
     Route::resource('unidad', UnidadController::class)->names('unidad');
-
+    Route::post('/cargo/update',  [CargoController::class, 'update'])->name('actualizar');
 });
 

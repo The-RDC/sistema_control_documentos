@@ -52,9 +52,9 @@
                             <td>{{ $registroDocumentos->fecha_recepcion}}</td>
                             <td>{{ $registroDocumentos->fecha_entrega}}</td>
                             <td>{{ $registroDocumentos->fecha_final}}</td>
-                            <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}} </td>
-                            <td>{{ $registroDocumentos->id_unidad_destino}}</td>
-                            <td id="idEstadoDocumento">{{ $registroDocumentos->id_estado_documento}}</td>
+                            <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}}</td>
+                            <td>{{ $registroDocumentos->getUnidadDestino->unidad_area}}</td>
+                            <td id="idEstadoDocumento">{{ $registroDocumentos->getEstadoDocumento->estado_documento}}</td>
                             <td>{{ $registroDocumentos->observacion}}</td>
                             <td id="accionesDocumento">
                                 <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">

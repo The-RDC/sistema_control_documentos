@@ -2,6 +2,9 @@
 
 
 @section('informacion')
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -14,8 +17,8 @@
             </div>
         </div>
     </div>
-
-
+            </div>
+<div class="container">
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             {{ $message }}
@@ -50,7 +53,8 @@
 
 
     {!! $roles->render() !!}
+</div>
 
-
-    <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+</div>
+    </div>
 @endsection

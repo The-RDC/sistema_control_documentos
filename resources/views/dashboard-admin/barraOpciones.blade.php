@@ -168,7 +168,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fab fa-unity"></i>
+           <i class="fas fa-users-cog"></i>
             <span>Gestion Usuario</span>
         </a>
         <div id="usuarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

@@ -1,51 +1,51 @@
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
-        <input type="text" class="form-control " name="nombres" value="{{ old('nombres', $empleado->nombres) }}" placeholder="Nombre">
+        <input type="text" class="form-control " name="nombres" value="{{ old('nombres', $empleado->nombres) }}" placeholder="Nombre" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " value="{{ old('ap_paterno', $empleado->ap_paterno) }}" name="ap_paterno"
-               placeholder="Apellido paterno">
+               placeholder="Apellido paterno" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " value="{{ old('ap_materno', $empleado->ap_materno) }}" name="ap_materno"
-               placeholder="Apellido Materno">
+               placeholder="Apellido Materno" style="border: solid 2px #EEE30B">
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
         <input type="text" class="form-control " value="{{ old('nacionalidad', $empleado->nacionalidad) }}" name="nacionalidad"
-               placeholder="Nacionalidad">
+               placeholder="Nacionalidad" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " name="nro_documento" value="{{ old('nro_documento', $empleado->nro_documento) }}"
-               placeholder="Numero Documento">
+               placeholder="Numero Documento" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " name="tipo_documento" value="{{ old('tipo_documento', $empleado->tipo_documento) }}"
-               placeholder="Tipo Documento">
+               placeholder="Tipo Documento" style="border: solid 2px #EEE30B">
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
         <input type="text" class="form-control " name="ext_visa_laboral" value="{{ old('ext_visa_laboral', $empleado->ext_visa_laboral) }}"
-               placeholder="Visa">
+               placeholder="Visa" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " name="email_personal" value="{{ old('email_personal', $empleado->email_personal) }}"
-               placeholder="Correo Personal">
+               placeholder="Correo Personal" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " name="email_institucional" value="{{ old('email_institucional', $empleado->email_institucional) }}"
-               placeholder="Correo Corporativo">
+               placeholder="Correo Corporativo" style="border: solid 2px #EEE30B">
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
         <input type="date" class="form-control " name="fecha_nacimiento" value="{{ old('fecha_nacimiento', $empleado->fecha_nacimiento) }}"
-               placeholder="Fecha Nacimiento">
+               placeholder="Fecha Nacimiento" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <select class="form-control" name="genero">
+        <select class="form-control" name="genero" style="border: solid 2px #EEE30B">
             <option selected>Genero</option>
             <option value="1">Femenino</option>
             <option value="2">Masculino</option>
@@ -53,7 +53,7 @@
         </select>
     </div>
     <div class="col-sm-4">
-        <select class="form-control" name="estado_civil">
+        <select class="form-control" name="estado_civil" style="border: solid 2px #EEE30B">
             <option selected>Estado Civil</option>
             <option value="1">Soltero</option>
             <option value="2">Divorciado</option>
@@ -65,21 +65,21 @@
 <div class="form-group row">
     <div class="col-sm-4 mb-3 mb-sm-0">
         <input type="text" class="form-control " name="telf_celular" value="{{ old('telf_celular', $empleado->telf_celular) }}"
-               placeholder="# Celular">
+               placeholder="# Celular" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " name="telf_fijo" value="{{ old('telf_fijo', $empleado->telf_fijo) }}"
-               placeholder="Telefono Fijo">
+               placeholder="Telefono Fijo" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <input type="text" class="form-control " name="direccion" value="{{ old('direccion', $empleado->direccion) }}"
-               placeholder="Direccion">
+               placeholder="Direccion" style="border: solid 2px #EEE30B">
     </div>
 </div>
 
 <div class="form-group row">
     <div class="col-sm-3">
-        <select class="form-control" name="id_regional">
+        <select class="form-control" name="id_regional" style="border: solid 2px #EEE30B">
             <option selected>Regional</option>
             @foreach($regional as $regionales)
                 <option value="{{ $regionales->id }}"
@@ -91,7 +91,7 @@
         </select>
     </div>
     <div class="col-sm-3">
-        <select class="form-control" name="id_sucursal">
+        <select class="form-control" name="id_sucursal" style="border: solid 2px #EEE30B">
             <option selected>Sucursal</option>
             @foreach($sucursal as $sucursales)
                 <option value="{{ $sucursales->id }}"
@@ -103,7 +103,7 @@
         </select>
     </div>
     <div class="col-sm-3">
-        <select class="form-control" name="id_empresa">
+        <select class="form-control" name="id_empresa" style="border: solid 2px #EEE30B">
             <option selected>Empresa</option>
             @foreach($empresa as $empresas)
                 <option value="{{ $empresas->id }}"
@@ -115,7 +115,7 @@
         </select>
     </div>
     <div class="col-sm-3">
-        <select class="form-control" name="id_cargo">
+        <select class="form-control" name="id_cargo" style="border: solid 2px #EEE30B">
             <option selected>Cargo</option>
             @foreach($cargo as $cargos)
                 <option value="{{ $cargos->id }}"
@@ -130,7 +130,7 @@
 <hr>
 
 <div class="col-lg-12">
-    <button  type="submit" class="btn btn-submit">Guardar</button>
-    <a href="{{ route('empleado.index') }}" class="btn btn-cancel">Cancelar</a>
+    <button  type="submit" class="btn btn-submit btn-success">Guardar</button>
+    <a href="{{ route('empleado.index') }}" class="btn btn-cancel btn-danger">Cancelar</a>
 </div>
 <hr>

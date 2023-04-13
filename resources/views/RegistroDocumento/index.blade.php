@@ -52,17 +52,9 @@
                             <td>{{ $registroDocumentos->fecha_recepcion}}</td>
                             <td>{{ $registroDocumentos->fecha_entrega}}</td>
                             <td>{{ $registroDocumentos->fecha_final}}</td>
-<<<<<<< HEAD
-                            <td>
-                                @if($registroDocumentos->id_tipo_documento == $tipo_documento->id)
-                                    {{$tipo_documento->referencia_documento}}
-                                @endif
-                            </td>
-=======
-                            <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}} </td>
->>>>>>> 0af19c2a22547faeb309c1f8b8e429eb9ee6476f
-                            <td>{{ $registroDocumentos->id_unidad_destino}}</td>
-                            <td id="idEstadoDocumento">{{ $registroDocumentos->id_estado_documento}}</td>
+                            <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}}</td>
+                            <td>{{ $registroDocumentos->getUnidadDestino->unidad_area}}</td>
+                            <td id="idEstadoDocumento">{{ $registroDocumentos->getEstadoDocumento->estado_documento}}</td>
                             <td>{{ $registroDocumentos->observacion}}</td>
                             <td id="accionesDocumento">
                                 <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">

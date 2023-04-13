@@ -6,7 +6,7 @@
 function marcarEstadoDocumentoFinalizado()
 {
    let estadoActualDocumento =$('#idEstadoDocumento').text();
-   let estadoParaComparar="1";
+   let estadoParaComparar="Finalizado";
    $("#controlDeEstadoDocumentoParaMarcarlo tr").each( function (indexInArray, valueOfElement) 
    { 
      if($(this).find("#idEstadoDocumento").text() == estadoParaComparar)

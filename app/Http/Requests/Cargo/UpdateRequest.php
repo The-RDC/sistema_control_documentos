@@ -22,7 +22,16 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre_cargo'=> 'required|string|min:4'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombre_cargo.required' => 'Este Campo es Requerido',
+            'nombre_cargo.string' => 'El Valor no es Correcto',
+            'nombre_cargo.min' => 'Como minimo debe tener 4 caracteres',
         ];
     }
 }

@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre_cargo'=> 'required|string|max:50'
+            'nombre_cargo'=> 'required|string|min:4'
         ];
     }
 
@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
         return [
             'nombre_cargo.required' => 'Este Campo es Requerido',
             'nombre_cargo.string' => 'El Valor no es Correcto',
-            'nombre_cargo.max' => 'Solo se Permite 50 caracteres',
+            'nombre_cargo.min' => 'Como minimo debe tener 4 caracteres',
         ];
     }
 }

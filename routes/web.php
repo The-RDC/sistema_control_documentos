@@ -29,7 +29,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 //Route::resource('cargo', CargoController::class)->names('cargo');
 //Route::get('/cargo',  [CargoController::class, 'index'])->name('vista');
@@ -110,6 +110,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('sucursal', SucursalController::class)->names('sucursal');
     Route::resource('tipoDocumento', TipoDocumentoController::class)->names('tipoDocumento');
     Route::resource('unidad', UnidadController::class)->names('unidad');
-    Route::post('/cargo/update',  [CargoController::class, 'update'])->name('actualizar');
+    Route::post('/regitroDocumento',  [RegistroDocumentoController::class, 'editar'])->name('actualizar');
 });
 

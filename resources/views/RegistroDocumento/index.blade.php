@@ -52,7 +52,11 @@
                             <td>{{ $registroDocumentos->fecha_recepcion}}</td>
                             <td>{{ $registroDocumentos->fecha_entrega}}</td>
                             <td>{{ $registroDocumentos->fecha_final}}</td>
-                            <td>{{ $registroDocumentos->id_tipo_documento}} </td>
+                            <td>
+                                @if($registroDocumentos->id_tipo_documento == $tipo_documento->id)
+                                    {{$tipo_documento->referencia_documento}}
+                                @endif
+                            </td>
                             <td>{{ $registroDocumentos->id_unidad_destino}}</td>
                             <td id="idEstadoDocumento">{{ $registroDocumentos->id_estado_documento}}</td>
                             <td>{{ $registroDocumentos->observacion}}</td>

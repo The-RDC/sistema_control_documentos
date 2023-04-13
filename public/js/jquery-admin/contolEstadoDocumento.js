@@ -5,21 +5,40 @@
 
 function marcarEstadoDocumentoFinalizado()
 {
-   let estadoActualDocumento =$('#idEstadoDocumento').text();
-   let estadoParaComparar="Finalizado";
+   let colorRojo="#FA724E";
+   let colorAmarillo="#EDFD7C";
+   let colorVerde="#12E35F";
+   let estadoFinalizado="Finalizado";
+   let estadoEntregado="Entregado";
+   let estadoRecepcionado="Recepcionado";
    $("#controlDeEstadoDocumentoParaMarcarlo tr").each( function (indexInArray, valueOfElement) 
    { 
-     if($(this).find("#idEstadoDocumento").text() == estadoParaComparar)
+     if($(this).find("#idEstadoDocumento").text() == estadoFinalizado)
      {
-        $(this).css("background","#e74c3c");
+        $(this).css("background",colorRojo);
         $(this).css("color","black");
         $(this).find("#btnEditarDocumento").removeAttr("href");
         $(this).find("#btnEstadoFinalizar").attr("disabled",true);
         $(this).find("#btnElimiarDocumento").attr("disabled",true);
      }
+     else if ($(this).find("#idEstadoDocumento").text() == estadoEntregado){
+         $(this).css("background",colorAmarillo);
+         $(this).css("color","black");
+     }
+     else if ($(this).find("#idEstadoDocumento").text() == estadoRecepcionado) {
+         $(this).css("background",colorVerde);
+         $(this).css("color","black");
+     }
    });
 }
-//setInterval(marcarEstadoDocumentoFinalizado,5000);
-setTimeout(marcarEstadoDocumentoFinalizado,1000);
+setInterval(marcarEstadoDocumentoFinalizado,1000);
 
+/**
+ * jquery para cuando termine de cargar todo el docuemtno
+ * este pueda cambiar los estilos de registro y desabilitar los botones de editar, finalizar y eliminar
+ */
+
+$(document).ready(function(){
+   marcarEstadoDocumentoFinalizado();
+});
 

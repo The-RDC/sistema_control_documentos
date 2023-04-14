@@ -16,7 +16,7 @@
   </div>
   <div class="col-sm-6">
     <label for="fec-final-documento">Fecha Final del Documento</label>
-    <input style="border: solid 2px #EEE30B" id="fec-final-documento" type="datetime-local" class="form-control" name="fecha_final" value="{{ old('fecha_final', $registroDocumento->fecha_final) }}" placeholder="Introduzca el fecha final">
+    <input style="border: solid 2px #EEE30B" id="fec-final-documento" type="datetime-local" class="form-control" name="fecha_final" value="{{ old('fecha_finall', $registroDocumento->fecha_final) }}" placeholder="Introduzca el fecha final">
   </div>
 </div>
 
@@ -49,7 +49,7 @@
   </div>
   <div class="col-sm-4">
     <label for="id_estado_documento">Estado Documento</label>
-        <select class="form-control" name="id_estado_documento" id="id_estado_documento" style="border: solid 2px #EEE30B">
+        <select class="form-control" name="id_estado_documentoo" id="id_estado_documento" style="border: solid 2px #EEE30B">
             <option selected>Estado Documento</option>
               @foreach($estado_documento as $estado_documentos)
                 <option value="{{ $estado_documentos->id }}"

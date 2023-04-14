@@ -49,7 +49,10 @@ class RegistroDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
 //        dd($request->all());
-        registro_documento::create($request->all());
+        $estado = $request->id_estado_documentoo;
+        registro_documento::create($request->all()+[
+                'id_estado_documento' => $estado
+            ]);
         return redirect()->route('registroDocumento.index');
     }
 
@@ -80,7 +83,13 @@ class RegistroDocumentoController extends Controller
      */
     public function update(UpdateRequest $request, registro_documento $registroDocumento)
     {
-        $registroDocumento->update($request->all());
+        $fechaF = $request->fecha_final;
+        $estado = (is_null($fechaF)) ?  : $estadoDocumento = 2 ;
+
+        $registroDocumento->update($request->all()+[
+                'id_estado_documento' => $estado
+            ]);
+
         return redirect()->route('registroDocumento.index');
     }
 

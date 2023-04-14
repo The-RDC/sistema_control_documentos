@@ -28,10 +28,10 @@
                                 <td>{{ $regionales->nombre_regional }}</td>
                                 <td><form action="{{ route('regional.destroy', $regionales) }}" method="post">
                                         @csrf @method('DELETE')
-                                        <a class="me-3" href="{{ route('regional.edit', $regionales) }}">
+                                        <a class="btn me-3" href="{{ route('regional.edit', $regionales) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                              <i class="fas fa-pen-alt"></i>
                                         </a>
-                                        <button class="btn btn-md btn-light ">
+                                        <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
                                              <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>

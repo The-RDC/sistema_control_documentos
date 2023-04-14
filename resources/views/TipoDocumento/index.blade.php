@@ -21,13 +21,6 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Referencia Documento</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                     @foreach($tipoDocumento as $tipoDocumentos)
                         <tr>
@@ -35,11 +28,11 @@
                             <td>{{ $tipoDocumentos->referencia_documento }}</td>
                             <td><form action="{{ route('tipoDocumento.destroy', $tipoDocumentos) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('tipoDocumento.edit', $tipoDocumentos) }}">
-                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:green">Editar</i>
+                                    <a class="btn me-3" href="{{ route('tipoDocumento.edit', $tipoDocumentos) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i>
                                     </a>
-                                    <button class="btn btn-md btn-light ">
-                                        <i class="fa fa-trash" aria-hidden="true" style="color:red"> Eliminar</i>
+                                    <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                        <i class="fa fa-trash" aria-hidden="true" style="color:black"></i>
                                     </button>
                                 </form>
                             </td>

@@ -18,7 +18,6 @@ function marcarEstadoDocumentoFinalizado()
         $(this).css("background",colorRojo);
         $(this).css("color","black");
         $(this).find("#btnEditarDocumento").removeAttr("href");
-        $(this).find("#btnEstadoFinalizar").attr("disabled",true);
         $(this).find("#btnElimiarDocumento").attr("disabled",true);
      }
      else if ($(this).find("#idEstadoDocumento").text() == estadoEntregado){
@@ -67,22 +66,6 @@ $(".btnEstadoFinalizar").on("click",function(e) {
    $("#EstadoFinalizarDocumento").modal("show");
 });
 
-$("#btnModalEstadoFinalizarDocumento").click(function(){
-   
-   let _token=$("input[name='_token']").val();
-   let dataActualizarRegistroDocumento={"_token":_token,"fecha_final":fechaFinalRegistroDocumento,"id_estado_documento":1};
-   $.ajax({
-      type: "POST",
-      url: rutaUpdateRegistroDocumento,
-      data: dataActualizarRegistroDocumento,
-      beforeSend: function () {
-         console.log(dataActualizarRegistroDocumento);
-         console.log(rutaUpdateRegistroDocumento);
-      },
-      success: function (response) {
-         console.log(response);
-      }
-   });
-});
+
 
 

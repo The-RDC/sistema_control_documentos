@@ -28,10 +28,10 @@
                                 <td>{{ $estadoDs->estado_documento }}</td>
                                 <td><form action="{{ route('estadoDocumento.destroy', $estadoDs) }}" method="post">
                                         @csrf @method('DELETE')
-                                        <a class="me-3" href="{{ route('estadoDocumento.edit', $estadoDs) }}">
+                                        <a class="btn me-3" href="{{ route('estadoDocumento.edit', $estadoDs) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                              <i class="fas fa-pen-alt"></i>
                                         </a>
-                                        <button class="btn btn-md btn-light ">
+                                        <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>

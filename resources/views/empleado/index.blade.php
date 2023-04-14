@@ -39,10 +39,10 @@
                                     <a class="me-3" href="{{ route('empleado.show', $empleados) }}">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a class="me-3" href="{{ route('empleado.edit', $empleados) }}">
+                                    <a class="btn me-3" href="{{ route('empleado.edit', $empleados) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                        <i class="fas fa-pen-alt"></i>
                                     </a>
-                                    <button class="btn btn-md btn-light ">
+                                    <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
                                        <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>

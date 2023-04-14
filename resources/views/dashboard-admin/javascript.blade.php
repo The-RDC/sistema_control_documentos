@@ -15,8 +15,14 @@
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 
+<!--Data Tables-->
+<script src="{{asset('DataTables1-13-4/js/jquery.dataTables.min.js')}}"></script>
+
 <!-- Jquery personalizados -->
 <script src="{{asset('js/jquery-admin/contolEstadoDocumento.js')}}"></script>
+<script src="{{asset('js/jquery-admin/dataTable-vistas.js')}}"></script>
+
+
 {{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>--}}
 {{--<script>--}}
 {{--    var rutaVista="{{route('vista')}}";--}}
@@ -24,3 +30,6 @@
 {{--    var rutaCrear="{{route('crear')}}";--}}
 {{--    var rutaActualizar="{{route('actualizar')}}";--}}
 {{--</script>--}}
+
+
+

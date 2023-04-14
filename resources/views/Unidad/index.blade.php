@@ -21,13 +21,6 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Unidad</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                     @foreach($unidad as $unidades_data)
                         <tr>
@@ -35,11 +28,11 @@
                             <td>{{ $unidades_data->unidad_area }}</td>
                             <td><form action="{{ route('unidad.destroy', $unidades_data) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('unidad.edit', $unidades_data) }}">
-                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:green">Editar</i>
+                                    <a class="btn me-3" href="{{ route('unidad.edit', $unidades_data) }}">
+                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Editar"></i>
                                     </a>
-                                    <button class="btn btn-md btn-light ">
-                                        <i class="fa fa-trash" aria-hidden="true" style="color:red"> Eliminar</i>
+                                    <button class="btn btn-md">
+                                        <i class="fa fa-trash" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
                                     </button>
                                 </form>
                             </td>

@@ -21,13 +21,6 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>id</th>
-                            <th>cargo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                     @foreach($cargo as $cargos)
                         <tr>
@@ -35,10 +28,10 @@
                             <td>{{ $cargos->nombre_cargo }}</td>
                             <td><form action="{{ route('cargo.destroy', $cargos) }}" method="post">
                                     @csrf @method('DELETE')
-                                    <a class="me-3" href="{{ route('cargo.edit', $cargos) }}">
+                                    <a class="btn me-3" href="{{ route('cargo.edit', $cargos) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="fas fa-pen-alt"></i>
                                     </a>
-                                    <button class="btn btn-md btn-light ">
+                                    <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>

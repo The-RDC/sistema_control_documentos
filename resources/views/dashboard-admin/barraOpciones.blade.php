@@ -48,6 +48,7 @@
             </div>
         </div>
     </li>
+    @can('regional.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
            aria-expanded="true" aria-controls="collapseTwo">
@@ -61,6 +62,8 @@
             </div>
         </div>
     </li>
+    @endcan
+     @can('empresa.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
            aria-expanded="true" aria-controls="collapseTwo">
@@ -74,6 +77,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('estadoDocumento.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
            aria-expanded="true" aria-controls="collapseTwo">
@@ -87,6 +92,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('empleado.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
            aria-expanded="true" aria-controls="collapseTwo">
@@ -100,6 +107,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('registroDocumento.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -113,6 +122,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('registroDocumento.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -126,6 +137,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('sucursal.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -139,6 +152,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('tipoDocumento.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -152,6 +167,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('unidad.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -165,6 +182,8 @@
             </div>
         </div>
     </li>
+     @endcan
+     @can('users.index')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
            aria-expanded="true" aria-controls="collapseTwo">
@@ -179,7 +198,7 @@
             </div>
         </div>
     </li>
-
+    @endcan
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

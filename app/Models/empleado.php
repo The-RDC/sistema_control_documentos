@@ -62,4 +62,9 @@ class empleado extends Model
     public function log_estado_docuemto(){
         return $this->hasMany(log_estado_documento::class);
     }
+
+    public function usuarios()
+    {
+        return $this->hasMany('App\User');
+    }
 }

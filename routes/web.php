@@ -100,6 +100,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::Get('users\editUser\{user}', [UserController::class, 'editUser'])->name('editarPerfil');
+    Route::Patch('users\updateUser\{user}', [UserController::class, 'updateUser'])->name('actualizarPerfil');
     Route::resource('cargo', CargoController::class)->names('cargo');
     Route::resource('empleado', EmpleadoController::class)->names('empleado');
     Route::resource('empresa', EmpresaController::class)->names('empresa');

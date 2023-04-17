@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\empleado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use DB;
-use Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -33,8 +34,10 @@ class UserController extends Controller
      */
     public function create(): View
     {
+        $empleados = empleado::get();
+//        dd($empleados);
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        return view('users.create',compact('roles', 'empleados'));
     }
 
     /**
@@ -82,11 +85,12 @@ class UserController extends Controller
      */
     public function edit($id): View
     {
+        $empleados = empleado::get();
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
 
-        return view('users.edit',compact('user','roles','userRole'));
+        return view('users.edit',compact('user','roles','userRole', 'empleados'));
     }
 
     /**
@@ -133,5 +137,38 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->route('users.index')
             ->with('success','User deleted successfully');
+    }
+
+    public function editUser($id){
+        $empleado = empleado::find($id);
+        $user = User::find($id);
+//        dd($user);
+        return view('users.perfil',compact('user', 'empleado'));
+
+    }
+
+    public function updateUser(Request $request, $id): RedirectResponse
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'same:confirm-password',
+        ]);
+
+        $input = $request->all();
+        if(!empty($input['password'])){
+            $input['password'] = Hash::make($input['password']);
+        }else{
+            $input = Arr::except($input,array('password'));
+        }
+
+        $user = User::find($id);
+        $user->update($input);
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+
+        $user->assignRole($request->input('roles'));
+
+        return redirect()->route('home')
+            ->with('success','User updated successfully');
     }
 }

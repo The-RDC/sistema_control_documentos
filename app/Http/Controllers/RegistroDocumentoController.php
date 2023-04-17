@@ -9,6 +9,7 @@ use App\Models\registro_documento;
 use App\Models\tipo_documento;
 use App\Models\unidad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegistroDocumentoController extends Controller
 {

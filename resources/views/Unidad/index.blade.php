@@ -8,7 +8,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a type="button" class="btn btn-primary" href="{{ route('unidad.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nueva unidad</a>
+            <a type="button" class="btn" href="{{ route('unidad.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nueva unidad</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'empleado_id'
     ];
 
     /**
@@ -44,11 +45,11 @@ class User extends Authenticatable
     ];
 
     public function getEmpleadoUser(){
-        return $this->hasMany(empleado::class);
+        return $this->hasMany(empleado::class, 'empleado_id');
     }
 
     public function getEmpleado()
     {
-        return $this->belongsTo(empleado::class);
+        return $this->belongsTo(empleado::class, 'empleado_id');
     }
 }

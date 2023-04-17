@@ -139,11 +139,15 @@ class UserController extends Controller
             ->with('success','User deleted successfully');
     }
 
-    public function editUser($id){
-        $empleado = empleado::find($id);
-        $user = User::find($id);
+    public function editUser(Request $request){
+//        dd($request->idUsuario);
+        $empleado = empleado::find($request->idEmpleado);
+        $user = User::find($request->idUsuario);
 //        dd($user);
-        return view('users.perfil',compact('user', 'empleado'));
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+
+        return view('users.perfil',compact('user', 'roles','userRole','empleado'));
 
     }
 
@@ -153,6 +157,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
+            'roles' => 'required'
         ]);
 
         $input = $request->all();

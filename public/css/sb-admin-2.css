@@ -11293,3 +11293,11 @@ body.sidebar-toggled footer.sticky-footer {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+/*
+* Color en la cabecera de las tablas que usan datatables jquery
+*/
+#dataTable > thead {
+  background: #EEE30B;
+  text-transform:uppercase;
+}

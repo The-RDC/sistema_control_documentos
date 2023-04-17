@@ -11,7 +11,7 @@
                 <h2> Ver Roles</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}"> Regresar</a>
+                <a class="btn" href="{{ route('roles.index') }}" style="background: #2FA137; color:aliceblue"> Regresar</a>
             </div>
         </div>
     </div>

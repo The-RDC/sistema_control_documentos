@@ -8,15 +8,14 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Informacion de las Regionales</h6>
-                <a type="button" class="btn btn-primary" href="{{ route('regional.create') }}">Agregar</a>
+                <a type="button" class="btn btn-primary" href="{{ route('regional.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nueva regional</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>id</th>
+                            <th>Nro</th>
                             <th>Regional</th>
                             <th>Acciones</th>
                         </tr>

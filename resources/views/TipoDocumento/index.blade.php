@@ -8,15 +8,14 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tipos de Documento</h6>
-            <a type="button" class="btn btn-primary" href="{{ route('tipoDocumento.create') }}">Agregar</a>
+            <a type="button" class="btn btn-primary" href="{{ route('tipoDocumento.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nuevo tipo de documento</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>Nro</th>
                             <th>Referencia Documento</th>
                             <th>Acciones</th>
                         </tr>

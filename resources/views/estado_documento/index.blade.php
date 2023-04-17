@@ -8,8 +8,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Informacion del estado del Documento</h6>
-                <a type="button" class="btn btn-primary" href="{{ route('estadoDocumento.create') }}">agregar</a>
+                <a type="button" class="btn btn-primary" href="{{ route('estadoDocumento.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nuevo estado del Documento</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

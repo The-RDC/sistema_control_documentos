@@ -48,7 +48,7 @@
         </div>
     </div>
 </li>
-//('regional')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -62,8 +62,7 @@
         </div>
     </div>
 </li>
-//
- //('empresa.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -77,8 +76,7 @@
         </div>
     </div>
 </li>
- //
- //('estadoDocumento.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -92,8 +90,7 @@
         </div>
     </div>
 </li>
- //
- //('empleado.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -107,8 +104,7 @@
         </div>
     </div>
 </li>
- //
- //('registroDocumento.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -122,8 +118,7 @@
         </div>
     </div>
 </li>
- //
- //('registroDocumento.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -137,8 +132,7 @@
         </div>
     </div>
 </li>
- //
- //('sucursal.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -152,8 +146,7 @@
         </div>
     </div>
 </li>
- //
- //('tipoDocumento.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -167,8 +160,7 @@
         </div>
     </div>
 </li>
- //
- //('unidad.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -182,8 +174,7 @@
         </div>
     </div>
 </li>
- //
- //('users.index')
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -198,7 +189,7 @@
         </div>
     </div>
 </li>
-//
+
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 

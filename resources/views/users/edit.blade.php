@@ -45,17 +45,6 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="empleado_id">Empleado:</label>
-                <select name="empleado_id" class="form-control" id="empleado_id">
-                    <option> Seleccione un empleado</option>
-                    @foreach ($empleados as $empleado)
-                        <option value="{{ $empleado->id }}">{{ $empleado->nombres }} {{ $empleado->ap_paterno }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>Contraseña:</strong>
                 {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
             </div>

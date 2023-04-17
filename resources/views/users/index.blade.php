@@ -11,7 +11,7 @@
                 <h2>Lista Usuario</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Crear usuario</a>
+                <a class="btn" href="{{ route('users.create') }}" style="background: #2FA137; color:aliceblue">+ Crear nuevo usuario</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
+            <th>Nro</th>
             <th>Nombre</th>
             <th>Email</th>
             <th>Roles</th>

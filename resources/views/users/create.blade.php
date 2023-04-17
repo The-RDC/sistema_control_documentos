@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn" style="background: #2FA137; color:aliceblue">Guardar</button>
         </div>
     </div>
     {!! Form::close() !!}

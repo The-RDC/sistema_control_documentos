@@ -3,11 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-3">
+            <img src="{{asset('img/logoSimonBolivar.jpg')}}" alt="" class="img-fluid">
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="background: #EEE30B; font-weight: bold;">
+                    <!--{{ __('Login') }}  -->
+                    Inicio de Sesion
+                </div>
 
-                <div class="card-body">
+                <div class="card-body" style="background: #2FA137; color:aliceblue">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -52,14 +61,15 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-8 offset-md-4" >
+                                <button type="submit" class="btn" style="background: #F0B824"> 
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="color:aliceblue">
+                                        <!--{{ __('Forgot Your Password?') }}-->
+                                        {{ __('Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
                             </div>

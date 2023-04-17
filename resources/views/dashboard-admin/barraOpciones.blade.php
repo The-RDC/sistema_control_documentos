@@ -35,6 +35,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+    @can('cargo-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -48,7 +49,8 @@
         </div>
     </div>
 </li>
-
+    @endcan
+     @can('regional-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -62,7 +64,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('empresa-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -76,7 +79,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('estadoDocumento-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -90,7 +94,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('empleado-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -104,7 +109,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('listarDocumento-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -118,7 +124,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('registroDocumento-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -132,7 +139,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('sucursal-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -146,7 +154,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('tipoDocumento-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -160,7 +169,8 @@
         </div>
     </div>
 </li>
-
+@endcan
+     @can('unidad-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
         aria-expanded="true" aria-controls="collapseTwo">
@@ -174,7 +184,7 @@
         </div>
     </div>
 </li>
-
+@endcan
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
        aria-expanded="true" aria-controls="collapseTwo">

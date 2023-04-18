@@ -47,9 +47,15 @@
                 <td>
                     <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Ver</a>
                     <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Editar</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline','id'=>$user->id]) !!}
+                    {!! Form::submit('Borrar', ['class' => 'btn btn-danger','data-descripcion' => 'BorrarRegistroTablas']) !!}
                     {!! Form::close() !!}
+                    <form action="{{route('users.destroy',$user->id)}}" method="post" id="{{$user->id}}">
+                        @csrf @method('DELETE')
+                        <button class="btn btn-md btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
+                            Borrar
+                        </button>
+                    </form>
                 </td>
             </tr>
         @endforeach

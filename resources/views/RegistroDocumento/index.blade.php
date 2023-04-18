@@ -6,38 +6,53 @@
     <br>
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow ">
         <div class="card-header py-3">
             <div class="container">
-                <form method="GET" action="{{ route('users.index') }}">
-                    <label for="name">Empresa:</label>
-                    <select name="name">
-                        <option value="">Todos</option>
-                        <option value="Juan">Juan</option>
-                        <option value="Pedro">Pedro</option>
-                        <option value="Maria">Maria</option>
-                    </select>
+                <form method="GET" action="{{ route('registroDocumento.index') }}">
+                    <div class="form-group row">
 
-                    <label for="age">Regional:</label>
-                    <select name="age">
-                        <option value="">Todas</option>
-                        <option value="18">18 años o menos</option>
-                        <option value="25">Entre 18 y 25 años</option>
-                        <option value="30">Entre 25 y 30 años</option>
-                        <option value="30+">30 años o más</option>
-                    </select>
-                    <label for="age">Sucursal:</label>
-                    <select name="age">
-                        <option value="">Todas</option>
-                        <option value="18">18 años o menos</option>
-                        <option value="25">Entre 18 y 25 años</option>
-                        <option value="30">Entre 25 y 30 años</option>
-                        <option value="30+">30 años o más</option>
-                    </select>
-                    <button type="submit">Filtrar</button>
+                        <div class="col-sm-3">
+                            <label for="name">Empresa:</label>
+                            <select class="form-control" name="empresa" style="border: solid 2px #EEE30B">
+                                <option value="">Empresa</option>
+                                @foreach ($empresa as $empresas)
+                                <option value="{{ $empresas->nombre_empresa }}">{{ $empresas->nombre_empresa }}"
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="age">Regional:</label>
+                            <select class="form-control" name="regional" style="border: solid 2px #EEE30B">
+                                <option value="">Regional</option>
+                                @foreach ($regional as $regionales)
+                                <option value="{{ $regionales->nombre_regional }}">{{ $regionales->nombre_regional }}"
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="age">Sucursal:</label>
+                            <select class="form-control" name="sucursal" style="border: solid 2px #EEE30B">
+                                <option value="">sucursal</option>
+                                @foreach ($sucursal as $sucursales)
+                                <option value="{{ $sucursales->nombre_sucursal }}">{{ $sucursales->nombre_sucursal }}"
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-3" >
+                            <div class="form-control" >
+                           <br>
+                            <button type="submit" class="btn btn-success">Filtrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <a type="button" class="btn" href="{{ route('registroDocumento.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>
+            <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
+                style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -58,32 +73,37 @@
                         </tr>
                     </thead>
                     <tbody id="controlDeEstadoDocumentoParaMarcarlo">
-                    @foreach($registroDocumento as $registroDocumentos)
+                        @foreach ($data as $datos)
                         <tr>
-                            <td id="idRegistroEstadoDocumento">{{ $registroDocumentos->id }}</td>
-                            <td>{{ $registroDocumentos->numero_hoja_ruta }}</td>
-                            <td>{{ $registroDocumentos->fecha_recepcion}}</td>
-                            <td>{{ $registroDocumentos->fecha_entrega}}</td>
-                            <td>{{ $registroDocumentos->fecha_final}}</td>
-                            <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}}</td>
-                            <td>{{ $registroDocumentos->getUnidadDestino->unidad_area}}</td>
-                            <td id="idEstadoDocumento">{{ $registroDocumentos->getEstadoDocumento->estado_documento}}</td>
-                            <td></td>
-                            {{-- <td>{{ $registroDocumentos->getUserRegister->getEmpleadoUser()->getSucursal()->id_sucursal}}</td> --}}
-                            <td>{{ $registroDocumentos->observacion}}</td>
+                            <td id="idRegistroEstadoDocumento">{{ $datos->id }}</td>
+                            <td>{{ $datos->numero_hoja_ruta }}</td>
+                            <td>{{ $datos->fecha_recepcion }}</td>
+                            <td>{{ $datos->fecha_entrega }}</td>
+                            <td>{{ $datos->fecha_final }}</td>
+                            <td>{{ $datos->getTipoDocumento->referencia_documento }}</td>
+                            <td>{{ $datos->getUnidadDestino->unidad_area }}</td>
+                            <td id="idEstadoDocumento">
+                                {{ $datos->getEstadoDocumento->estado_documento }}</td>
+                            <td>{{ $datos->getUserRegister->getEmpleado->getSucursal->nombre_sucursal }}
+                            </td>
+                            <td>{{ $datos->observacion }}</td>
                             <td id="accionesDocumento">
-                                <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post" id="{{ $registroDocumentos->id }}">
+                                <form action="{{ route('registroDocumento.destroy', $datos) }}" method="post"
+                                    id="{{ $datos->id }}">
                                     @csrf @method('DELETE')
-                                    <a class="btn me-3" href="{{ route('registroDocumento.edit', $registroDocumentos) }}" id="btnEditarDocumento" data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <a class="btn me-3" href="{{ route('registroDocumento.edit', $datos) }}"
+                                        id="btnEditarDocumento" data-toggle="tooltip" data-placement="top"
+                                        title="Editar">
                                         <i class="fa fa-pencil-alt fa-xs" aria-hidden="true" style="color: black"></i>
                                     </a>
-                                    <button class="btn" id="btnElimiarDocumento" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
+                                    <button class="btn" id="btnElimiarDocumento" data-toggle="tooltip"
+                                        data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
                                         <i class="fa fa-trash fa-xs" aria-hidden="true" style="color: black"></i>
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>

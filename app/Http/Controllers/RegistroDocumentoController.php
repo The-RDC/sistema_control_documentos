@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegistroDocumento\StoreRequest;
 use App\Http\Requests\RegistroDocumento\UpdateRequest;
+use App\Models\empresa;
 use App\Models\estado_documento;
+use App\Models\regional;
 use App\Models\registro_documento;
+use App\Models\sucursal;
 use App\Models\tipo_documento;
 use App\Models\unidad;
 use Illuminate\Http\Request;
@@ -21,14 +24,32 @@ class RegistroDocumentoController extends Controller
         $this->middleware('permission:registroDocumento-delete', ['only' => ['destroy']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $tipo_documento = tipo_documento::get();
-        $unidad = unidad::get();
-        $estado_documento = estado_documento::get();
-        $registroDocumento = registro_documento::get();
+
+       $registroDocumento = registro_documento::get();
+        $emp = $request->input('empresa');
+        $reg = $request->input('regional');
+        $suc = $request->input('sucursal');
+
+       $data = registro_documento::when($emp, function($query) use ($emp) {
+        return $query->where('empresa', $emp);
+      })
+      ->when($reg, function($query) use ($reg) {
+        return $query->where('regional', $reg);
+      })
+      ->when($suc, function($query) use ($suc) {
+        return $query->where('sucursal', $suc);
+      })
+      ->get();
+
+    //  dd($data);
+
+        $empresa = empresa::get();
+        $regional = regional::get();
+        $sucursal = sucursal::get();
         //dd($tipo_documento);
-        return view('RegistroDocumento.index', compact('registroDocumento', 'tipo_documento', 'unidad', 'estado_documento'));
+        return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal'));
     }
 
     /**
@@ -50,16 +71,20 @@ class RegistroDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
 //        dd($request->all());
-        $usuario = Auth::user();
-        $empleado = $usuario->getEmpleado;
-        dd($empleado);
+         $usuario = Auth::user();
+        // dd($usuario)
+         $empleado = $usuario->getEmpleado;
+        //  dd($empleado->getRegional->nombre_regional);
 
-        $sucursal = $empleado->getSucursalUser;
+        // $sucursal = $empleado->getSucursalUser;
          $estado = $request->id_estado_documentoo;
         registro_documento::create($request->all()+
             [
                 'id_estado_documento' => $estado,
-                'id_usuario' => Auth::user()->id
+                'id_usuario' => Auth::user()->id,
+                'empresa' => $empleado->getEmpresa->nombre_empresa,
+                'regional' => $empleado->getRegional->nombre_regional,
+                'sucursal' => $empleado->getSucursal->nombre_sucursal
             ]);
         return redirect()->route('registroDocumento.index');
     }

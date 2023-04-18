@@ -16,7 +16,17 @@
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 
 <!--Data Tables-->
-<script src="{{asset('DataTables1-13-4/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('DataTables1134/datatables.min.js')}}"></script>
+<script src="{{asset('DataTables1134/DataTables-1.13.4/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('DataTables1134/Buttons-2.3.6/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('DataTables1134/pdfmake-0.1.36/pdfmake.min.js')}}"></script>
+<script src="{{asset('DataTables1134/pdfmake-0.1.36/vfs_fonts.js')}}"></script>
+<script src="{{asset('DataTables1134/Buttons-2.3.6/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('DataTables1134/Buttons-2.3.6/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('DataTables1134/Buttons-2.3.6/js/buttons.print.min.js')}}"></script>
+
+
+
 
 <!-- Jquery personalizados -->
 <script src="{{asset('js/jquery-admin/contolEstadoDocumento.js')}}"></script>

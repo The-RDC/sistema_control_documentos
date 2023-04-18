@@ -25,7 +25,21 @@
                 "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
-        }
+        },
+        "dom": 'Blfrtip',
+        "buttons": [
+            {
+                extend: 'pdf', 
+                titleAttr: 'Exportar a PDF', 
+                text: '<i class="fa fa-file-pdf" aria-hidden="true"></i>', 
+                className: 'btn btn-danger', 
+                exportOptions: { columns: [0, 1,2,3,4,5,6,7,8,9] },
+                /*Centra la tabla del PDF
+                 * customize: function (doc) {
+                    doc.content[1].margin = [100, 0, 100, 0] //left, top, right, bottom
+                }*/
+            }
+        ]
     });
  });
          

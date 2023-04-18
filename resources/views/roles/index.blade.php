@@ -42,9 +42,16 @@
                         <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                     @endcan
                     @can('role-delete')
-                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+                        <!--{!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                         {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}
+                        {!! Form::close() !!}-->
+                        <form action="{{route('roles.destroy',$role->id)}}" method="post" id="{{$role->id}}">
+                            @csrf 
+                            @method('DELETE')
+                            <button class="btn btn-md btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
+                                Borrar
+                            </button>
+                        </form>
                     @endcan
                 </td>
             </tr>

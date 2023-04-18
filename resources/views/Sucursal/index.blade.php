@@ -25,12 +25,12 @@
                         <tr>
                             <td>{{ $sucursales->id }}</td>
                             <td>{{ $sucursales->nombre_sucursal }}</td>
-                            <td><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post">
+                            <td><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post" id="{{ $sucursales->id }}">
                                     @csrf @method('DELETE')
                                     <a class="btn me-3" href="{{ route('sucursal.edit', $sucursales) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i>
                                     </a>
-                                    <button class="btn btn-md">
+                                    <button class="btn btn-md" data-descripcion="BorrarRegistroTablas">
                                         <i class="fa fa-trash" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
                                     </button>
                                 </form>

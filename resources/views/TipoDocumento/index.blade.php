@@ -25,12 +25,12 @@
                         <tr>
                             <td>{{ $tipoDocumentos->id }}</td>
                             <td>{{ $tipoDocumentos->referencia_documento }}</td>
-                            <td><form action="{{ route('tipoDocumento.destroy', $tipoDocumentos) }}" method="post">
+                            <td><form action="{{ route('tipoDocumento.destroy', $tipoDocumentos) }}" method="post" id="{{ $tipoDocumentos->id }}">
                                     @csrf @method('DELETE')
                                     <a class="btn me-3" href="{{ route('tipoDocumento.edit', $tipoDocumentos) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i>
                                     </a>
-                                    <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                    <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
                                         <i class="fa fa-trash" aria-hidden="true" style="color:black"></i>
                                     </button>
                                 </form>

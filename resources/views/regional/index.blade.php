@@ -25,12 +25,12 @@
                             <tr>
                                 <td>{{ $regionales->id }}</td>
                                 <td>{{ $regionales->nombre_regional }}</td>
-                                <td><form action="{{ route('regional.destroy', $regionales) }}" method="post">
+                                <td><form action="{{ route('regional.destroy', $regionales) }}" method="post" id="{{ $regionales->id }}">
                                         @csrf @method('DELETE')
                                         <a class="btn me-3" href="{{ route('regional.edit', $regionales) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                              <i class="fas fa-pen-alt"></i>
                                         </a>
-                                        <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                        <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
                                              <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>

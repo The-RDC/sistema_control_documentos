@@ -72,12 +72,12 @@
                             {{-- <td>{{ $registroDocumentos->getUserRegister->getEmpleadoUser()->getSucursal()->id_sucursal}}</td> --}}
                             <td>{{ $registroDocumentos->observacion}}</td>
                             <td id="accionesDocumento">
-                                <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">
+                                <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post" id="{{ $registroDocumentos->id }}">
                                     @csrf @method('DELETE')
                                     <a class="btn me-3" href="{{ route('registroDocumento.edit', $registroDocumentos) }}" id="btnEditarDocumento" data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="fa fa-pencil-alt fa-xs" aria-hidden="true" style="color: black"></i>
                                     </a>
-                                    <button class="btn" id="btnElimiarDocumento" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                    <button class="btn" id="btnElimiarDocumento" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
                                         <i class="fa fa-trash fa-xs" aria-hidden="true" style="color: black"></i>
                                     </button>
                                 </form>

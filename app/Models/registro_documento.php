@@ -17,10 +17,15 @@ class registro_documento extends Model
         'fecha_entrega',
         'fecha_final',
         'observacion',
+        'id_usuario',
         'id_tipo_documento',
         'id_unidad_destino',
         'id_estado_documento', 'estado'
     ];
+
+    public function getUserRegister(){
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
 
     public function getTipoDocumento(){
         return $this->belongsTo(tipo_documento::class, 'id_tipo_documento');

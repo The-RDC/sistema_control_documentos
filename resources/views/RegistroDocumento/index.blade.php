@@ -8,6 +8,35 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
+            <div class="container">
+                <form method="GET" action="{{ route('users.index') }}">
+                    <label for="name">Empresa:</label>
+                    <select name="name">
+                        <option value="">Todos</option>
+                        <option value="Juan">Juan</option>
+                        <option value="Pedro">Pedro</option>
+                        <option value="Maria">Maria</option>
+                    </select>
+
+                    <label for="age">Regional:</label>
+                    <select name="age">
+                        <option value="">Todas</option>
+                        <option value="18">18 años o menos</option>
+                        <option value="25">Entre 18 y 25 años</option>
+                        <option value="30">Entre 25 y 30 años</option>
+                        <option value="30+">30 años o más</option>
+                    </select>
+                    <label for="age">Sucursal:</label>
+                    <select name="age">
+                        <option value="">Todas</option>
+                        <option value="18">18 años o menos</option>
+                        <option value="25">Entre 18 y 25 años</option>
+                        <option value="30">Entre 25 y 30 años</option>
+                        <option value="30+">30 años o más</option>
+                    </select>
+                    <button type="submit">Filtrar</button>
+                </form>
+            </div>
             <a type="button" class="btn" href="{{ route('registroDocumento.create') }}" style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>
         </div>
         <div class="card-body">
@@ -23,6 +52,7 @@
                             <th>Tipo Documento</th>
                             <th>Unidad de Destino</th>
                             <th>Estado Documento</th>
+                            <th>Sucursal</th>
                             <th>Observaciones</th>
                             <th>Acciones</th>
                         </tr>
@@ -38,6 +68,8 @@
                             <td>{{ $registroDocumentos->getTipoDocumento->referencia_documento}}</td>
                             <td>{{ $registroDocumentos->getUnidadDestino->unidad_area}}</td>
                             <td id="idEstadoDocumento">{{ $registroDocumentos->getEstadoDocumento->estado_documento}}</td>
+                            <td></td>
+                            {{-- <td>{{ $registroDocumentos->getUserRegister->getEmpleadoUser()->getSucursal()->id_sucursal}}</td> --}}
                             <td>{{ $registroDocumentos->observacion}}</td>
                             <td id="accionesDocumento">
                                 <form action="{{ route('registroDocumento.destroy', $registroDocumentos) }}" method="post">

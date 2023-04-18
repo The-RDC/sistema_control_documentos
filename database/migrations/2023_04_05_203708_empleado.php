@@ -30,6 +30,14 @@ return new class extends Migration
 
             $table->foreign('id_cargo')->references('id')->on('cargos');
 
+            $table->unsignedBigInteger('id_genero');
+
+            $table->foreign('id_genero')->references('id')->on('generos');
+
+            $table->unsignedBigInteger('id_estadocivil');
+
+            $table->foreign('id_estadocivil')->references('id')->on('estadoCivil');
+
             $table->string('nombres')->unique();
             $table->string('ap_paterno');
             $table->string('ap_materno');
@@ -41,8 +49,6 @@ return new class extends Migration
             $table->string('email_personal')->nullable();
             $table->string('email_institucional')->nullable();
             $table->date('fecha_nacimiento');
-            $table->string('genero');
-            $table->string('estado_civil')->nullable();
             $table->string('telf_celular');
             $table->string('telf_fijo')->nullable();
             $table->string('direccion')->nullable();

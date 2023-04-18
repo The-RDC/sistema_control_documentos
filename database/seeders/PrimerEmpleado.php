@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\Cargo;
 use App\Models\empleado;
 use App\Models\empresa;
+use App\Models\estado_documento;
+use App\Models\EstadoCivil;
+use App\Models\Genero;
 use App\Models\regional;
 use App\Models\sucursal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -41,7 +44,28 @@ class PrimerEmpleado extends Seeder
         $companies = new empresa($compani);
         $companies->save();
 
-        $employee = ([
+        $genero = ([
+            'Femenino',
+            'Masculino',
+            'Otros',
+        ]);
+
+        foreach ($genero as $gener) {
+            Genero::create(['nombre_genero' => $gener]);
+        }
+
+        $estadoCivil = ([
+            'Soltero',
+            'Casado',
+            'Divorciado',
+            'Viudo',
+        ]);
+
+        foreach ($estadoCivil as $civil) {
+            EstadoCivil::create(['estadocivil' => $civil]);
+        }
+
+        $employee = [
             'nombres' => 'Administrador',
             'ap_paterno' => 'Administrador',
             'ap_materno' => 'Administrador',
@@ -54,11 +78,22 @@ class PrimerEmpleado extends Seeder
             'tipo_documento' => 'ci',
             'ext_visa_laboral' => '1212121',
             'fecha_nacimiento' => '1999-01-01',
-            'genero' => '1',
+            'id_genero' => 2,
+            'id_estadocivil' => 1,
             'telf_celular' => '1212121',
 
-        ]);
+        ];
         $employees = new empleado($employee);
         $employees->save();
+
+        $estadoDocuemnto = ([
+            'Recepcionado',
+            'Entregado',
+            'Finalizado',
+        ]);
+
+        foreach ($estadoDocuemnto as $estado) {
+            estado_documento::create(['estado_documento' => $estado]);
+        }
     }
 }

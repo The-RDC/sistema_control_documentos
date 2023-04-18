@@ -44,12 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getEmpleadoUser(){
-        return $this->hasMany(empleado::class, 'empleado_id');
-    }
-
     public function getEmpleado()
     {
         return $this->belongsTo(empleado::class, 'empleado_id');
     }
+
+    public function empleado()
+    {
+        return $this->hasOne(empleado::class, 'empleado_id');
+    }
+
+    public function getSucursalUser()
+    {
+        return $this->empleado->belongsTo(sucursal::class);
+    }
+
 }

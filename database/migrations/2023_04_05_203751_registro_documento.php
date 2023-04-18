@@ -19,6 +19,9 @@ return new class extends Migration
             $table->dateTime('fecha_final')->nullable();
             $table->string('observacion')->nullable();
 
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
+
             $table->unsignedBigInteger('id_tipo_documento');
             $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos');
 

@@ -28,8 +28,8 @@ class empleado extends Model
         'email_personal',
         'email_institucional',
         'fecha_nacimiento',
-        'genero',
-        'estado_civil',
+        'id_genero',
+        'id_estadocivil',
         'telf_celular',
         'telf_fijo',
         'direccion',
@@ -47,12 +47,25 @@ class empleado extends Model
         return $this->belongsTo(sucursal::class, 'id_sucursal');
     }
 
+    public function usuarios()
+    {
+        return $this->hasMany('App\User');
+    }
+
     public function getRegional(){
         return $this->belongsTo(regional::class, 'id_regional');
     }
 
     public function getEmpresa(){
         return $this->belongsTo(empresa::class,'id_empresa');
+    }
+
+    public function getGenero(){
+        return $this->belongsTo(Genero::class,'id_genero');
+    }
+
+    public function getEstadoCivil(){
+        return $this->belongsTo(EstadoCivil::class,'id_estadocivil');
     }
 
     public function getSolicitud_vacaciones(){
@@ -63,8 +76,5 @@ class empleado extends Model
         return $this->hasMany(log_estado_documento::class);
     }
 
-    public function usuarios()
-    {
-        return $this->hasMany('App\User');
-    }
+
 }

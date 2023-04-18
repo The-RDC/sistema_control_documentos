@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cargo;
 use App\Models\empleado;
 use App\Models\empresa;
+use App\Models\EstadoCivil;
+use App\Models\Genero;
 use App\Models\regional;
 use App\Models\sucursal;
 use Illuminate\Http\Request;
@@ -36,9 +38,11 @@ class EmpleadoController extends Controller
         $sucursal = sucursal::get();
         $empresa = empresa::get();
         $cargo = Cargo::get();
+        $genero = Genero::get();
+        $estaCivil = EstadoCivil::get();
         $empleado = new empleado();
 
-        return view('empleado.create', compact('empleado','regional','sucursal','empresa','cargo'));
+        return view('empleado.create', compact('empleado','regional','sucursal','empresa','cargo', 'genero', 'estaCivil'));
     }
 
     /**
@@ -68,7 +72,9 @@ class EmpleadoController extends Controller
         $sucursal = sucursal::get();
         $empresa = empresa::get();
         $cargo = Cargo::get();
-        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo'));
+        $genero = Genero::get();
+        $estaCivil = EstadoCivil::get();
+        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil'));
     }
 
     /**

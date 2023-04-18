@@ -50,9 +50,16 @@ class RegistroDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
 //        dd($request->all());
-        $estado = $request->id_estado_documentoo;
-        registro_documento::create($request->all()+[
-                'id_estado_documento' => $estado
+        $usuario = Auth::user();
+        $empleado = $usuario->getEmpleado;
+        dd($empleado);
+
+        $sucursal = $empleado->getSucursalUser;
+         $estado = $request->id_estado_documentoo;
+        registro_documento::create($request->all()+
+            [
+                'id_estado_documento' => $estado,
+                'id_usuario' => Auth::user()->id
             ]);
         return redirect()->route('registroDocumento.index');
     }
@@ -85,7 +92,7 @@ class RegistroDocumentoController extends Controller
     public function update(UpdateRequest $request, registro_documento $registroDocumento)
     {
         $fechaF = $request->fecha_final;
-        $estado = (is_null($fechaF)) ?  : $estadoDocumento = 2 ;
+        $estado = (is_null($fechaF)) ?  : $estadoDocumento = 3 ;
 
         $registroDocumento->update($request->all()+[
                 'id_estado_documento' => $estado

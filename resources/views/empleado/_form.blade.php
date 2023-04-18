@@ -45,19 +45,27 @@
                placeholder="Fecha Nacimiento" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <select class="form-control" name="genero" style="border: solid 2px #EEE30B">
+        <select class="form-control" name="id_genero" style="border: solid 2px #EEE30B">
             <option selected>Genero</option>
-            <option value="1">Femenino</option>
-            <option value="2">Masculino</option>
-            <option value="3">Otros</option>
+            @foreach($genero as $generos)
+                <option value="{{ $generos->id }}"
+                        @if($generos->id == $empleado->id_genero)
+                        selected
+                    @endif
+                >{{ $generos->nombre_genero }}"</option>
+            @endforeach
         </select>
     </div>
     <div class="col-sm-4">
-        <select class="form-control" name="estado_civil" style="border: solid 2px #EEE30B">
+        <select class="form-control" name="id_estadocivil" style="border: solid 2px #EEE30B">
             <option selected>Estado Civil</option>
-            <option value="1">Soltero</option>
-            <option value="2">Divorciado</option>
-            <option value="3">Casado</option>
+            @foreach($estaCivil as $estaCivils)
+                <option value="{{ $estaCivils->id }}"
+                        @if($estaCivils->id == $empleado->id_estadocivil)
+                        selected
+                    @endif
+                >{{ $estaCivils->estadocivil }}"</option>
+            @endforeach
         </select>
     </div>
 </div>

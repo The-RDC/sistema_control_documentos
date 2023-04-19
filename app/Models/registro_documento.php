@@ -47,6 +47,7 @@ class registro_documento extends Model
         $emp = $request->input('empresa');
         $reg = $request->input('regional');
         $suc = $request->input('sucursal');
+        $est = $request->input('estado');
 
         $data = registro_documento::when($emp, function ($query) use ($emp) {
             return $query->where('empresa', $emp);
@@ -56,6 +57,9 @@ class registro_documento extends Model
             })
             ->when($suc, function ($query) use ($suc) {
                 return $query->where('sucursal', $suc);
+            })
+            ->when($est, function ($query) use ($est) {
+                return $query->where('id_estado_documento', $est);
             })
             ->get();
 

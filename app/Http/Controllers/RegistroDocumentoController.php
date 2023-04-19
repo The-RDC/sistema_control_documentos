@@ -37,7 +37,9 @@ class RegistroDocumentoController extends Controller
             $empresa = empresa::get();
             $regional = regional::get();
             $sucursal = sucursal::get();
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'rol'));
+            $estado_documento = estado_documento::get();
+
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
         } else {
             $data = registro_documento::where('id_usuario', auth()->user()->id)->get();
             return view('RegistroDocumento.index', compact('data',  'rol'));

@@ -9,6 +9,7 @@
     <div class="card shadow ">
         <div class="card-header py-3">
             <div class="container">
+                @if ($rol === "administrador")
                 <form method="GET" action="{{ route('registroDocumento.index') }}">
                     <div class="form-group row">
 
@@ -42,14 +43,18 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-3" >
-                            <div class="form-control" >
-                           <br>
-                            <button type="submit" class="btn btn-success">Filtrar</button>
+                        <div class="col-sm-3">
+                            <div class="form-control">
+                                <br>
+                                <button type="submit" class="btn btn-success">Filtrar</button>
                             </div>
                         </div>
                     </div>
                 </form>
+                @endif
+
+
+
             </div>
             <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
                 style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>

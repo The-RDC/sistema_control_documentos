@@ -18,38 +18,45 @@ class RegistroDocumentoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:registroDocumento-list|registroDocumento-create|registroDocumento-edit|registroDocumento-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:registroDocumento-create', ['only' => ['create','store']]);
-        $this->middleware('permission:registroDocumento-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:registroDocumento-list|registroDocumento-create|registroDocumento-edit|registroDocumento-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:registroDocumento-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:registroDocumento-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:registroDocumento-delete', ['only' => ['destroy']]);
     }
 
     public function index(Request $request)
     {
+        $usuario = auth()->user();
+        foreach ($usuario->roles as $role) {
+            $rol = $role->name;
+        }
 
-       $registroDocumento = registro_documento::get();
-        $emp = $request->input('empresa');
-        $reg = $request->input('regional');
-        $suc = $request->input('sucursal');
+        if ($rol === 'administrador') {
 
-       $data = registro_documento::when($emp, function($query) use ($emp) {
-        return $query->where('empresa', $emp);
-      })
-      ->when($reg, function($query) use ($reg) {
-        return $query->where('regional', $reg);
-      })
-      ->when($suc, function($query) use ($suc) {
-        return $query->where('sucursal', $suc);
-      })
-      ->get();
+            $registroDocumento = registro_documento::get();
+            $emp = $request->input('empresa');
+            $reg = $request->input('regional');
+            $suc = $request->input('sucursal');
 
-    //  dd($data);
+            $data = registro_documento::when($emp, function ($query) use ($emp) {
+                return $query->where('empresa', $emp);
+            })
+                ->when($reg, function ($query) use ($reg) {
+                    return $query->where('regional', $reg);
+                })
+                ->when($suc, function ($query) use ($suc) {
+                    return $query->where('sucursal', $suc);
+                })
+                ->get();
 
-        $empresa = empresa::get();
-        $regional = regional::get();
-        $sucursal = sucursal::get();
-        //dd($tipo_documento);
-        return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal'));
+            $empresa = empresa::get();
+            $regional = regional::get();
+            $sucursal = sucursal::get();
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'rol'));
+        } else {
+            $data = registro_documento::where('id_usuario', auth()->user()->id)->get();
+            return view('RegistroDocumento.index', compact('data',  'rol'));
+        }
     }
 
     /**
@@ -70,15 +77,15 @@ class RegistroDocumentoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-//        dd($request->all());
-         $usuario = Auth::user();
+        //        dd($request->all());
+        $usuario = Auth::user();
         // dd($usuario)
-         $empleado = $usuario->getEmpleado;
+        $empleado = $usuario->getEmpleado;
         //  dd($empleado->getRegional->nombre_regional);
 
         // $sucursal = $empleado->getSucursalUser;
-         $estado = $request->id_estado_documentoo;
-        registro_documento::create($request->all()+
+        $estado = $request->id_estado_documentoo;
+        registro_documento::create($request->all() +
             [
                 'id_estado_documento' => $estado,
                 'id_usuario' => Auth::user()->id,
@@ -117,11 +124,11 @@ class RegistroDocumentoController extends Controller
     public function update(UpdateRequest $request, registro_documento $registroDocumento)
     {
         $fechaF = $request->fecha_final;
-        $estado = (is_null($fechaF)) ?  : $estadoDocumento = 3 ;
+        $estado = (is_null($fechaF)) ?: $estadoDocumento = 3;
 
-        $registroDocumento->update($request->all()+[
-                'id_estado_documento' => $estado
-            ]);
+        $registroDocumento->update($request->all() + [
+            'id_estado_documento' => $estado
+        ]);
 
         return redirect()->route('registroDocumento.index');
     }
@@ -133,14 +140,15 @@ class RegistroDocumentoController extends Controller
     {
         $registroDocumento->delete();
         return redirect()->route('registroDocumento.index');
-
     }
 
     public function editar(Request $request)
     {
-        registro_documento::update(['id' => $request->id],
-            ['fecha_final' => $request->fecha_final, 'id_estado_documento' => $request->id_estado_documento]);
+        registro_documento::update(
+            ['id' => $request->id],
+            ['fecha_final' => $request->fecha_final, 'id_estado_documento' => $request->id_estado_documento]
+        );
 
-        return response()->json(['success'=>'Post saved successfully.']);
+        return response()->json(['success' => 'Post saved successfully.']);
     }
 }

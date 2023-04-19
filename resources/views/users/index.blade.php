@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2 class="titulo-datatable-pdf">Lista Usuario</h2>
+                <h2 class="titulo-datatable-pdf">Lista de Usuarios</h2>
             </div>
             <div class="pull-right">
                 <a class="btn" href="{{ route('users.create') }}" style="background: #2FA137; color:aliceblue">+ Crear nuevo usuario</a>

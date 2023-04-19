@@ -62,7 +62,7 @@
   </div>
 </div>
 <div class="form-group">
-  <label for="">Observaiones</label>
+  <label for="">Observaciones</label>
   <input style="border: solid 2px #EEE30B" type="text" class="form-control" name="observacion" value="{{ old('observacion', $registroDocumento->observacion) }}" placeholder="Introduzca la observacion del Documento">
 </div>
 

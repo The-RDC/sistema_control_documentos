@@ -22,17 +22,17 @@ return new class extends Migration
             $table->string('sucursal');
             $table->string('observacion')->nullable();
 
-            $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('set null');
+            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->foreign('id_usuario')->references('id')->on('users')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_tipo_documento');
-            $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos')->onDelete('set null');
+            $table->unsignedBigInteger('id_tipo_documento')->nullable();
+            $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_unidad_destino');
-            $table->foreign('id_unidad_destino')->references('id')->on('unidades')->onDelete('set null');
+            $table->unsignedBigInteger('id_unidad_destino')->nullable();
+            $table->foreign('id_unidad_destino')->references('id')->on('unidades')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_estado_documento');
-            $table->foreign('id_estado_documento')->references('id')->on('estado_documentos')->onDelete('set null');
+            $table->unsignedBigInteger('id_estado_documento')->nullable();
+            $table->foreign('id_estado_documento')->references('id')->on('estado_documentos')->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

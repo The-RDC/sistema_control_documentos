@@ -14,29 +14,29 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_regional');
+            $table->unsignedBigInteger('id_regional')->nullable();
 
-            $table->foreign('id_regional')->references('id')->on('regionales')->onDelete('set null');
+            $table->foreign('id_regional')->references('id')->on('regionales')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_sucursal');
+            $table->unsignedBigInteger('id_sucursal')->nullable();
 
-            $table->foreign('id_sucursal')->references('id')->on('sucursales')->onDelete('set null');
+            $table->foreign('id_sucursal')->references('id')->on('sucursales')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_empresa');
+            $table->unsignedBigInteger('id_empresa')->nullable();
 
-            $table->foreign('id_empresa')->references('id')->on('empresas')->onDelete('set null');
+            $table->foreign('id_empresa')->references('id')->on('empresas')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_cargo');
+            $table->unsignedBigInteger('id_cargo')->nullable();
 
-            $table->foreign('id_cargo')->references('id')->on('cargos')->onDelete('set null');
+            $table->foreign('id_cargo')->references('id')->on('cargos')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_genero');
+            $table->unsignedBigInteger('id_genero')->nullable();
 
-            $table->foreign('id_genero')->references('id')->on('generos')->onDelete('set null');
+            $table->foreign('id_genero')->references('id')->on('generos')->nullOnDelete();
 
-            $table->unsignedBigInteger('id_estadocivil');
+            $table->unsignedBigInteger('id_estadocivil')->nullable();
 
-            $table->foreign('id_estadocivil')->references('id')->on('estadoCivil')->onDelete('set null');
+            $table->foreign('id_estadocivil')->references('id')->on('estadoCivil')->nullOnDelete();
 
             $table->string('nombres')->unique();
             $table->string('ap_paterno');

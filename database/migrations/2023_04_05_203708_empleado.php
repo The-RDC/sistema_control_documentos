@@ -16,27 +16,27 @@ return new class extends Migration
 
             $table->unsignedBigInteger('id_regional');
 
-            $table->foreign('id_regional')->references('id')->on('regionales');
+            $table->foreign('id_regional')->references('id')->on('regionales')->onDelete('set null');
 
             $table->unsignedBigInteger('id_sucursal');
 
-            $table->foreign('id_sucursal')->references('id')->on('sucursales');
+            $table->foreign('id_sucursal')->references('id')->on('sucursales')->onDelete('set null');
 
             $table->unsignedBigInteger('id_empresa');
 
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->foreign('id_empresa')->references('id')->on('empresas')->onDelete('set null');
 
             $table->unsignedBigInteger('id_cargo');
 
-            $table->foreign('id_cargo')->references('id')->on('cargos');
+            $table->foreign('id_cargo')->references('id')->on('cargos')->onDelete('set null');
 
             $table->unsignedBigInteger('id_genero');
 
-            $table->foreign('id_genero')->references('id')->on('generos');
+            $table->foreign('id_genero')->references('id')->on('generos')->onDelete('set null');
 
             $table->unsignedBigInteger('id_estadocivil');
 
-            $table->foreign('id_estadocivil')->references('id')->on('estadoCivil');
+            $table->foreign('id_estadocivil')->references('id')->on('estadoCivil')->onDelete('set null');
 
             $table->string('nombres')->unique();
             $table->string('ap_paterno');
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->string('nacionalidad');
             $table->string('nro_documento');
             $table->string('tipo_documento');
-            $table->string('ext_visa_laboral');
+            $table->string('ext_visa_laboral')->nullable();
             $table->string('email_personal')->nullable();
             $table->string('email_institucional')->nullable();
             $table->date('fecha_nacimiento');

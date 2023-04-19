@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('empleados');
+            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('set null');
 
 
             $table->timestamps();

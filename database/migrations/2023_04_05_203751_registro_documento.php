@@ -23,16 +23,16 @@ return new class extends Migration
             $table->string('observacion')->nullable();
 
             $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('set null');
 
             $table->unsignedBigInteger('id_tipo_documento');
-            $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos');
+            $table->foreign('id_tipo_documento')->references('id')->on('tipo_documentos')->onDelete('set null');
 
             $table->unsignedBigInteger('id_unidad_destino');
-            $table->foreign('id_unidad_destino')->references('id')->on('unidades');
+            $table->foreign('id_unidad_destino')->references('id')->on('unidades')->onDelete('set null');
 
             $table->unsignedBigInteger('id_estado_documento');
-            $table->foreign('id_estado_documento')->references('id')->on('estado_documentos');
+            $table->foreign('id_estado_documento')->references('id')->on('estado_documentos')->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
         });

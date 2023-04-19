@@ -43,17 +43,12 @@
                             </select>
                         </div>
                         <div class="col-sm-3">
-                            <div class="form-control">
-                                <br>
-                                <button type="submit" class="btn btn-success">Filtrar</button>
-                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-success">Filtrar</button>
                         </div>
                     </div>
                 </form>
                 @endif
-
-
-
             </div>
             <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
                 style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>

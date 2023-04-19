@@ -32,22 +32,7 @@ class RegistroDocumentoController extends Controller
         }
 
         if ($rol === 'administrador') {
-
-            $registroDocumento = registro_documento::get();
-            $emp = $request->input('empresa');
-            $reg = $request->input('regional');
-            $suc = $request->input('sucursal');
-
-            $data = registro_documento::when($emp, function ($query) use ($emp) {
-                return $query->where('empresa', $emp);
-            })
-                ->when($reg, function ($query) use ($reg) {
-                    return $query->where('regional', $reg);
-                })
-                ->when($suc, function ($query) use ($suc) {
-                    return $query->where('sucursal', $suc);
-                })
-                ->get();
+            $data = registro_documento::getVistasDocumento($request);
 
             $empresa = empresa::get();
             $regional = regional::get();

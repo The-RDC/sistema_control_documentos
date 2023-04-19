@@ -26,7 +26,8 @@
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
         },
-        "dom": 'B<"clear">lfrtip',
+        "dom": "<'row p-3'<'col-sm-12 col-md-12 d-flex justify-content-end'B>>\
+                lfrtip",// "lfrtip",
         "buttons": [
             {
                 extend: 'pdf', 

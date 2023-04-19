@@ -2,7 +2,7 @@
 @section('informacion')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Informacion de Empleados</h1>
+    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Informacion de Empleados</h1>
     <br>
 
     <!-- DataTales Example -->
@@ -21,7 +21,7 @@
                             <th>Correo Institucional</th>
                             <th># Celula</th>
                             <th>direccion</th>
-                            <th>Acciones</th>
+                            <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
                             <td>{{ $empleados->email_institucional }}</td>
                             <td>{{ $empleados->telf_celular }}</td>
                             <td>{{ $empleados->direccion }}</td>
-                            <td><form action="{{ route('empleado.destroy', $empleados) }}" method="post" id="{{ $empleados->id }}">
+                            <td class="no-exportar-pdf"><form action="{{ route('empleado.destroy', $empleados) }}" method="post" id="{{ $empleados->id }}">
                                     @csrf @method('DELETE')
                                     <a class="me-3" href="{{ route('empleado.show', $empleados) }}">
                                         <i class="fas fa-eye"></i>

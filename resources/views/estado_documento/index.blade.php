@@ -2,7 +2,7 @@
 @section('informacion')
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Informacion de Estado Documento</h1>
+        <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Informacion de Estado Documento</h1>
         <br>
 
         <!-- DataTales Example -->
@@ -17,7 +17,7 @@
                         <tr>
                             <th>id</th>
                             <th>Estados del Documento</th>
-                            <th>Acciones</th>
+                            <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -25,7 +25,7 @@
                             <tr>
                                 <td>{{ $estadoDs->id }}</td>
                                 <td>{{ $estadoDs->estado_documento }}</td>
-                                <td><form action="{{ route('estadoDocumento.destroy', $estadoDs) }}" method="post" id="{{ $estadoDs->id }}">
+                                <td class="no-exportar-pdf"><form action="{{ route('estadoDocumento.destroy', $estadoDs) }}" method="post" id="{{ $estadoDs->id }}">
                                         @csrf @method('DELETE')
                                         <a class="btn me-3" href="{{ route('estadoDocumento.edit', $estadoDs) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                              <i class="fas fa-pen-alt"></i>

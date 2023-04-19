@@ -2,7 +2,7 @@
 @section('informacion')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Informacion de Documentos</h1>
+    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Informacion de Documentos</h1>
     <br>
 
     <!-- DataTales Example -->
@@ -69,7 +69,7 @@
                             <th>Estado Documento</th>
                             <th>Sucursal</th>
                             <th>Observaciones</th>
-                            <th>Acciones</th>
+                            <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="controlDeEstadoDocumentoParaMarcarlo">
@@ -87,7 +87,7 @@
                             <td>{{ $datos->getUserRegister->getEmpleado->getSucursal->nombre_sucursal }}
                             </td>
                             <td>{{ $datos->observacion }}</td>
-                            <td id="accionesDocumento">
+                            <td class="no-exportar-pdf" id="accionesDocumento">
                                 <form action="{{ route('registroDocumento.destroy', $datos) }}" method="post"
                                     id="{{ $datos->id }}">
                                     @csrf @method('DELETE')

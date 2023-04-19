@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Informacion de los Roles</h2>
+                <h2 class="titulo-datatable-pdf">Informacion de los Roles</h2>
             </div>
             <div class="pull-right">
                 @can('role-create')
@@ -30,13 +30,13 @@
         <tr>
             <th>Nro</th>
             <th>Nombre</th>
-            <th width="280px">Acciones</th>
+            <th class="no-exportar-pdf" width="280px">Acciones</th>
         </tr>
         @foreach ($roles as $key => $role)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $role->name }}</td>
-                <td>
+                <td class="no-exportar-pdf">
                     <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Ver</a>
                     @can('role-edit')
                         <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>

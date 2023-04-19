@@ -1,4 +1,4 @@
- $(document).ready(function () {
+  $(document).ready(function () {
     $('#dataTable').DataTable({
         "pageLength": 5,
         "lengthMenu": [ 5, 10, 25, 50, 70 ],
@@ -26,20 +26,24 @@
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
         },
-        "dom": 'Blfrtip',
+        "dom": 'B<"clear">lfrtip',
         "buttons": [
             {
                 extend: 'pdf', 
                 titleAttr: 'Exportar a PDF', 
-                text: '<i class="fa fa-file-pdf" aria-hidden="true"></i>', 
+                text: '<i class="fa fa-file-pdf" aria-hidden="true"> PDF</i>', 
                 className: 'btn btn-danger', 
-                exportOptions: { columns: [0, 1,2,3,4,5,6,7,8,9] },
+                exportOptions: { columns: ":not(.no-exportar-pdf)" },
                 /*Centra la tabla del PDF
                  * customize: function (doc) {
                     doc.content[1].margin = [100, 0, 100, 0] //left, top, right, bottom
                 }*/
-            }
+                title:$(".titulo-datatable-pdf").text(),
+                customize: function (doc) {      
+                    doc.defaultStyle.fontSize = 10;}
+            },            
         ]
     });
+    $('.dt-buttons').addClass('text-right');
  });
          

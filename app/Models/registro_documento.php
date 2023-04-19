@@ -42,4 +42,27 @@ class registro_documento extends Model
         return $this->belongsTo(estado_documento::class, 'id_estado_documento');
     }
 
+    public static function getVistasDocumento($request){
+        $registroDocumento = registro_documento::get();
+        $emp = $request->input('empresa');
+        $reg = $request->input('regional');
+        $suc = $request->input('sucursal');
+        $est = $request->input('estado');
+
+        $data = registro_documento::when($emp, function ($query) use ($emp) {
+            return $query->where('empresa', $emp);
+        })
+            ->when($reg, function ($query) use ($reg) {
+                return $query->where('regional', $reg);
+            })
+            ->when($suc, function ($query) use ($suc) {
+                return $query->where('sucursal', $suc);
+            })
+            ->when($est, function ($query) use ($est) {
+                return $query->where('id_estado_documento', $est);
+            })
+            ->get();
+
+            return $data;
+    }
 }

@@ -9,9 +9,9 @@
     <div class="card shadow ">
         <div class="card-header py-3">
             <div class="container">
+                @if ($rol === "administrador")
                 <form method="GET" action="{{ route('registroDocumento.index') }}">
                     <div class="form-group row">
-
                         <div class="col-sm-3">
                             <label for="name">Empresa:</label>
                             <select class="form-control" name="empresa" style="border: solid 2px #EEE30B">
@@ -42,14 +42,23 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-3" >
-                            <div class="form-control" >
-                           <br>
+                        <div class="col-sm-3">
+                            <label for="age">Estado:</label>
+                            <select class="form-control" name="estado" style="border: solid 2px #EEE30B">
+                                <option value="">Estado Documento</option>
+                                @foreach($estado_documento as $estado_documentos)
+                                <option value="{{ $estado_documentos->id }}">{{ $estado_documentos->estado_documento }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <br>
                             <button type="submit" class="btn btn-success">Filtrar</button>
-                            </div>
                         </div>
                     </div>
                 </form>
+                @endif
             </div>
             <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
                 style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>
@@ -91,15 +100,20 @@
                                 <form action="{{ route('registroDocumento.destroy', $datos) }}" method="post"
                                     id="{{ $datos->id }}">
                                     @csrf @method('DELETE')
+                                    @can('registroDocumento-edit')
                                     <a class="btn me-3" href="{{ route('registroDocumento.edit', $datos) }}"
                                         id="btnEditarDocumento" data-toggle="tooltip" data-placement="top"
                                         title="Editar">
                                         <i class="fa fa-pencil-alt fa-xs" aria-hidden="true" style="color: black"></i>
                                     </a>
+                                    @endcan
+                                    @can('registroDocumento-delete')
                                     <button class="btn" id="btnElimiarDocumento" data-toggle="tooltip"
                                         data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
                                         <i class="fa fa-trash fa-xs" aria-hidden="true" style="color: black"></i>
                                     </button>
+                                    @endcan
+
                                 </form>
                             </td>
                         </tr>

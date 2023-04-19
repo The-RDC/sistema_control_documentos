@@ -12,7 +12,6 @@
                 @if ($rol === "administrador")
                 <form method="GET" action="{{ route('registroDocumento.index') }}">
                     <div class="form-group row">
-
                         <div class="col-sm-3">
                             <label for="name">Empresa:</label>
                             <select class="form-control" name="empresa" style="border: solid 2px #EEE30B">

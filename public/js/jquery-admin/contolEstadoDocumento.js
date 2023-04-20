@@ -13,24 +13,24 @@ function marcarEstadoDocumentoFinalizado()
    let estadoRecepcionado="Recepcionado";
    $("#controlDeEstadoDocumentoParaMarcarlo tr").each( function (indexInArray, valueOfElement) 
    { 
-     if($(this).find("#idEstadoDocumento").text() == estadoFinalizado)
+     if($(this).find("#idEstadoDocumento").text().toLowerCase().trim() == estadoFinalizado.toLowerCase())
      {
         $(this).css("background",colorRojo);
         $(this).css("color","black");
         $(this).find("#btnEditarDocumento").removeAttr("href");
         $(this).find("#btnElimiarDocumento").attr("disabled",true);
      }
-     else if ($(this).find("#idEstadoDocumento").text() == estadoEntregado){
+     else if ($(this).find("#idEstadoDocumento").text().toLowerCase().trim() == estadoEntregado.toLowerCase()){
          $(this).css("background",colorAmarillo);
          $(this).css("color","black");
      }
-     else if ($(this).find("#idEstadoDocumento").text() == estadoRecepcionado) {
+     else if ($(this).find("#idEstadoDocumento").text().toLowerCase().trim() == estadoRecepcionado.toLowerCase()) {
          $(this).css("background",colorVerde);
          $(this).css("color","black");
      }
    });
 }
-setInterval(marcarEstadoDocumentoFinalizado,1000);
+//setInterval(marcarEstadoDocumentoFinalizado,1000);
 
 /**
  * jquery para cuando termine de cargar todo el docuemtno

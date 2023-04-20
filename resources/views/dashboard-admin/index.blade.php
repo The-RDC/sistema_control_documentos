@@ -611,6 +611,7 @@
 
     <!-- Jquery personalizados -->
     <script src="{{asset('js/jquery-admin/cargo.js')}}"></script>
+    <script src="{{asset('js/jquery-admin/contolEstadoDocumento.js')}}"></script>
 
     <script>
         var rutaVista="{{route('vista')}}";

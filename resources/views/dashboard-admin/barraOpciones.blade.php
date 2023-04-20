@@ -185,6 +185,7 @@
     </div>
 </li>
 @endcan
+    @can('role-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
        aria-expanded="true" aria-controls="collapseTwo">
@@ -199,7 +200,7 @@
         </div>
     </div>
 </li>
-
+@endcan
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 

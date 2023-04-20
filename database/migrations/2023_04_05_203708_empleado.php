@@ -38,7 +38,7 @@ return new class extends Migration
 
             $table->foreign('id_estadocivil')->references('id')->on('estadoCivil')->nullOnDelete();
 
-            $table->string('nombres')->unique();
+            $table->string('nombres');
             $table->string('ap_paterno');
             $table->string('ap_materno');
             $table->string('avatar')->nullable();

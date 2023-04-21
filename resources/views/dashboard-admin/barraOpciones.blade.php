@@ -51,7 +51,6 @@
             </div>
         </li>
     @endcan
-<<<<<<<<< Temporary merge branch 1
     
     @can('empresa-list')
         <li class="nav-item">
@@ -212,7 +211,7 @@
             </div>
         </li>
 
-=========
+
      @can('regional-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"

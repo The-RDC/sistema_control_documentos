@@ -23,7 +23,7 @@
     <div class="col-sm-4">
         <label for="">Nro. Documento</label>
         <input type="text" class="form-control " name="nro_documento" value="{{ old('nro_documento', $empleado->nro_documento) }}"
-               placeholder="Numero Documento" style="border: solid 2px #EEE30B">
+               placeholder="Nro. Documento" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
         <label for="">Tipo Documento</label>
@@ -38,7 +38,7 @@
                placeholder="Visa" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <label for="">Correo Electronico</label>
+        <label for="">Correo Electrónico</label>
         <input type="text" class="form-control " name="email_personal" value="{{ old('email_personal', $empleado->email_personal) }}"
                placeholder="Correo Personal" style="border: solid 2px #EEE30B">
     </div>
@@ -55,9 +55,9 @@
                placeholder="Fecha Nacimiento" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <label for="">Genero</label>
+        <label for="">Género</label>
         <select class="form-control" name="id_genero" style="border: solid 2px #EEE30B">
-            <option selected>Genero</option>
+            <option selected>Género</option>
             @foreach($genero as $generos)
                 <option value="{{ $generos->id }}"
                         @if($generos->id == $empleado->id_genero)
@@ -89,14 +89,14 @@
                placeholder="# Celular" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <label for="">Telefono Fijo</label>
+        <label for="">Teléfono Fijo</label>
         <input type="text" class="form-control " name="telf_fijo" value="{{ old('telf_fijo', $empleado->telf_fijo) }}"
-               placeholder="Telefono Fijo" style="border: solid 2px #EEE30B">
+               placeholder="Teléfono Fijo" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <label for="">Direccion</label>
+        <label for="">Dirección</label>
         <input type="text" class="form-control " name="direccion" value="{{ old('direccion', $empleado->direccion) }}"
-               placeholder="Direccion" style="border: solid 2px #EEE30B">
+               placeholder="Dirección" style="border: solid 2px #EEE30B">
     </div>
 </div>
 

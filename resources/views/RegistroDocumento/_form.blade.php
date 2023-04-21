@@ -1,11 +1,11 @@
 <div class="form-group row">
   <div class="col-sm-6">
-    <label for="num-hoja-ruta">Codigo Hoja Ruta</label>
+    <label for="num-hoja-ruta">Código Hoja Ruta</label>
     <input style="border: solid 2px #EEE30B" id="num-hoja-ruta" type="text" class="form-control" name="numero_hoja_ruta" value="{{ old('numero_hoja_ruta', $registroDocumento->numero_hoja_ruta) }}" placeholder="Introduzca el codigo de hoja de ruta">
   </div>
   <div class="col-sm-6">
-    <label for="fecha-recepcion">Fecha de Recepcion</label>
-    <input style="border: solid 2px #EEE30B" id="fecha-recepcion" type="datetime-local" class="form-control" name="fecha_recepcion" value="{{ old('fecha_recepcion', $registroDocumento->fecha_recepcion) }}" placeholder="Introduzca fecha recepcion">
+    <label for="fecha-recepcion">Fecha de Recepción</label>
+    <input style="border: solid 2px #EEE30B" id="fecha-recepcion" type="datetime-local" class="form-control" name="fecha_recepcion" value="{{ old('fecha_recepcion', $registroDocumento->fecha_recepcion) }}" placeholder="Introduzca fecha recepción">
   </div>
 </div>
 

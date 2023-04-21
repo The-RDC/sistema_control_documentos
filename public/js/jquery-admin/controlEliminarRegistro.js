@@ -4,7 +4,7 @@ $("button").click(function(e){
         e.preventDefault();
         identificadorFormulario=$(this).parent("form").attr("id");
         $("#ModalTitleMensajes").text("Precaucion!");
-        $("#ModalBodyMensajes").text("Esta seguro de eliminar el registro");
+        $("#ModalBodyMensajes").text("Esta seguro de eliminar el registro?");
         $("#Mensajes").modal("show");
     }
 });

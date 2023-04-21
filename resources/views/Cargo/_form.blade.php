@@ -1,5 +1,5 @@
 <div class="form-group">
-    <input type="text" class="form-control" name="nombre_cargo" value="{{ old('nombre_cargo', $cargo->nombre_cargo) }}" placeholder="introdusca el cargo" style="border: solid 2px #EEE30B">
+    <input type="text" class="form-control" name="nombre_cargo" value="{{ old('nombre_cargo', $cargo->nombre_cargo) }}" placeholder="Introduzca el cargo" style="border: solid 2px #EEE30B">
     @if ($errors->has('nombre_cargo'))
         {{ $errors->first('nombre_cargo') }}
     @endif

@@ -2,7 +2,7 @@
 @section('informacion')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Informacion de Documentos</h1>
+    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Información de Documentos</h1>
     <br>
 
     <!-- DataTales Example -->
@@ -17,7 +17,7 @@
                             <select class="form-control" name="empresa" style="border: solid 2px #EEE30B">
                                 <option value="">Empresa</option>
                                 @foreach ($empresa as $empresas)
-                                <option value="{{ $empresas->nombre_empresa }}">{{ $empresas->nombre_empresa }}"
+                                <option value="{{ $empresas->nombre_empresa }}">{{ $empresas->nombre_empresa }}
                                 </option>
                                 @endforeach
                             </select>
@@ -27,7 +27,7 @@
                             <select class="form-control" name="regional" style="border: solid 2px #EEE30B">
                                 <option value="">Regional</option>
                                 @foreach ($regional as $regionales)
-                                <option value="{{ $regionales->nombre_regional }}">{{ $regionales->nombre_regional }}"
+                                <option value="{{ $regionales->nombre_regional }}">{{ $regionales->nombre_regional }}
                                 </option>
                                 @endforeach
                             </select>
@@ -37,7 +37,7 @@
                             <select class="form-control" name="sucursal" style="border: solid 2px #EEE30B">
                                 <option value="">sucursal</option>
                                 @foreach ($sucursal as $sucursales)
-                                <option value="{{ $sucursales->nombre_sucursal }}">{{ $sucursales->nombre_sucursal }}"
+                                <option value="{{ $sucursales->nombre_sucursal }}">{{ $sucursales->nombre_sucursal }}
                                 </option>
                                 @endforeach
                             </select>
@@ -69,8 +69,8 @@
                     <thead>
                         <tr>
                             <th>Nro.</th>
-                            <th>Codigo de Ruta</th>
-                            <th>Fecha Recepcion</th>
+                            <th>Código de Ruta</th>
+                            <th>Fecha Recepción</th>
                             <th>Fecha Entrega</th>
                             <th>Fecha Final</th>
                             <th>Tipo Documento</th>

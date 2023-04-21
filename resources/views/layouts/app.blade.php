@@ -1,5 +1,5 @@
 @php
-    $nombreEmpresa="Simon Bolivar";
+    $nombreEmpresa="Simón Bolívarr";
     $loginNombre=""    
 @endphp
 

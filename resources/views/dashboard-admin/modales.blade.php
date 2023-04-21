@@ -10,7 +10,7 @@
              </button>
          </div>
          <div class="modal-body">
-             Desea salir del sistema.</div>
+             Desea salir del sistema?</div>
          <div class="modal-footer">
              <a class="btn btn-success" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                  {{ __('Si') }}

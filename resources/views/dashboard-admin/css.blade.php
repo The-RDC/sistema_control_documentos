@@ -1,3 +1,6 @@
+<!--icono del sitio web-->
+<link rel="shortcut icon" href="{{asset('img/logoSimonBolivar.ico')}}" type="image/x-icon">
+
 <!-- Custom fonts for this template-->
 <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 <link

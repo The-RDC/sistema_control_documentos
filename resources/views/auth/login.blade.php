@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header" style="background: #EEE30B; font-weight: bold;">
                     <!--{{ __('Login') }}  -->
-                    Inicio de Sesion
+                    Inicio Sesión
                 </div>
 
                 <div class="card-body" style="background: #2FA137; color:aliceblue">
@@ -21,7 +21,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Coreo Electronico') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo Electrónico') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

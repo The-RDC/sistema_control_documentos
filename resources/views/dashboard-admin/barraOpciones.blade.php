@@ -35,96 +35,171 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    @can('cargo-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-briefcase"></i>
-        <span>Cargo</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Cargo</h6>
-            <a class="collapse-item" href="{{ route('cargo.index') }}">Listar Cargos</a>
-        </div>
-    </div>
-</li>
+
     @endcan
      @can('regional-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
-       aria-expanded="true" aria-controls="collapseTwo">
-       <i class="fas fa-sitemap"></i>
-        <span>Regionales</span>
-    </a>
-    <div id="regionales" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Regional</h6>
-            <a class="collapse-item" href="{{ route('regional.index') }}">Listar Regionales</a>
-        </div>
-    </div>
-</li>
-@endcan
-     @can('empresa-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
-       aria-expanded="true" aria-controls="collapseTwo">
-       <i class="fas fa-building"></i>
-        <span>Empresa</span>
-    </a>
-    <div id="empresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Empresa</h6>
-            <a class="collapse-item" href="{{ route('empresa.index') }}">Listar Empresa</a>
-        </div>
-    </div>
-</li>
-@endcan
-     @can('estadoDocumento-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
-       aria-expanded="true" aria-controls="collapseTwo">
-       <i class="far fa-check-square"></i>
-        <span>Estado Documento</span>
-    </a>
-    <div id="esdoc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Estado Documento</h6>
-            <a class="collapse-item" href="{{ route('estadoDocumento.index') }}">Listar estado documentos</a>
-        </div>
-    </div>
-</li>
-@endcan
-     @can('empleado-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
-       aria-expanded="true" aria-controls="collapseTwo">
-       <i class="fas fa-user-tie"></i>
-        <span>Empleado</span>
-    </a>
-    <div id="emp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Empleado</h6>
-            <a class="collapse-item" href="{{ route('empleado.index') }}">Listar Empleado</a>
-        </div>
-    </div>
-</li>
-@endcan
-     @can('listarDocumento-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-list"></i>
-        <span>Documento</span>
-    </a>
-    <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Documento:</h6>
-            <a class="collapse-item" href="" id="listar-documentos">Listar Documentos</a>
-        </div>
-    </div>
-</li>
-@endcan
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-sitemap"></i>
+                <span>Regionales</span>
+            </a>
+            <div id="regionales" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Regional</h6>
+                    <a class="collapse-item" href="{{ route('regional.index') }}">Listar Regionales</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+    
+
+    @can('empresa-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-building"></i>
+                <span>Empresa</span>
+            </a>
+            <div id="empresa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Empresa</h6>
+                    <a class="collapse-item" href="{{ route('empresa.index') }}">Listar Empresa</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+
+
+
+    @can('sucursal-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-city"></i>
+                <span>Sucursal</span>
+            </a>
+            <div id="collapseSucursal" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Sucursal</h6>
+                    <a class="collapse-item" href="{{ route('sucursal.index') }}" id="listar-sucrusal">Listar Sucursales</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+
+
+
+    @can('unidad-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fab fa-unity"></i>
+                <span>Unidades</span>
+            </a>
+            <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Unidades</h6>
+                    <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
+                </div>
+            </div>
+        </li>   
+    @endcan
+
+
+
+    @can('cargo-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-briefcase"></i>
+                <span>Cargo</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Cargo</h6>
+                    <a class="collapse-item" href="{{ route('cargo.index') }}">Listar Cargos</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+    
+
+
+
+    @can('empleado-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-user-tie"></i>
+                <span>Empleado</span>
+            </a>
+            <div id="emp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Empleado</h6>
+                    <a class="collapse-item" href="{{ route('empleado.index') }}">Listar Empleado</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+
+
+    
+    @can('estadoDocumento-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="far fa-check-square"></i>
+                <span>Estado Documento</span>
+            </a>
+            <div id="esdoc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Estado Documento</h6>
+                    <a class="collapse-item" href="{{ route('estadoDocumento.index') }}">Listar estado documentos</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+
+
+    
+
+    @can('tipoDocumento-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-file"></i>
+                <span>Tipo Documento</span>
+            </a>
+            <div id="collapseTipoDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Tipo de Documento</h6>
+                    <a class="collapse-item" href="{{ route('tipoDocumento.index') }}" id="listar-tipoDocumento">Listar Tipos Documento</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+
+
+    
+    @can('listarDocumento-list')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-list"></i>
+                <span>Documento</span>
+            </a>
+            <div id="collapseDocuemento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Documento:</h6>
+                    <a class="collapse-item" href="" id="listar-documentos">Listar Documentos</a>
+                </div>
+            </div>
+        </li>
+    @endcan
+
+
+
      @can('registroDocumento-list')
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
@@ -140,51 +215,9 @@
     </div>
 </li>
 @endcan
-     @can('sucursal-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-city"></i>
-        <span>Sucursal</span>
-    </a>
-    <div id="collapseSucursal" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Sucursal</h6>
-            <a class="collapse-item" href="{{ route('sucursal.index') }}" id="listar-sucrusal">Listar Sucursales</a>
-        </div>
-    </div>
-</li>
-@endcan
-     @can('tipoDocumento-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-file"></i>
-        <span>Tipo Documento</span>
-    </a>
-    <div id="collapseTipoDocumento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Tipo de Documento</h6>
-            <a class="collapse-item" href="{{ route('tipoDocumento.index') }}" id="listar-tipoDocumento">Listar Tipos Documento</a>
-        </div>
-    </div>
-</li>
-@endcan
-     @can('unidad-list')
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fab fa-unity"></i>
-        <span>Unidades</span>
-    </a>
-    <div id="collapseUnidades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Unidades</h6>
-            <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
-        </div>
-    </div>
-</li>
-@endcan
+     
+     
+     
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
        aria-expanded="true" aria-controls="collapseTwo">

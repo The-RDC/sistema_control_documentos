@@ -9,7 +9,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Editar Empresa!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Editar Empresa</h1>
                             </div>
                             <form method="POST" action="{{ route('empresa.update', $empresa) }}">
                                 @csrf @method('PATCH')

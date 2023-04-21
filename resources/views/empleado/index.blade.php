@@ -2,7 +2,7 @@
 @section('informacion')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Informacion de Empleados</h1>
+    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Información de Empleados</h1>
     <br>
 
     <!-- DataTales Example -->
@@ -20,7 +20,7 @@
                             <th>Nacionalidad</th>
                             <th>Correo Institucional</th>
                             <th># Celula</th>
-                            <th>direccion</th>
+                            <th>Dirección</th>
                             <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                     </thead>

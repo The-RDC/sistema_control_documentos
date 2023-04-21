@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administracion</title>
+    <title>Administración</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="sidebar-brand-text mx-3">Simon Bolivar</div>
+                        <div class="sidebar-brand-text mx-3">Simón Bolívar</div>
                     </div>
                 </div>
             </a>
@@ -178,7 +178,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Helio Mejia M.</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Juan Salamanca</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>

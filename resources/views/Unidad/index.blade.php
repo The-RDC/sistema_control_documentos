@@ -2,7 +2,7 @@
 @section('informacion')
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Informacion de Unidades</h1>
+    <h1 class="h3 mb-2 text-gray-800 titulo-datatable-pdf">Información de Unidades</h1>
     <br>
 
     <!-- DataTales Example -->

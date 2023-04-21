@@ -9,7 +9,7 @@
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Detalle Empleado!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Detalle Empleado</h1>
                             </div>
 
                             <table class="table caption-top">
@@ -35,7 +35,7 @@
                                     <td>{{ $empleado->nacionalidad }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"># Documento</th>
+                                    <th scope="row">Nro. Documento</th>
                                     <td>{{ $empleado->nro_documento }}</td>
                                 </tr>
                                 <tr>
@@ -43,7 +43,7 @@
                                     <td>{{ $empleado->tipo_documento }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Visal Laboral</th>
+                                    <th scope="row">Visa Laboral</th>
                                     <td>{{ $empleado->ext_visa_laboral }}</td>
                                 </tr>
                                 <tr>
@@ -59,7 +59,7 @@
                                     <td>{{ $empleado->fecha_nacimiento }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Genero</th>
+                                    <th scope="row">Género</th>
                                     <td>{{ $empleado->genero }}</td>
                                 </tr>
                                 <tr>

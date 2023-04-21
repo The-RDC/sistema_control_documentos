@@ -1,5 +1,5 @@
 <div class="form-group">
-    <input type="text" class="form-control" name="nombre_empresa" value="{{ old('nombre_empresa', $empresa->nombre_empresa) }}" placeholder="introdusca el empresa"style="border: solid 2px #EEE30B">
+    <input type="text" class="form-control" name="nombre_empresa" value="{{ old('nombre_empresa', $empresa->nombre_empresa) }}" placeholder="Introduzca la empresa"style="border: solid 2px #EEE30B">
 </div>
 <div class="col-lg-12">
     <button  type="submit" class="btn btn-submit btn-success">Guardar</button>

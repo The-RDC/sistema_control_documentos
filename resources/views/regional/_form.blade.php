@@ -1,5 +1,5 @@
 <div class="form-group">
-    <input type="text" class="form-control" name="nombre_regional" value="{{ old('nombre_regional', $regional->nombre_regional) }}" placeholder="introdusca el Regional" style="border: solid 2px #EEE30B">
+    <input type="text" class="form-control" name="nombre_regional" value="{{ old('nombre_regional', $regional->nombre_regional) }}" placeholder="Introduzca la Regional" style="border: solid 2px #EEE30B">
 </div>
 <div class="col-lg-12">
     <button  type="submit" class="btn btn-submit btn-success">Guardar</button>

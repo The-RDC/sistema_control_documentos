@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left">
-                            <h2>Crear nuevo Usario</h2>
+                            <h2>Crear nuevo Usuario</h2>
                         </div>
                         <div class="pull-right">
                             <a class="btn" href="{{ route('users.index') }}" style="background: #2FA137; color:aliceblue"> Regresar</a>
@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
-                                            <strong>Email:</strong>
+                                            <strong>Correo Electrónico:</strong>
                                             {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
                                         </div>
                                     </div>

@@ -63,7 +63,7 @@
                         @if($generos->id == $empleado->id_genero)
                         selected
                     @endif
-                >{{ $generos->nombre_genero }}"</option>
+                >{{ $generos->nombre_genero }}</option>
             @endforeach
         </select>
     </div>
@@ -76,7 +76,7 @@
                         @if($estaCivils->id == $empleado->id_estadocivil)
                         selected
                     @endif
-                >{{ $estaCivils->estadocivil }}"</option>
+                >{{ $estaCivils->estadocivil }}</option>
             @endforeach
         </select>
     </div>
@@ -110,7 +110,7 @@
                         @if($regionales->id == $empleado->id_regional)
                         selected
                     @endif
-                >{{ $regionales->nombre_regional }}"</option>
+                >{{ $regionales->nombre_regional }}</option>
             @endforeach
         </select>
     </div>
@@ -123,7 +123,7 @@
                         @if($sucursales->id == $empleado->id_sucursal)
                         selected
                     @endif
-                >{{ $sucursales->nombre_sucursal }}"</option>
+                >{{ $sucursales->nombre_sucursal }}</option>
             @endforeach
         </select>
     </div>
@@ -136,7 +136,7 @@
                         @if($empresas->id == $empleado->id_empresa)
                         selected
                     @endif
-                >{{ $empresas->nombre_empresa }}"</option>
+                >{{ $empresas->nombre_empresa }}</option>
             @endforeach
         </select>
     </div>
@@ -149,7 +149,7 @@
                         @if($cargos->id == $empleado->id_cargo)
                         selected
                     @endif
-                >{{ $cargos->nombre_cargo }}"</option>
+                >{{ $cargos->nombre_cargo }}</option>
             @endforeach
         </select>
     </div>

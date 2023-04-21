@@ -27,7 +27,6 @@ trait HasPermissions
 
     public static function bootHasPermissions()
     {
-        static::bootSoftDeletes();
         static::deleting(function ($model) {
             if (method_exists($model, 'isForceDeleting') && ! $model->isForceDeleting()) {
                 return;

@@ -5,7 +5,6 @@ namespace Spatie\Permission\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Contracts\Permission as PermissionContract;
 use Spatie\Permission\Exceptions\PermissionAlreadyExists;
 use Spatie\Permission\Exceptions\PermissionDoesNotExist;
@@ -23,7 +22,6 @@ use Spatie\Permission\Traits\RefreshesPermissionCache;
  */
 class Permission extends Model implements PermissionContract
 {
-    use SoftDeletes;
     use HasRoles;
     use RefreshesPermissionCache;
 

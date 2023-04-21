@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -51,7 +51,7 @@ class RoleController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     *syncWithoutDetaching
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -63,7 +63,7 @@ class RoleController extends Controller
         ]);
 
         $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
+        $role->permissions()->sync($request->input('permission'));
 
         return redirect()->route('roles.index')
             ->with('success','Role created successfully');
@@ -119,7 +119,7 @@ class RoleController extends Controller
         $role->name = $request->input('name');
         $role->save();
 
-        $role->syncPermissions($request->input('permission'));
+        $role->permissions()->sync($request->input('permission'));
 
         return redirect()->route('roles.index')
             ->with('success','Role updated successfully');

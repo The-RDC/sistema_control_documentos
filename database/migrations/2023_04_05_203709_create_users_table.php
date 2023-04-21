@@ -19,11 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->unsignedBigInteger('empleado_id')->nullable();
-<<<<<<< HEAD
             $table->foreign('empleado_id')->references('id')->on('empleados')->nullOnDelete();
-=======
-            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('set null')->nullOnDelete();
->>>>>>> 7db860f481695d97ec4813df8e7d10936f7db677
+
 
 
             $table->timestamps();

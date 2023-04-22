@@ -21,22 +21,28 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($estadoDocumento as $estadoDs)
-                            <tr>
-                                <td>{{ $estadoDs->id }}</td>
-                                <td>{{ $estadoDs->estado_documento }}</td>
-                                <td class="no-exportar-pdf"><form action="{{ route('estadoDocumento.destroy', $estadoDs) }}" method="post" id="{{ $estadoDs->id }}">
-                                        @csrf @method('DELETE')
-                                        <a class="btn me-3" href="{{ route('estadoDocumento.edit', $estadoDs) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                             <i class="fas fa-pen-alt"></i>
-                                        </a>
-                                        <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
+                            @php
+                                $contadorRegistros=1;
+                            @endphp
+                            @foreach($estadoDocumento as $estadoDs)
+                                <tr>
+                                    <td>{{ $contadorRegistros }}</td>
+                                    @php
+                                        $contadorRegistros++;
+                                    @endphp
+                                    <td>{{ $estadoDs->estado_documento }}</td>
+                                    <td class="no-exportar-pdf"><form action="{{ route('estadoDocumento.destroy', $estadoDs) }}" method="post" id="{{ $estadoDs->id }}">
+                                            @csrf @method('DELETE')
+                                            <a class="btn me-3" href="{{ route('estadoDocumento.edit', $estadoDs) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                                <i class="fas fa-pen-alt"></i>
+                                            </a>
+                                            <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

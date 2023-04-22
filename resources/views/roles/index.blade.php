@@ -32,9 +32,15 @@
             <th>Nombre</th>
             <th class="no-exportar-pdf" width="280px">Acciones</th>
         </tr>
+        @php
+            $contadorRegistros=1;
+        @endphp
         @foreach ($roles as $key => $role)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
+                @php
+                    $contadorRegistros++;
+                @endphp
                 <td>{{ $role->name }}</td>
                 <td class="no-exportar-pdf">
                     <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Ver</a>

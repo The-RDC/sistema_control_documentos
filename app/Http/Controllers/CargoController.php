@@ -31,7 +31,7 @@ class CargoController extends Controller
     {
         $cargo = new cargo();
 
-        return view('cargo.create', compact('cargo'));
+        return view('Cargo.create', compact('cargo'));
     }
 
     /**
@@ -57,7 +57,7 @@ class CargoController extends Controller
      */
     public function edit(cargo $cargo)
     {
-        return view('cargo.edit', compact('cargo'));
+        return view('Cargo.edit', compact('cargo'));
     }
 
     /**

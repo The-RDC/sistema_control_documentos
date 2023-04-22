@@ -1,5 +1,5 @@
 @php
-    $nombreEmpresa="Simón Bolívarr";
+    $nombreEmpresa="Simón Bolívar";
     $loginNombre=""    
 @endphp
 
@@ -12,7 +12,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!--title>{{ config('app.name', 'Laravel') }}</title-->
+    <title>Inicio Sesión</title>
+
+    <!--Favi Ico-->
+    <link rel="shortcut icon" href="{{asset('img/logoSimonBolivar.ico')}}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

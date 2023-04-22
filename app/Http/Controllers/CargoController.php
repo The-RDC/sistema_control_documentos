@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cargo;
+use App\Models\Cargo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\Cargo\StoreRequest;
@@ -20,7 +20,7 @@ class CargoController extends Controller
 
     public function index()
     {
-        $cargo = cargo::get();
+        $cargo = Cargo::get();
         return view('Cargo.index', compact('cargo'));
     }
 
@@ -31,7 +31,7 @@ class CargoController extends Controller
     {
         $cargo = new cargo();
 
-        return view('cargo.create', compact('cargo'));
+        return view('Cargo.create', compact('cargo'));
     }
 
     /**
@@ -57,7 +57,7 @@ class CargoController extends Controller
      */
     public function edit(cargo $cargo)
     {
-        return view('cargo.edit', compact('cargo'));
+        return view('Cargo.edit', compact('cargo'));
     }
 
     /**

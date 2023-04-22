@@ -25,9 +25,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $contadorRegistros=1;
+                        @endphp
                     @foreach($empleado as $empleados)
                         <tr>
-                            <td>{{ $empleados->id }}</td>
+                            <td>{{ $contadorRegistros }}</td>
+                            @php
+                                $contadorRegistros++;
+                            @endphp
                             <td>{{ $empleados->nombres }}</td>
                             <td>{{ $empleados->nacionalidad }}</td>
                             <td>{{ $empleados->email_institucional }}</td>

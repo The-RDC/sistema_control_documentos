@@ -21,22 +21,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($unidad as $unidades_data)
-                        <tr>
-                            <td>{{ $unidades_data->id }}</td>
-                            <td>{{ $unidades_data->unidad_area }}</td>
-                            <td class="no-exportar-pdf"><form action="{{ route('unidad.destroy', $unidades_data) }}" method="post" id="{{ $unidades_data->id }}">
-                                    @csrf @method('DELETE')
-                                    <a class="btn me-3" href="{{ route('unidad.edit', $unidades_data) }}">
-                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Editar"></i>
-                                    </a>
-                                    <button class="btn btn-md" data-descripcion="BorrarRegistroTablas">
-                                        <i class="fa fa-trash" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @php
+                            $contadorRegistros=1;
+                        @endphp
+                        @foreach($unidad as $unidades_data)
+                            <tr>
+                                <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
+                                @php
+                                    $contadorRegistros++;
+                                @endphp
+                                <td>{{ $unidades_data->unidad_area }}</td>
+                                <td class="no-exportar-pdf"><form action="{{ route('unidad.destroy', $unidades_data) }}" method="post" id="{{ $unidades_data->id }}">
+                                        @csrf @method('DELETE')
+                                        <a class="btn me-3" href="{{ route('unidad.edit', $unidades_data) }}">
+                                            <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Editar"></i>
+                                        </a>
+                                        <button class="btn btn-md" data-descripcion="BorrarRegistroTablas">
+                                            <i class="fa fa-trash" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

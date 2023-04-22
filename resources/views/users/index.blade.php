@@ -32,9 +32,15 @@
             <th>Roles</th>
             <th width="280px" class="no-exportar-pdf">Action</th>
         </tr>
+        @php
+            $contadorRegistros=1;
+        @endphp
         @foreach ($data as $key => $user)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
+                @php
+                    $contadorRegistros++;
+                @endphp
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>

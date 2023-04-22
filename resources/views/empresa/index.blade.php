@@ -21,22 +21,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($empresa as $empresas)
-                        <tr>
-                            <td>{{ $empresas->id }}</td>
-                            <td>{{ $empresas->nombre_empresa }}</td>
-                            <td class="no-exportar-pdf"><form action="{{ route('empresa.destroy', $empresas) }}" method="post" id="{{ $empresas->id }}">
-                                    @csrf @method('DELETE')
-                                    <a class="btn me-3" href="{{ route('empresa.edit', $empresas) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                         <i class="fas fa-pen-alt"></i>
-                                    </a>
-                                    <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @php
+                            $contadorRegistros=1;
+                        @endphp
+                        @foreach($empresa as $empresas)
+                            <tr>
+                                <td>{{ $contadorRegistros }}</td>
+                                @php
+                                    $contadorRegistros++;
+                                @endphp
+                                <td>{{ $empresas->nombre_empresa }}</td>
+                                <td class="no-exportar-pdf"><form action="{{ route('empresa.destroy', $empresas) }}" method="post" id="{{ $empresas->id }}">
+                                        @csrf @method('DELETE')
+                                        <a class="btn me-3" href="{{ route('empresa.edit', $empresas) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <i class="fas fa-pen-alt"></i>
+                                        </a>
+                                        <button class="btn btn-md" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

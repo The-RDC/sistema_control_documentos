@@ -21,22 +21,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($sucursal as $sucursales)
-                        <tr>
-                            <td>{{ $sucursales->id }}</td>
-                            <td>{{ $sucursales->nombre_sucursal }}</td>
-                            <td class="no-exportar-pdf"><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post" id="{{ $sucursales->id }}">
-                                    @csrf @method('DELETE')
-                                    <a class="btn me-3" href="{{ route('sucursal.edit', $sucursales) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i>
-                                    </a>
-                                    <button class="btn btn-md" data-descripcion="BorrarRegistroTablas">
-                                        <i class="fa fa-trash" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @php
+                            $contadorRegistros=1;
+                        @endphp
+                        @foreach($sucursal as $sucursales)
+                            <tr>
+                                <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
+                                @php
+                                    $contadorRegistros++;
+                                @endphp
+                                <td>{{ $sucursales->nombre_sucursal }}</td>
+                                <td class="no-exportar-pdf"><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post" id="{{ $sucursales->id }}">
+                                        @csrf @method('DELETE')
+                                        <a class="btn me-3" href="{{ route('sucursal.edit', $sucursales) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i>
+                                        </a>
+                                        <button class="btn btn-md" data-descripcion="BorrarRegistroTablas">
+                                            <i class="fa fa-trash" aria-hidden="true" style="color:black" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

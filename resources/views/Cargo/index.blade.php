@@ -21,9 +21,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @php
+                        $contadorRegistros=1;
+                    @endphp
                     @foreach($cargo as $cargos)
                         <tr>
-                            <td>{{ $cargos->id }}</td>
+                            <td>{{ $contadorRegistros }}</td>
+                            @php
+                                $contadorRegistros++;
+                            @endphp
                             <td>{{ $cargos->nombre_cargo }}</td>
                             <td class="no-exportar-pdf"><form action="{{ route('cargo.destroy', $cargos) }}" method="post" id="{{$cargos->id}}">
                                     @csrf @method('DELETE')

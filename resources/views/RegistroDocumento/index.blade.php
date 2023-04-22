@@ -82,9 +82,15 @@
                         </tr>
                     </thead>
                     <tbody id="controlDeEstadoDocumentoParaMarcarlo">
+                        @php
+                            $contadorRegistros=1;
+                        @endphp
                         @foreach ($data as $datos)
                         <tr>
-                            <td id="idRegistroEstadoDocumento">{{ $datos->id }}</td>
+                            <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
+                             @php
+                               $contadorRegistros++;
+                             @endphp
                             <td>{{ $datos->numero_hoja_ruta }}</td>
                             <td>{{ $datos->fecha_recepcion }}</td>
                             <td>{{ $datos->fecha_entrega }}</td>

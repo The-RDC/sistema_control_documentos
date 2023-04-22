@@ -12,7 +12,8 @@ class empresa extends Model
     public $table = "empresas";
     use HasFactory;
     protected $fillable = [
-        'nombre_empresa', 'estado'
+        'nombre_empresa', 
+        'estado'
     ];
 
     public function empleado(){

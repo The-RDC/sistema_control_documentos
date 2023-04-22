@@ -11,7 +11,8 @@ class Cargo extends Model
     use SoftDeletes;
     use HasFactory;
     protected $fillable = [
-        'nombre_cargo', 'estado'
+        'nombre_cargo',
+        'estado'
     ];
 
     public function getEmpleado(){

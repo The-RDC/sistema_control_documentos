@@ -31,15 +31,20 @@
 
             {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-5 col-md-5">
                         <div class="form-group">
                             <strong>Nombre del nuevo rol:</strong>
-                            {!! Form::text('name', null, array('placeholder' => 'Nombre del nuevo rol','class' => 'form-control')) !!}
+                            {!! Form::text('name', null, array('placeholder' => 'Nombre del nuevo rol','class' => 'form-control','style'=>'border: solid 2px #EEE30B')) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Permisos a asignar:</strong>
+                            <div class="row">
+                                <div class="col"><strong>Permisos a asignar:</strong></div>
+                                <div class="col text-right" style="font-size: 18px; color:#594AF7">
+                                    <input type="checkbox" id="seleccionar-todos-roles"> <label for="seleccionar-todos-roles">Seleccionar Todo</label> 
+                                </div>
+                            </div>
                             <br/><br>
                             <div class="row">
                                 <div class="col">

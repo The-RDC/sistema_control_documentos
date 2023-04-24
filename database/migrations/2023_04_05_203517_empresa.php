@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_empresa');
+            $table->unsignedBigInteger('id_regional')->nullable();
+            $table->foreign('id_regional')->references('id')->on('regionales')->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

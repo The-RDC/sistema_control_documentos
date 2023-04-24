@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Cargo;
+use App\Models\detalle_empresa_sucursales;
 use App\Models\empleado;
 use App\Models\empresa;
 use App\Models\estado_documento;
@@ -32,16 +33,26 @@ class PrimerEmpleado extends Seeder
         $regional = new regional($regional);
         $regional->save();
 
+        $compani = ([
+            'nombre_empresa' => 'La Paz',
+            'id_regional' => 1,
+        ]);
+        $companies = new empresa($compani);
+        $companies->save();
+
         $branch = ([
             'nombre_sucursal' => 'La Paz',
         ]);
+
         $branchs = new sucursal($branch);
         $branchs->save();
 
-        $compani = ([
-            'nombre_empresa' => 'La Paz',
+        $detailCompanyBranchs = ([
+            'id_empresa' => 1,
+            'id_sucursal' => 1,
         ]);
-        $companies = new empresa($compani);
+
+        $companies = new detalle_empresa_sucursales($detailCompanyBranchs);
         $companies->save();
 
         $genero = ([
@@ -69,8 +80,7 @@ class PrimerEmpleado extends Seeder
             'nombres' => 'Administrador',
             'ap_paterno' => 'Administrador',
             'ap_materno' => 'Administrador',
-            'id_regional' => 1,
-            'id_sucursal' => 1,
+
             'id_empresa' => 1,
             'id_cargo' => 1,
             'nacionalidad' => 'boliviana',

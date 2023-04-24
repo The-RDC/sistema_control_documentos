@@ -26,14 +26,16 @@
                placeholder="" style="border: solid 2px #EEE30B">
     </div>
     <div class="col-sm-4">
-        <!--label for="">Tipo Documento</label>
-        <select class="form-control" name="id_genero" style="border: solid 2px #EEE30B">
-                <option value="CI" selected>CI</option>
-                <option value="Pasaporte">Pasaporte</option>
-        </select-->
-        <label for="">Tipo de Documento</label>
+        <label for="">Tipo Documento</label>
+        <select class="form-control" name="tipo_documento" style="border: solid 2px #EEE30B">
+                <option value="CI" @php echo $empleado->tipo_documento == "CI" ? "selected" : ""; @endphp>CI</option>
+                <option value="Pasaporte" @php echo $empleado->tipo_documento == "Pasaporte" ? "selected" : ""; @endphp>Pasaporte</option>
+                <option value="Visa laboral" @php echo $empleado->tipo_documento == "Visa laboral" ? "selected" : ""; @endphp >Visa laboral</option>
+                <option value="Cédula de Identidad de Extranjero" @php echo $empleado->tipo_documento == "Cédula de Identidad de Extranjero" ? "selected" : ""; @endphp >Cédula de Identidad de Extranjero</option>
+        </select>
+        <!--label for="">Tipo de Documento</label>
         <input type="text" class="form-control " name="tipo_documento" value="{{ old('tipo_documento', $empleado->tipo_documento) }}"
-               placeholder="" style="border: solid 2px #EEE30B">
+               placeholder="" style="border: solid 2px #EEE30B"-->
     </div>
 </div>
 <div class="form-group row">

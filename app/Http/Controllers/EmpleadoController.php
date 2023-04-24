@@ -50,7 +50,6 @@ class EmpleadoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-//        dd($request->all());
         empleado::create($request->all());
         return redirect()->route('empleado.index');
     }

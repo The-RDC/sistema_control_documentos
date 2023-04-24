@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\empresa;
+use App\Models\regional;
+use App\Models\sucursal;
 use Illuminate\Http\Request;
 use App\Http\Requests\Empresa\StoreRequest;
 use App\Http\Requests\Empresa\UpdateRequest;
@@ -29,8 +31,9 @@ class EmpresaController extends Controller
     public function create()
     {
         $empresa = new empresa();
-
-        return view('empresa.create', compact('empresa'));
+        $regional = regional::get();
+        $sucursales = sucursal::get();
+        return view('empresa.create', compact('empresa', 'regional', 'sucursales'));
     }
 
     /**

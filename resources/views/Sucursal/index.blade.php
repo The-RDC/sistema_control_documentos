@@ -17,6 +17,7 @@
                         <tr>
                             <th>Nro</th>
                             <th>Unidad</th>
+                            <th>dirección</th>
                             <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                     </thead>
@@ -31,6 +32,7 @@
                                     $contadorRegistros++;
                                 @endphp
                                 <td>{{ $sucursales->nombre_sucursal }}</td>
+                                <td>{{ $sucursales->direccion_sucursal }}</td>
                                 <td class="no-exportar-pdf"><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post" id="{{ $sucursales->id }}">
                                         @csrf @method('DELETE')
                                         <a class="btn me-3" href="{{ route('sucursal.edit', $sucursales) }}" data-toggle="tooltip" data-placement="top" title="Editar">

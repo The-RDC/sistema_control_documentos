@@ -34,6 +34,7 @@ class PrimerEmpleado extends Seeder
 
         $branch = ([
             'nombre_sucursal' => 'La Paz',
+            'direccion_sucursal' => 'Av. sucre pabellon II, N°  1423',
         ]);
         $branchs = new sucursal($branch);
         $branchs->save();

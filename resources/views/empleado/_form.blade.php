@@ -105,6 +105,16 @@
     </div>
 </div>
 
+@php
+    //var_dump($regional->nombre_regional);
+    foreach ($regional as $key => $value) {
+        echo $value->nombre_regional."\n";
+    }
+    foreach ($empresa as $key => $value) {
+        echo $value->nombre_empresa;
+    }
+@endphp
+
 <div class="form-group row">
     <div class="col-sm-3">
         <label for="">Regional</label>
@@ -116,19 +126,6 @@
                         selected
                     @endif
                 >{{ $regionales->nombre_regional }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="col-sm-3">
-        <label for="">Sucursal</label>
-        <select class="form-control" name="id_sucursal" style="border: solid 2px #EEE30B">
-            <option selected>Sucursal</option>
-            @foreach($sucursal as $sucursales)
-                <option value="{{ $sucursales->id }}"
-                        @if($sucursales->id == $empleado->id_sucursal)
-                        selected
-                    @endif
-                >{{ $sucursales->nombre_sucursal }}</option>
             @endforeach
         </select>
     </div>
@@ -145,6 +142,20 @@
             @endforeach
         </select>
     </div>
+    <div class="col-sm-3">
+        <label for="">Sucursal</label>
+        <select class="form-control" name="id_sucursal" style="border: solid 2px #EEE30B">
+            <option selected>Sucursal</option>
+            @foreach($sucursal as $sucursales)
+                <option value="{{ $sucursales->id }}"
+                        @if($sucursales->id == $empleado->id_sucursal)
+                        selected
+                    @endif
+                >{{ $sucursales->nombre_sucursal }}</option>
+            @endforeach
+        </select>
+    </div>
+    
     <div class="col-sm-3">
         <label for="">Cargo</label>
         <select class="form-control" name="id_cargo" style="border: solid 2px #EEE30B">

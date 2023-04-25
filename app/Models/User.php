@@ -60,4 +60,11 @@ class User extends Authenticatable
         return $this->empleado->belongsTo(sucursal::class);
     }
 
+    public function actualizarRolePermission($permissionId, $roleId) {
+        $query = role_has_permissions::where('permission_id', $permissionId)
+            ->where('role_id', $roleId)
+            ->where('estado', 1)
+            ->update(['estado' => 0]);
+//        dump($query);
+    }
 }

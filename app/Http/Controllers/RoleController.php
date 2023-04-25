@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\role_has_permissions;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
@@ -103,12 +105,12 @@ class RoleController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     *: RedirectResponse
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -116,13 +118,34 @@ class RoleController extends Controller
         ]);
 
         $role = Role::find($id);
-        $role->name = $request->input('name');
-        $role->update();
 
-        $role->permissions()->sync($request->input('permission'));
+//        $role->name = $request->input('name');
+//        $role->update();
+//
+//        $role->permissions()->sync($request->input('permission'));
+//
+//        return redirect()->route('roles.index')
+//            ->with('success','Role updated successfully');
 
-        return redirect()->route('roles.index')
-            ->with('success','Role updated successfully');
+
+        $rolePer = role_has_permissions::where('role_id', $role->id)->pluck('permission_id')->toArray();
+//        dd($request);
+
+        $updateRolePermi = new User();
+        foreach ($request as $key => $sos) {
+            echo $key;
+//            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
+            foreach ($rolePer as $value) {
+                if ($request->sucursales[$key] != $value) {
+//                    echo $request->sucursales[$key]." - ".$value."<br>";
+//                    $updateRolePermi->actualizarRolePermission($empresa->id, $value );
+                }
+            }
+        }
+//        $empresa->update($request->all());
+//        $empresa->detalle_empresa_sucursales()->createMany($results);
+//        return redirect()->route('empresa.index');
+
     }
     /**
      * Remove the specified resource from storage.

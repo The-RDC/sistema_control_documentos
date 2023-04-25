@@ -10,7 +10,7 @@
                         {!! Form::model($user, ['method' => 'PATCH','route' => ['actualizarPerfil', $user->id]]) !!}
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Detalle Empleado!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Detalle Empleado</h1>
                             </div>
 
                             <table class="table caption-top">

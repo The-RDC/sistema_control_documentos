@@ -168,23 +168,35 @@
             <h1 class="h4 text-gray-900 mb-4">Seleccione la Empresa y Sucursal del Empleado</h1>
         </div>
         <div class="accordion" id="accordionEmpresa">
-            @for ($i = 0; $i < 5; $i++)
+            @php
+              $i=1;
+            @endphp
+            {{-- {{dd($empSuc)}}
+            {{dd($empresa)}} --}}
+            @foreach ($empresa  as $item)
                 <div class="card" style="border: solid .5px #EEE30B">
-                    <div class="card-header" style="border: solid 1px #EEE30B" id="headingOne{{$i+1}}">
+                    <div class="card-header" style="border: solid 1px #EEE30B" id="headingOne{{$i}}">
                         <h2 class="mb-0">
-                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i+1}}" aria-expanded="@php echo $i==0?true:false @endphp" aria-controls="collapseOne">
-                            Empresa: {{$i+1}}
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i}}" aria-expanded="false" aria-controls="collapseOne">
+                            Empresa: {{$item->nombre_empresa}}
                         </button>
                         </h2>
                     </div>
 
-                    <div id="collapseOne{{$i+1}}" class="collapse @php echo $i==0?"show":"" @endphp" aria-labelledby="headingOne{{$i+1}}" data-parent="#accordionEmpresa">
+                    <div id="collapseOne{{$i}}" class="collapse false" aria-labelledby="headingOne{{$i}}" data-parent="#accordionEmpresa">
                         <div class="card-body">
-                            Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                            @foreach ($empSuc as $item1)
+                                @if ($item->id == $item1->id_empresa)
+                                    <input type="checkbox" name="" id=""><label for=""> {{$item1->id_sucursal}}</label><br>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
-            @endfor
+                @php
+                  $i++;
+                @endphp
+            @endforeach
         </div>
     </div>
 </div>

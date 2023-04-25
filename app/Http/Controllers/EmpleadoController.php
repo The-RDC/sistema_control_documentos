@@ -42,7 +42,7 @@ class EmpleadoController extends Controller
         $genero = Genero::get();
         $estaCivil = EstadoCivil::get();
         $empSuc = detalle_empresa_sucursales::get();
-        dd($empSuc);
+        //dd($empSuc);
         $empleado = new empleado();
 
         return view('empleado.create', compact('empleado','empresa','cargo', 'genero', 'estaCivil', 'empSuc'));

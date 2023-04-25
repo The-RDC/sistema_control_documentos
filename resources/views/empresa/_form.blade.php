@@ -28,7 +28,6 @@
         </div>
         <div class="col">
             @else
-
                     <label>
                         <input type="checkbox" name="sucursales[]" value="{{ $value->id }}"
                                @if(in_array($value->id, $sucurid))

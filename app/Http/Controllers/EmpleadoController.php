@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cargo;
+use App\Models\detalle_empresa_sucursales;
 use App\Models\empleado;
 use App\Models\empresa;
 use App\Models\EstadoCivil;
@@ -34,15 +35,17 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        $regional = regional::get();
-        $sucursal = sucursal::get();
+
+
         $empresa = empresa::get();
         $cargo = Cargo::get();
         $genero = Genero::get();
         $estaCivil = EstadoCivil::get();
+        $empSuc = detalle_empresa_sucursales::get();
+        dd($empSuc);
         $empleado = new empleado();
 
-        return view('empleado.create', compact('empleado','regional','sucursal','empresa','cargo', 'genero', 'estaCivil'));
+        return view('empleado.create', compact('empleado','empresa','cargo', 'genero', 'estaCivil', 'empSuc'));
     }
 
     /**

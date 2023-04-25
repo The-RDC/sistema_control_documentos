@@ -88,7 +88,7 @@
                 </select>
             </div>
         </div>
-        
+
         <div class="form-group row">
             <div class="col-sm-4 mb-3 mb-sm-0">
                 <label for="">Celular</label>
@@ -106,21 +106,21 @@
                        placeholder="" style="border: solid 2px #EEE30B">
             </div>
         </div>
-    
+
         <div class="form-group row">
-            <div class="col-sm-3">
-                <label for="">Regional</label>
-                <select class="form-control" name="id_regional" style="border: solid 2px #EEE30B">
-                    <option selected>Regional</option>
-                    @foreach($regional as $regionales)
-                        <option value="{{ $regionales->id }}"
-                                @if($regionales->id == $empleado->id_regional)
-                                selected
-                            @endif
-                        >{{ $regionales->nombre_regional }}</option>
-                    @endforeach
-                </select>
-            </div>
+{{--            <div class="col-sm-3">--}}
+{{--                <label for="">Regional</label>--}}
+{{--                <select class="form-control" name="id_regional" style="border: solid 2px #EEE30B">--}}
+{{--                    <option selected>Regional</option>--}}
+{{--                    @foreach($regional as $regionales)--}}
+{{--                        <option value="{{ $regionales->id }}"--}}
+{{--                                @if($regionales->id == $empleado->id_regional)--}}
+{{--                                selected--}}
+{{--                            @endif--}}
+{{--                        >{{ $regionales->nombre_regional }}</option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+{{--            </div>--}}
             <div class="col-sm-3">
                 <label for="">Empresa</label>
                 <select class="form-control" name="id_empresa" style="border: solid 2px #EEE30B">
@@ -134,20 +134,20 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-sm-3">
-                <label for="">Sucursal</label>
-                <select class="form-control" name="id_sucursal" style="border: solid 2px #EEE30B">
-                    <option selected>Sucursal</option>
-                    @foreach($sucursal as $sucursales)
-                        <option value="{{ $sucursales->id }}"
-                                @if($sucursales->id == $empleado->id_sucursal)
-                                selected
-                            @endif
-                        >{{ $sucursales->nombre_sucursal }}</option>
-                    @endforeach
-                </select>
-            </div>
-            
+{{--            <div class="col-sm-3">--}}
+{{--                <label for="">Sucursal</label>--}}
+{{--                <select class="form-control" name="id_sucursal" style="border: solid 2px #EEE30B">--}}
+{{--                    <option selected>Sucursal</option>--}}
+{{--                    @foreach($sucursal as $sucursales)--}}
+{{--                        <option value="{{ $sucursales->id }}"--}}
+{{--                                @if($sucursales->id == $empleado->id_sucursal)--}}
+{{--                                selected--}}
+{{--                            @endif--}}
+{{--                        >{{ $sucursales->nombre_sucursal }}</option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+{{--            </div>--}}
+{{--            --}}
             <div class="col-sm-3">
                 <label for="">Cargo</label>
                 <select class="form-control" name="id_cargo" style="border: solid 2px #EEE30B">
@@ -175,9 +175,9 @@
                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i+1}}" aria-expanded="@php echo $i==0?true:false @endphp" aria-controls="collapseOne">
                             Empresa: {{$i+1}}
                         </button>
-                        </h2>   
+                        </h2>
                     </div>
-                
+
                     <div id="collapseOne{{$i+1}}" class="collapse @php echo $i==0?"show":"" @endphp" aria-labelledby="headingOne{{$i+1}}" data-parent="#accordionEmpresa">
                         <div class="card-body">
                             Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.

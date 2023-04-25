@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\detalle_empresa_sucursales;
 use App\Models\empresa;
 use App\Models\regional;
 use App\Models\sucursal;
@@ -33,7 +34,8 @@ class EmpresaController extends Controller
         $empresa = new empresa();
         $regional = regional::get();
         $sucursales = sucursal::get();
-        return view('empresa.create', compact('empresa', 'regional', 'sucursales'));
+        $sucurid = [];
+        return view('empresa.create', compact('empresa', 'regional', 'sucursales', 'sucurid'));
     }
 
     /**
@@ -41,8 +43,16 @@ class EmpresaController extends Controller
      */
     public function store(StoreRequest $request)
     {
-//        dd($request->all());
-        empresa::create($request->all());
+
+        $empresa = empresa::create($request->all());
+
+
+        foreach ($request->sucursales as $key => $sos){
+            $results[] = array("id_empresa" => $empresa->id, "id_sucursal"=>$request->sucursales[$key]);
+        }
+//        dd($results);
+        $empresa->detalle_empresa_sucursales()->createMany($results);
+
         return redirect()->route('empresa.index');
     }
 
@@ -59,7 +69,12 @@ class EmpresaController extends Controller
      */
     public function edit(empresa $empresa)
     {
-        return view('empresa.edit', compact('empresa'));
+
+        $regional = regional::get();
+        $sucursales = sucursal::get();
+        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
+
+        return view('empresa.edit', compact('empresa', 'regional', 'sucursales', 'sucurid'));
     }
 
     /**
@@ -68,6 +83,14 @@ class EmpresaController extends Controller
     public function update(UpdateRequest $request, empresa $empresa)
     {
         $empresa->update($request->all());
+
+        foreach ($request->sucursales as $key => $sos){
+            $results[] = array("id_empresa" => $empresa->id, "id_sucursal"=>$request->sucursales[$key]);
+        }
+        dd($results);
+        $empresa->detalle_empresa_sucursales()->createMany($results);
+
+        $usuario->roles()->syncWithoutDetaching($rolesIds);
         return redirect()->route('empresa.index');
     }
 

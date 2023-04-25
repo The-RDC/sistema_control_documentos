@@ -42,7 +42,7 @@
                             <div class="row">
                                 <div class="col"><strong>Permisos a asignar:</strong></div>
                                 <div class="col text-right" style="font-size: 18px; color:#594AF7">
-                                    <input type="checkbox" id="seleccionar-todos-roles"> <label for="seleccionar-todos-roles">Seleccionar Todo</label> 
+                                    <input type="checkbox" id="seleccionar-todos-roles"> <label for="seleccionar-todos-roles">Seleccionar Todo</label>
                                 </div>
                             </div>
                             <br/><br>
@@ -63,15 +63,15 @@
                                         @endif
                                         @php
                                             $contadorPermisos++;
-                                        @endphp   
+                                        @endphp
                                     @endforeach
                             </div>
-                            <!--@foreach($permission as $value)
-                                <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
-                                    {{ $value->name }}
-                                </label>
-                                <br/>
-                            @endforeach-->
+{{--                            <!--@foreach($permission as $value)--}}
+{{--                                <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}--}}
+{{--                                    {{ $value->name }}--}}
+{{--                                </label>--}}
+{{--                                <br/>--}}
+{{--                            @endforeach-->--}}
                         </div>
                     </div>
                     <br>
@@ -83,5 +83,5 @@
         </div>
     </div>
 </div>
-  
+
 @endsection

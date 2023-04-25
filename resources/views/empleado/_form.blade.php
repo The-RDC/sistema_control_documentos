@@ -1,5 +1,5 @@
-<div class="row pl-5">
-    <div class="col-lg-7">
+<div class="row pl-4">
+    <div class="col-lg-8">
         <div class="form-group row">
             <div class="col-sm-4 mb-3 mb-sm-0">
                 <label for="">Nombre Empleado</label>
@@ -106,7 +106,7 @@
                        placeholder="" style="border: solid 2px #EEE30B">
             </div>
         </div>
-        
+    
         <div class="form-group row">
             <div class="col-sm-3">
                 <label for="">Regional</label>
@@ -168,14 +168,14 @@
             <h1 class="h4 text-gray-900 mb-4">Seleccione la Empresa y Sucursal del Empleado</h1>
         </div>
         <div class="accordion" id="accordionEmpresa">
-            @for ($i = 0; $i < 2; $i++)
-                <div class="card">
-                    <div class="card-header" id="headingOne{{$i+1}}">
+            @for ($i = 0; $i < 5; $i++)
+                <div class="card" style="border: solid .5px #EEE30B">
+                    <div class="card-header" style="border: solid 1px #EEE30B" id="headingOne{{$i+1}}">
                         <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i+1}}" aria-expanded="@php echo $i==0?true:false @endphp" aria-controls="collapseOne">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i+1}}" aria-expanded="@php echo $i==0?true:false @endphp" aria-controls="collapseOne">
                             Empresa: {{$i+1}}
                         </button>
-                        </h2>
+                        </h2>   
                     </div>
                 
                     <div id="collapseOne{{$i+1}}" class="collapse @php echo $i==0?"show":"" @endphp" aria-labelledby="headingOne{{$i+1}}" data-parent="#accordionEmpresa">

@@ -24,4 +24,12 @@ class empresa extends Model
     public function detalle_empresa_sucursales(){
         return $this->hasMany(detalle_empresa_sucursales::class, 'id_empresa');
     }
+
+    public function actualizarEstadoDetalleEmpresaSucursal($idEmpresa, $idSucursal) {
+       $query = detalle_empresa_sucursales::where('id_empresa', $idEmpresa)
+            ->where('id_sucursal', $idSucursal)
+            ->where('estado', 1)
+            ->update(['estado' => 0]);
+//        dump($query);
+    }
 }

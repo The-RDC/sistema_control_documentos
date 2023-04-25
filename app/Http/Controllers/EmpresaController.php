@@ -14,9 +14,9 @@ class EmpresaController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:empresa-list|empresa-create|empresa-edit|empresa-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:empresa-create', ['only' => ['create','store']]);
-        $this->middleware('permission:empresa-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:empresa-list|empresa-create|empresa-edit|empresa-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:empresa-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:empresa-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:empresa-delete', ['only' => ['destroy']]);
     }
 
@@ -47,8 +47,8 @@ class EmpresaController extends Controller
         $empresa = empresa::create($request->all());
 
 
-        foreach ($request->sucursales as $key => $sos){
-            $results[] = array("id_empresa" => $empresa->id, "id_sucursal"=>$request->sucursales[$key]);
+        foreach ($request->sucursales as $key => $sos) {
+            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
         }
 //        dd($results);
         $empresa->detalle_empresa_sucursales()->createMany($results);
@@ -72,7 +72,11 @@ class EmpresaController extends Controller
 
         $regional = regional::get();
         $sucursales = sucursal::get();
-        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
+//        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
+        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)
+            ->where('estado', '<>', 0)
+            ->pluck('id_sucursal')
+            ->toArray();
 
         return view('empresa.edit', compact('empresa', 'regional', 'sucursales', 'sucurid'));
     }
@@ -82,15 +86,19 @@ class EmpresaController extends Controller
      */
     public function update(UpdateRequest $request, empresa $empresa)
     {
-        $empresa->update($request->all());
-
-        foreach ($request->sucursales as $key => $sos){
-            $results[] = array("id_empresa" => $empresa->id, "id_sucursal"=>$request->sucursales[$key]);
+        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
+        $updateEmpSuc = new empresa();
+        foreach ($request->sucursales as $key => $sos) {
+            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
+            foreach ($sucurid as $value) {
+                if ($request->sucursales[$key] != $value) {
+//                    echo $request->sucursales[$key]." - ".$value."<br>";
+                    $updateEmpSuc->actualizarEstadoDetalleEmpresaSucursal($empresa->id, $value );
+                }
+            }
         }
-        dd($results);
+        $empresa->update($request->all());
         $empresa->detalle_empresa_sucursales()->createMany($results);
-
-        $usuario->roles()->syncWithoutDetaching($rolesIds);
         return redirect()->route('empresa.index');
     }
 

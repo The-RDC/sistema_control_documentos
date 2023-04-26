@@ -80,7 +80,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $rolePermissions = Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
-            ->where("role_has_permissions.role_id",$id)
+            ->where("role_has_permissions.role_id",$id) ->where('estado', '<>', 0)
             ->get();
 
         return view('roles.show',compact('role','rolePermissions'));
@@ -96,9 +96,14 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $permission = Permission::get();
-        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
-            ->all();
+//        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
+//            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+//            ->all();
+
+        $rolePermissions = role_has_permissions::where('role_id', $id)
+            ->where('estado', '<>', 0)
+            ->pluck('permission_id')
+            ->toArray();
 
         return view('roles.edit',compact('role','permission','rolePermissions'));
     }
@@ -108,7 +113,7 @@ class RoleController extends Controller
      *: RedirectResponse
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -118,7 +123,7 @@ class RoleController extends Controller
         ]);
 
         $role = Role::find($id);
-
+//dd($request->permission);
 //        $role->name = $request->input('name');
 //        $role->update();
 //
@@ -129,23 +134,23 @@ class RoleController extends Controller
 
 
         $rolePer = role_has_permissions::where('role_id', $role->id)->pluck('permission_id')->toArray();
-//        dd($request);
+//        dd($role->id);
 
         $updateRolePermi = new User();
-        foreach ($request as $key => $sos) {
-            echo $key;
-//            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
+        foreach ($request->permission as $sos) {
+//            echo " - ".$sos." - ";
+            $results[] = array("role_id" => $role->id, "permission_id" => $sos);
             foreach ($rolePer as $value) {
-                if ($request->sucursales[$key] != $value) {
-//                    echo $request->sucursales[$key]." - ".$value."<br>";
-//                    $updateRolePermi->actualizarRolePermission($empresa->id, $value );
+                if ($sos != $value) {
+                    echo "id Rol-".$role->id." permisos-". $sos." Roles-".$value."<br>";
+                    $updateRolePermi->actualizarRolePermission($value, $role->id);
                 }
             }
         }
-//        $empresa->update($request->all());
-//        $empresa->detalle_empresa_sucursales()->createMany($results);
-//        return redirect()->route('empresa.index');
+        $role->update($request->all());
+        $role->role_has_permissions()->createMany($results);
 
+        return redirect()->route('roles.index');
     }
     /**
      * Remove the specified resource from storage.

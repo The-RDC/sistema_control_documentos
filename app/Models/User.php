@@ -64,6 +64,7 @@ class User extends Authenticatable
         $query = role_has_permissions::where('permission_id', $permissionId)
             ->where('role_id', $roleId)
             ->where('estado', 1)
+//            ->delete();
             ->update(['estado' => 0]);
 //        dump($query);
     }

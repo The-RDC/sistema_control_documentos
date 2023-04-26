@@ -115,3 +115,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/regitroDocumento',  [RegistroDocumentoController::class, 'editar'])->name('actualizar');
 });
 
+
+
+/*
+* Consultas a la BD para obtener todas las regionales
+*/
+Route::post('/regional/query',  [RegionalController::class, 'bdConsultaJquerySelectores']);
+

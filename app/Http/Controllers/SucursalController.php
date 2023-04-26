@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\regional;
+use App\Models\empresa;
 use App\Models\sucursal;
 use Illuminate\Http\Request;
 use App\Http\Requests\Sucursal\StoreRequest;
@@ -26,7 +28,9 @@ class SucursalController extends Controller
     public function create()
     {
         $sucursal = new sucursal();
-        return view('Sucursal.create', compact('sucursal'));
+        $regional = regional::get();
+        $empresaConDatos=empresa::get();
+        return view('Sucursal.create', compact('sucursal','regional','empresaConDatos'));
     }
 
     public function store(StoreRequest $request)

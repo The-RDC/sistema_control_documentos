@@ -32,10 +32,11 @@ class EmpresaController extends Controller
     public function create()
     {
         $empresa = new empresa();
+        $empresaConDatos=empresa::get();
         $regional = regional::get();
         $sucursales = sucursal::get();
         $sucurid = [];
-        return view('empresa.create', compact('empresa', 'regional', 'sucursales', 'sucurid'));
+        return view('empresa.create', compact('empresa','empresaConDatos', 'regional', 'sucursales', 'sucurid'));
     }
 
     /**
@@ -47,11 +48,11 @@ class EmpresaController extends Controller
         $empresa = empresa::create($request->all());
 
 
-        foreach ($request->sucursales as $key => $sos) {
-            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
-        }
-//        dd($results);
-        $empresa->detalle_empresa_sucursales()->createMany($results);
+        // foreach ($request->sucursales as $key => $sos) {
+        //     $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
+        // }
+        // dd($results);
+        //$empresa->detalle_empresa_sucursales()->createMany($results);
 
         return redirect()->route('empresa.index');
     }

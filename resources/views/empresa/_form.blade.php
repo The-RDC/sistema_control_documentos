@@ -13,14 +13,15 @@
         </select>
     </div>
 </div>
+
 <div class="form-group">
     <div class="col-sm-12">
-        <label for="">Nombre de Empresa</label> 
+        <label for="">Introduzca el nombre de la empresa</label> 
         <input type="text" class="form-control" name="nombre_empresa" value="{{ old('nombre_empresa', $empresa->nombre_empresa) }}" placeholder="Introduzca la empresa"style="border: solid 2px #EEE30B">
     </div>
 </div>
 
-<div class="form-group">
+{{-- <div class="form-group">
     <div class="col-sm-12">
         <div class="row">
             <div class="col-md-12 text-left p-2">
@@ -55,7 +56,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="col-lg-12">
     <button  type="submit" class="btn btn-submit btn-success">Guardar</button>
     <a href="{{ route('empresa.index') }}" class="btn btn-cancel btn-danger">Cancelar</a>

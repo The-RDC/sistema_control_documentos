@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\regional;
+use App\Models\empresa;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\Regional\StoreRequest;
 use App\Http\Requests\Regional\UpdateRequest;
@@ -56,5 +58,18 @@ class RegionalController extends Controller
     {
         $regional->delete();
         return redirect()->route('regional.index');
+    }
+
+    public function bdConsultaJquerySelectores(Request $request)
+    {
+        // $sucursalesPorRegionales=regional::selectRaw("*")
+        //                         ->where("id",trim($request->regional))
+        //                         ->get();
+        $sucursalesPorRegionales=DB::table("empresas")
+        ->join("regionales","empresas.id_regional", "=", "regionales.id" )
+        ->where("regionales.id", "=", $request->regional)
+        ->selectRaw("*")
+        ->get();
+        return json_encode($sucursalesPorRegionales);
     }
 }

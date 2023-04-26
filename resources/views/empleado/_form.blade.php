@@ -187,7 +187,7 @@
                         <div class="card-body">
                             @foreach ($empSuc as $item1)
                                 @if ($item->id == $item1->id_empresa)
-                                    <input type="checkbox" name="" id=""><label for=""> {{$item1->id_sucursal}}</label><br>
+                                    <input type="checkbox" name="" id=""><label for=""> {{$item1->empresa->getSucursal->nombre_sucursal}}</label><br>
                                 @endif
                             @endforeach
                         </div>

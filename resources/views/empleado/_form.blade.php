@@ -187,11 +187,7 @@
                         <div class="card-body">
                             @foreach ($empSuc as $item1)
                                 @if ($item->id == $item1->id_empresa)
-<<<<<<< HEAD
-                                    <input type="checkbox" name="" id=""><label for=""> {{$item1->empresa->getSucursal->nombre_sucursal}}</label><br>
-=======
-                                    <input type="checkbox" name="" id=""><label for=""> {{$item1->sucursal->nombre_sucursal}}</label><br>
->>>>>>> a6658d55a3f859078f5638d4d2b382d93cd11aa6
+                                    <input type="checkbox" name="sucursales[]" id="" value="{'id_sucursal':{{$item1->id_sucursal}},'id_empresa':{{$item1->id_empresa}}}"><label for="">&nbsp;&nbsp;&nbsp;{{$item1->sucursal->nombre_sucursal}}</label><br>
                                 @endif
                             @endforeach
                         </div>

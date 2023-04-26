@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Role;
 
 class role_has_permissions extends Model
 {
@@ -14,4 +15,8 @@ class role_has_permissions extends Model
         'role_id',
         'estado'
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class,'id_empresa');
+    }
 }

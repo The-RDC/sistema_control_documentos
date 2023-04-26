@@ -19,4 +19,8 @@ class sucursal extends Model
     public function empleado(){
         return $this->hasMany(empleado::class);
     }
+
+    public function detalle_empresa_sucursales(){
+        return $this->hasMany(detalle_empresa_sucursales::class, 'id_sucursal');
+    }
 }

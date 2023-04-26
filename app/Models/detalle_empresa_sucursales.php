@@ -18,4 +18,8 @@ class detalle_empresa_sucursales extends Model
     public function empresa(){
         return $this->belongsTo(empresa::class,'id_empresa');
     }
+
+    public function sucursal(){
+        return $this->belongsTo(sucursal::class,'id_sucursal');
+    }
 }

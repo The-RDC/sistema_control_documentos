@@ -2,6 +2,7 @@
 
 namespace Spatie\Permission\Models;
 
+use App\Models\role_has_permissions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Contracts\Role as RoleContract;
@@ -193,5 +194,9 @@ class Role extends Model implements RoleContract
         }
 
         return $this->permissions->contains($permission->getKeyName(), $permission->getKey());
+    }
+
+    public function role_has_permissions(){
+        return $this->hasMany(role_has_permissions::class, 'role_id');
     }
 }

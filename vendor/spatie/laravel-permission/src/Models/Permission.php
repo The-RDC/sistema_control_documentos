@@ -154,4 +154,11 @@ class Permission extends Model implements PermissionContract
     {
         return static::getPermissions($params, true)->first();
     }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class)
+            ->withPivot('estado')
+            ->wherePivot('estado', 1);
+    }
 }

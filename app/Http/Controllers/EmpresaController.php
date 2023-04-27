@@ -14,10 +14,10 @@ class EmpresaController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:empresa-list|empresa-create|empresa-edit|empresa-delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:empresa-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:empresa-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:empresa-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:empleado-list', ['only' => ['index','show']]);
+        $this->middleware('CheckPermissions:empleado-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:empleado-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:empleado-delete', ['only' => ['destroy']]);
     }
 
     public function index()

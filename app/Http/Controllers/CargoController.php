@@ -13,38 +13,13 @@ class CargoController extends Controller
 {
     function __construct()
     {
+        $this->middleware('CheckPermissions:cargo-list', ['only' => ['index','show']]);
+        $this->middleware('CheckPermissions:cargo-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:cargo-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:cargo-delete', ['only' => ['destroy']]);
 
-
-
-        $this->middleware(function ($request, $next) {
-            $user = Auth::user();
-            $permissions = [];
-
-            if ($user) {
-                $roles = $user->roles;
-
-                foreach ($roles as $role) {
-                    $rolePermissions = $role->permissions;
-
-                    foreach ($rolePermissions as $permission) {
-                        if ($permission->pivot->estado == 1) { // Si el estado es 1, agrega el permiso
-                            $permissions[] = $permission->name;
-                        }
-                        // Si el estado es 0, no agregues el permiso
-                    }
-                }
-            }
-
-            $request->attributes->add(['permissions' => $permissions]);
-
-            return $next($request);
-        });
-
-        $this->middleware('permission:cargo-list|cargo-create|cargo-edit|cargo-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:cargo-create', ['only' => ['create','store']]);
-        $this->middleware('permission:cargo-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:cargo-delete', ['only' => ['destroy']]);
     }
+
 
     public function index()
     {

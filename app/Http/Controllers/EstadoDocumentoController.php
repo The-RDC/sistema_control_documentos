@@ -11,10 +11,10 @@ class EstadoDocumentoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:estadoDocumento-list|estadoDocumento-create|estadoDocumento-edit|estadoDocumento-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:estadoDocumento-create', ['only' => ['create','store']]);
-        $this->middleware('permission:estadoDocumento-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:estadoDocumento-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:estadoDocumento-list', ['only' => ['index','show']]);
+        $this->middleware('CheckPermissions:estadoDocumento-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:estadoDocumento-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:estadoDocumento-delete', ['only' => ['destroy']]);
     }
 
     public function index()

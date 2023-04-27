@@ -11,10 +11,10 @@ class RegionalController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:regional-list|regional-create|regional-edit|regional-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:regional-create', ['only' => ['create','store']]);
-        $this->middleware('permission:regional-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:regional-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:regional-list', ['only' => ['index','show']]);
+        $this->middleware('CheckPermissions:regional-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:regional-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:regional-delete', ['only' => ['destroy']]);
     }
 
     public function index()

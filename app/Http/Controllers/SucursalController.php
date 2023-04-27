@@ -11,10 +11,10 @@ class SucursalController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:sucursal-list|sucursal-create|sucursal-edit|sucursal-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:sucursal-create', ['only' => ['create','store']]);
-        $this->middleware('permission:sucursal-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:sucursal-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:sucursal-list', ['only' => ['index','show']]);
+        $this->middleware('CheckPermissions:sucursal-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:sucursal-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:sucursal-delete', ['only' => ['destroy']]);
     }
 
     public function index()

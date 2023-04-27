@@ -22,11 +22,12 @@ class RoleController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
-        $this->middleware('permission:role-create', ['only' => ['create','store']]);
-        $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:role-list', ['only' => ['index','store']]);
+        $this->middleware('CheckPermissions:role-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:role-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:role-delete', ['only' => ['destroy']]);
     }
+
 
     /**
      * Display a listing of the resource.
@@ -123,11 +124,11 @@ class RoleController extends Controller
         ]);
 
         $role = Role::find($id);
-//dd($request->permission);
+//dd($request->CheckPermissions);
 //        $role->name = $request->input('name');
 //        $role->update();
 //
-//        $role->permissions()->sync($request->input('permission'));
+//        $role->permissions()->sync($request->input('CheckPermissions'));
 //
 //        return redirect()->route('roles.index')
 //            ->with('success','Role updated successfully');

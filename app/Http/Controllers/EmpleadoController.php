@@ -18,10 +18,10 @@ class EmpleadoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:empleado-list|empleado-create|empleado-edit|empleado-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:empleado-create', ['only' => ['create','store']]);
-        $this->middleware('permission:empleado-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:empleado-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:empleado-list', ['only' => ['index','show']]);
+        $this->middleware('CheckPermissions:empleado-create', ['only' => ['create','store']]);
+        $this->middleware('CheckPermissions:empleado-edit', ['only' => ['edit','update']]);
+        $this->middleware('CheckPermissions:empleado-delete', ['only' => ['destroy']]);
     }
 
     public function index()

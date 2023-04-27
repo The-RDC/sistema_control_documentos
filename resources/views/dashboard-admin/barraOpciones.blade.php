@@ -35,8 +35,8 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    
-    @can('regional-list')
+
+    @can('dynamic-policy', 'regional-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#regionales"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -51,8 +51,8 @@
             </div>
         </li>
     @endcan
-    
-    @can('empresa-list')
+
+    @can('dynamic-policy', 'empresa-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#empresa"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -70,7 +70,7 @@
 
 
 
-    @can('sucursal-list')
+    @can('dynamic-policy', 'sucursal-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSucursal"
                 aria-expanded="true" aria-controls="collapseTwo">
@@ -88,7 +88,7 @@
 
 
 
-    @can('unidad-list')
+    @can('dynamic-policy', 'unidad-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUnidades"
                 aria-expanded="true" aria-controls="collapseTwo">
@@ -101,12 +101,12 @@
                     <a class="collapse-item" href="{{ route('unidad.index') }}" id="listar-unidades">Listar unidades</a>
                 </div>
             </div>
-        </li>   
+        </li>
     @endcan
 
 
 
-    @can('cargo-list')
+    @can('dynamic-policy', 'cargo-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
@@ -121,10 +121,10 @@
             </div>
         </li>
     @endcan
-    
 
 
-    @can('empleado-list')
+
+    @can('dynamic-policy', 'empleado-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -139,9 +139,9 @@
             </div>
         </li>
     @endcan
-    
-    
-    @can('estadoDocumento-list')
+
+
+    @can('dynamic-policy', 'estadoDocumento-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#esdoc"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -158,9 +158,9 @@
     @endcan
 
 
-    
 
-    @can('tipoDocumento-list')
+
+    @can('dynamic-policy', 'tipoDocumento-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoDocumento"
                 aria-expanded="true" aria-controls="collapseTwo">
@@ -177,7 +177,7 @@
     @endcan
 
 
-    
+
     <!--@can('listarDocumento-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
@@ -194,10 +194,10 @@
         </li>
     @endcan-->
 
-    
 
 
-    @can('registroDocumento-list')
+
+    @can('dynamic-policy', 'registroDocumento-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistroDocumento"
                 aria-expanded="true" aria-controls="collapseTwo">
@@ -215,9 +215,9 @@
 
 
 
-    
 
-    @can('role-list')
+
+    @can('dynamic-policy', 'role-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usuarios"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -233,10 +233,10 @@
             </div>
         </li>
     @endcan
-    
-    
 
-    @can('listarDocumento-list')
+
+
+    @can('dynamic-policy', 'listarDocumento-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuemento"
                 aria-expanded="true" aria-controls="collapseTwo">
@@ -255,7 +255,7 @@
 
 
 
-    
+
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

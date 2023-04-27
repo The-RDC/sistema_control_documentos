@@ -83,7 +83,6 @@ trait HasPermissions
             config('permission.column_names.model_morph_key'),
             PermissionRegistrar::$pivotPermission
         );
-
         if (! PermissionRegistrar::$teams) {
             return $relation;
         }

@@ -18,10 +18,10 @@ class RegistroDocumentoController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:registroDocumento-list|registroDocumento-create|registroDocumento-edit|registroDocumento-delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:registroDocumento-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:registroDocumento-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:registroDocumento-delete', ['only' => ['destroy']]);
+        $this->middleware('CheckPermissions:registroDocumento-list', ['only' => ['index', 'show']]);
+        $this->middleware('CheckPermissions:registroDocumento-create', ['only' => ['create', 'store']]);
+        $this->middleware('CheckPermissions:registroDocumento-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('CheckPermissions:registroDocumento-delete', ['only' => ['destroy']]);
     }
 
     public function index(Request $request)

@@ -34,6 +34,9 @@ class PermissionRegistrar
     /** @var string */
     public static $pivotPermission;
 
+    /** @var string */
+    public static $pivotEstado;
+
     /** @var \DateInterval|int */
     public static $cacheExpirationTime;
 
@@ -81,6 +84,7 @@ class PermissionRegistrar
 
         self::$pivotRole = config('permission.column_names.role_pivot_key') ?: 'role_id';
         self::$pivotPermission = config('permission.column_names.permission_pivot_key') ?: 'permission_id';
+        self::$pivotEstado = config('permission.column_names.estado_pivot_key') ?: 'estado';
 
         $this->cache = $this->getCacheStoreFromConfig();
     }

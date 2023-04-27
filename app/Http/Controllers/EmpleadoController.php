@@ -87,7 +87,13 @@ class EmpleadoController extends Controller
         $genero = Genero::get();
         $estaCivil = EstadoCivil::get();
         $empSuc = detalle_empresa_sucursales::get();
-        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil', 'empSuc'));
+        $empleadoEmpresa = detalle_empleado_empresa::get();
+        $empleadoSucursal= detalle_empleado_sucursal::get()->where('id_empleado',$empleado->id) -> where('estado',1);
+        $empeladoSucursalEnArray = array();
+        foreach($empleadoSucursal as $item) {
+            array_push($empeladoSucursalEnArray, $item->id_sucursal);
+        }
+        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil', 'empSuc','empleadoEmpresa','empeladoSucursalEnArray'));
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\detalle_empleado_empresa;
+use App\Models\detalle_empleado_sucursal;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Cargo;
@@ -74,6 +76,16 @@ class empleado extends Model
 
     public function log_estado_docuemto(){
         return $this->hasMany(log_estado_documento::class);
+    }
+
+    
+
+    public function detalle_empleado_sucursales(){
+        return $this->hasMany(detalle_empleado_sucursal::class, 'id_sucursal');
+    }
+
+    public function detalle_empleado_empresas(){
+        return $this->hasMany(detalle_empleado_empresa::class, 'id_empresa');
     }
 
 

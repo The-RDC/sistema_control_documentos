@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cargo;
 use App\Models\detalle_empresa_sucursales;
+use App\Models\detalle_empleado_sucursal;
+use App\Models\detalle_empleado_empresa;
 use App\Models\empleado;
 use App\Models\empresa;
 use App\Models\EstadoCivil;
@@ -35,14 +37,11 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-
-
         $empresa = empresa::get();
         $cargo = Cargo::get();
         $genero = Genero::get();
         $estaCivil = EstadoCivil::get();
         $empSuc = detalle_empresa_sucursales::get();
-        //dd($empSuc);
         $empleado = new empleado();
 
         return view('empleado.create', compact('empleado','empresa','cargo', 'genero', 'estaCivil', 'empSuc'));
@@ -53,8 +52,15 @@ class EmpleadoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //dd($request);
-        empleado::create($request->all());
+        $nuevoEmpleado=empleado::create($request->all());
+        foreach ($request->sucursales as $key => $value) {
+            $dataIdSucursal=json_decode($value,true);
+            $resultadoEmpleadoSucursal[] = array("id_empleado" => $nuevoEmpleado->id, "id_sucursal" => $dataIdSucursal["id_sucursal"]);
+            $resultadoEmpleadoEmpresa[] = array("id_empleado" => $nuevoEmpleado->id, "id_empresa" => $dataIdSucursal["id_empresa"]);
+        }
+        $nuevoEmpleado->detalle_empleado_sucursales()->createMany($resultadoEmpleadoSucursal);
+        $nuevoEmpleado->detalle_empleado_empresas()->createMany($resultadoEmpleadoEmpresa);
+        
         return redirect()->route('empleado.index');
     }
 

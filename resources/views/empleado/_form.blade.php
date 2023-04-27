@@ -173,21 +173,21 @@
             @endphp
             {{-- {{dd($empSuc)}}
             {{dd($empresa)}} --}}
-            @foreach ($empresa  as $item)
+            @foreach ($empresa  as $empresas)
                 <div class="card" style="border: solid .5px #EEE30B">
                     <div class="card-header" style="border: solid 1px #EEE30B" id="headingOne{{$i}}">
                         <h2 class="mb-0">
                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i}}" aria-expanded="false" aria-controls="collapseOne">
-                            Empresa: {{$item->nombre_empresa}}
+                            Empresa: {{$empresas->nombre_empresa}}
                         </button>
                         </h2>
                     </div>
 
                     <div id="collapseOne{{$i}}" class="collapse false" aria-labelledby="headingOne{{$i}}" data-parent="#accordionEmpresa">
                         <div class="card-body">
-                            @foreach ($empSuc as $item1)
-                                @if ($item->id == $item1->id_empresa)
-                                    <input type="checkbox" name="sucursales[]" id="" value="{'id_sucursal':{{$item1->id_sucursal}},'id_empresa':{{$item1->id_empresa}}}"><label for="">&nbsp;&nbsp;&nbsp;{{$item1->sucursal->nombre_sucursal}}</label><br>
+                            @foreach ($empSuc as $empSucs   )
+                                @if ($empresas->id == $empSucs  ->id_empresa)
+                                    <input type="checkbox" name="sucursales[]" id="" value='{"id_sucursal":{{$empSucs->id_sucursal}},"id_empresa":{{$empSucs->id_empresa}}}'><label for="">&nbsp;&nbsp;&nbsp;{{$empSucs->id_sucursal}}</label><br>
                                 @endif
                             @endforeach
                         </div>

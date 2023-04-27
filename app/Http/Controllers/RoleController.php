@@ -69,7 +69,7 @@ class RoleController extends Controller
         $role->permissions()->sync($request->input('permission'));
 
         return redirect()->route('roles.index')
-            ->with('success','Role created successfully');
+            ->with('success','Rol creado con éxito');
     }
     /**
      * Display the specified resource.
@@ -163,6 +163,6 @@ class RoleController extends Controller
     {
         DB::table("roles")->where('id',$id)->delete();
         return redirect()->route('roles.index')
-            ->with('success','Role deleted successfully');
+            ->with('success','Rol eliminado con éxito');
     }
 }

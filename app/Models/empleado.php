@@ -78,14 +78,16 @@ class empleado extends Model
         return $this->hasMany(log_estado_documento::class);
     }
 
-    
 
-    public function detalle_empleado_sucursales(){
-        return $this->hasMany(detalle_empleado_sucursal::class, 'id_sucursal');
+
+    public function detalle_empleado_sucursales(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(detalle_empleado_sucursal::class, 'id_empleado');
     }
 
-    public function detalle_empleado_empresas(){
-        return $this->hasMany(detalle_empleado_empresa::class, 'id_empresa');
+    public function detalle_empleado_empresas(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(detalle_empleado_empresa::class, 'id_empleado');
     }
 
 

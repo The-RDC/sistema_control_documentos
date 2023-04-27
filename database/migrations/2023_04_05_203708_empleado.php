@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_empresa')->nullable();
-
-            $table->foreign('id_empresa')->references('id')->on('empresas')->nullOnDelete();
+//            $table->unsignedBigInteger('id_empresa')->nullable();
+//
+//            $table->foreign('id_empresa')->references('id')->on('empresas')->nullOnDelete();
 //
 //            $table->unsignedBigInteger('id_sucursal')->nullable();
 //

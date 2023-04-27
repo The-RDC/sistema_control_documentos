@@ -81,8 +81,6 @@ class PrimerEmpleado extends Seeder
             'nombres' => 'Administrador',
             'ap_paterno' => 'Administrador',
             'ap_materno' => 'Administrador',
-
-            'id_empresa' => 1,
             'id_cargo' => 1,
             'nacionalidad' => 'boliviana',
             'nro_documento' => '111111111',

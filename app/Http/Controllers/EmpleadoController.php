@@ -41,7 +41,8 @@ class EmpleadoController extends Controller
         $cargo = Cargo::get();
         $genero = Genero::get();
         $estaCivil = EstadoCivil::get();
-        $empSuc = detalle_empresa_sucursales::get();
+        $empSuc = detalle_empresa_sucursales::get()->where('estado', 1);
+//dd($empSuc);
         $empleado = new empleado();
 
         return view('empleado.create', compact('empleado','empresa','cargo', 'genero', 'estaCivil', 'empSuc'));
@@ -52,6 +53,7 @@ class EmpleadoController extends Controller
      */
     public function store(StoreRequest $request)
     {
+
         $nuevoEmpleado=empleado::create($request->all());
         foreach ($request->sucursales as $key => $value) {
             $dataIdSucursal=json_decode($value,true);
@@ -60,8 +62,9 @@ class EmpleadoController extends Controller
         }
         $nuevoEmpleado->detalle_empleado_sucursales()->createMany($resultadoEmpleadoSucursal);
         $nuevoEmpleado->detalle_empleado_empresas()->createMany($resultadoEmpleadoEmpresa);
-        
+
         return redirect()->route('empleado.index');
+
     }
 
     /**
@@ -83,7 +86,8 @@ class EmpleadoController extends Controller
         $cargo = Cargo::get();
         $genero = Genero::get();
         $estaCivil = EstadoCivil::get();
-        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil'));
+        $empSuc = detalle_empresa_sucursales::get();
+        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil', 'empSuc'));
     }
 
     /**

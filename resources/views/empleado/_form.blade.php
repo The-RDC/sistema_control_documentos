@@ -121,19 +121,7 @@
 {{--                    @endforeach--}}
 {{--                </select>--}}
 {{--            </div>--}}
-            <div class="col-sm-3">
-                <label for="">Empresa</label>
-                <select class="form-control" name="id_empresa" style="border: solid 2px #EEE30B">
-                    <option selected>Empresa</option>
-                    @foreach($empresa as $empresas)
-                        <option value="{{ $empresas->id }}"
-                                @if($empresas->id == $empleado->id_empresa)
-                                selected
-                            @endif
-                        >{{ $empresas->nombre_empresa }}</option>
-                    @endforeach
-                </select>
-            </div>
+{{--    --}}
 {{--            <div class="col-sm-3">--}}
 {{--                <label for="">Sucursal</label>--}}
 {{--                <select class="form-control" name="id_sucursal" style="border: solid 2px #EEE30B">--}}

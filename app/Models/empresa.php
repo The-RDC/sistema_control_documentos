@@ -21,7 +21,8 @@ class empresa extends Model
         return $this->hasMany(empleado::class);
     }
 
-    public function detalle_empresa_sucursales(){
+    public function detalle_empresa_sucursales(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(detalle_empresa_sucursales::class, 'id_empresa');
     }
 

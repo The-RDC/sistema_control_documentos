@@ -16,14 +16,14 @@
 <div class="form-group">
   <div class="col-sm-12">
       <label for="">Empresa</label>
-      <select class="form-control" name="sucursal_selector" id="sucursal_selector" style="border: solid 2px #EEE30B">
-          @foreach($empresaConDatos as $empresaConDatoss)
+      <select class="form-control" name="sucursal_selector" id="empresa_selector" style="border: solid 2px #EEE30B">
+          {{-- @foreach($empresaConDatos as $empresaConDatoss)
               <option value="{{ $empresaConDatoss->id }}"
                       @if($empresaConDatoss->id == $empresaConDatoss->id_empresa)
                       selected
                   @endif
-              >{{ $empresaConDatoss->nombre_empresa }}</option>
-          @endforeach
+              >{{ $empresaConDatoss->nombre_empresa }}</option> 
+          @endforeach --}}
       </select>
   </div>
 </div>

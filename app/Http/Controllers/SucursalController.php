@@ -22,7 +22,8 @@ class SucursalController extends Controller
     public function index()
     {
         $sucursal = sucursal::get();
-        return view('Sucursal.index', compact('sucursal'));
+        $regional = regional::get();
+        return view('Sucursal.index', compact('sucursal','regional'));
     }
 
     public function create()

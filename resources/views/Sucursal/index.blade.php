@@ -16,8 +16,8 @@
                     <thead>
                         <tr>
                             <th>Nro</th>
-                            <th>Unidad</th>
-                            <th>dirección</th>
+                            <th>Sucursal</th>
+                            <th>Dirección</th>
                             <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                     </thead>

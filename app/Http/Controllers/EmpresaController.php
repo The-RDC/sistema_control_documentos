@@ -46,7 +46,6 @@ class EmpresaController extends Controller
 
         $empresa = empresa::create($request->all());
 
-
         foreach ($request->sucursales as $key => $sos) {
             $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
         }

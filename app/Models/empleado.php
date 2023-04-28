@@ -90,5 +90,12 @@ class empleado extends Model
         return $this->hasMany(detalle_empleado_empresa::class, 'id_empleado');
     }
 
+    public function actualizarEstadoDetalleEmpleadoSucursal($idEmpleado, $idSucursal) {
+        $query = detalle_empleado_sucursal::where('id_empleado', $idEmpleado)
+             ->where('id_sucursal', $idSucursal)
+             ->where('estado', 1)
+             ->update(['estado' => 0]);
+     }
+
 
 }

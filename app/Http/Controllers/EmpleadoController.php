@@ -12,6 +12,7 @@ use App\Models\EstadoCivil;
 use App\Models\Genero;
 use App\Models\regional;
 use App\Models\sucursal;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\Empleado\StoreRequest;
 use App\Http\Requests\Empleado\UpdateRequest;
@@ -37,15 +38,16 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        $empresa = empresa::get();
-        $cargo = Cargo::get();
-        $genero = Genero::get();
-        $estaCivil = EstadoCivil::get();
+        $empresa = empresa::get()->whereNull("deleted_at");
+        $sucursal = sucursal::get()->whereNull("deleted_at");
+        $cargo = Cargo::get()->whereNull("deleted_at");;
+        $genero = Genero::get()->whereNull("deleted_at");;
+        $estaCivil = EstadoCivil::get()->whereNull("deleted_at");;
         $empSuc = detalle_empresa_sucursales::get()->where('estado', 1);
-//dd($empSuc);
         $empleado = new empleado();
+        $empleadoSucursal= detalle_empleado_sucursal::get()->where('estado',1);
 
-        return view('empleado.create', compact('empleado','empresa','cargo', 'genero', 'estaCivil', 'empSuc'));
+        return view('empleado.create', compact('empleado','empresa', 'sucursal','cargo', 'genero', 'estaCivil', 'empSuc','empleadoSucursal'));
     }
 
     /**
@@ -89,19 +91,55 @@ class EmpleadoController extends Controller
         $empSuc = detalle_empresa_sucursales::get();
         $empleadoEmpresa = detalle_empleado_empresa::get();
         $empleadoSucursal= detalle_empleado_sucursal::get()->where('id_empleado',$empleado->id) -> where('estado',1);
-        $empeladoSucursalEnArray = array();
-        foreach($empleadoSucursal as $item) {
-            array_push($empeladoSucursalEnArray, $item->id_sucursal);
-        }
-        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil', 'empSuc','empleadoEmpresa','empeladoSucursalEnArray'));
+
+        return view('empleado.edit', compact('empleado','regional', 'sucursal', 'empresa', 'cargo', 'genero', 'estaCivil', 'empSuc','empleadoEmpresa','empleadoSucursal'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, empleado $empleado)
-    {
+    public function update(UpdateRequest $request, empleado $empleado, detalle_empleado_sucursal $detalleEmpleadoSucursal, detalle_empresa_sucursales $detalleEmpresaSucursal)
+    {        
         $empleado->update($request->all());
+        $registrosEmpleadoSucursalActivos = detalle_empleado_sucursal::where('id_empleado', $empleado->id)
+                                                                      ->where('estado','=',1)
+                                                                      ->pluck('id_sucursal')
+                                                                      ->toArray();
+        $idsSucursales=array();
+        if(!empty($request->sucursales))
+        {
+            foreach ($request->sucursales as $key => $value) 
+            {
+                $idsSucursalEnvVistaEditEmpleado=json_decode($value,true);
+                if(!in_array($idsSucursalEnvVistaEditEmpleado["id_sucursal"], $registrosEmpleadoSucursalActivos))
+                {
+                $resultadoEmpleadoSucursal[] = array("id_empleado" => $empleado->id, "id_sucursal" => $idsSucursalEnvVistaEditEmpleado["id_sucursal"]);
+                }
+                array_push($idsSucursales,$idsSucursalEnvVistaEditEmpleado["id_sucursal"]);
+                //$resultadoEmpleadoEmpresa[] = array("id_empleado" => $empleado->id, "id_empresa" => $idsSucursalEnvVistaEditEmpleado["id_empresa"]);
+            }
+        }
+        
+        $nuevoEmpleado=new empleado();
+        if (!empty($registrosEmpleadoSucursalActivos)) 
+        {
+            foreach ($registrosEmpleadoSucursalActivos as $registrosEmpleadoSucursalActivosItem) 
+            { 
+                if (!in_array($registrosEmpleadoSucursalActivosItem,$idsSucursales))
+                {
+                    $nuevoEmpleado->actualizarEstadoDetalleEmpleadoSucursal($empleado->id, $registrosEmpleadoSucursalActivosItem );
+                }
+            }
+        }
+        
+
+        if(!empty($resultadoEmpleadoSucursal))
+        {
+            $empleado->detalle_empleado_sucursales()->createMany($resultadoEmpleadoSucursal);
+        }
+        
+        //$empleado->detalle_empleado_empresas()->createMany($resultadoEmpleadoEmpresa);
+
         return redirect()->route('empleado.index');
     }
 

@@ -158,10 +158,7 @@
         <div class="accordion" id="accordionEmpresa">
             @php
               $i=1;
-            @endphp
-            {{-- {{dd($empSuc->id_sucursal)}}
-            {{dd($empresa)}} --}}
-            {{-- {{dd($empleadoSucursal)}} --}}
+            @endphp           
             @foreach ($empresa  as $empresas)
                 <div class="card" style="border: solid .5px #EEE30B">
                     <div class="card-header" style="border: solid 1px #EEE30B" id="headingOne{{$i}}">
@@ -176,11 +173,22 @@
                         <div class="card-body">
                             @foreach ($empSuc as $empSucs)
                                 @if ($empresas->id == $empSucs->id_empresa)
-                                    <input type="checkbox" name="sucursales[]" id="" value='{"id_sucursal":{{$empSucs->id_sucursal}},"id_empresa":{{$empSucs->id_empresa}}}'
-                                        @if(in_array($empSucs->id_sucursal, $empeladoSucursalEnArray ))
-                                            checked
+                                    @foreach ($sucursal as $sucursales)
+                                        @if ($sucursales->id == $empSucs->id_sucursal)
+                                            <input type="checkbox" name="sucursales[]" id="" value='{"id_sucursal":{{$empSucs->id_sucursal}},"id_empresa":{{$empSucs->id_empresa}}}'
+                                                @foreach ($empleadoSucursal as $empleadoSucursales)
+                                                    @if ($empleadoSucursales->id_sucursal == $sucursales->id)
+                                                        @foreach ($empleado as $empelados) 
+                                                            @if ($empleadoSucursales->id_empleado == $empleado->id and !is_null($empleado->id))
+                                                              checked
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                                @endforeach
+                                            ><label for="">&nbsp;&nbsp;&nbsp;{{$sucursales->nombre_sucursal}}</label><br>
                                         @endif
-                                    ><label for="">&nbsp;&nbsp;&nbsp;{{$empSucs->id_sucursal}}</label><br>
+                                    @endforeach
+                                    
                                 @endif
                             @endforeach
                         </div>

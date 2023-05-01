@@ -23,7 +23,8 @@ class EmpresaController extends Controller
     public function index()
     {
         $empresa = empresa::get();
-        return view('empresa.index', compact('empresa'));
+        $regional = regional::get();
+        return view('empresa.index', compact('empresa','regional'));
     }
 
     /**

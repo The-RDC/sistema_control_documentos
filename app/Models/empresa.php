@@ -31,6 +31,6 @@ class empresa extends Model
             ->where('id_sucursal', $idSucursal)
             ->where('estado', 1)
             ->update(['estado' => 0]);
-//        dump($query);
+//          dump($query);
     }
 }

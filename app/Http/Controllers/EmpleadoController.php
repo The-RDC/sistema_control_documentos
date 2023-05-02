@@ -38,16 +38,19 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
+        $regional = regional::get()->whereNull("deleted_at");
         $empresa = empresa::get()->whereNull("deleted_at");
         $sucursal = sucursal::get()->whereNull("deleted_at");
-        $cargo = Cargo::get()->whereNull("deleted_at");;
-        $genero = Genero::get()->whereNull("deleted_at");;
-        $estaCivil = EstadoCivil::get()->whereNull("deleted_at");;
+        $cargo = Cargo::get()->whereNull("deleted_at");
+        $genero = Genero::get()->whereNull("deleted_at");
+        $estaCivil = EstadoCivil::get()->whereNull("deleted_at");
         $empSuc = detalle_empresa_sucursales::get()->where('estado', 1);
+        $empleadoSucursal= detalle_empleado_sucursal::get()
+                           ->where('estado',1)
+                           ->whereNull("deleted_at");
         $empleado = new empleado();
-        $empleadoSucursal= detalle_empleado_sucursal::get()->where('estado',1);
 
-        return view('empleado.create', compact('empleado','empresa', 'sucursal','cargo', 'genero', 'estaCivil', 'empSuc','empleadoSucursal'));
+        return view('empleado.create', compact('empleado','regional','empresa', 'sucursal','cargo', 'genero', 'estaCivil', 'empSuc','empleadoSucursal'));
     }
 
     /**
@@ -99,7 +102,8 @@ class EmpleadoController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateRequest $request, empleado $empleado, detalle_empleado_sucursal $detalleEmpleadoSucursal, detalle_empresa_sucursales $detalleEmpresaSucursal)
-    {        
+    {  
+        // dd($request->sucursales);      
         $empleado->update($request->all());
         $registrosEmpleadoSucursalActivos = detalle_empleado_sucursal::where('id_empleado', $empleado->id)
                                                                       ->where('estado','=',1)
@@ -113,7 +117,7 @@ class EmpleadoController extends Controller
                 $idsSucursalEnvVistaEditEmpleado=json_decode($value,true);
                 if(!in_array($idsSucursalEnvVistaEditEmpleado["id_sucursal"], $registrosEmpleadoSucursalActivos))
                 {
-                $resultadoEmpleadoSucursal[] = array("id_empleado" => $empleado->id, "id_sucursal" => $idsSucursalEnvVistaEditEmpleado["id_sucursal"]);
+                    $resultadoEmpleadoSucursal[] = array("id_empleado" => $empleado->id, "id_sucursal" => $idsSucursalEnvVistaEditEmpleado["id_sucursal"]);
                 }
                 array_push($idsSucursales,$idsSucursalEnvVistaEditEmpleado["id_sucursal"]);
                 //$resultadoEmpleadoEmpresa[] = array("id_empleado" => $empleado->id, "id_empresa" => $idsSucursalEnvVistaEditEmpleado["id_empresa"]);

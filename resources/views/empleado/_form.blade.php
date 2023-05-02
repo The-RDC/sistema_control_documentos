@@ -164,7 +164,15 @@
                     <div class="card-header" style="border: solid 1px #EEE30B" id="headingOne{{$i}}">
                         <h2 class="mb-0">
                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$i}}" aria-expanded="false" aria-controls="collapseOne">
-                            Empresa: {{$empresas->nombre_empresa}}
+                            <small class="text-muted" style="font-size: 15px;">Regional: 
+                                @foreach ($regional as $regionales)
+                                    @if ($regionales->id == $empresas->id_regional)
+                                        {{$regionales->nombre_regional}}
+                                    @endif
+                                @endforeach
+                            </small>
+                            <br>
+                            <small style="font-size: 15px;">Empresa: {{$empresas->nombre_empresa}}</small> 
                         </button>
                         </h2>
                     </div>
@@ -188,7 +196,6 @@
                                             ><label for="">&nbsp;&nbsp;&nbsp;{{$sucursales->nombre_sucursal}}</label><br>
                                         @endif
                                     @endforeach
-                                    
                                 @endif
                             @endforeach
                         </div>

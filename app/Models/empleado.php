@@ -8,6 +8,7 @@ use App\Models\detalle_empleado_sucursal;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Cargo;
+use Illuminate\Support\Facades\DB;
 
 class empleado extends Model
 {
@@ -95,7 +96,7 @@ class empleado extends Model
              ->where('id_sucursal', $idSucursal)
              ->where('estado', 1)
              ->update(['estado' => 0]);
-     }
-
+    }
+    
 
 }

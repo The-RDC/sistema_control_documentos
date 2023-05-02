@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\regional;
+use App\Models\empresa;
 use Illuminate\Http\Request;
 use App\Http\Requests\Regional\StoreRequest;
 use App\Http\Requests\Regional\UpdateRequest;
@@ -19,19 +21,25 @@ class RegionalController extends Controller
 
     public function index()
     {
-        $regional = regional::get();
-        return view('regional.index', compact('regional'));
+        $regional = regional::get()
+                    ->whereNull("deleted_at");
+        $empresa = empresa::get()
+                    ->whereNull("deleted_at");
+
+        return view('regional.index', compact('regional','empresa'));
     }
 
     public function create()
     {
         $regional = new regional();
-
-        return view('regional.create', compact('regional'));
+        $empresa = empresa::get();
+        return view('regional.create', compact('regional','empresa'));
     }
 
     public function store(StoreRequest $request)
     {
+        $sql=DB::table('empresas') -> selectRaw('*')->get();
+        dd($request->id_regional);
         regional::create($request->all());
         return redirect()->route('regional.index');
     }

@@ -16,20 +16,26 @@
                         <thead>
                         <tr>
                             <th>Nro</th>
+                            <th>Empresa</th>
                             <th>Regional</th>
                             <th class="no-exportar-pdf">Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $contadorRegistros=1;
-                            @endphp
+                            @php $contadorRegistros=1; @endphp
                             @foreach($regional as $regionales)
                                 <tr>
                                     <td>{{ $contadorRegistros }}</td>
                                     @php
                                         $contadorRegistros++;
                                     @endphp
+                                    <td>
+                                        @foreach ($empresa as $empresas)
+                                            @if ($empresas->id_regional == $regionales->id)
+                                                {{$empresas->nombre_empresa}}
+                                            @endif
+                                        @endforeach
+                                    </td>
                                     <td>{{ $regionales->nombre_regional }}</td>
                                     <td class="no-exportar-pdf"><form action="{{ route('regional.destroy', $regionales) }}" method="post" id="{{ $regionales->id }}">
                                             @csrf @method('DELETE')

@@ -16,7 +16,6 @@
                     <thead>
                         <tr>
                             <th>Nro.</th>
-                            <th>Regional</th>
                             <th>Empresa</th>
                             <th class="no-exportar-pdf">Acciones</th>
                         </tr>
@@ -31,13 +30,6 @@
                                 @php
                                     $contadorRegistros++;
                                 @endphp
-                                <td>
-                                    @foreach ($regional as $regionales)
-                                        @if ($empresas->id_regional == $regionales->id)
-                                            {{$regionales->nombre_regional}}  
-                                        @endif
-                                    @endforeach
-                                </td>
                                 <td>{{ $empresas->nombre_empresa }}</td>
                                 <td class="no-exportar-pdf"><form action="{{ route('empresa.destroy', $empresas) }}" method="post" id="{{ $empresas->id }}">
                                         @csrf @method('DELETE')

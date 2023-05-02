@@ -47,11 +47,10 @@ class EmpresaController extends Controller
 
         $empresa = empresa::create($request->all());
 
-        foreach ($request->sucursales as $key => $sos) {
-            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
-        }
-//        dd($results);
-        $empresa->detalle_empresa_sucursales()->createMany($results);
+        // foreach ($request->sucursales as $key => $sos) {
+        //     $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
+        // }
+        //$empresa->detalle_empresa_sucursales()->createMany($results);
 
         return redirect()->route('empresa.index');
     }

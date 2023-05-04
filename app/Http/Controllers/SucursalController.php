@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\sucursal;
+use App\Models\empresa;
+use App\Models\regional;
 use Illuminate\Http\Request;
 use App\Http\Requests\Sucursal\StoreRequest;
 use App\Http\Requests\Sucursal\UpdateRequest;
@@ -19,19 +21,29 @@ class SucursalController extends Controller
 
     public function index()
     {
-        $sucursal = sucursal::get();
-        return view('Sucursal.index', compact('sucursal'));
+        $sucursal = sucursal::get()->whereNull("deleted_at");
+        $empresa = empresa::get()->whereNull("deleted_at");
+        $regional = regional::get()->whereNull("deleted_at");
+        return view('Sucursal.index', compact('sucursal','empresa','regional'));
     }
 
     public function create()
     {
         $sucursal = new sucursal();
-        return view('Sucursal.create', compact('sucursal'));
+        $empresa = empresa::get()->whereNull("deleted_at");
+        $regional = regional::get()->whereNull("deleted_at");
+        return view('Sucursal.create', compact('sucursal','empresa','regional'));
     }
 
     public function store(StoreRequest $request)
     {
-        sucursal::create($request->all());
+        $nuevaSucursal = new sucursal();
+        $nuevaSucursal->id_empresa = trim($request->id_empresa);
+        $nuevaSucursal->id_regional = trim($request->id_regional);
+        $nuevaSucursal->nombre_sucursal = trim($request->nombre_sucursal);
+        $nuevaSucursal->direccion_sucursal = trim($request->direccion_sucursal);
+        $nuevaSucursal->save();
+        //sucursal::create($request->all());
         return redirect()->route('sucursal.index');
     }
 
@@ -42,7 +54,9 @@ class SucursalController extends Controller
 
     public function edit(sucursal $sucursal)
     {
-        return view('Sucursal.edit', compact('sucursal'));
+        $empresa = empresa::get()->whereNull("deleted_at");
+        $regional = regional::get()->whereNull("deleted_at");
+        return view('Sucursal.edit', compact('sucursal','empresa','regional'));
     }
 
     public function update(UpdateRequest $request, sucursal $sucursal)

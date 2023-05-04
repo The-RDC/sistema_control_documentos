@@ -16,6 +16,8 @@
                     <thead>
                         <tr>
                             <th>Nro</th>
+                            <th>empresa</th>
+                            <th>regional</th>
                             <th>Sucursal</th>
                             <th>Dirección</th>
                             <th class="no-exportar-pdf">Acciones</th>
@@ -31,6 +33,20 @@
                                 @php
                                     $contadorRegistros++;
                                 @endphp
+                                <td>
+                                    @foreach ($empresa as $empresas)
+                                        @if ($empresas->id == $sucursales->id_empresa)
+                                            {{$empresas->nombre_empresa}}    
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($regional as $regionales)
+                                        @if ($regionales->id == $sucursales->id_regional)
+                                            {{$regionales->nombre_regional}}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>{{ $sucursales->nombre_sucursal }}</td>
                                 <td>{{ $sucursales->direccion_sucursal }}</td>
                                 <td class="no-exportar-pdf"><form action="{{ route('sucursal.destroy', $sucursales) }}" method="post" id="{{ $sucursales->id }}">

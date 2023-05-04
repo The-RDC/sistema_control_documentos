@@ -31,7 +31,7 @@
                                     @endphp
                                     <td>
                                         @foreach ($empresa as $empresas)
-                                            @if ($empresas->id_regional == $regionales->id)
+                                            @if ($empresas->id == $regionales->id_empresa)
                                                 {{$empresas->nombre_empresa}}
                                             @endif
                                         @endforeach

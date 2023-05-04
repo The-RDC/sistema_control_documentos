@@ -38,9 +38,11 @@ class RegionalController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $sql=DB::table('empresas') -> selectRaw('*')->get();
-        dd($request->id_regional);
-        regional::create($request->all());
+        $nuevaRegional = new regional();
+        $nuevaRegional->nombre_regional=trim($request->nombre_regional);
+        $nuevaRegional->id_empresa=trim($request->id_empresa);
+        $nuevaRegional->save();
+        //regional::new($request->all());
         return redirect()->route('regional.index');
     }
 
@@ -51,12 +53,16 @@ class RegionalController extends Controller
 
     public function edit(regional $regional)
     {
-        return view('regional.edit', compact('regional'));
+        $empresa=empresa::get();
+        return view('regional.edit', compact('regional','empresa'));
     }
 
     public function update(UpdateRequest $request, regional $regional)
     {
-        $regional->update($request->all());
+        $regional->nombre_regional=trim($request->nombre_regional);
+        $regional->id_empresa=trim($request->id_empresa);
+        $regional->save();
+        //$regional->update($request->all());
         return redirect()->route('regional.index');
     }
 

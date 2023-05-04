@@ -60,6 +60,11 @@ class User extends Authenticatable
         return $this->empleado->belongsTo(sucursal::class);
     }
 
+    public function destino_sucursal()
+    {
+        return $this->belongsToMany(sucursal::class, 'acceso_usuario_sucursals' , 'id_usuario', 'id_sucursal');
+    }
+
     public function actualizarRolePermission($permissionId, $roleId) {
         $query = role_has_permissions::where('permission_id', $permissionId)
             ->where('role_id', $roleId)

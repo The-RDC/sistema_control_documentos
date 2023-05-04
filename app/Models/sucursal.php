@@ -13,7 +13,9 @@ class sucursal extends Model
     use HasFactory;
     protected $fillable = [
         'nombre_sucursal',
-        'direccion_sucursal'
+        'direccion_sucursal',
+        'id_regional',
+        'id_empresa'
     ];
 
     public function empleado(){
@@ -23,4 +25,10 @@ class sucursal extends Model
     public function detalle_empresa_sucursales(){
         return $this->hasMany(detalle_empresa_sucursales::class, 'id_sucursal');
     }
+
+    public function destino_usuario()
+    {
+        return $this->belongsToMany(User::class, 'acceso_usuario_sucursals' ,'id_sucursal','id_usuario');
+    }
+    
 }

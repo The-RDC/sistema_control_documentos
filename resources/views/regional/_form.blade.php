@@ -1,10 +1,10 @@
 <div class="form-group">
     <div class="col-sm-12">
         <label for="">Empresa: </label>
-        <select class="form-control" name="id_regional" style="border: solid 2px #EEE30B">
+        <select class="form-control" name="id_empresa" style="border: solid 2px #EEE30B">
             @foreach($empresa as $empresas)
                 <option value="{{ $empresas->id }}"
-                        @if($empresas->id == $regional->id)
+                        @if($empresas->id == $regional->id_empresa)
                         selected
                     @endif
                 >{{ $empresas->nombre_empresa }}</option>

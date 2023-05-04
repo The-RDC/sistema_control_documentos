@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\empleado;
+use App\Models\sucursal;
+use App\Models\acceso_usuario_sucursal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -35,9 +37,10 @@ class UserController extends Controller
     public function create(): View
     {
         $empleados = empleado::get();
-//        dd($empleados);
-        $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles', 'empleados'));
+        //$roles = Role::pluck('name','name')->all();
+        $roles = Role::get();
+        $sucursal = sucursal::get()->whereNull("deleted_at");
+        return view('users.create',compact('roles', 'empleados','sucursal'));
     }
 
     /**
@@ -52,15 +55,23 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            //'roles' => 'required',
+            'ids_rol' => 'required',
+            'ids_sucursal' => 'required'
         ]);
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-
+        //$user->assignRole($request->input('roles'));
+        $user->assignRole($request->input('ids_rol'));
+        
+        $acceso_usuario_sucursal= new acceso_usuario_sucursal();
+        foreach ($request->ids_sucursal as $ids_sucursales) {
+            $acceso_usuario_sucursal->insertarDatosAccesoUsuarioSucursal($user->id, $ids_sucursales);   
+        }
+        
         return redirect()->route('users.index')
             ->with('success','User created successfully');
     }

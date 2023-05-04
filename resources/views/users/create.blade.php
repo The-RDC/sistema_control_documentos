@@ -1,6 +1,4 @@
 @extends('dashboard-admin.admin')
-
-
 @section('informacion')
     <div class="container-fluid">
         <div class="card shadow mb-4">
@@ -11,7 +9,7 @@
                             <h2>Crear nuevo Usuario</h2>
                         </div>
                         <div class="pull-right">
-                            <a class="btn" href="{{ route('users.index') }}" style="background: #2FA137; color:aliceblue"> Regresar</a>
+                            <a class="btn btn-warning" href="{{ route('users.index') }}" > Regresar</a>
                         </div>
                     </div>
                 </div>
@@ -31,47 +29,97 @@
                         <div class="col-md-7">
                             {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="col-xs-12 col-sm-12 col-md">
                                         <div class="form-group">
                                             <strong>Nombre:</strong>
                                             {!! Form::text('name', null, array('placeholder' => 'Nombre','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="col-xs-12 col-sm-12 col-md">
                                         <div class="form-group">
                                             <strong>Correo Electrónico:</strong>
                                             {!! Form::text('email', null, array('placeholder' => 'Correo Electrónico','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md">
                                         <div class="form-group">
-                                            <label for="empleado_id">Empleado:</label>
-                                            <select name="empleado_id" class="form-control" id="empleado_id" style="border: solid 2px #EEE30B">
-                                                <option> Seleccione un empleado</option>
-                                                @foreach ($empleados as $empleado)
-                                                    <option value="{{ $empleado->id }}">{{ $empleado->nombres }} {{ $empleado->ap_paterno }}</option>
+                                            <label for="">Rol: </label>
+                                            <select class="form-control" name="ids_rol[]" multiple style="border: solid 2px #EEE30B" >
+                                                @foreach($roles as $roless)
+                                                    <option value="{{ $roless->id }}">
+                                                        {{ $roless->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
+
+                                            {{-- <strong>Rol:</strong>
+                                            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control', 'style'=>'border: solid 2px #EEE30B','multiple')) !!} --}}
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                                    <div class="col-xs-12 col-sm-12 col-md">
                                         <div class="form-group">
-                                            <strong>Contraseña:</strong>
-                                            {!! Form::password('password', array('placeholder' => 'Contraseña','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
+                                            <label for="">Sucursal: </label>
+                                            <select class="form-control" name="ids_sucursal[]" multiple style="border: solid 2px #EEE30B">
+                                                @foreach($sucursal as $sucursales)
+                                                    <option value="{{ $sucursales->id }}">
+                                                        {{ $sucursales->nombre_sucursal }} 
+                                                        <small class="text-break">({{$sucursales->direccion_sucursal}})</small>
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>    
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="contrasenia" style="border: 1px solid red;">
+                                    <div class="row" style="margin-left: 30px;">
+                                        <div class="recomendaciones-contrasenia text-rigth">
+                                            Recomendaciones para crear una nueva contraseña robusta: <br><br>
+                                            a. Longitud de contraseña: como mínimo 8 caracteres <br>
+                                            b. Caracteres numéricos: como mínimo 2 números <br>
+                                            c. Caracteres de símbolos: como mínimo 1 carácter especial <br>
+                                            d. Letras mayúsculas: como mínimo 1 letra mayúscula <br>
+                                            e. Letras minúsculas: como mínimo 1 letra minúscula <br> 
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                            <strong>Confirma Contraseña:</strong>
-                                            {!! Form::password('confirm-password', array('placeholder' => 'Confirmar Contraseña','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
+                                    <div class="inputs-contrasenias" style="margin: 50px;">
+                                        <div class="row">
+                                            <!--div class="col-xs-12 col-sm-12 col-md">
+                                                <div class="form-group">
+                                                    <label for="empleado_id">Empleado:</label>
+                                                    <select name="empleado_id" class="form-control" id="empleado_id" style="border: solid 2px #EEE30B">
+                                                        <option> Seleccione un empleado</option>
+                                                        @foreach ($empleados as $empleado)
+                                                            <option value="{{ $empleado->id }}">{{ $empleado->nombres }} {{ $empleado->ap_paterno }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div-->
+                                            <div class="col-xs-12 col-sm-12 col-md-8">
+                                                <div class="form-group">
+                                                    <strong>Contraseña:</strong>
+                                                    {!! Form::password('password', array('placeholder' => 'Contraseña','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-8">
+                                                <div class="form-group">
+                                                    <strong>Confirma Contraseña:</strong>
+                                                    {!! Form::password('confirm-password', array('placeholder' => 'Confirmar Contraseña','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-group">
-                                            <strong>Rol:</strong>
-                                            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control', 'style'=>'border: solid 2px #EEE30B','multiple')) !!}
-                                        </div>
-                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                         <button type="submit" class="btn" style="background: #2FA137; color:aliceblue">Guardar</button>
                                     </div>

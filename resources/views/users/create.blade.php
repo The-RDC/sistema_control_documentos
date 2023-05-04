@@ -47,7 +47,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md">
                                         <div class="form-group">
                                             <label for="">Rol: </label>
-                                            <select class="form-control" name="ids_rol[]" multiple style="border: solid 2px #EEE30B" >
+                                            <select class="form-control" name="ids_rol[]" style="border: solid 2px #EEE30B" >
                                                 @foreach($roles as $roless)
                                                     <option value="{{ $roless->id }}">
                                                         {{ $roless->name }}
@@ -61,9 +61,25 @@
                                     </div>
 
                                     <div class="col-xs-12 col-sm-12 col-md">
+                                        
                                         <div class="form-group">
                                             <label for="">Sucursal: </label>
-                                            <select class="form-control" name="ids_sucursal[]" multiple style="border: solid 2px #EEE30B">
+                                            <select class="form-control" id="sucursales" style="border: solid 2px #EEE30B">
+                                                <option>--Seleccione la sucursal--</option>
+                                                @foreach($sucursal as $sucursales)
+                                                    <option value="{{ $sucursales->id }}">
+                                                        {{ $sucursales->nombre_sucursal }} 
+                                                        <small class="text-break">({{$sucursales->direccion_sucursal}})</small>
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="sucursalesSeleccionadas">
+                                                <div class="container">
+                                                    <div class="row" id="sucursalesSeleccionadas"></div>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" name="ids_sucursal[]" id="sucursales2" multiple style="border: solid 2px #EEE30B" hidden>
+                                                <option>--Seleccione la sucursal--</option>
                                                 @foreach($sucursal as $sucursales)
                                                     <option value="{{ $sucursales->id }}">
                                                         {{ $sucursales->nombre_sucursal }} 
@@ -74,8 +90,9 @@
                                         </div>    
                                     </div>
                                 </div>
-                                <br>
 
+                                <br>
+                                
                                 <div class="contrasenia" style="border: 1px solid red;">
                                     <div class="row" style="margin-left: 30px;">
                                         <div class="recomendaciones-contrasenia text-rigth">

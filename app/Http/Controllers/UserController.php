@@ -14,14 +14,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request): View
     {
         $data = User::orderBy('id','DESC')->paginate(5);
@@ -29,11 +26,7 @@ class UserController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(): View
     {
         $empleados = empleado::get();
@@ -43,12 +36,7 @@ class UserController extends Controller
         return view('users.create',compact('roles', 'empleados','sucursal'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request): RedirectResponse
     {
         $this->validate($request, [
@@ -73,44 +61,28 @@ class UserController extends Controller
         }
         
         return redirect()->route('users.index')
-            ->with('success','User created successfully');
+            ->with('success','usuario creado exitosamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id): View
     {
         $user = User::find($id);
         return view('users.show',compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id): View
     {
         $empleados = empleado::get();
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
-
-        return view('users.edit',compact('user','roles','userRole', 'empleados'));
+        $sucursal=sucursal::get();
+        return view('users.edit',compact('user','roles','userRole', 'empleados','sucursal'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id): RedirectResponse
     {
         $this->validate($request, [
@@ -137,30 +109,24 @@ class UserController extends Controller
             ->with('success','User updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(User $user): RedirectResponse
     {
         // User::find($id)->delete();
         $user->delete();
+        $acceso_usuario_sucursal = new acceso_usuario_sucursal();
+        $acceso_usuario_sucursal->where('id_usuario','=',$user->id)->delete();
+
         return redirect()->route('users.index')
-            ->with('success','User deleted successfully');
+            ->with('success','Usuario Borrado exitosamente');
     }
 
     public function editUser(Request $request){
-//        dd($request->idUsuario);
         $empleado = empleado::find($request->idEmpleado);
         $user = User::find($request->idUsuario);
-//        dd($user);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
-
         return view('users.perfil',compact('user', 'roles','userRole','empleado'));
-
     }
 
     public function updateUser(Request $request, $id): RedirectResponse
@@ -188,4 +154,15 @@ class UserController extends Controller
         return redirect()->route('home')
             ->with('success','User updated successfully');
     }
+
+    public function sucursalesAsignadasAlUsuario()
+    {
+        session_start();
+        $sucursalesAsigandasAlUsuario=acceso_usuario_sucursal::where('id_usuario','=',auth()->user()->id)
+                      ->get()
+                      ->toArray();
+        dd($sucursalesAsigandasAlUsuario);
+        $_SESSION["saludo"]="Hola muchachos";
+    }
+
 }

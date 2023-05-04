@@ -51,17 +51,23 @@
                                     @endif
                                 </td>
                                 <td class="no-exportar-pdf">
-                                    <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Ver</a>
-                                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Editar</a>
-                                    {{-- {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline','id'=>$user->id]) !!}
-                                    {{-- {!! Form::submit('Borrar', ['class' => 'btn btn-danger','data-descripcion' => 'BorrarRegistroTablas']) !!} --}}
-                                    {{-- {!! Form::close() !!} --}}
-                                    <form action="{{route('users.destroy',$user->id)}}" method="post" id="{{$user->id}}">
-                                        @csrf @method('DELETE')
-                                        <button class="btn btn-md btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">
-                                            Borrar
-                                        </button>
-                                    </form>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-2"><a class="" href="{{ route('users.show',$user->id) }}" title="Ver"><i class="far fa-eye" style="color: #0d0d0d;"></i></a></div>
+                                            <div class="col-md-2"><a class="" href="{{ route('users.edit',$user->id) }}" title="Editar"><i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i></a></div>
+                                            <div class="col-md-2">
+                                                {{-- {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline','id'=>$user->id]) !!}
+                                                {{-- {!! Form::submit('Borrar', ['class' => 'btn btn-danger','data-descripcion' => 'BorrarRegistroTablas']) !!} --}}
+                                                {{-- {!! Form::close() !!} --}}
+                                                <form action="{{route('users.destroy',$user->id)}}" method="post" id="{{$user->id}}">
+                                                    @csrf @method('DELETE')
+                                                    <button class="text-reset" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas" style="background: none; border:0; color: inherit;">
+                                                        <i class="fas fa-trash-alt" style="color: #080808;"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

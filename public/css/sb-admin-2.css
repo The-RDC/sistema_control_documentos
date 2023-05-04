@@ -11301,3 +11301,20 @@ body.sidebar-toggled footer.sticky-footer {
   background: #EEE30B;
   text-transform:uppercase;
 }
+
+.tagSeleccionado{
+  border: solid 1px #093b29;
+  border-radius: 7px;
+  display: flex;
+  padding: 5px;
+  margin: 2px;
+}
+
+.tagSeleccionado > .cerrarTagSeleccionado
+{
+  margin-right: 5px;
+  border: solid 1px #093b29;
+}
+.tagSeleccionado > .cerrarTagSeleccionado:hover{
+  background: #113b42;
+}

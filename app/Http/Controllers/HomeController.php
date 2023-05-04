@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        return view('home');
+        //return view('home');
+        $usuario_controller=new UserController();
+        $usuario_controller->sucursalesAsignadasAlUsuario(13);
         return view('dashboard-admin.admin');
     }
 }

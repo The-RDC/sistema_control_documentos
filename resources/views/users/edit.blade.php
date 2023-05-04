@@ -59,7 +59,35 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Rol:</strong>
-                        {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
+                        {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control')) !!}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label for="">Sucursal: </label>
+                        <select class="form-control" id="sucursales" style="border: solid 2px #EEE30B">
+                            <option>--Seleccione la sucursal--</option>
+                            @foreach($sucursal as $sucursales)
+                                <option value="{{ $sucursales->id }}">
+                                    {{ $sucursales->nombre_sucursal }} 
+                                    <small class="text-break">({{$sucursales->direccion_sucursal}})</small>
+                                </option>
+                            @endforeach
+                        </select>
+                        <div class="sucursalesSeleccionadas">
+                            <div class="container">
+                                <div class="row" id="sucursalesSeleccionadas"></div>
+                            </div>
+                        </div>
+                        <select class="form-control" name="ids_sucursal[]" id="sucursales2" multiple style="border: solid 2px #EEE30B" hidden>
+                            <option>--Seleccione la sucursal--</option>
+                            @foreach($sucursal as $sucursales)
+                                <option value="{{ $sucursales->id }}">
+                                    {{ $sucursales->nombre_sucursal }} 
+                                    <small class="text-break">({{$sucursales->direccion_sucursal}})</small>
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">

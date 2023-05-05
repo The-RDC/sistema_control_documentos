@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_regional')
                   ->after('direccion_sucursal')
                   ->nullable();
-            $table->foreign('id_regional')->references('id')->on('regionales')->nullOnDelete();
+            //$table->foreign('id_regional')->references('id')->on('regionales')->nullOnDelete();
 
             $table->unsignedBigInteger('id_empresa')
                   ->after('id_regional')

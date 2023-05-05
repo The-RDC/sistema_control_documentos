@@ -85,19 +85,21 @@ class EmpresaController extends Controller
      */
     public function update(UpdateRequest $request, empresa $empresa)
     {
-        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
-        $updateEmpSuc = new empresa();
-        foreach ($request->sucursales as $key => $sos) {
-            $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
-            foreach ($sucurid as $value) {
-                if ($request->sucursales[$key] != $value) {
-//                    echo $request->sucursales[$key]." - ".$value."<br>";
-                    $updateEmpSuc->actualizarEstadoDetalleEmpresaSucursal($empresa->id, $value );
-                }
-            }
-        }
+//         dd($request);
+//         $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
+//         $updateEmpSuc = new empresa();
+//         foreach ($request->sucursales as $key => $sos) {
+//             $results[] = array("id_empresa" => $empresa->id, "id_sucursal" => $request->sucursales[$key]);
+//             foreach ($sucurid as $value) {
+//                 if ($request->sucursales[$key] != $value) {
+// //                    echo $request->sucursales[$key]." - ".$value."<br>";
+//                     $updateEmpSuc->actualizarEstadoDetalleEmpresaSucursal($empresa->id, $value );
+//                 }
+//             }
+//         }
+//         $empresa->update($request->all());
+//         $empresa->detalle_empresa_sucursales()->createMany($results);
         $empresa->update($request->all());
-        $empresa->detalle_empresa_sucursales()->createMany($results);
         return redirect()->route('empresa.index');
     }
 

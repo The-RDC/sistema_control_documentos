@@ -17,6 +17,7 @@
   <div class="col-sm-12">
       <label for="">Regional: </label>
       <select class="form-control" name="id_regional" style="border: solid 2px #EEE30B">
+        <option value="">--Seleccione una sucursal</option>
         @foreach($regional as $regionals)
               <option value="{{ $regionals->id }}"
                   @if($regionals->id == $sucursal->id_regional)

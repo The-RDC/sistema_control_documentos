@@ -39,7 +39,12 @@ class SucursalController extends Controller
     {
         $nuevaSucursal = new sucursal();
         $nuevaSucursal->id_empresa = trim($request->id_empresa);
-        $nuevaSucursal->id_regional = trim($request->id_regional);
+        if (is_null($request->id_regional)) 
+        {}
+        else
+        {
+            $nuevaSucursal->id_regional = trim($request->id_regional);
+        }
         $nuevaSucursal->nombre_sucursal = trim($request->nombre_sucursal);
         $nuevaSucursal->direccion_sucursal = trim($request->direccion_sucursal);
         $nuevaSucursal->save();

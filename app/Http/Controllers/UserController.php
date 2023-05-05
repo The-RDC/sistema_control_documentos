@@ -161,7 +161,7 @@ class UserController extends Controller
         $sucursalesAsigandasAlUsuario=acceso_usuario_sucursal::where('id_usuario','=',auth()->user()->id)
                       ->get()
                       ->toArray();
-        dd($sucursalesAsigandasAlUsuario);
+        //dd($sucursalesAsigandasAlUsuario);
         $_SESSION["saludo"]="Hola muchachos";
     }
 

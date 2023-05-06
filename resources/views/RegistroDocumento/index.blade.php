@@ -8,7 +8,7 @@
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3">
-            <div class="container">
+            <!--div class="container">
                 @if ($rol === "administrador")
                 <form method="GET" action="{{ route('registroDocumento.index') }}">
                     <div class="form-group row">
@@ -59,7 +59,7 @@
                     </div>
                 </form>
                 @endif
-            </div>
+            </div-->
             <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
                 style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>
         </div>

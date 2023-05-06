@@ -113,5 +113,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('tipoDocumento', TipoDocumentoController::class)->names('tipoDocumento');
     Route::resource('unidad', UnidadController::class)->names('unidad');
     Route::post('/regitroDocumento',  [RegistroDocumentoController::class, 'editar'])->name('actualizar');
+    Route::post('/cambioDeSucursalUsuario',[UserController::class, 'cambioDeSucursalATrabajar'])->name('cambioDeSucursalATrabajar');
 });
 

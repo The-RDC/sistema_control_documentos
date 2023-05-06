@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         //return view('home');
         $usuario_controller=new UserController();
-        $usuario_controller->sucursalesAsignadasAlUsuario(13);
+        $usuario_controller->sucursalesAsignadasAlUsuario();
         return view('dashboard-admin.admin');
     }
 }

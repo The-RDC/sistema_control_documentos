@@ -34,10 +34,10 @@ class RegistroDocumentoController extends Controller
         if ($rol === 'administrador') {
             $data = registro_documento::getVistasDocumento($request);
 
-            $empresa = empresa::get();
-            $regional = regional::get();
-            $sucursal = sucursal::get();
-            $estado_documento = estado_documento::get();
+            $empresa = empresa::get()->whereNull("deleted_at");
+            $regional = regional::get()->whereNull("deleted_at");
+            $sucursal = sucursal::get()->whereNull("deleted_at");
+            $estado_documento = estado_documento::get()->whereNull("deleted_at");
 
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
         } else {
@@ -64,21 +64,17 @@ class RegistroDocumentoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //        dd($request->all());
         $usuario = Auth::user();
-        // dd($usuario)
+        //dd($usuario->destino_sucursal);
         $empleado = $usuario->getEmpleado;
-        //  dd($empleado->getRegional->nombre_regional);
-
-        // $sucursal = $empleado->getSucursalUser;
         $estado = $request->id_estado_documentoo;
         registro_documento::create($request->all() +
             [
                 'id_estado_documento' => $estado,
                 'id_usuario' => Auth::user()->id,
-                'empresa' => $empleado->getEmpresa->nombre_empresa,
-                'regional' => $empleado->getRegional->nombre_regional,
-                'sucursal' => $empleado->getSucursal->nombre_sucursal
+                'empresa' => 'La Paz -0',//$empleado->getEmpresa->nombre_empresa,
+                'regional' => 'La Paz',// $empleado->getRegional->nombre_regional,
+                'sucursal' => $usuario->destino_sucursal[0]->nombre_sucursal
             ]);
         return redirect()->route('registroDocumento.index');
     }

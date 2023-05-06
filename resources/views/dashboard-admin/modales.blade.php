@@ -46,6 +46,43 @@
  </div>
 </div>
 
+
+<!-- Modal para seleccionar la sucursal para trabajar-->
+<div class="modal fade" id="sucursalATrabajarUsuario" tabindex="-1" role="dialog" aria-labelledby="ModalsucursalATrabajarUsuario" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitlesucursalATrabajarUsuario">Con que sucursal desea trabajar?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>
+            <div class="modal-body" id="ModalBodysucursalATrabajarUsuario">
+                <form action="{{route('cambioDeSucursalATrabajar')}}" method="POST">
+                    @csrf
+                    <div class="form-group form-check">
+                        <label for="exampleFormControlSelect1">Seleccione una Sucursal</label>
+                        <select class="form-control" name="idSucursalSeleccionadaParaTrabajar" id="selectorSucursalUsuario">
+                            @for ($i = 0; $i < count(session('nombreSucursalesUsuario')); $i++)
+                                <option value="{{session('idsSucursalesUsuario')[$i]}}">{{session('nombreSucursalesUsuario')[$i]}} ({{session('direccionSucursalesusuario')[$i]}})</option>
+                            @endfor
+                        </select>
+                    </div>
+                    <br>    
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-warning" value="Guardar">
+                        <button type="button" class="btn btn-danger" type="button" data-dismiss="modal" >No guardar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
     var rutaUpdateRegistroDocumento="{{route('actualizar')}}";
     var fechaFinalRegistroDocumento="{{date('Y-m-d H:i')}}";

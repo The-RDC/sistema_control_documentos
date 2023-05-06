@@ -155,14 +155,50 @@ class UserController extends Controller
             ->with('success','User updated successfully');
     }
 
-    public function sucursalesAsignadasAlUsuario()
+
+    public function cambioDeSucursalATrabajar(Request $request)
     {
-        session_start();
-        $sucursalesAsigandasAlUsuario=acceso_usuario_sucursal::where('id_usuario','=',auth()->user()->id)
+        for ($i=0; $i < count(session('idsSucursalesUsuario')); $i++) 
+        { 
+           if (session('idsSucursalesUsuario')[$i] == $request->idSucursalSeleccionadaParaTrabajar) 
+           {
+                session(['idSucursalTrabajandoActualemte'=>$i]);
+                break;
+           } 
+        }
+        return redirect()->route('home');//view('dashboard-admin.admin');
+    }
+
+
+    public function sucursalesAsignadasAlUsuario()
+    {  
+        $sqlSucursalesDelUsuario = DB::table('sucursales')
+                      ->join('acceso_usuario_sucursals', 'sucursales.id', '=', 'acceso_usuario_sucursals.id_sucursal')
+                      ->join('users', 'acceso_usuario_sucursals.id_usuario', '=', 'users.id')
+                      ->where('users.id','=',auth()->user()->id)
+                      ->whereNull("users.deleted_at")
+                      ->whereNull("sucursales.deleted_at")
+                      ->whereNull("acceso_usuario_sucursals.deleted_at")
+                      ->select('users.id as id_usuario','sucursales.id as id_sucursal','sucursales.nombre_sucursal','sucursales.direccion_sucursal')
                       ->get()
                       ->toArray();
-        //dd($sucursalesAsigandasAlUsuario);
-        $_SESSION["saludo"]="Hola muchachos";
+        $idsSucursalesUsuario=array();
+        $nombreSucursalesUsuario=array();
+        $direccionSucursalesusuario=array();
+
+        for ($i=0; $i < count($sqlSucursalesDelUsuario); $i++) {
+            array_push($idsSucursalesUsuario, $sqlSucursalesDelUsuario[$i]->id_sucursal);
+            array_push($nombreSucursalesUsuario,$sqlSucursalesDelUsuario[$i]->nombre_sucursal);
+            array_push($direccionSucursalesusuario,$sqlSucursalesDelUsuario[$i]->direccion_sucursal);
+        }      
+        session(['idsSucursalesUsuario'=>$idsSucursalesUsuario]);
+        session(['nombreSucursalesUsuario'=>$nombreSucursalesUsuario]);
+        session(['direccionSucursalesusuario'=>$direccionSucursalesusuario]);
+
+        if(session('idSucursalTrabajandoActualemte') == NULL)
+        {
+           session(['idSucursalTrabajandoActualemte'=>0]); //por defecto la sucursal en la posicion 0 es con la que se esta trabajado
+        }  
     }
 
 }

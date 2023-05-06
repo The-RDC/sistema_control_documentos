@@ -10,10 +10,10 @@
                         {!! Form::model($user, ['method' => 'PATCH','route' => ['actualizarPerfil', $user->id]]) !!}
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Detalle Empleado</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Informacion del Usuario</h1>
                             </div>
 
-                            <table class="table caption-top">
+                            {{-- <table class="table caption-top">
                                 <thead>
                                 <tr>
                                 </tr>
@@ -44,7 +44,7 @@
                                     <td>{{ $empleado->tipo_documento }}</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table> --}}
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -76,9 +76,11 @@
                                 {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple', 'hidden')) !!}
                             </div>
                         </div>
+                        <br>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
+                        <br>
                         {!! Form::close() !!}
                     </div>
                 </div>

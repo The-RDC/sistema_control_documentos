@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\acceso_usuario_sucursal;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -30,6 +31,9 @@ class CreateAdminUserSeeder extends Seeder
         $role->syncPermissions($permissions);
 
         $user->assignRole([$role->id]);
+        
+        $primerAccesoUsuarioSucursal=new acceso_usuario_sucursal(["id_usuario"=>1,"id_sucursal"=>1]);
+        $primerAccesoUsuarioSucursal->save();
     }
 
 }

@@ -27,44 +27,44 @@ class PrimerEmpleado extends Seeder
         $position = new Cargo($positions);
         $position->save();
 
-        $regional = ([
-            'nombre_regional' => 'LP',
-        ]);
-        $regional = new regional($regional);
-        $regional->save();
-
         $compani = ([
-            'nombre_empresa' => 'La Paz',
-            'id_regional' => 1,
+            'nombre_empresa' => 'Instituto Tecnológico Simon Bolivar S.R.L.',
         ]);
         $companies = new empresa($compani);
         $companies->save();
 
-        $branch = ([
-            'nombre_sucursal' => 'La Paz',
-            'direccion_sucursal' => 'Av. sucre pabellon II, N°  1423',
+        $regional = ([
+            'nombre_regional' => 'La Paz',
+            'id_empresa' => 1,
         ]);
+        $regional = new regional($regional);
+        $regional->save();
 
+        $branch = ([
+            'nombre_sucursal' => ' La Paz -0',
+            'direccion_sucursal' => 'Casa matriz: Av. sucre #1423',
+        ]);
         $branchs = new sucursal($branch);
         $branchs->save();
+
 
         $detailCompanyBranchs = ([
             'id_empresa' => 1,
             'id_sucursal' => 1,
         ]);
-
         $companies = new detalle_empresa_sucursales($detailCompanyBranchs);
         $companies->save();
+
 
         $genero = ([
             'Femenino',
             'Masculino',
             'Otros',
         ]);
-
         foreach ($genero as $gener) {
             Genero::create(['nombre_genero' => $gener]);
         }
+
 
         $estadoCivil = ([
             'Soltero',
@@ -72,10 +72,10 @@ class PrimerEmpleado extends Seeder
             'Divorciado',
             'Viudo',
         ]);
-
         foreach ($estadoCivil as $civil) {
             EstadoCivil::create(['estadocivil' => $civil]);
         }
+
 
         $employee = [
             'nombres' => 'Administrador',
@@ -95,14 +95,15 @@ class PrimerEmpleado extends Seeder
         $employees = new empleado($employee);
         $employees->save();
 
+
         $estadoDocuemnto = ([
             'Recepcionado',
             'Entregado',
             'Finalizado',
         ]);
-
         foreach ($estadoDocuemnto as $estado) {
             estado_documento::create(['estado_documento' => $estado]);
         }
+
     }
 }

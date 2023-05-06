@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('fecha_entrega')->nullable();
             $table->dateTime('fecha_final')->nullable();
             $table->string('empresa');
-            $table->string('regional');
+            $table->string('regional')->nullable();
             $table->string('sucursal');
             $table->string('observacion')->nullable();
 

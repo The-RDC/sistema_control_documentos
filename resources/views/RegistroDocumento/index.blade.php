@@ -99,7 +99,9 @@
                             <td>{{ $datos->getUnidadDestino->unidad_area }}</td>
                             <td id="idEstadoDocumento">
                                 {{ $datos->getEstadoDocumento->estado_documento }}</td>
-                            <td>{{ $datos->getUserRegister->getEmpleado->getSucursal->nombre_sucursal }}
+                            <td>
+                                {{-- {{ $datos->getUserRegister->getEmpleado->getSucursal->nombre_sucursal }} --}}
+                                {{ $datos->id_sucursal }}
                             </td>
                             <td>{{ $datos->observacion }}</td>
                             <td class="no-exportar-pdf" id="accionesDocumento">

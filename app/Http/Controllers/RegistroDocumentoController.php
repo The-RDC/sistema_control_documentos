@@ -26,14 +26,15 @@ class RegistroDocumentoController extends Controller
 
     public function index(Request $request)
     {
+        
         $usuario = auth()->user();
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
         }
-
+    
         if ($rol === 'administrador') {
             $data = registro_documento::getVistasDocumento($request);
-
+            //dd($data);
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
@@ -65,16 +66,15 @@ class RegistroDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
         $usuario = Auth::user();
-        //dd($usuario->destino_sucursal);
         $empleado = $usuario->getEmpleado;
         $estado = $request->id_estado_documentoo;
         registro_documento::create($request->all() +
             [
                 'id_estado_documento' => $estado,
                 'id_usuario' => Auth::user()->id,
-                'empresa' => 'La Paz -0',//$empleado->getEmpresa->nombre_empresa,
-                'regional' => 'La Paz',// $empleado->getRegional->nombre_regional,
-                'sucursal' => $usuario->destino_sucursal[0]->nombre_sucursal
+                //'empresa' => 'La Paz -0',//$empleado->getEmpresa->nombre_empresa,
+                //'regional' => 'La Paz',// $empleado->getRegional->nombre_regional,
+                'id_sucursal' => session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]//$usuario->destino_sucursal[0]->nombre_sucursal
             ]);
         return redirect()->route('registroDocumento.index');
     }

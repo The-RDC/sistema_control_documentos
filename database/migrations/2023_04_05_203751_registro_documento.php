@@ -17,10 +17,12 @@ return new class extends Migration
             $table->dateTime('fecha_recepcion');
             $table->dateTime('fecha_entrega')->nullable();
             $table->dateTime('fecha_final')->nullable();
-            $table->string('empresa');
-            $table->string('regional')->nullable();
-            $table->string('sucursal');
+            //$table->string('empresa');
+            //$table->string('regional')->nullable();
             $table->string('observacion')->nullable();
+
+            $table->unsignedBigInteger('id_sucursal')->nullable();
+            $table->foreign('id_sucursal')->references('id')->on('sucursales')->nullOnDelete();
 
             $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('users')->nullOnDelete();

@@ -38,6 +38,10 @@ class RegionalController extends Controller
 
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            "id_empresa"=>'required',
+            "nombre_regional"=>"required"
+        ]);
         $nuevaRegional = new regional();
         $nuevaRegional->nombre_regional=trim($request->nombre_regional);
         $nuevaRegional->id_empresa=trim($request->id_empresa);
@@ -59,6 +63,10 @@ class RegionalController extends Controller
 
     public function update(UpdateRequest $request, regional $regional)
     {
+        $request->validate([
+            "id_empresa"=>'required',
+            "nombre_regional"=>"required"
+        ]);
         $regional->nombre_regional=trim($request->nombre_regional);
         $regional->id_empresa=trim($request->id_empresa);
         $regional->save();

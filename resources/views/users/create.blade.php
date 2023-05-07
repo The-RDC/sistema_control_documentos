@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-                @if (count($errors) > 0)
+                {{-- @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Ups!</strong> Hubo algunos problemas con su entrada.<br><br>
                         <ul>
@@ -23,7 +23,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif
+                @endif --}}
 
                     <div class="row" style="padding: 50px;">
                         <div class="col-md-7">
@@ -34,12 +34,18 @@
                                             <strong>Nombre:</strong>
                                             {!! Form::text('name', null, array('placeholder' => 'Nombre','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
                                         </div>
+                                        @error('name')
+                                            <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                        @enderror
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md">
                                         <div class="form-group">
                                             <strong>Correo Electrónico:</strong>
                                             {!! Form::text('email', null, array('placeholder' => 'Correo Electrónico','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
                                         </div>
+                                        @error('email')
+                                            <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -54,6 +60,9 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @error('ids_rol')
+                                                <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                            @enderror
 
                                             {{-- <strong>Rol:</strong>
                                             {!! Form::select('roles[]', $roles,[], array('class' => 'form-control', 'style'=>'border: solid 2px #EEE30B','multiple')) !!} --}}
@@ -87,6 +96,9 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @error('ids_sucursal')
+                                                <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                            @enderror
                                         </div>    
                                     </div>
                                 </div>
@@ -121,6 +133,9 @@
                                                 <div class="form-group">
                                                     <strong>Contraseña:</strong>
                                                     {!! Form::password('password', array('placeholder' => 'Contraseña','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
+                                                    @error('password')
+                                                        <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -130,6 +145,9 @@
                                                 <div class="form-group">
                                                     <strong>Confirma Contraseña:</strong>
                                                     {!! Form::password('confirm-password', array('placeholder' => 'Confirmar Contraseña','class' => 'form-control', 'style'=>'border: solid 2px #EEE30B')) !!}
+                                                    @error('confirm-password')
+                                                        <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>

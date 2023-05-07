@@ -28,7 +28,6 @@
                 </div>
             @endif
 
-
             {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
                 <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-5">
@@ -36,6 +35,9 @@
                             <strong>Nombre del nuevo rol:</strong>
                             {!! Form::text('name', null, array('placeholder' => 'Nombre del nuevo rol','class' => 'form-control','style'=>'border: solid 2px #EEE30B')) !!}
                         </div>
+                        @error('name')
+                            <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                        @enderror
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">

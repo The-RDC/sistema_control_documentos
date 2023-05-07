@@ -42,7 +42,9 @@ class CargoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-//        dd($request->all());
+        $request->validate([
+            "nombre_cargo"=>"required"
+        ]);
         cargo::create($request->all());
         return redirect()->route('cargo.index');
     }
@@ -68,6 +70,9 @@ class CargoController extends Controller
      */
     public function update(UpdateRequest $request, cargo $cargo)
     {
+        $request->validate([
+            "nombre_cargo"=>"required"
+        ]);
         $cargo->update($request->all());
         return redirect()->route('cargo.index');
     }

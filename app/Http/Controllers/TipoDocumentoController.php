@@ -31,6 +31,10 @@ class TipoDocumentoController extends Controller
 
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            "referencia_documento"=>"required"
+        ]);
+
         tipo_documento::create($request->all());
         return redirect()->route('tipoDocumento.index');
     }
@@ -47,6 +51,9 @@ class TipoDocumentoController extends Controller
 
     public function update(UpdateRequest $request, tipo_documento $tipoDocumento)
     {
+        $request->validate([
+            "referencia_documento"=>"required"
+        ]);
         $tipoDocumento->update($request->all());
         return redirect()->route('tipoDocumento.index');
     }

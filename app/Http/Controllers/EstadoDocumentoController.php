@@ -38,7 +38,9 @@ class EstadoDocumentoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-//        dd($request->all());
+        $request->validate([
+            "estado_documento"=>"required"
+        ]);
         estado_documento::create($request->all());
         return redirect()->route('estadoDocumento.index');
     }
@@ -64,6 +66,9 @@ class EstadoDocumentoController extends Controller
      */
     public function update(UpdateRequest $request, estado_documento $estadoDocumento)
     {
+        $request->validate([
+            "estado_documento"=>"required"
+        ]);
         $estadoDocumento->update($request->all());
         return redirect()->route('estadoDocumento.index');
     }

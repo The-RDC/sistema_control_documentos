@@ -44,6 +44,9 @@ class EmpresaController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            'nombre_empresa'=>'required'
+        ]);
 
         $empresa = empresa::create($request->all());
 
@@ -71,7 +74,7 @@ class EmpresaController extends Controller
 
         $regional = regional::get();
         $sucursales = sucursal::get();
-//        $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
+//      $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)->pluck('id_sucursal')->toArray();
         $sucurid = detalle_empresa_sucursales::where('id_empresa', $empresa->id)
             ->where('estado', '<>', 0)
             ->pluck('id_sucursal')
@@ -99,6 +102,9 @@ class EmpresaController extends Controller
 //         }
 //         $empresa->update($request->all());
 //         $empresa->detalle_empresa_sucursales()->createMany($results);
+        $request->validate([
+            "nombre_empresa"=>"required"
+        ]);
         $empresa->update($request->all());
         return redirect()->route('empresa.index');
     }

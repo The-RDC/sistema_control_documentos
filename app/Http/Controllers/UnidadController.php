@@ -31,6 +31,9 @@ class UnidadController extends Controller
 
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            "unidad_area"=>"required"
+        ]);
         unidad::create($request->all());
         return redirect()->route('unidad.index');
     }
@@ -47,6 +50,9 @@ class UnidadController extends Controller
 
     public function update(UpdateRequest $request, unidad $unidad)
     {
+        $request->validate([
+            "unidad_area"=>"required"
+        ]);
         $unidad->update($request->all());
         return redirect()->route('unidad.index');
     }

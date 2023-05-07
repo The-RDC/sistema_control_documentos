@@ -10,12 +10,18 @@
                 >{{ $empresas->nombre_empresa }}</option>
             @endforeach
         </select>
+        @error('id_empresa')
+           <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+        @enderror
     </div>
 </div>
 
 <div class="form-group">
     <div class="col-sm-12">
         <input type="text" class="form-control" name="nombre_regional" value="{{ old('nombre_regional', $regional->nombre_regional) }}" placeholder="Introduzca la Regional" style="border: solid 2px #EEE30B">     
+        @error('nombre_regional')
+           <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+        @enderror
     </div>
 </div>
 

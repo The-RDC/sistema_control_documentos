@@ -65,6 +65,15 @@ class RegistroDocumentoController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            "numero_hoja_ruta"=>"required",
+            "fecha_recepcion"=>"required",
+            "fecha_entrega"=>"required",
+            "fecha_final"=>"required",
+            "id_tipo_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10",
+            "id_unidad_destino"=>"required|in:1,2,3,4,5,6,7,8,9,10",
+            "id_estado_documentoo"=>"required|in:1,2,3,4,5,6,7,8,9,10"
+        ]);
         $usuario = Auth::user();
         $empleado = $usuario->getEmpleado;
         $estado = $request->id_estado_documentoo;
@@ -106,6 +115,15 @@ class RegistroDocumentoController extends Controller
      */
     public function update(UpdateRequest $request, registro_documento $registroDocumento)
     {
+        $request->validate([
+            "numero_hoja_ruta"=>"required",
+            "fecha_recepcion"=>"required",
+            "fecha_entrega"=>"required",
+            "fecha_final"=>"required",
+            "id_tipo_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10",
+            "id_unidad_destino"=>"required|in:1,2,3,4,5,6,7,8,9,10",
+            "id_estado_documentoo"=>"required|in:1,2,3,4,5,6,7,8,9,10"
+        ]);
         $fechaF = $request->fecha_final;
         $estado = (is_null($fechaF)) ?: $estadoDocumento = 3;
 
@@ -132,6 +150,6 @@ class RegistroDocumentoController extends Controller
             ['fecha_final' => $request->fecha_final, 'id_estado_documento' => $request->id_estado_documento]
         );
 
-        return response()->json(['success' => 'Post saved successfully.']);
+        return response()->json(['success' => 'Publicación guardada con éxito.']);
     }
 }

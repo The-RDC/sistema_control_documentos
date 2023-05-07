@@ -37,6 +37,12 @@ class SucursalController extends Controller
 
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            "id_empresa"=>"required",
+            "nombre_sucursal"=>"required",
+            "direccion_sucursal"=>"required"
+        ]);
+
         $nuevaSucursal = new sucursal();
         $nuevaSucursal->id_empresa = trim($request->id_empresa);
         if (is_null($request->id_regional)) 
@@ -66,6 +72,11 @@ class SucursalController extends Controller
 
     public function update(UpdateRequest $request, sucursal $sucursal)
     {
+        $request->validate([
+            "id_empresa"=>"required",
+            "nombre_sucursal"=>"required",
+            "direccion_sucursal"=>"required"
+        ]);
         $sucursal->update($request->all());
         return redirect()->route('sucursal.index');
     }

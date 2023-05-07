@@ -18,6 +18,9 @@
     <div class="col-sm-12">
         <label for="">Nombre de Empresa</label> 
         <input type="text" class="form-control" name="nombre_empresa" value="{{ old('nombre_empresa', $empresa->nombre_empresa) }}" placeholder="Introduzca la empresa"style="border: solid 2px #EEE30B">
+        @error('nombre_empresa')
+           <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+        @enderror
     </div>
 </div>
 

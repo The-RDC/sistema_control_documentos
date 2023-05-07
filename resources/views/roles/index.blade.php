@@ -26,42 +26,50 @@
     @endif
 
 
-    <table class="table table-bordered">
-        <tr>
-            <th>Nro</th>
-            <th>Nombre</th>
-            <th class="no-exportar-pdf" width="280px">Acciones</th>
-        </tr>
-        @php
-            $contadorRegistros=1;
-        @endphp
-        @foreach ($roles as $key => $role)
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
             <tr>
-                <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
-                @php
-                    $contadorRegistros++;
-                @endphp
-                <td>{{ $role->name }}</td>
-                <td class="no-exportar-pdf">
-                    <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Ver</a>
-                    @can('role-edit')
-                        <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
-                    @endcan
-                    @can('role-delete')
-                        <!--{!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                        {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}-->
-                        <form action="{{route('roles.destroy',$role->id)}}" method="post" id="{{$role->id}}">
-                            @csrf
-                            @method('DELETE')
-{{--                            <button class="btn btn-md btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">--}}
-{{--                                Borrar--}}
-{{--                            </button>--}}
-                        </form>
-                    @endcan
-                </td>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th class="no-exportar-pdf" width="280px">Acciones</th>
             </tr>
-        @endforeach
+        </thead>
+        <tbody>
+            @php
+            $contadorRegistros=1;
+            @endphp
+            @foreach ($roles as $key => $role)
+                <tr>
+                    <td id="idRegistroEstadoDocumento">{{ $contadorRegistros }}</td>
+                    @php
+                        $contadorRegistros++;
+                    @endphp
+                    <td>{{ $role->name }}</td>
+                    <td class="no-exportar-pdf">
+                        <a class="btn me-3" href="{{ route('roles.show',$role->id) }}" title="Ver">
+                            <i class="fas fa-eye" style="color: #000000;"></i>
+                        </a>
+                        @can('role-edit')
+                            <a class="btn me-3" href="{{ route('roles.edit',$role->id) }}" title="Editar">
+                                <i class="fa fa-pencil-alt" aria-hidden="true" style="color:black"></i>
+                            </a>
+                        @endcan
+                        @can('role-delete')
+                            <!--{!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                            {!! Form::close() !!}-->
+                            <form action="{{route('roles.destroy',$role->id)}}" method="post" id="{{$role->id}}">
+                                @csrf
+                                @method('DELETE')
+    {{--                            <button class="btn btn-md btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" data-descripcion="BorrarRegistroTablas">--}}
+    {{--                                Borrar--}}
+    {{--                            </button>--}}
+                            </form>
+                        @endcan
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
 
 

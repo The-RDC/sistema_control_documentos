@@ -26,7 +26,7 @@
                 @endif --}}
 
                     <div class="row" style="padding: 50px;">
-                        <div class="col-md-7">
+                        <div class="col-md-9">
                             {!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md">

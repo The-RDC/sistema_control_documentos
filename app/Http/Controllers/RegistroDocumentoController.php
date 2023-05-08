@@ -26,22 +26,31 @@ class RegistroDocumentoController extends Controller
 
     public function index(Request $request)
     {
-        
+//        dd(auth()->user());
         $usuario = auth()->user();
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
         }
     
-        if ($rol === 'administrador') {
+        if (strtoupper($rol) === strtoupper('administrador')) 
+        {
             $data = registro_documento::getVistasDocumento($request);
-            //dd($data);
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
             $estado_documento = estado_documento::get()->whereNull("deleted_at");
 
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
-        } else {
+        } 
+        elseif (strtoupper($rol) === strtoupper('supervisor')) {
+            $data = registro_documento::getVistasDocumento($request);
+            $empresa = empresa::get()->whereNull("deleted_at");
+            $regional = regional::get()->whereNull("deleted_at");
+            $sucursal = sucursal::get()->whereNull("deleted_at");
+            $estado_documento = estado_documento::get()->whereNull("deleted_at");
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
+        }
+        else {
             $data = registro_documento::where('id_usuario', auth()->user()->id)->get();
             return view('RegistroDocumento.index', compact('data',  'rol'));
         }

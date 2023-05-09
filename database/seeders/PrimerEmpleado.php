@@ -105,11 +105,11 @@ class PrimerEmpleado extends Seeder
         }
 
         $estadoDocumento = [
-            [        'estado_documento' => 'Recepcionado',        'id_opcion_estados' => 1,    ],
-            [        'estado_documento' => 'Entregado',        'id_opcion_estados' => 1,    ],
-            [        'estado_documento' => 'Finalizado',        'id_opcion_estados' => 1,    ],
-            [        'estado_documento' => 'Recibido',        'id_opcion_estados' => 2,    ],
-            [        'estado_documento' => 'Despachado',        'id_opcion_estados' => 2,    ],
+            [        'estado_documento' => 'Recepcionado',        'id_procedencia_documento' => 1,    ],
+            [        'estado_documento' => 'Entregado',        'id_procedencia_documento' => 1,    ],
+            [        'estado_documento' => 'Finalizado',        'id_procedencia_documento' => 1,    ],
+            [        'estado_documento' => 'Recibido',        'id_procedencia_documento' => 2,    ],
+            [        'estado_documento' => 'Despachado',        'id_procedencia_documento' => 2,    ],
         ];
 
         foreach ($estadoDocumento as $estado) {

@@ -106,7 +106,9 @@
                             <td>{{ $datos->fecha_entrega }}</td>
                             <td>{{ $datos->fecha_final }}</td>
                             <td>{{ $datos->getTipoDocumento->referencia_documento }}</td>
-                            <td>{{ $datos->getUnidadDestino->unidad_area }}</td>
+                            <td>
+                                {{ $datos->getUnidadDestino->unidad_area ?? ''}}  
+                            </td>
                             <td id="idEstadoDocumento">
                                 {{ $datos->getEstadoDocumento->estado_documento }}</td>
                             <td>

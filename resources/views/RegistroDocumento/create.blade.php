@@ -35,8 +35,8 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <label for="id_unidad_destino">Es un Documento Externo o Interno?</label>
+                                    <div class="col-sm-5">
+                                        <label for="id_unidad_destino">Procedencia del Documento</label>
                                             <select class="form-control" name="documento_externo_interno" id="documento_externo_interno" style="border: solid 2px #EEE30B">
                                                 <option>--Seleccione una opcion--</option>
                                                 <option>Externo</option>
@@ -49,26 +49,28 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-5">
                                         <label for="id_estado_documento">Estado Documento</label>
-                                            <select class="form-control" name="id_estado_documentoo" id="id_estado_documento" style="border: solid 2px #EEE30B" disabled> 
-                                                  @foreach($estado_documento as $estado_documentos)
-                                                    @if (strtoupper($estado_documentos->estado_documento) == strtoupper('recepcionado') )
-                                                      <option value="{{ $estado_documentos->id }}"
-                                                              @if($estado_documentos->id == $registroDocumento->id_estado_documento)
-                                                              selected
-                                                          @endif
-                                                      >{{ $estado_documentos->estado_documento }}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                          <div id="controlInternoExterno">
+                                            <select class="form-control" name="id_estado_documentoo" id="id_estado_documento" style="border: solid 2px #EEE30B"> 
+                                                @foreach($estado_documento as $estado_documentos)
+                                                  @if (strtoupper($estado_documentos->estado_documento) == strtoupper('recepcionado') )
+                                                    <option value="{{ $estado_documentos->id }}"
+                                                            @if($estado_documentos->id == $registroDocumento->id_estado_documento)
+                                                            selected
+                                                        @endif
+                                                    >{{ $estado_documentos->estado_documento }}</option>
+                                                  @endif
+                                              @endforeach
+                                          </select>
+                                          </div>
                                             @error('id_estado_documentoo')
                                                 <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
                                             @enderror
                                       </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-5">
                                         <label for="id_tipo_documento">Documento Recepcionado</label>
                                             <select class="form-control" name="id_tipo_documento" id="id_tipo_documento" style="border: solid 2px #EEE30B">
                                                 <option selected>--Documento--</option>
@@ -77,7 +79,7 @@
                                                             @if($tipo_documentos->id == $registroDocumento->id_tipo_documento and strtoupper($tipo_documentos) == strtoupper('Recepcionado') )
                                                             selected
                                                         @endif
-                                                    >{{ $tipo_documentos->referencia_documento }}</option>
+                                                        >{{ $tipo_documentos->referencia_documento }}</option>
                                                 @endforeach
                                             </select>
                                             @error('id_tipo_documento')
@@ -88,7 +90,7 @@
 
                                   <div class="form-group">
                                     <label for="">Observaciones del documento: </label><br>
-                                    <textarea name="observacion" id="observacion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B"></textarea>
+                                    <textarea name="observacion" id="observacion_recepcion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B"></textarea>
                                     <!--input style="border: solid 2px #EEE30B" type="text" class="form-control" name="observacion" value="{{ old('observacion', $registroDocumento->observacion) }}" placeholder="Introduzca la observacion del Documento"-->
                                   </div>
                                   

@@ -15,7 +15,7 @@ class procedenciaDocumento extends Model
         'procedencia'
     ];
 
-    public function estado_docuemto(){
+    public function estado_documento(){
         return $this->hasMany(estado_documento::class);
     }
 

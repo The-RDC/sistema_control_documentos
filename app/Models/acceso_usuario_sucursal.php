@@ -21,4 +21,9 @@ class acceso_usuario_sucursal extends Model
         $this->create(['id_usuario'=>$id_usuario, 'id_sucursal'=>$id_sucursal]);
     }
 
+    public function eliminarDatosAccesoUsuarioSucursal($id_registro)
+    {
+        $this->where('id',$id_registro)->delete();
+    }
+
 }

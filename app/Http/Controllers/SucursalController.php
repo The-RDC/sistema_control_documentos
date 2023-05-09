@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\sucursal;
+use App\Models\acceso_usuario_sucursal;
 use App\Models\empresa;
 use App\Models\regional;
 use Illuminate\Http\Request;
@@ -54,6 +55,12 @@ class SucursalController extends Controller
         $nuevaSucursal->nombre_sucursal = trim($request->nombre_sucursal);
         $nuevaSucursal->direccion_sucursal = trim($request->direccion_sucursal);
         $nuevaSucursal->save();
+
+        $asignacionAutomaticaAdminNuevaSucursal=new acceso_usuario_sucursal();
+        $asignacionAutomaticaAdminNuevaSucursal->id_usuario=auth()->user()->id;
+        $asignacionAutomaticaAdminNuevaSucursal->id_sucursal=$nuevaSucursal->id;
+        $asignacionAutomaticaAdminNuevaSucursal->save();
+        
         //sucursal::create($request->all());
         return redirect()->route('sucursal.index');
     }

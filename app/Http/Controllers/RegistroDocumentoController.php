@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegistroDocumento\StoreRequest;
 use App\Http\Requests\RegistroDocumento\UpdateRequest;
 use App\Models\empresa;
+use App\Models\User;
 use App\Models\estado_documento;
 use App\Models\regional;
 use App\Models\registro_documento;
@@ -26,12 +27,11 @@ class RegistroDocumentoController extends Controller
 
     public function index(Request $request)
     {
-//        dd(auth()->user());
+        
         $usuario = auth()->user();
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
         }
-    
         if (strtoupper($rol) === strtoupper('administrador')) 
         {
             $data = registro_documento::getVistasDocumento($request);
@@ -42,8 +42,11 @@ class RegistroDocumentoController extends Controller
 
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
         } 
-        elseif (strtoupper($rol) === strtoupper('supervisor')) {
-            $data = registro_documento::getVistasDocumento($request);
+        elseif (strtoupper($rol) === strtoupper('supervisor')) 
+        {
+            $data = registro_documento::get()
+                                       ->whereIn('id_sucursal',session('idsSucursalesUsuario'));
+            
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
@@ -52,7 +55,8 @@ class RegistroDocumentoController extends Controller
         }
         else {
             $data = registro_documento::where('id_usuario', auth()->user()->id)->get();
-            return view('RegistroDocumento.index', compact('data',  'rol'));
+            $sucursal = sucursal::get()->whereNull("deleted_at");
+            return view('RegistroDocumento.index', compact('data','rol','sucursal'));
         }
     }
 
@@ -75,7 +79,7 @@ class RegistroDocumentoController extends Controller
     public function store(StoreRequest $request)
     {
         $request->validate([
-            "numero_hoja_ruta"=>"required",
+            "numero_hoja_ruta"=>"required|unique:registro_documentos",
             "fecha_recepcion"=>"required",
             "fecha_entrega"=>"required",
             "fecha_final"=>"required",

@@ -101,7 +101,11 @@
                                 {{ $datos->getEstadoDocumento->estado_documento }}</td>
                             <td>
                                 {{-- {{ $datos->getUserRegister->getEmpleado->getSucursal->nombre_sucursal }} --}}
-                                {{ $datos->id_sucursal }}
+                                @foreach ($sucursal as $sucursales)
+                                    @if ($datos->id_sucursal == $sucursales->id)
+                                        {{$sucursales->nombre_sucursal}}
+                                    @endif
+                                @endforeach
                             </td>
                             <td>{{ $datos->observacion }}</td>
                             <td class="no-exportar-pdf" id="accionesDocumento">

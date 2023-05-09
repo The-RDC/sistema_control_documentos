@@ -90,9 +90,6 @@
 
     
 
-   
-
-
 
     @can('dynamic-policy', 'unidad-list')
         <li class="nav-item">
@@ -130,7 +127,7 @@
 
 
 
-    @can('dynamic-policy', 'empleado-list')
+    {{-- @can('dynamic-policy', 'empleado-list')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#emp"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -144,7 +141,7 @@
                 </div>
             </div>
         </li>
-    @endcan
+    @endcan --}}
 
 
     @can('dynamic-policy', 'estadoDocumento-list')

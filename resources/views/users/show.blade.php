@@ -1,6 +1,4 @@
 @extends('dashboard-admin.admin')
-
-
 @section('informacion')
     <div class="container-fluid">
         <div class="card shadow mb-4">
@@ -38,6 +36,21 @@
                                 <label class="badge badge-success">{{ $v }}</label>
                             @endforeach
                         @endif
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Sucursales Asignadas:</strong>
+                        @foreach ($acceso_usuario_sucursal as $acceso_usuario_sucursales)
+                            @if ($user->id == $acceso_usuario_sucursales->id_usuario)
+                                @foreach ($sucursal as $sucursales)
+                                    @if ($sucursales->id == $acceso_usuario_sucursales->id_sucursal)
+                                        <span class="badge badge-warning">{{$sucursales->nombre_sucursal}}</span> 
+                                    @endif
+                                @endforeach
+                            @endif                        
+                        @endforeach
                     </div>
                 </div>
             </div>

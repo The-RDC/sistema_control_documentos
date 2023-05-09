@@ -68,7 +68,9 @@ class UserController extends Controller
     public function show($id): View
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        $acceso_usuario_sucursal=acceso_usuario_sucursal::get();
+        $sucursal=sucursal::get();
+        return view('users.show',compact('user','acceso_usuario_sucursal','sucursal'));
     }
 
    
@@ -78,13 +80,15 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
-        $sucursal=sucursal::get();
-        return view('users.edit',compact('user','roles','userRole', 'empleados','sucursal'));
+        $sucursal=sucursal::get()->whereNull("deleted_at");
+        $acceso_usuario_sucursal=acceso_usuario_sucursal::get()->whereNull("deleted_at");
+        return view('users.edit',compact('user','roles','userRole', 'empleados','sucursal','acceso_usuario_sucursal'));
     }
 
     
     public function update(Request $request, $id): RedirectResponse
     {
+        
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
@@ -105,8 +109,34 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
+
+        $accesoActualesTablaUserSucursal=acceso_usuario_sucursal::get()->where('id_usuario',$id)->toArray();
+        $nuevosAcceosTablaUserSucursal=$request->ids_sucursal;
+        //dd($accesoActualesTablaUserSucursal);
+        //dd($nuevosAcceosTablaUserSucursal);
+        $accesos=new acceso_usuario_sucursal();
+        if (isset($accesoActualesTablaUserSucursal)) {
+            foreach ($accesoActualesTablaUserSucursal as $key => $value) {
+                if (!in_array($value['id_sucursal'],$request->ids_sucursal)) 
+                {
+                    $accesos->eliminarDatosAccesoUsuarioSucursal($value['id']);
+                }
+            } 
+        }
+        
+        if (isset($request->ids_sucursal)) {
+            foreach ($request->ids_sucursal as $key => $value) {
+                foreach ($accesoActualesTablaUserSucursal as $key2 => $value2) {
+                    if ($value!=$value2['id_sucursal']) 
+                    {
+                        $accesos->insertarDatosAccesoUsuarioSucursal($id, $value);
+                    }
+                }
+            }
+        }   
+
         return redirect()->route('users.index')
-            ->with('success','User updated successfully');
+            ->with('success','Usuario actualizado con exito.');
     }
 
     
@@ -190,7 +220,8 @@ class UserController extends Controller
             array_push($idsSucursalesUsuario, $sqlSucursalesDelUsuario[$i]->id_sucursal);
             array_push($nombreSucursalesUsuario,$sqlSucursalesDelUsuario[$i]->nombre_sucursal);
             array_push($direccionSucursalesusuario,$sqlSucursalesDelUsuario[$i]->direccion_sucursal);
-        }      
+        } 
+
         session(['idsSucursalesUsuario'=>$idsSucursalesUsuario]);
         session(['nombreSucursalesUsuario'=>$nombreSucursalesUsuario]);
         session(['direccionSucursalesusuario'=>$direccionSucursalesusuario]);

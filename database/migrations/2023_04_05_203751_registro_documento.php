@@ -19,6 +19,9 @@ return new class extends Migration
             $table->dateTime('fecha_final')->nullable();
             //$table->string('empresa');
             //$table->string('regional')->nullable();
+
+            $table->string('procedencia_documento');
+            
             $table->string('observacion')->nullable();
 
             $table->unsignedBigInteger('id_sucursal')->nullable();

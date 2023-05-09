@@ -60,8 +60,18 @@
                 </form>
                 @endif
             </div-->
-            <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
-                style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento</a>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md">
+                        <a type="button" class="btn" href="{{ route('registroDocumento.create') }}"
+                            style="background: #2FA137; color:aliceblue">+ Agregar nuevo documento
+                        </a>
+                    </div>
+                    <!--div class="col-md">
+                        <button class="btn btn-secondary">Ver todos los registros</button>
+                    </div-->
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">

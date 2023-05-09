@@ -27,7 +27,7 @@ class RegistroDocumentoController extends Controller
 
     public function index(Request $request)
     {
-        
+        //dd(session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]);
         $usuario = auth()->user();
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
@@ -54,7 +54,9 @@ class RegistroDocumentoController extends Controller
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
         }
         else {
-            $data = registro_documento::where('id_usuario', auth()->user()->id)->get();
+            $data = registro_documento::whereIn('id_sucursal', session('idsSucursalesUsuario'))
+                                        ->where('id_sucursal',session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')])
+                                        ->get();
             $sucursal = sucursal::get()->whereNull("deleted_at");
             return view('RegistroDocumento.index', compact('data','rol','sucursal'));
         }

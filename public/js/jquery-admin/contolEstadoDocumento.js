@@ -67,5 +67,34 @@ $(".btnEstadoFinalizar").on("click",function(e) {
 });
 
 
+/**
+ * funcion que cambia los select de la vista index de registro documento
+ * Externo => Recibido o Despachado
+ * Interno => Los que se tenga en la tabla estado_documentos (Recepcionado, Entregado y Finalizado)
+ */
+
+$("#documento_externo_interno").change(function() {
+   let procedenciaDocumento=this.value;
+   if(procedenciaDocumento.toUpperCase() == "externo".toUpperCase())
+   {
+      $("#id_estado_documento").remove();
+      $("#id_estado_documento_nuevo").remove();
+      let htmlSelect='<select class="form-control" name="id_estado_documentoo" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
+                        <option>Recibido</option>\
+                        <option>Despachado</option>\
+                     </select>';
+      $("#controlInternoExterno").append(htmlSelect);   
+   }else
+   {
+      $("#id_estado_documento").remove();
+      $("#id_estado_documento_nuevo").remove();
+      let htmlSelect='<select class="form-control" name="id_estado_documentoo" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
+                        <option value="1">Recepcionado</option>\
+                     </select>';
+      $("#controlInternoExterno").append(htmlSelect);
+   }
+});
+
+
 
 

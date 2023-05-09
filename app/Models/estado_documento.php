@@ -12,7 +12,7 @@ class estado_documento extends Model
     public $table = "estado_documentos";
     use HasFactory;
     protected  $fillable = [
-        'estado_documento', 'estado'
+        'estado_documento', 'id_procedencia_documento', 'estado'
     ];
 
     public function registro_documento(){
@@ -21,5 +21,9 @@ class estado_documento extends Model
 
     public function log_estado_docuemnto(){
         return $this->hasMany(log_estado_documento::class);
+    }
+
+    public function procedenciadocumento(){
+        return $this->belongsTo(procedenciaDocumento::class, 'id_procedencia_documento');
     }
 }

@@ -9,6 +9,7 @@ use App\Models\empresa;
 use App\Models\estado_documento;
 use App\Models\EstadoCivil;
 use App\Models\Genero;
+use App\Models\procedenciaDocumento;
 use App\Models\regional;
 use App\Models\sucursal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -95,15 +96,27 @@ class PrimerEmpleado extends Seeder
         $employees = new empleado($employee);
         $employees->save();
 
-
-        $estadoDocuemnto = ([
-            'Recepcionado',
-            'Entregado',
-            'Finalizado',
+        $opcionDocuemnto = ([
+            'Interno',
+            'Externo',
         ]);
-        foreach ($estadoDocuemnto as $estado) {
-            estado_documento::create(['estado_documento' => $estado]);
+        foreach ($opcionDocuemnto as $opcion) {
+            procedenciaDocumento::create(['procedencia' => $opcion]);
         }
+
+        $estadoDocumento = [
+            [        'estado_documento' => 'Recepcionado',        'id_opcion_estados' => 1,    ],
+            [        'estado_documento' => 'Entregado',        'id_opcion_estados' => 1,    ],
+            [        'estado_documento' => 'Finalizado',        'id_opcion_estados' => 1,    ],
+            [        'estado_documento' => 'Recibido',        'id_opcion_estados' => 2,    ],
+            [        'estado_documento' => 'Despachado',        'id_opcion_estados' => 2,    ],
+        ];
+
+        foreach ($estadoDocumento as $estado) {
+            $estadodoc = new estado_documento($estado);
+            $estadodoc->save();
+        }
+
 
     }
 }

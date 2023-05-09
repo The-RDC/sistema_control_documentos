@@ -80,7 +80,7 @@ class RegistroDocumentoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        dd($request);
+        //
         $request->validate([
             "numero_hoja_ruta"=>"required|unique:registro_documentos",
             "fecha_recepcion"=>"required",

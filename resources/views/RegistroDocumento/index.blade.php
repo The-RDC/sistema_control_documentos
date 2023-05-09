@@ -8,8 +8,8 @@
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="card-header py-3">
-            <!--div class="container">
-                @if ($rol === "administrador")
+            <div class="container">
+                @if ($rol === "supervisor")
                 <form method="GET" action="{{ route('registroDocumento.index') }}">
                     <div class="form-group row">
                         <div class="col-sm-3">
@@ -59,7 +59,7 @@
                     </div>
                 </form>
                 @endif
-            </div-->
+            </div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md">

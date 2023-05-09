@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estado_documentos', function (Blueprint $table) {
+        Schema::create('procedencia_documento', function (Blueprint $table) {
             $table->id();
-            $table->string('estado_documento');
-
-            $table->unsignedBigInteger('id_procedencia_documento')->nullable();
-            $table->foreign('id_procedencia_documento')->references('id')->on('procedencia_documento')->nullOnDelete();
+            $table->string('procedencia');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('estado_documentos');
+        Schema::dropIfExists('procedencia_documento');
     }
 };

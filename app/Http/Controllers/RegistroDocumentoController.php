@@ -32,7 +32,7 @@ class RegistroDocumentoController extends Controller
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
         }
-        if (strtoupper($rol) === strtoupper('administrador')) 
+        if (strtoupper($rol) === strtoupper('administrador'))
         {
             $data = registro_documento::getVistasDocumento($request);
             $empresa = empresa::get()->whereNull("deleted_at");
@@ -41,12 +41,10 @@ class RegistroDocumentoController extends Controller
             $estado_documento = estado_documento::get()->whereNull("deleted_at");
 
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
-        } 
-        elseif (strtoupper($rol) === strtoupper('supervisor')) 
+        }
+        elseif (strtoupper($rol) === strtoupper('supervisor'))
         {
-            $data = registro_documento::get()
-                                       ->whereIn('id_sucursal',session('idsSucursalesUsuario'));
-            
+            $data = registro_documento::get()->whereIn('id_sucursal',session('idsSucursalesUsuario'));
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");

@@ -78,28 +78,26 @@ class RegistroDocumentoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //
         $request->validate([
             "numero_hoja_ruta"=>"required|unique:registro_documentos",
             "fecha_recepcion"=>"required",
             //"fecha_entrega"=>"required",
             //"fecha_final"=>"required",
-            "documento_externo_interno"=>"required|in:Externo,Interno",
             "id_tipo_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10",
             //"id_unidad_destino"=>"required|in:1,2,3,4,5,6,7,8,9,10"
-            "id_estado_documentoo"=>"required|in:1,2,3,4,5,6,7,8,9,10"
+            "id_estado_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10"
         ]);
 
         $usuario = Auth::user();
         $empleado = $usuario->getEmpleado;
-        $estado = $request->id_estado_documentoo;
+
         registro_documento::create($request->all() +
             [
-                'id_estado_documento' => $estado,
+                'id_estado_documento' => $request->id_estado_documento,
                 'id_usuario' => Auth::user()->id,
                 //'empresa' => 'La Paz -0',//$empleado->getEmpresa->nombre_empresa,
                 //'regional' => 'La Paz',// $empleado->getRegional->nombre_regional,
-                'procedencia_documento'=>$request->documento_externo_interno,
+                //'procedencia_documento'=>$request->documento_externo_interno,
                 'id_sucursal' => session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]//$usuario->destino_sucursal[0]->nombre_sucursal
             ]);
         return redirect()->route('registroDocumento.index');
@@ -136,10 +134,10 @@ class RegistroDocumentoController extends Controller
             "numero_hoja_ruta"=>"required",
             "fecha_recepcion"=>"required",
             "fecha_entrega"=>"required",
-            "fecha_final"=>"required",
+            //"fecha_final"=>"required",
             "id_tipo_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10",
             "id_unidad_destino"=>"required|in:1,2,3,4,5,6,7,8,9,10",
-            "id_estado_documentoo"=>"required|in:1,2,3,4,5,6,7,8,9,10"
+            "id_estado_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10"
         ]);
         $fechaF = $request->fecha_final;
         $estado = (is_null($fechaF)) ?: $estadoDocumento = 3;
@@ -168,5 +166,10 @@ class RegistroDocumentoController extends Controller
         );
 
         return response()->json(['success' => 'Publicación guardada con éxito.']);
+    }
+
+    public function informacionRegistroDocumento(Request $request)
+    {
+        return json_encode(registro_documento::get()->find($request->id_documento));
     }
 }

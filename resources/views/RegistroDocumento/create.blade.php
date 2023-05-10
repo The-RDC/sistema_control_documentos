@@ -37,7 +37,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-5">
                                         <label for="id_unidad_destino">Procedencia del Documento</label>
-                                            <select class="form-control" name="documento_externo_interno" id="documento_externo_interno" style="border: solid 2px #EEE30B">
+                                            <select class="form-control" id="documento_externo_interno" style="border: solid 2px #EEE30B">
                                                 <option>--Seleccione una opcion--</option>
                                                 <option>Externo</option>
                                                 <option>Interno</option>
@@ -52,7 +52,7 @@
                                     <div class="col-sm-5">
                                         <label for="id_estado_documento">Estado Documento</label>
                                           <div id="controlInternoExterno">
-                                            <select class="form-control" name="id_estado_documentoo" id="id_estado_documento" style="border: solid 2px #EEE30B"> 
+                                            <select class="form-control" name="id_estado_documento" id="id_estado_documento" style="border: solid 2px #EEE30B"> 
                                                 @foreach($estado_documento as $estado_documentos)
                                                   @if (strtoupper($estado_documentos->estado_documento) == strtoupper('recepcionado') )
                                                     <option value="{{ $estado_documentos->id }}"
@@ -64,7 +64,7 @@
                                               @endforeach
                                           </select>
                                           </div>
-                                            @error('id_estado_documentoo')
+                                            @error('id_estado_documento')
                                                 <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
                                             @enderror
                                       </div>
@@ -90,7 +90,7 @@
 
                                   <div class="form-group">
                                     <label for="">Observaciones del documento: </label><br>
-                                    <textarea name="observacion" id="observacion_recepcion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B"></textarea>
+                                    <textarea name="observacion" id="observacion_recepcion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B">{{old('observacion')}}</textarea>
                                     <!--input style="border: solid 2px #EEE30B" type="text" class="form-control" name="observacion" value="{{ old('observacion', $registroDocumento->observacion) }}" placeholder="Introduzca la observacion del Documento"-->
                                   </div>
                                   

@@ -1,5 +1,7 @@
+
 <div class="form-group row">
   <div class="col-sm-6">
+    <input type="text" name="id_registro_documento" value="{{$registroDocumento->id}}" hidden>
     <label for="num-hoja-ruta">Código Hoja Ruta</label>
     <input style="border: solid 2px #EEE30B" id="num-hoja-ruta" type="text" class="form-control" name="numero_hoja_ruta" value="{{ old('numero_hoja_ruta', $registroDocumento->numero_hoja_ruta) }}" placeholder="Introduzca el codigo de hoja de ruta">
     @error('numero_hoja_ruta')
@@ -34,7 +36,7 @@
 
 <div class="form-group row">
   <div class="col-sm-4">
-    <label for="id_tipo_documento">Tipo de Documento</label>
+    <label for="id_tipo_documento">Documento Recepcionado</label>
         <select class="form-control" name="id_tipo_documento" id="id_tipo_documento" style="border: solid 2px #EEE30B">
             <option selected>Tipo Documento</option>
               @foreach($tipo_documento as $tipo_documentos)
@@ -67,7 +69,7 @@
   </div>
   <div class="col-sm-4">
     <label for="id_estado_documento">Estado Documento</label>
-        <select class="form-control" name="id_estado_documentoo" id="id_estado_documento" style="border: solid 2px #EEE30B">
+        <select class="form-control" name="id_estado_documento" id="id_estado_documento" style="border: solid 2px #EEE30B">
             <option selected>Estado Documento</option>
               @foreach($estado_documento as $estado_documentos)
                 <option value="{{ $estado_documentos->id }}"
@@ -77,7 +79,7 @@
                 >{{ $estado_documentos->estado_documento }}</option>
             @endforeach
         </select>
-        @error('id_estado_documentoo')
+        @error('id_estado_documento')
             <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
         @enderror
   </div>

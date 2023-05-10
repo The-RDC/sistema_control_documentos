@@ -79,19 +79,68 @@ $("#documento_externo_interno").change(function() {
    {
       $("#id_estado_documento").remove();
       $("#id_estado_documento_nuevo").remove();
-      let htmlSelect='<select class="form-control" name="id_estado_documentoo" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
-                        <option>Recibido</option>\
-                        <option>Despachado</option>\
+      let htmlSelect='<select class="form-control" name="id_estado_documento" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
+                        <option value="4">Recibido</option>\
+                        <option value="5">Despachado</option>\
                      </select>';
       $("#controlInternoExterno").append(htmlSelect);   
    }else
    {
       $("#id_estado_documento").remove();
       $("#id_estado_documento_nuevo").remove();
-      let htmlSelect='<select class="form-control" name="id_estado_documentoo" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
+      let htmlSelect='<select class="form-control" name="id_estado_documento" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
                         <option value="1">Recepcionado</option>\
                      </select>';
       $("#controlInternoExterno").append(htmlSelect);
+   }
+});
+
+
+
+/**
+ * Funcion que no permite modificar campos al momento de editar un documento registrado
+ * edit del registro documento
+ */
+$(document).ready(function() {
+   if($(location).attr('href').match('/registroDocumento/[0-9]*/edit') !== null)
+   {
+      let datosJsonSql={
+         "_token":$("input[name=_token]").val(),
+         "id_documento":$("input[name=id_registro_documento]").val()
+      }
+      let id, numero_hoja_ruta, fecha_recepcion, fecha_entrega, fecha_final, observacion, id_unidad_destino;
+      $.ajax({
+         type: "POST",
+         url: "/registroDocumento/query",
+         data: datosJsonSql,
+         success: function (response) {
+            let respuestaJson=JSON.parse(response);
+            id=respuestaJson.id;
+            numero_hoja_ruta=respuestaJson.numero_hoja_ruta;
+            fecha_recepcion=respuestaJson.fecha_recepcion;
+            fecha_entrega=respuestaJson.fecha_entrega;
+            fecha_final=respuestaJson.fecha_final;
+            observacion=respuestaJson.observacion;
+            id_unidad_destino=respuestaJson.id_unidad_destino;
+         },
+         error: function(error)
+         {
+            console.log(error);
+         }
+      });
+      $("#num-hoja-ruta").attr("readonly","true");
+      $("#fecha-recepcion").attr("readonly","true");
+      $("#id_tipo_documento option:not(:selected)").attr("disabled", true);
+
+      console.log(fecha_entrega);
+
+      // if (fecha_entrega !== NULL) 
+      // {
+      //    $("#fec-entrega").attr("readonly",true);
+      //    $("#id_unidad_destino").attr("disabled", true);
+      // }
+      
+      
    }
 });
 

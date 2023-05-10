@@ -116,3 +116,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/cambioDeSucursalUsuario',[UserController::class, 'cambioDeSucursalATrabajar'])->name('cambioDeSucursalATrabajar');
 });
 
+/*
+* Consultas a la BD para obtener informacion al registro documentos
+*/
+Route::post('/registroDocumento/query',  [RegistroDocumentoController::class, 'informacionRegistroDocumento']);
+

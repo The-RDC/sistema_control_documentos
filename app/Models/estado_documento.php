@@ -26,4 +26,9 @@ class estado_documento extends Model
     public function procedenciadocumento(){
         return $this->belongsTo(procedenciaDocumento::class, 'id_procedencia_documento');
     }
+
+    public static function obtenerOpciones($valor)
+    {
+        return self::where('id_procedencia_documento', $valor)->get();
+    }
 }

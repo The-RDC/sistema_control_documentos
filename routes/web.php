@@ -121,3 +121,4 @@ Route::group(['middleware' => ['auth']], function() {
 */
 Route::post('/registroDocumento/query',  [RegistroDocumentoController::class, 'informacionRegistroDocumento']);
 
+Route::get('/obtener-opciones', [RegistroDocumentoController::class, 'obtenerOpciones'])->name('obtener.opciones');

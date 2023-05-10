@@ -42,14 +42,22 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <div class="col-sm-3">
+                            <label for="age">Procedencia Documento:</label>
+                            <select class="form-control" name="procedencia" id="select1"
+                                    style="border: solid 2px #EEE30B">
+                                <option value="">Procedencia Documento</option>
+                                @foreach($procedencia as $proced)
+                                    <option value="{{ $proced->id }}">{{ $proced->procedencia }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="col-sm-3">
                             <label for="age">Estado:</label>
-                            <select class="form-control" name="estado" style="border: solid 2px #EEE30B">
-                                <option value="">Estado Documento</option>
-                                @foreach($estado_documento as $estado_documentos)
-                                <option value="{{ $estado_documentos->id }}">{{ $estado_documentos->estado_documento }}
-                                </option>
-                                @endforeach
+                            <select class="form-control" name="estado" id="select2" style="border: solid 2px #EEE30B">
                             </select>
                         </div>
                         <div class="col-sm-3">
@@ -107,7 +115,7 @@
                             <td>{{ $datos->fecha_final }}</td>
                             <td>{{ $datos->getTipoDocumento->referencia_documento }}</td>
                             <td>
-                                {{ $datos->getUnidadDestino->unidad_area ?? ''}}  
+                                {{ $datos->getUnidadDestino->unidad_area ?? ''}}
                             </td>
                             <td id="idEstadoDocumento">
                                 {{ $datos->getEstadoDocumento->estado_documento }}</td>

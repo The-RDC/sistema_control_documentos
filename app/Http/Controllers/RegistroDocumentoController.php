@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegistroDocumento\StoreRequest;
 use App\Http\Requests\RegistroDocumento\UpdateRequest;
 use App\Models\empresa;
+use App\Models\procedenciaDocumento;
 use App\Models\User;
 use App\Models\estado_documento;
 use App\Models\regional;
@@ -32,24 +33,28 @@ class RegistroDocumentoController extends Controller
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
         }
+
+//        $opcion = estado_documento::obtenerOpciones($request->valor);
+//        $opciones = response()->json($opcion);
         if (strtoupper($rol) === strtoupper('administrador'))
         {
             $data = registro_documento::getVistasDocumento($request);
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
-            $estado_documento = estado_documento::get()->whereNull("deleted_at");
 
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal',  'rol'));
         }
         elseif (strtoupper($rol) === strtoupper('supervisor'))
         {
+            dd($request);
+
             $data = registro_documento::get()->whereIn('id_sucursal',session('idsSucursalesUsuario'));
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
-            $estado_documento = estado_documento::get()->whereNull("deleted_at");
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
+            $procedencia = procedenciaDocumento::get()->whereNull("deleted_at");
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'rol', 'procedencia'));
         }
         else {
             $data = registro_documento::whereIn('id_sucursal', session('idsSucursalesUsuario'))
@@ -171,5 +176,12 @@ class RegistroDocumentoController extends Controller
     public function informacionRegistroDocumento(Request $request)
     {
         return json_encode(registro_documento::get()->find($request->id_documento));
+    }
+
+//    cambiar opciones de select
+    public function obtenerOpciones(Request $request)
+    {
+        $opciones = estado_documento::where('id_procedencia_documento', $request->valor)->get();
+        return response()->json($opciones);
     }
 }

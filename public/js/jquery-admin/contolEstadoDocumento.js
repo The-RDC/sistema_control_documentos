@@ -101,47 +101,61 @@ $("#documento_externo_interno").change(function() {
  * Funcion que no permite modificar campos al momento de editar un documento registrado
  * edit del registro documento
  */
-$(document).ready(function() {
+$(document).ready(function() {  
    if($(location).attr('href').match('/registroDocumento/[0-9]*/edit') !== null)
    {
       let datosJsonSql={
          "_token":$("input[name=_token]").val(),
          "id_documento":$("input[name=id_registro_documento]").val()
-      }
-      let id, numero_hoja_ruta, fecha_recepcion, fecha_entrega, fecha_final, observacion, id_unidad_destino;
+      };
+      
       $.ajax({
          type: "POST",
          url: "/registroDocumento/query",
          data: datosJsonSql,
          success: function (response) {
             let respuestaJson=JSON.parse(response);
-            id=respuestaJson.id;
-            numero_hoja_ruta=respuestaJson.numero_hoja_ruta;
-            fecha_recepcion=respuestaJson.fecha_recepcion;
-            fecha_entrega=respuestaJson.fecha_entrega;
-            fecha_final=respuestaJson.fecha_final;
-            observacion=respuestaJson.observacion;
-            id_unidad_destino=respuestaJson.id_unidad_destino;
+            console.log(respuestaJson);
+            $("#num-hoja-ruta").attr("readonly","true");
+            $("#fecha-recepcion").attr("readonly","true");
+            $("#id_tipo_documento option:not(:selected)").attr("disabled", true);
+            if (respuestaJson.fecha_entrega !== null) 
+            {
+               $("#fec-entrega").attr("readonly",true);
+               $("#id_unidad_destino option:not(:selected)").attr("disabled", true);
+            }
+            if (respuestaJson.fecha_final !== null) 
+            {
+               $("#fec-final-documento").attr("readonly",true);
+            }
+            
          },
          error: function(error)
          {
             console.log(error);
          }
-      });
-      $("#num-hoja-ruta").attr("readonly","true");
-      $("#fecha-recepcion").attr("readonly","true");
-      $("#id_tipo_documento option:not(:selected)").attr("disabled", true);
-
-      console.log(fecha_entrega);
-
-      // if (fecha_entrega !== NULL) 
-      // {
-      //    $("#fec-entrega").attr("readonly",true);
-      //    $("#id_unidad_destino").attr("disabled", true);
-      // }
-      
-      
+      });     
    }
+});
+
+
+
+/**
+ * funcion que manipula la fecha de finalizacion del formuario, esto courre cuando el usuario(con rol ventanilla)
+ * selecciona el estado de finalizacion, automaticamente aparece el input de fecha de finalizacion
+ */
+
+$(document).ready(function() {
+  $("#id_estado_documento ").change(function(){
+     if($("#id_estado_documento option:selected").text().toUpperCase() == "finalizado".toUpperCase())
+     {
+         $("#input-fechaFinal-registroDocumento").removeAttr("hidden");
+         $("#input-fechaFinal-registroDocumento").show();
+     }
+     else{
+         $("#input-fechaFinal-registroDocumento").hide(true);
+     }
+  }); 
 });
 
 

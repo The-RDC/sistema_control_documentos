@@ -25,7 +25,7 @@
         <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
     @enderror
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-6" id="input-fechaFinal-registroDocumento" hidden>
     <label for="fec-final-documento">Fecha Final del Documento</label>
     <input style="border: solid 2px #EEE30B" id="fec-final-documento" type="datetime-local" class="form-control" name="fecha_final" value="{{ old('fecha_final', $registroDocumento->fecha_final) }}" placeholder="Introduzca el fecha final">
     @error('fecha_final')
@@ -85,8 +85,9 @@
   </div>
 </div>
 <div class="form-group">
-  <label for="">Observaciones</label>
-  <input style="border: solid 2px #EEE30B" type="text" class="form-control" name="observacion" value="{{ old('observacion', $registroDocumento->observacion) }}" placeholder="Introduzca la observacion del Documento">
+  <label for="">Observaciones</label><br>
+  <textarea name="observacion" id="observacion_recepcion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B">{{ old('observacion', $registroDocumento->observacion) }}</textarea>
+  <!--input style="border: solid 2px #EEE30B" type="text" class="form-control" name="observacion" value="{{ old('observacion', $registroDocumento->observacion) }}" placeholder="Introduzca la observacion del Documento"-->
 </div>
 
 <div class="col-lg-12">

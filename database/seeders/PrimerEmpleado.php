@@ -9,7 +9,7 @@ use App\Models\empresa;
 use App\Models\estado_documento;
 use App\Models\EstadoCivil;
 use App\Models\Genero;
-use App\Models\procedenciaDocumento;
+use App\Models\ProcedenciaDocumento;
 use App\Models\regional;
 use App\Models\sucursal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;

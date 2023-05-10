@@ -90,7 +90,7 @@
 
                                   <div class="form-group">
                                     <label for="">Observaciones del documento: </label><br>
-                                    <textarea name="observacion" id="observacion_recepcion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B">{{old('observacion')}}</textarea>
+                                    <textarea name="observacion" id="observacion_recepcion" cols="55" rows="2" placeholder="Observaciones" style="border: solid 2px #EEE30B">{{ old('observacion', $registroDocumento->observacion) }}</textarea>
                                     <!--input style="border: solid 2px #EEE30B" type="text" class="form-control" name="observacion" value="{{ old('observacion', $registroDocumento->observacion) }}" placeholder="Introduzca la observacion del Documento"-->
                                   </div>
                                   

@@ -52,6 +52,11 @@ class RegistroDocumentoController extends Controller
 
             $procedencia = procedenciaDocumento::get()->whereNull("deleted_at");
             $query = registro_documento::query();
+            $empresa = empresa::get()->whereNull("deleted_at");
+            $regional = regional::get()->whereNull("deleted_at");
+            $sucursal = sucursal::get()->whereNull("deleted_at");
+            $observacion = observacion::get()->whereNull("deleted_at");
+            $estado_documento = estado_documento::get()->whereNull("deleted_at");
             if (empty($request->empresa) && empty($request->regional) && empty($request->sucursal) && empty($request->procedencia)){
                 $query->get()->whereIn('id_sucursal',session('idsSucursalesUsuario'));
                 $empresa = empresa::get()->whereNull("deleted_at");
@@ -111,37 +116,6 @@ class RegistroDocumentoController extends Controller
         return view('RegistroDocumento.create', compact('registroDocumento', 'tipo_documento', 'unidad', 'estado_documento'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-//    public function store(StoreRequest $request)
-//    {
-//        $request->validate([
-//            "numero_hoja_ruta"=>"required|unique:registro_documentos",
-//            "fecha_recepcion"=>"required",
-//            //"fecha_entrega"=>"required",
-//            //"fecha_final"=>"required",
-//            "id_tipo_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10",
-//            //"id_unidad_destino"=>"required|in:1,2,3,4,5,6,7,8,9,10"
-//            "id_estado_documento"=>"required|in:1,2,3,4,5,6,7,8,9,10"
-//        ]);
-//
-//        $usuario = Auth::user();
-//        $empleado = $usuario->getEmpleado;
-//
-//        registro_documento::create($request->all() +
-//            [
-//                'id_estado_documento' => $request->id_estado_documento,
-//                'id_usuario' => Auth::user()->id,
-//                //'empresa' => 'La Paz -0',//$empleado->getEmpresa->nombre_empresa,
-//                //'regional' => 'La Paz',// $empleado->getRegional->nombre_regional,
-//                //'procedencia_documento'=>$request->documento_externo_interno,
-//                'id_sucursal' => session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]//$usuario->destino_sucursal[0]->nombre_sucursal
-//            ]);
-//        return redirect()->route('registroDocumento.index');
-
-
-
     public function store(StoreRequest $request)
     {
         $request->validate([
@@ -156,8 +130,7 @@ class RegistroDocumentoController extends Controller
         $usuario = Auth::user();
         $empleado = $usuario->getEmpleado;
 
-        registro_documento::create($request->all() +
-            $nuevoDocumento=registro_documento::create($request->all() +
+              $nuevoDocumento=registro_documento::create($request->all() +
                 [
                     'id_estado_documento' => $request->id_estado_documento,
                     'id_usuario' => Auth::user()->id,
@@ -165,7 +138,7 @@ class RegistroDocumentoController extends Controller
                     //'regional' => 'La Paz',// $empleado->getRegional->nombre_regional,
                     //'procedencia_documento'=>$request->documento_externo_interno,
                     'id_sucursal' => session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]//$usuario->destino_sucursal[0]->nombre_sucursal
-                ]));
+                ]);
 
         observacion::create([
             "observacion_documento"=>$request->observacion,

@@ -44,7 +44,8 @@ class RegistroDocumentoController extends Controller
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
             $observacion = observacion::get()->whereNull("deleted_at");
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal',  'rol', 'observacion' ));
+            $estado_documento = estado_documento::get()->whereNull("deleted_at");
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal',  'rol', 'observacion', 'estado_documento' ));
         }
         elseif (strtoupper($rol) === strtoupper('supervisor'))
         {
@@ -57,6 +58,7 @@ class RegistroDocumentoController extends Controller
                 $regional = regional::get()->whereNull("deleted_at");
                 $sucursal = sucursal::get()->whereNull("deleted_at");
                 $observacion = observacion::get()->whereNull("deleted_at");
+                $estado_documento = estado_documento::get()->whereNull("deleted_at");
             }
             if (!empty($request->empresa)) {
                 $query->select('registro_documentos.*')
@@ -83,15 +85,16 @@ class RegistroDocumentoController extends Controller
             }
             // Obtener los registros filtrados
             $data = $query->get();
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'rol', 'procedencia', 'observacion'));
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'rol', 'procedencia', 'observacion', 'estado_documento'));
         }
         else {
             $data = registro_documento::whereIn('id_sucursal', session('idsSucursalesUsuario'))
                                         ->where('id_sucursal',session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')])->where('id_usuario', $usuario->id)
                                         ->get();
             $observacion = observacion::get()->whereNull("deleted_at");
+            $estado_documento = estado_documento::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
-            return view('RegistroDocumento.index', compact('data','rol','observacion','sucursal'));
+            return view('RegistroDocumento.index', compact('data','rol','observacion','sucursal', 'estado_documento'));
         }
     }
 

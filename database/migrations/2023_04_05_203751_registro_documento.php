@@ -20,7 +20,7 @@ return new class extends Migration
             //$table->string('empresa');
             //$table->string('regional')->nullable();
             
-            $table->string('observacion')->nullable();
+            //$table->string('observacion')->nullable();
 
             $table->unsignedBigInteger('id_sucursal')->nullable();
             $table->foreign('id_sucursal')->references('id')->on('sucursales')->nullOnDelete();

@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\estado_documento;
 use App\Models\regional;
 use App\Models\registro_documento;
+use App\Models\observacion;
 use App\Models\sucursal;
 use App\Models\tipo_documento;
 use App\Models\unidad;
@@ -38,9 +39,10 @@ class RegistroDocumentoController extends Controller
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
+            $observacion = observacion::get()->whereNull("deleted_at");
             $estado_documento = estado_documento::get()->whereNull("deleted_at");
 
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol', 'observacion' ));
         }
         elseif (strtoupper($rol) === strtoupper('supervisor'))
         {
@@ -48,15 +50,19 @@ class RegistroDocumentoController extends Controller
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
+            $observacion = observacion::get()->whereNull("deleted_at");
             $estado_documento = estado_documento::get()->whereNull("deleted_at");
-            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol'));
+            return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'estado_documento', 'rol','observacion'));
         }
         else {
             $data = registro_documento::whereIn('id_sucursal', session('idsSucursalesUsuario'))
                                         ->where('id_sucursal',session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')])
                                         ->get();
             $sucursal = sucursal::get()->whereNull("deleted_at");
-            return view('RegistroDocumento.index', compact('data','rol','sucursal'));
+            $observacion = observacion::get()->whereNull("deleted_at");
+            $observacion = observacion::get()->whereNull("deleted_at");
+            $estado_documento = estado_documento::get()->whereNull("deleted_at");
+            return view('RegistroDocumento.index', compact('data','rol','sucursal','observacion','estado_documento'));
         }
     }
 
@@ -91,7 +97,7 @@ class RegistroDocumentoController extends Controller
         $usuario = Auth::user();
         $empleado = $usuario->getEmpleado;
 
-        registro_documento::create($request->all() +
+        $nuevoDocumento=registro_documento::create($request->all() +
             [
                 'id_estado_documento' => $request->id_estado_documento,
                 'id_usuario' => Auth::user()->id,
@@ -100,6 +106,13 @@ class RegistroDocumentoController extends Controller
                 //'procedencia_documento'=>$request->documento_externo_interno,
                 'id_sucursal' => session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]//$usuario->destino_sucursal[0]->nombre_sucursal
             ]);
+
+        observacion::create([
+            "observacion_documento"=>$request->observacion,
+            "id_registro_documento"=>$nuevoDocumento->id,
+            "id_estado_documento"=>$request->id_estado_documento
+        ]);
+
         return redirect()->route('registroDocumento.index');
     }
 
@@ -144,6 +157,12 @@ class RegistroDocumentoController extends Controller
 
         $registroDocumento->update($request->all() + [
             'id_estado_documento' => $estado
+        ]);
+
+        observacion::create([
+            "observacion_documento"=>$request->observacion,
+            "id_registro_documento"=>$request->id_registro_documento,
+            "id_estado_documento"=>$request->id_estado_documento
         ]);
 
         return redirect()->route('registroDocumento.index');

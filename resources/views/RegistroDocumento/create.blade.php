@@ -31,6 +31,13 @@
                                         @error('fecha_recepcion')
                                             <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
                                         @enderror
+                                    </div>
+                                    <div class="col-sm-6" id="input-fechaFinal-registroDocumento" hidden>
+                                        <label for="fec-final-documento">Fecha Final del Documento</label>
+                                        <input style="border: solid 2px #EEE30B" id="fec-final-documento" type="datetime-local" class="form-control" name="fecha_final" value="{{ old('fecha_final', $registroDocumento->fecha_final) }}" placeholder="Introduzca el fecha final">
+                                        @error('fecha_final')
+                                            <br><small class="alert alert-warning" role="alert">{{$message}}</small><br><br>
+                                        @enderror
                                       </div>
                                 </div>
 

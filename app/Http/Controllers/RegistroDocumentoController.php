@@ -28,37 +28,63 @@ class RegistroDocumentoController extends Controller
 
     public function index(Request $request)
     {
-        //dd(session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')]);
         $usuario = auth()->user();
+//        dd($usuario);
         foreach ($usuario->roles as $role) {
             $rol = $role->name;
         }
 
-//        $opcion = estado_documento::obtenerOpciones($request->valor);
-//        $opciones = response()->json($opcion);
+
+
         if (strtoupper($rol) === strtoupper('administrador'))
         {
             $data = registro_documento::getVistasDocumento($request);
             $empresa = empresa::get()->whereNull("deleted_at");
             $regional = regional::get()->whereNull("deleted_at");
             $sucursal = sucursal::get()->whereNull("deleted_at");
-
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal',  'rol'));
         }
         elseif (strtoupper($rol) === strtoupper('supervisor'))
         {
-            dd($request);
 
-            $data = registro_documento::get()->whereIn('id_sucursal',session('idsSucursalesUsuario'));
-            $empresa = empresa::get()->whereNull("deleted_at");
-            $regional = regional::get()->whereNull("deleted_at");
-            $sucursal = sucursal::get()->whereNull("deleted_at");
             $procedencia = procedenciaDocumento::get()->whereNull("deleted_at");
+            $query = registro_documento::query();
+            if (empty($request->empresa) && empty($request->regional) && empty($request->sucursal) && empty($request->procedencia)){
+                $query->get()->whereIn('id_sucursal',session('idsSucursalesUsuario'));
+                $empresa = empresa::get()->whereNull("deleted_at");
+                $regional = regional::get()->whereNull("deleted_at");
+                $sucursal = sucursal::get()->whereNull("deleted_at");
+            }
+            if (!empty($request->empresa)) {
+                $query->select('registro_documentos.*')
+                    ->distinct()
+                    ->join('sucursales', 'sucursales.id', '=', 'registro_documentos.id_sucursal')
+                    ->join('empresas', 'empresas.id', '=', 'sucursales.id_empresa')
+                    ->join('regionales', 'regionales.id_empresa', '=', 'empresas.id')
+                    ->where('empresas.id', $request->empresa);
+            }
+
+            if (!empty($request->regional)) {
+                $query->select('registro_documentos.*')
+                    ->distinct()
+                    ->join('sucursales', 'sucursales.id', '=', 'registro_documentos.id_sucursal')
+                    ->join('empresas', 'empresas.id', '=', 'sucursales.id_empresa')
+                    ->join('regionales', 'regionales.id_empresa', '=', 'empresas.id')
+                    ->where('regionales.id_empresa', $request->regional);
+            }
+            if (!empty($request->sucursal)) {
+                $query->where('id_sucursal', $request->sucursal);
+            }
+            if (!empty($request->estado)) {
+                $query->where('id_estado_documento', $request->estado);
+            }
+            // Obtener los registros filtrados
+            $data = $query->get();
             return view('RegistroDocumento.index', compact('data', 'empresa', 'regional', 'sucursal', 'rol', 'procedencia'));
         }
         else {
             $data = registro_documento::whereIn('id_sucursal', session('idsSucursalesUsuario'))
-                                        ->where('id_sucursal',session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')])
+                                        ->where('id_sucursal',session('idsSucursalesUsuario')[session('idSucursalTrabajandoActualemte')])->where('id_usuario', $usuario->id)
                                         ->get();
             $sucursal = sucursal::get()->whereNull("deleted_at");
             return view('RegistroDocumento.index', compact('data','rol','sucursal'));

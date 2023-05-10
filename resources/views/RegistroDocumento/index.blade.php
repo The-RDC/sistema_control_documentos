@@ -127,7 +127,17 @@
                                     @endif
                                 @endforeach
                             </td>
-                            <td>{{ $datos->observacion }}</td>
+                            <td>
+                                @foreach ($observacion as $observaciones)
+                                    @if ($datos->id == $observaciones->id_registro_documento)
+                                        @foreach ($estado_documento as $estado_documentos)
+                                            @if ($observaciones->id_estado_documento == $estado_documentos->id)
+                                                Observacion {{$estado_documentos->estado_documento}}: {{$observaciones->observacion_documento}} <br><br>
+                                            @endif
+                                        @endforeach
+                                    @endif   
+                                @endforeach
+                            </td>
                             <td class="no-exportar-pdf" id="accionesDocumento">
                                 <form action="{{ route('registroDocumento.destroy', $datos) }}" method="post"
                                     id="{{ $datos->id }}">

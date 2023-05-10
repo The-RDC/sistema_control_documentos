@@ -11,20 +11,24 @@ function marcarEstadoDocumentoFinalizado()
    let estadoFinalizado="Finalizado";
    let estadoEntregado="Entregado";
    let estadoRecepcionado="Recepcionado";
+   let estadoRecibido="Recibido";
+   let estadoDespacahado="Despachado";
+
    $("#controlDeEstadoDocumentoParaMarcarlo tr").each( function (indexInArray, valueOfElement) 
    { 
-     if($(this).find("#idEstadoDocumento").text().toLowerCase().trim() == estadoFinalizado.toLowerCase())
+      let estadoActualDocumento = $(this).find("#idEstadoDocumento").text().toLowerCase().trim();
+     if( estadoActualDocumento.toLowerCase() == estadoFinalizado.toLowerCase() || estadoActualDocumento.toLowerCase() == estadoDespacahado.toLowerCase())
      {
         $(this).css("background",colorRojo);
         $(this).css("color","black");
         $(this).find("#btnEditarDocumento").removeAttr("href");
         $(this).find("#btnElimiarDocumento").attr("disabled",true);
      }
-     else if ($(this).find("#idEstadoDocumento").text().toLowerCase().trim() == estadoEntregado.toLowerCase()){
+     else if (estadoActualDocumento.toLowerCase() == estadoEntregado.toLowerCase()){
          $(this).css("background",colorAmarillo);
          $(this).css("color","black");
      }
-     else if ($(this).find("#idEstadoDocumento").text().toLowerCase().trim() == estadoRecepcionado.toLowerCase()) {
+     else if (estadoActualDocumento.toLowerCase() == estadoRecepcionado.toLowerCase() || estadoActualDocumento.toLowerCase() == estadoRecibido.toLowerCase()) {
          $(this).css("background",colorVerde);
          $(this).css("color","black");
      }
@@ -81,7 +85,6 @@ $("#documento_externo_interno").change(function() {
       $("#id_estado_documento_nuevo").remove();
       let htmlSelect='<select class="form-control" name="id_estado_documento" id="id_estado_documento_nuevo" style="border: solid 2px #EEE30B">\
                         <option value="4">Recibido</option>\
-                        <option value="5">Despachado</option>\
                      </select>';
       $("#controlInternoExterno").append(htmlSelect);   
    }else
@@ -128,7 +131,6 @@ $(document).ready(function() {
             {
                $("#fec-final-documento").attr("readonly",true);
             }
-            
          },
          error: function(error)
          {
@@ -146,15 +148,27 @@ $(document).ready(function() {
  */
 
 $(document).ready(function() {
-  $("#id_estado_documento ").change(function(){
-     if($("#id_estado_documento option:selected").text().toUpperCase() == "finalizado".toUpperCase())
+  $("#id_estado_documento").change(function(){
+     let estadoDocumento=$("#id_estado_documento option:selected").text();
+     if(estadoDocumento.toUpperCase() == "finalizado".toUpperCase() || estadoDocumento.toUpperCase() == "despachado".toUpperCase())
      {
          $("#input-fechaFinal-registroDocumento").removeAttr("hidden");
          $("#input-fechaFinal-registroDocumento").show();
+         $("#fec-final-documento").val("");
      }
+   //   else if (estadoDocumento.toUpperCase() == "Entregado".toUpperCase()) {
+   //       $("#input-fechaFinal-registroDocumento").hide(true);
+   //       $("#input-fechaEntrega-registroDocumento").removeAttr("hidden");
+   //       $("#input-fechaEntrega-registroDocumento").show();
+   //       $("#fec-entrega").val("");
+   //       $("#fec-final-documento").val("");
+   //   }
      else{
          $("#input-fechaFinal-registroDocumento").hide(true);
+         $("#input-fechaFinal-registroDocumento").hide(true);
+         $("#fec-final-documento").val("");
      }
+
   }); 
 });
 

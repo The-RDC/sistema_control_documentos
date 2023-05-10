@@ -20,7 +20,7 @@ class registro_documento extends Model
         //'empresa',
         //'regional',
         'id_sucursal',
-        'observacion',
+        //'observacion',
         'id_usuario',
         'id_tipo_documento',
         'id_unidad_destino',
